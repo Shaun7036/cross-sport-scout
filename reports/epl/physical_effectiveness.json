@@ -1,0 +1,14 @@
+{
+  "tackle activity": {
+    "status": "insufficient_independent_temporal_samples"
+  },
+  "interception activity": {
+    "status": "insufficient_independent_temporal_samples"
+  },
+  "ball recovery activity": {
+    "status": "insufficient_independent_temporal_samples"
+  },
+  "blocking activity": {
+    "status": "insufficient_independent_temporal_samples"
+  }
+}

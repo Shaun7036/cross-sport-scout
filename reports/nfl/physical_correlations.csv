@@ -1,0 +1,19 @@
+metric,physical_attribute,player_seasons,within_role_season_spearman,note
+sacks,height_cm,3580,0.0799191750374323,Descriptive repeated player-seasons; no causal or independent-sample inference.
+sacks,weight_kg,3580,-0.03931374809661616,Descriptive repeated player-seasons; no causal or independent-sample inference.
+sacks,age,3580,0.014658358226715905,Descriptive repeated player-seasons; no causal or independent-sample inference.
+qb_hits,height_cm,3580,0.0819147947272011,Descriptive repeated player-seasons; no causal or independent-sample inference.
+qb_hits,weight_kg,3580,-0.0269204122073456,Descriptive repeated player-seasons; no causal or independent-sample inference.
+qb_hits,age,3580,0.006205737870161523,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interceptions,height_cm,3580,-0.0173586416662835,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interceptions,weight_kg,3580,-0.05348347075161756,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interceptions,age,3580,0.01820879447596707,Descriptive repeated player-seasons; no causal or independent-sample inference.
+forced_fumbles,height_cm,3580,-0.015665057414822152,Descriptive repeated player-seasons; no causal or independent-sample inference.
+forced_fumbles,weight_kg,3580,-0.0579569914285502,Descriptive repeated player-seasons; no causal or independent-sample inference.
+forced_fumbles,age,3580,0.014626184496076196,Descriptive repeated player-seasons; no causal or independent-sample inference.
+passes_defended,height_cm,3580,0.0637513151957609,Descriptive repeated player-seasons; no causal or independent-sample inference.
+passes_defended,weight_kg,3580,-0.017516185499880394,Descriptive repeated player-seasons; no causal or independent-sample inference.
+passes_defended,age,3580,0.011110404961271218,Descriptive repeated player-seasons; no causal or independent-sample inference.
+negative_play_tackle_credits,height_cm,3580,-0.019863946417749776,Descriptive repeated player-seasons; no causal or independent-sample inference.
+negative_play_tackle_credits,weight_kg,3580,-0.06804647153361505,Descriptive repeated player-seasons; no causal or independent-sample inference.
+negative_play_tackle_credits,age,3580,0.01649752993892024,Descriptive repeated player-seasons; no causal or independent-sample inference.

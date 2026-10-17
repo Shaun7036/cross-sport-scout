@@ -1,0 +1,6 @@
+season,players,active_players,opportunity,missing_opportunity,height_coverage,weight_coverage,sacks_observed_players,sacks_total,qb_hits_observed_players,qb_hits_total,interceptions_observed_players,interceptions_total,forced_fumbles_observed_players,forced_fumbles_total,passes_defended_observed_players,passes_defended_total,negative_play_tackle_credits_observed_players,negative_play_tackle_credits_total
+2021,1368,1048,375429.0,0,1.0,1.0,1368,1232.0,1368,3009.0,1368,440.0,1368,389.0,1368,2276.0,1368,2282.0
+2022,1455,1007,371366.0,0,1.0,1.0,1455,1291.0,1455,3045.0,1455,418.0,1455,375.0,1455,2293.0,1455,2493.0
+2023,1456,993,373444.0,0,1.0,1.0,1456,1399.0,1456,3179.0,1456,430.0,1456,405.0,1456,2406.0,1456,2656.0
+2024,1516,1009,367950.0,0,1.0,1.0,1516,1303.0,1516,2982.0,1516,387.0,1516,387.0,1516,2285.0,1516,2661.0
+2025,1484,1011,359715.0,3,0.9467654986522911,1.0,1484,1277.0,1484,3037.0,1484,380.0,1484,327.0,1484,2353.0,1484,2589.0

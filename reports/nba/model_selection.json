@@ -1,0 +1,38 @@
+{
+  "steals": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 1.1045392987271605,
+      "role_mean": 1.1217564648336382,
+      "persistence": 1.1310062124339013
+    },
+    "n_train": 889,
+    "n_validation": 453,
+    "n_test": 465
+  },
+  "blocks": {
+    "selected_on_2024": "persistence",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.7743859788903826,
+      "role_mean": 1.0284702974270257,
+      "persistence": 0.7428537950302941
+    },
+    "n_train": 889,
+    "n_validation": 453,
+    "n_test": 465
+  },
+  "defensive_rebounds": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 2.4025054465847835,
+      "role_mean": 3.3615696193010876,
+      "persistence": 2.610294390021536
+    },
+    "n_train": 889,
+    "n_validation": 453,
+    "n_test": 465
+  }
+}

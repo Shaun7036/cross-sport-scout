@@ -1,0 +1,35 @@
+{
+  "physical": {
+    "features": [
+      "height_cm",
+      "weight_kg"
+    ],
+    "roles_fitted": [
+      "CB",
+      "DB_UNKNOWN",
+      "EDGE",
+      "IDL",
+      "LB",
+      "OLB_HYBRID",
+      "S"
+    ],
+    "note": "Three descriptive size clusters per role where supported; not evidence of three natural biological types."
+  },
+  "play_style": {
+    "clusters": 2,
+    "training_silhouette": 0.3313622346372899,
+    "bootstrap_adjusted_rand_mean": 0.9635722222825247,
+    "features": [
+      "shrunk_sacks_per100",
+      "shrunk_qb_hits_per100",
+      "shrunk_interceptions_per100",
+      "shrunk_forced_fumbles_per100",
+      "shrunk_passes_defended_per100",
+      "shrunk_negative_play_tackle_credits_per100"
+    ],
+    "minimum_opportunity": 100,
+    "descriptive_only": false,
+    "normalization": "Role-relative means and standard deviations learned from development seasons.",
+    "note": "Descriptive event-rate groups; success is not independently proven by clustering on those events."
+  }
+}

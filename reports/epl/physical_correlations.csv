@@ -1,0 +1,13 @@
+metric,physical_attribute,player_seasons,within_role_season_spearman,note
+tackle activity,height_cm,356,-0.06837456663724485,Descriptive repeated player-seasons; no causal or independent-sample inference.
+tackle activity,weight_kg,352,-0.12168563646526649,Descriptive repeated player-seasons; no causal or independent-sample inference.
+tackle activity,age,468,-0.055770525813542915,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interception activity,height_cm,356,0.08822326938200356,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interception activity,weight_kg,352,0.05819101105228077,Descriptive repeated player-seasons; no causal or independent-sample inference.
+interception activity,age,468,0.026667123781305636,Descriptive repeated player-seasons; no causal or independent-sample inference.
+ball recovery activity,height_cm,356,-0.18547230620273664,Descriptive repeated player-seasons; no causal or independent-sample inference.
+ball recovery activity,weight_kg,352,-0.17779966559083554,Descriptive repeated player-seasons; no causal or independent-sample inference.
+ball recovery activity,age,468,-0.0956741652308972,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocking activity,height_cm,349,0.4295913910165804,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocking activity,weight_kg,346,0.3008483524163735,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocking activity,age,457,0.15971486296444634,Descriptive repeated player-seasons; no causal or independent-sample inference.

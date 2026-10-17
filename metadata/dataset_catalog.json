@@ -1,0 +1,6493 @@
+{
+  "raw_file_count": 219,
+  "raw_bytes": 315095954,
+  "processed_tables": [
+    {
+      "path": "data/processed/epl/forecast_pairs.parquet",
+      "rows": 3184,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "fpl_code",
+          "type": "int64"
+        },
+        {
+          "name": "season_element_id",
+          "type": "int64"
+        },
+        {
+          "name": "date_of_birth_fpl",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "roster_coverage",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_minutes",
+          "type": "double"
+        },
+        {
+          "name": "games_played",
+          "type": "int64"
+        },
+        {
+          "name": "teams_observed",
+          "type": "string"
+        },
+        {
+          "name": "data_tier",
+          "type": "string"
+        },
+        {
+          "name": "possession_metric_coverage",
+          "type": "string"
+        },
+        {
+          "name": "defensive_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "goals_scored",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "clean_sheets",
+          "type": "double"
+        },
+        {
+          "name": "goals_conceded",
+          "type": "double"
+        },
+        {
+          "name": "saves",
+          "type": "double"
+        },
+        {
+          "name": "yellow_cards",
+          "type": "double"
+        },
+        {
+          "name": "red_cards",
+          "type": "double"
+        },
+        {
+          "name": "tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackles_won",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "recoveries",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "clearances",
+          "type": "double"
+        },
+        {
+          "name": "headed_clearances",
+          "type": "double"
+        },
+        {
+          "name": "duels_won",
+          "type": "double"
+        },
+        {
+          "name": "duels_lost",
+          "type": "double"
+        },
+        {
+          "name": "ground_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "aerial_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "dribbled_past",
+          "type": "double"
+        },
+        {
+          "name": "fouls_committed",
+          "type": "double"
+        },
+        {
+          "name": "dispossessed",
+          "type": "double"
+        },
+        {
+          "name": "defensive_contributions_raw",
+          "type": "double"
+        },
+        {
+          "name": "top_speed_kmh",
+          "type": "double"
+        },
+        {
+          "name": "espn_player_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "physical_source_date",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_method",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_score",
+          "type": "double"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_temporality",
+          "type": "string"
+        },
+        {
+          "name": "age_source",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "wingspan_cm",
+          "type": "double"
+        },
+        {
+          "name": "arm_length_cm",
+          "type": "double"
+        },
+        {
+          "name": "leg_length_cm",
+          "type": "double"
+        },
+        {
+          "name": "log_lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "ewma_log_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_tackle activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_tackle activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_interception activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_interception activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_ball recovery activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_ball recovery activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocking activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_blocking activity_rate",
+          "type": "double"
+        },
+        {
+          "name": "target_season",
+          "type": "int64"
+        },
+        {
+          "name": "lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_age",
+          "type": "double"
+        },
+        {
+          "name": "prior_role",
+          "type": "string"
+        },
+        {
+          "name": "lag_tackle activity_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_interception activity_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_ball recovery activity_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocking activity_count",
+          "type": "double"
+        },
+        {
+          "name": "season_future",
+          "type": "double"
+        },
+        {
+          "name": "target_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "target_tackles",
+          "type": "double"
+        },
+        {
+          "name": "target_interceptions",
+          "type": "double"
+        },
+        {
+          "name": "target_recoveries",
+          "type": "double"
+        },
+        {
+          "name": "target_blocks",
+          "type": "double"
+        },
+        {
+          "name": "future_join",
+          "type": "dictionary<values=string, indices=int8, ordered=0>"
+        },
+        {
+          "name": "target_appeared",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/epl/physical_profiles.parquet",
+      "rows": 499,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "espn_player_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "physical_source_date",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_method",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_score",
+          "type": "double"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_temporality",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/epl/player_games.parquet",
+      "rows": 56272,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "game_date",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_minutes",
+          "type": "double"
+        },
+        {
+          "name": "goals_scored",
+          "type": "int64"
+        },
+        {
+          "name": "assists",
+          "type": "int64"
+        },
+        {
+          "name": "clean_sheets",
+          "type": "double"
+        },
+        {
+          "name": "goals_conceded",
+          "type": "int64"
+        },
+        {
+          "name": "saves",
+          "type": "int64"
+        },
+        {
+          "name": "yellow_cards",
+          "type": "double"
+        },
+        {
+          "name": "red_cards",
+          "type": "double"
+        },
+        {
+          "name": "tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackles_won",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "recoveries",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "clearances",
+          "type": "double"
+        },
+        {
+          "name": "headed_clearances",
+          "type": "double"
+        },
+        {
+          "name": "duels_won",
+          "type": "double"
+        },
+        {
+          "name": "duels_lost",
+          "type": "double"
+        },
+        {
+          "name": "ground_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "aerial_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "dribbled_past",
+          "type": "double"
+        },
+        {
+          "name": "fouls_committed",
+          "type": "double"
+        },
+        {
+          "name": "dispossessed",
+          "type": "double"
+        },
+        {
+          "name": "defensive_contributions_raw",
+          "type": "double"
+        },
+        {
+          "name": "possession_metric_coverage",
+          "type": "string"
+        },
+        {
+          "name": "defensive_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "data_tier",
+          "type": "string"
+        },
+        {
+          "name": "top_speed_kmh",
+          "type": "double"
+        },
+        {
+          "name": "distance_covered_km",
+          "type": "double"
+        },
+        {
+          "name": "number_of_sprints",
+          "type": "double"
+        },
+        {
+          "name": "date_of_birth_fpl",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "espn_player_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "physical_source_date",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_method",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_score",
+          "type": "double"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_temporality",
+          "type": "string"
+        },
+        {
+          "name": "age_source",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "wingspan_cm",
+          "type": "double"
+        },
+        {
+          "name": "arm_length_cm",
+          "type": "double"
+        },
+        {
+          "name": "leg_length_cm",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/epl/player_seasons.parquet",
+      "rows": 4025,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "fpl_code",
+          "type": "int64"
+        },
+        {
+          "name": "season_element_id",
+          "type": "int64"
+        },
+        {
+          "name": "date_of_birth_fpl",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "roster_coverage",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_minutes",
+          "type": "double"
+        },
+        {
+          "name": "games_played",
+          "type": "int64"
+        },
+        {
+          "name": "teams_observed",
+          "type": "string"
+        },
+        {
+          "name": "data_tier",
+          "type": "string"
+        },
+        {
+          "name": "possession_metric_coverage",
+          "type": "string"
+        },
+        {
+          "name": "defensive_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "goals_scored",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "clean_sheets",
+          "type": "double"
+        },
+        {
+          "name": "goals_conceded",
+          "type": "double"
+        },
+        {
+          "name": "saves",
+          "type": "double"
+        },
+        {
+          "name": "yellow_cards",
+          "type": "double"
+        },
+        {
+          "name": "red_cards",
+          "type": "double"
+        },
+        {
+          "name": "tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackles_won",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "recoveries",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "clearances",
+          "type": "double"
+        },
+        {
+          "name": "headed_clearances",
+          "type": "double"
+        },
+        {
+          "name": "duels_won",
+          "type": "double"
+        },
+        {
+          "name": "duels_lost",
+          "type": "double"
+        },
+        {
+          "name": "ground_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "aerial_duels_won",
+          "type": "double"
+        },
+        {
+          "name": "dribbled_past",
+          "type": "double"
+        },
+        {
+          "name": "fouls_committed",
+          "type": "double"
+        },
+        {
+          "name": "dispossessed",
+          "type": "double"
+        },
+        {
+          "name": "defensive_contributions_raw",
+          "type": "double"
+        },
+        {
+          "name": "top_speed_kmh",
+          "type": "double"
+        },
+        {
+          "name": "espn_player_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns, tz=UTC]"
+        },
+        {
+          "name": "physical_source_date",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_method",
+          "type": "string"
+        },
+        {
+          "name": "physical_match_score",
+          "type": "double"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_temporality",
+          "type": "string"
+        },
+        {
+          "name": "age_source",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "wingspan_cm",
+          "type": "double"
+        },
+        {
+          "name": "arm_length_cm",
+          "type": "double"
+        },
+        {
+          "name": "leg_length_cm",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/excluded_non_standings_rows.parquet",
+      "rows": 282,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "season_type",
+          "type": "int32"
+        },
+        {
+          "name": "game_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "game_date_time",
+          "type": "timestamp[us, tz=America/New_York]"
+        },
+        {
+          "name": "athlete_id",
+          "type": "double"
+        },
+        {
+          "name": "athlete_display_name",
+          "type": "string"
+        },
+        {
+          "name": "team_id",
+          "type": "int64"
+        },
+        {
+          "name": "team_name",
+          "type": "string"
+        },
+        {
+          "name": "team_location",
+          "type": "string"
+        },
+        {
+          "name": "team_short_display_name",
+          "type": "string"
+        },
+        {
+          "name": "minutes",
+          "type": "double"
+        },
+        {
+          "name": "field_goals_made",
+          "type": "double"
+        },
+        {
+          "name": "field_goals_attempted",
+          "type": "double"
+        },
+        {
+          "name": "three_point_field_goals_made",
+          "type": "double"
+        },
+        {
+          "name": "three_point_field_goals_attempted",
+          "type": "double"
+        },
+        {
+          "name": "free_throws_made",
+          "type": "double"
+        },
+        {
+          "name": "free_throws_attempted",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "plus_minus",
+          "type": "string"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "starter",
+          "type": "bool"
+        },
+        {
+          "name": "ejected",
+          "type": "bool"
+        },
+        {
+          "name": "did_not_play",
+          "type": "bool"
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "athlete_jersey",
+          "type": "string"
+        },
+        {
+          "name": "athlete_short_name",
+          "type": "string"
+        },
+        {
+          "name": "athlete_headshot_href",
+          "type": "string"
+        },
+        {
+          "name": "athlete_position_name",
+          "type": "string"
+        },
+        {
+          "name": "athlete_position_abbreviation",
+          "type": "string"
+        },
+        {
+          "name": "team_display_name",
+          "type": "string"
+        },
+        {
+          "name": "team_uid",
+          "type": "string"
+        },
+        {
+          "name": "team_slug",
+          "type": "string"
+        },
+        {
+          "name": "team_logo",
+          "type": "string"
+        },
+        {
+          "name": "team_abbreviation",
+          "type": "string"
+        },
+        {
+          "name": "team_color",
+          "type": "string"
+        },
+        {
+          "name": "team_alternate_color",
+          "type": "string"
+        },
+        {
+          "name": "home_away",
+          "type": "string"
+        },
+        {
+          "name": "team_winner",
+          "type": "bool"
+        },
+        {
+          "name": "team_score",
+          "type": "int32"
+        },
+        {
+          "name": "opponent_team_id",
+          "type": "int32"
+        },
+        {
+          "name": "opponent_team_name",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_location",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_display_name",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_abbreviation",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_logo",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_color",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_alternate_color",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_score",
+          "type": "int32"
+        },
+        {
+          "name": "study_season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/forecast_pairs.parquet",
+      "rows": 2341,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "espn_uid",
+          "type": "string"
+        },
+        {
+          "name": "espn_guid",
+          "type": "string"
+        },
+        {
+          "name": "profile_reported_age_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_experience_at_retrieval",
+          "type": "double"
+        },
+        {
+          "name": "profile_status_at_retrieval",
+          "type": "string"
+        },
+        {
+          "name": "profile_current_team_id_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_source_retrieved_at",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "physical_measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "height_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "weight_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "profile_source_season_end",
+          "type": "int64"
+        },
+        {
+          "name": "games_rostered",
+          "type": "int64"
+        },
+        {
+          "name": "games_played_confirmed",
+          "type": "int64"
+        },
+        {
+          "name": "games_with_box_stats",
+          "type": "int64"
+        },
+        {
+          "name": "reported_dnp_games",
+          "type": "int64"
+        },
+        {
+          "name": "missing_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "zero_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "first_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "last_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "team_ids",
+          "type": "string"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "team_stint_count",
+          "type": "int64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "season_end_year",
+          "type": "int64"
+        },
+        {
+          "name": "player_id_source",
+          "type": "string"
+        },
+        {
+          "name": "espn_athlete_id",
+          "type": "string"
+        },
+        {
+          "name": "traded_midseason",
+          "type": "bool"
+        },
+        {
+          "name": "zero_appearance_roster",
+          "type": "bool"
+        },
+        {
+          "name": "profile_only_no_game_roster",
+          "type": "bool"
+        },
+        {
+          "name": "observation_coverage",
+          "type": "string"
+        },
+        {
+          "name": "events_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_total_status",
+          "type": "string"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_status",
+          "type": "string"
+        },
+        {
+          "name": "steals_plus_blocks",
+          "type": "double"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "nba_player_id",
+          "type": "string"
+        },
+        {
+          "name": "yahoo_player_id",
+          "type": "string"
+        },
+        {
+          "name": "match_method",
+          "type": "string"
+        },
+        {
+          "name": "match_confidence",
+          "type": "double"
+        },
+        {
+          "name": "nba_player_id_source",
+          "type": "string"
+        },
+        {
+          "name": "log_lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "ewma_log_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_steals_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_steals_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocks_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_blocks_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_defensive_rebounds_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_defensive_rebounds_rate",
+          "type": "double"
+        },
+        {
+          "name": "target_season",
+          "type": "int64"
+        },
+        {
+          "name": "lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_age",
+          "type": "double"
+        },
+        {
+          "name": "prior_role",
+          "type": "string"
+        },
+        {
+          "name": "lag_steals_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocks_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_defensive_rebounds_count",
+          "type": "double"
+        },
+        {
+          "name": "season_future",
+          "type": "double"
+        },
+        {
+          "name": "target_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "target_steals",
+          "type": "double"
+        },
+        {
+          "name": "target_blocks",
+          "type": "double"
+        },
+        {
+          "name": "target_defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "future_join",
+          "type": "dictionary<values=string, indices=int8, ordered=0>"
+        },
+        {
+          "name": "target_appeared",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/physical_profile_snapshots.parquet",
+      "rows": 2932,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name_profile",
+          "type": "string"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "position_profile",
+          "type": "string"
+        },
+        {
+          "name": "role_profile",
+          "type": "string"
+        },
+        {
+          "name": "espn_uid",
+          "type": "string"
+        },
+        {
+          "name": "espn_guid",
+          "type": "string"
+        },
+        {
+          "name": "profile_reported_age_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_experience_at_retrieval",
+          "type": "double"
+        },
+        {
+          "name": "profile_status_at_retrieval",
+          "type": "string"
+        },
+        {
+          "name": "profile_current_team_id_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_source_retrieved_at",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "physical_measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "height_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "weight_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "profile_source_season_end",
+          "type": "int64"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/player_games.parquet",
+      "rows": 160121,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "season_end_year",
+          "type": "int64"
+        },
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "team_id",
+          "type": "int64"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "minutes",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "starter",
+          "type": "bool"
+        },
+        {
+          "name": "reported_dnp",
+          "type": "bool"
+        },
+        {
+          "name": "appearance_observed",
+          "type": "bool"
+        },
+        {
+          "name": "appearance_status",
+          "type": "string"
+        },
+        {
+          "name": "stats_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "espn_uid_roster",
+          "type": "string"
+        },
+        {
+          "name": "espn_guid_roster",
+          "type": "string"
+        },
+        {
+          "name": "source_retrieved_at",
+          "type": "string"
+        },
+        {
+          "name": "player_id_source",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/player_seasons.parquet",
+      "rows": 2932,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "espn_uid",
+          "type": "string"
+        },
+        {
+          "name": "espn_guid",
+          "type": "string"
+        },
+        {
+          "name": "profile_reported_age_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_experience_at_retrieval",
+          "type": "double"
+        },
+        {
+          "name": "profile_status_at_retrieval",
+          "type": "string"
+        },
+        {
+          "name": "profile_current_team_id_at_retrieval",
+          "type": "int32"
+        },
+        {
+          "name": "profile_source_retrieved_at",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "physical_measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "height_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "weight_observation_status",
+          "type": "string"
+        },
+        {
+          "name": "profile_source_season_end",
+          "type": "int64"
+        },
+        {
+          "name": "games_rostered",
+          "type": "int64"
+        },
+        {
+          "name": "games_played_confirmed",
+          "type": "int64"
+        },
+        {
+          "name": "games_with_box_stats",
+          "type": "int64"
+        },
+        {
+          "name": "reported_dnp_games",
+          "type": "int64"
+        },
+        {
+          "name": "missing_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "zero_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "first_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "last_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "team_ids",
+          "type": "string"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "team_stint_count",
+          "type": "int64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "season_end_year",
+          "type": "int64"
+        },
+        {
+          "name": "player_id_source",
+          "type": "string"
+        },
+        {
+          "name": "espn_athlete_id",
+          "type": "string"
+        },
+        {
+          "name": "traded_midseason",
+          "type": "bool"
+        },
+        {
+          "name": "zero_appearance_roster",
+          "type": "bool"
+        },
+        {
+          "name": "profile_only_no_game_roster",
+          "type": "bool"
+        },
+        {
+          "name": "observation_coverage",
+          "type": "string"
+        },
+        {
+          "name": "events_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_total_status",
+          "type": "string"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_status",
+          "type": "string"
+        },
+        {
+          "name": "steals_plus_blocks",
+          "type": "double"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "nba_player_id",
+          "type": "string"
+        },
+        {
+          "name": "yahoo_player_id",
+          "type": "string"
+        },
+        {
+          "name": "match_method",
+          "type": "string"
+        },
+        {
+          "name": "match_confidence",
+          "type": "double"
+        },
+        {
+          "name": "nba_player_id_source",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/player_team_seasons.parquet",
+      "rows": 3385,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "team_id",
+          "type": "int64"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "name_game",
+          "type": "string"
+        },
+        {
+          "name": "role_game",
+          "type": "string"
+        },
+        {
+          "name": "position_game",
+          "type": "string"
+        },
+        {
+          "name": "games_rostered",
+          "type": "int64"
+        },
+        {
+          "name": "games_played_confirmed",
+          "type": "int64"
+        },
+        {
+          "name": "games_with_box_stats",
+          "type": "int64"
+        },
+        {
+          "name": "reported_dnp_games",
+          "type": "int64"
+        },
+        {
+          "name": "missing_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "zero_minutes_ambiguous_games",
+          "type": "int64"
+        },
+        {
+          "name": "first_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "last_game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "zero_appearance_roster",
+          "type": "bool"
+        },
+        {
+          "name": "profile_only_no_game_roster",
+          "type": "bool"
+        },
+        {
+          "name": "observation_coverage",
+          "type": "string"
+        },
+        {
+          "name": "events_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_total_status",
+          "type": "string"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_status",
+          "type": "string"
+        },
+        {
+          "name": "stint_order",
+          "type": "int64"
+        },
+        {
+          "name": "player_id_source",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nba/unresolved_player_rows.parquet",
+      "rows": 66,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "season_type",
+          "type": "double"
+        },
+        {
+          "name": "game_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "game_date_time",
+          "type": "timestamp[us, tz=America/New_York]"
+        },
+        {
+          "name": "athlete_id",
+          "type": "double"
+        },
+        {
+          "name": "athlete_display_name",
+          "type": "null"
+        },
+        {
+          "name": "team_id",
+          "type": "int64"
+        },
+        {
+          "name": "team_name",
+          "type": "string"
+        },
+        {
+          "name": "team_location",
+          "type": "string"
+        },
+        {
+          "name": "team_short_display_name",
+          "type": "string"
+        },
+        {
+          "name": "minutes",
+          "type": "double"
+        },
+        {
+          "name": "field_goals_made",
+          "type": "double"
+        },
+        {
+          "name": "field_goals_attempted",
+          "type": "double"
+        },
+        {
+          "name": "three_point_field_goals_made",
+          "type": "double"
+        },
+        {
+          "name": "three_point_field_goals_attempted",
+          "type": "double"
+        },
+        {
+          "name": "free_throws_made",
+          "type": "double"
+        },
+        {
+          "name": "free_throws_attempted",
+          "type": "double"
+        },
+        {
+          "name": "offensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "defensive_rebounds",
+          "type": "double"
+        },
+        {
+          "name": "rebounds",
+          "type": "double"
+        },
+        {
+          "name": "assists",
+          "type": "double"
+        },
+        {
+          "name": "steals",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "turnovers",
+          "type": "double"
+        },
+        {
+          "name": "fouls",
+          "type": "double"
+        },
+        {
+          "name": "plus_minus",
+          "type": "string"
+        },
+        {
+          "name": "points",
+          "type": "double"
+        },
+        {
+          "name": "starter",
+          "type": "bool"
+        },
+        {
+          "name": "ejected",
+          "type": "bool"
+        },
+        {
+          "name": "did_not_play",
+          "type": "bool"
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "athlete_jersey",
+          "type": "null"
+        },
+        {
+          "name": "athlete_short_name",
+          "type": "string"
+        },
+        {
+          "name": "athlete_headshot_href",
+          "type": "null"
+        },
+        {
+          "name": "athlete_position_name",
+          "type": "null"
+        },
+        {
+          "name": "athlete_position_abbreviation",
+          "type": "null"
+        },
+        {
+          "name": "team_display_name",
+          "type": "string"
+        },
+        {
+          "name": "team_uid",
+          "type": "string"
+        },
+        {
+          "name": "team_slug",
+          "type": "string"
+        },
+        {
+          "name": "team_logo",
+          "type": "string"
+        },
+        {
+          "name": "team_abbreviation",
+          "type": "string"
+        },
+        {
+          "name": "team_color",
+          "type": "string"
+        },
+        {
+          "name": "team_alternate_color",
+          "type": "string"
+        },
+        {
+          "name": "home_away",
+          "type": "string"
+        },
+        {
+          "name": "team_winner",
+          "type": "bool"
+        },
+        {
+          "name": "team_score",
+          "type": "double"
+        },
+        {
+          "name": "opponent_team_id",
+          "type": "double"
+        },
+        {
+          "name": "opponent_team_name",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_location",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_display_name",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_abbreviation",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_logo",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_color",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_alternate_color",
+          "type": "string"
+        },
+        {
+          "name": "opponent_team_score",
+          "type": "double"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "unresolved_source",
+          "type": "string"
+        },
+        {
+          "name": "athlete_uid",
+          "type": "null"
+        },
+        {
+          "name": "athlete_guid",
+          "type": "null"
+        },
+        {
+          "name": "athlete_first_name",
+          "type": "null"
+        },
+        {
+          "name": "athlete_last_name",
+          "type": "null"
+        },
+        {
+          "name": "athlete_position",
+          "type": "null"
+        },
+        {
+          "name": "athlete_headshot",
+          "type": "null"
+        },
+        {
+          "name": "study_season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/all_rostered_player_seasons.parquet",
+      "rows": 15518,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "physical_first_roster_week",
+          "type": "int32"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "measurement_season",
+          "type": "int64"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "rostered_weeks",
+          "type": "int64"
+        },
+        {
+          "name": "universe_evidence",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "on_field_designed_runs",
+          "type": "double"
+        },
+        {
+          "name": "late_down_exposure",
+          "type": "double"
+        },
+        {
+          "name": "on_field_pressured_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_missing_participation",
+          "type": "double"
+        },
+        {
+          "name": "event_credits_without_participation",
+          "type": "double"
+        },
+        {
+          "name": "sacks",
+          "type": "double"
+        },
+        {
+          "name": "qb_hits",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "forced_fumbles",
+          "type": "double"
+        },
+        {
+          "name": "passes_defended",
+          "type": "double"
+        },
+        {
+          "name": "negative_play_tackle_credits",
+          "type": "double"
+        },
+        {
+          "name": "solo_tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackle_assists",
+          "type": "double"
+        },
+        {
+          "name": "opponent_fumble_recoveries",
+          "type": "double"
+        },
+        {
+          "name": "safeties",
+          "type": "double"
+        },
+        {
+          "name": "pass_disruption_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_with_participation",
+          "type": "double"
+        },
+        {
+          "name": "observed_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_complete",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "has_defensive_opportunity",
+          "type": "bool"
+        },
+        {
+          "name": "direct_recovered_takeaways",
+          "type": "double"
+        },
+        {
+          "name": "official_tackles_for_loss",
+          "type": "double"
+        },
+        {
+          "name": "roster_source",
+          "type": "string"
+        },
+        {
+          "name": "participation_provider",
+          "type": "string"
+        },
+        {
+          "name": "role_confidence",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_advanced_defense.parquet",
+      "rows": 38341,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_game_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "opponent",
+          "type": "string"
+        },
+        {
+          "name": "pfr_player_name",
+          "type": "string"
+        },
+        {
+          "name": "pfr_player_id",
+          "type": "string"
+        },
+        {
+          "name": "def_ints",
+          "type": "double"
+        },
+        {
+          "name": "def_targets",
+          "type": "double"
+        },
+        {
+          "name": "def_completions_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_completion_pct",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_allowed_per_cmp",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_allowed_per_tgt",
+          "type": "double"
+        },
+        {
+          "name": "def_receiving_td_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_passer_rating_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_adot",
+          "type": "double"
+        },
+        {
+          "name": "def_air_yards_completed",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_after_catch",
+          "type": "double"
+        },
+        {
+          "name": "def_times_blitzed",
+          "type": "double"
+        },
+        {
+          "name": "def_times_hurried",
+          "type": "double"
+        },
+        {
+          "name": "def_times_hitqb",
+          "type": "double"
+        },
+        {
+          "name": "def_sacks",
+          "type": "double"
+        },
+        {
+          "name": "def_pressures",
+          "type": "double"
+        },
+        {
+          "name": "def_tackles_combined",
+          "type": "double"
+        },
+        {
+          "name": "def_missed_tackles",
+          "type": "double"
+        },
+        {
+          "name": "def_missed_tackle_pct",
+          "type": "double"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "conditional_source",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_anthropometrics.parquet",
+      "rows": 15215,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "year",
+          "type": "double"
+        },
+        {
+          "name": "player",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "college",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "position_group",
+          "type": "string"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "arm_length",
+          "type": "double"
+        },
+        {
+          "name": "hand_size",
+          "type": "double"
+        },
+        {
+          "name": "forty_yard_dash",
+          "type": "double"
+        },
+        {
+          "name": "ten_yard_split",
+          "type": "double"
+        },
+        {
+          "name": "bench_press",
+          "type": "double"
+        },
+        {
+          "name": "vertical_jump",
+          "type": "double"
+        },
+        {
+          "name": "broad_jump",
+          "type": "double"
+        },
+        {
+          "name": "three_cone_drill",
+          "type": "double"
+        },
+        {
+          "name": "twenty_yard_shuttle",
+          "type": "double"
+        },
+        {
+          "name": "person_id",
+          "type": "string"
+        },
+        {
+          "name": "grade",
+          "type": "double"
+        },
+        {
+          "name": "draft_grade",
+          "type": "double"
+        },
+        {
+          "name": "draft_projection",
+          "type": "string"
+        },
+        {
+          "name": "nfl_comparison",
+          "type": "string"
+        },
+        {
+          "name": "wingspan",
+          "type": "double"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "string"
+        },
+        {
+          "name": "protocol",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "model_inclusion",
+          "type": "string"
+        },
+        {
+          "name": "test_year_column",
+          "type": "string"
+        },
+        {
+          "name": "Year",
+          "type": "double"
+        },
+        {
+          "name": "College",
+          "type": "string"
+        },
+        {
+          "name": "POS_GP",
+          "type": "string"
+        },
+        {
+          "name": "POS",
+          "type": "string"
+        },
+        {
+          "name": "athlete_id",
+          "type": "double"
+        },
+        {
+          "name": "Height (in)",
+          "type": "double"
+        },
+        {
+          "name": "Weight (lbs)",
+          "type": "double"
+        },
+        {
+          "name": "Arm Length (in)",
+          "type": "double"
+        },
+        {
+          "name": "Hand Size (in)",
+          "type": "double"
+        },
+        {
+          "name": "40 Yard",
+          "type": "double"
+        },
+        {
+          "name": "10-Yard Split",
+          "type": "double"
+        },
+        {
+          "name": "20-Yard Split",
+          "type": "double"
+        },
+        {
+          "name": "Vert Leap (in)",
+          "type": "double"
+        },
+        {
+          "name": "Broad Jump (in)",
+          "type": "double"
+        },
+        {
+          "name": "3Cone",
+          "type": "double"
+        },
+        {
+          "name": "Shuttle",
+          "type": "double"
+        },
+        {
+          "name": "Bench Press",
+          "type": "double"
+        },
+        {
+          "name": "Wingspan (in)",
+          "type": "double"
+        },
+        {
+          "name": "nfl_person_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_combine.parquet",
+      "rows": 8968,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "draft_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_team",
+          "type": "string"
+        },
+        {
+          "name": "draft_round",
+          "type": "double"
+        },
+        {
+          "name": "draft_ovr",
+          "type": "double"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "cfb_id",
+          "type": "string"
+        },
+        {
+          "name": "player_name",
+          "type": "string"
+        },
+        {
+          "name": "pos",
+          "type": "string"
+        },
+        {
+          "name": "school",
+          "type": "string"
+        },
+        {
+          "name": "ht",
+          "type": "string"
+        },
+        {
+          "name": "wt",
+          "type": "double"
+        },
+        {
+          "name": "forty",
+          "type": "double"
+        },
+        {
+          "name": "bench",
+          "type": "double"
+        },
+        {
+          "name": "vertical",
+          "type": "double"
+        },
+        {
+          "name": "broad_jump",
+          "type": "double"
+        },
+        {
+          "name": "cone",
+          "type": "double"
+        },
+        {
+          "name": "shuttle",
+          "type": "double"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "model_inclusion",
+          "type": "string"
+        },
+        {
+          "name": "protocol",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_player_season_measurements.parquet",
+      "rows": 92270,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "measurement_year",
+          "type": "int64"
+        },
+        {
+          "name": "protocol",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "model_inclusion",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "date_precision",
+          "type": "string"
+        },
+        {
+          "name": "protocol_priority",
+          "type": "int64"
+        },
+        {
+          "name": "years_since_measurement",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_player_seasons.parquet",
+      "rows": 7279,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "def_targets",
+          "type": "double"
+        },
+        {
+          "name": "def_completions_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_receiving_td_allowed",
+          "type": "double"
+        },
+        {
+          "name": "def_yards_after_catch",
+          "type": "double"
+        },
+        {
+          "name": "def_times_blitzed",
+          "type": "double"
+        },
+        {
+          "name": "def_times_hurried",
+          "type": "double"
+        },
+        {
+          "name": "def_times_hitqb",
+          "type": "double"
+        },
+        {
+          "name": "def_sacks",
+          "type": "double"
+        },
+        {
+          "name": "def_pressures",
+          "type": "double"
+        },
+        {
+          "name": "def_tackles_combined",
+          "type": "double"
+        },
+        {
+          "name": "def_missed_tackles",
+          "type": "double"
+        },
+        {
+          "name": "advanced_games_observed",
+          "type": "double"
+        },
+        {
+          "name": "advanced_source_observed",
+          "type": "bool"
+        },
+        {
+          "name": "completion_rate_allowed",
+          "type": "double"
+        },
+        {
+          "name": "yards_allowed_per_target",
+          "type": "double"
+        },
+        {
+          "name": "td_allowed_per_target",
+          "type": "double"
+        },
+        {
+          "name": "yac_per_completion_allowed",
+          "type": "double"
+        },
+        {
+          "name": "missed_tackle_rate",
+          "type": "double"
+        },
+        {
+          "name": "pressures_per100_on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "sacks_per_pressure",
+          "type": "double"
+        },
+        {
+          "name": "definition",
+          "type": "string"
+        },
+        {
+          "name": "model_inclusion",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_snap_counts.parquet",
+      "rows": 126562,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_game_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "player",
+          "type": "string"
+        },
+        {
+          "name": "pfr_player_id",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "opponent",
+          "type": "string"
+        },
+        {
+          "name": "offense_snaps",
+          "type": "double"
+        },
+        {
+          "name": "offense_pct",
+          "type": "double"
+        },
+        {
+          "name": "defense_snaps",
+          "type": "double"
+        },
+        {
+          "name": "defense_pct",
+          "type": "double"
+        },
+        {
+          "name": "st_snaps",
+          "type": "double"
+        },
+        {
+          "name": "st_pct",
+          "type": "double"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/conditional_test_measurement_events.parquet",
+      "rows": 101143,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "measurement_year",
+          "type": "int64"
+        },
+        {
+          "name": "protocol",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "model_inclusion",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "date_precision",
+          "type": "string"
+        },
+        {
+          "name": "protocol_priority",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/defender_event_credits.parquet",
+      "rows": 205163,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "play_id",
+          "type": "double"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "down",
+          "type": "double"
+        },
+        {
+          "name": "ydstogo",
+          "type": "double"
+        },
+        {
+          "name": "yards_gained",
+          "type": "double"
+        },
+        {
+          "name": "epa",
+          "type": "double"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/forecast_pairs.parquet",
+      "rows": 5795,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "physical_first_roster_week",
+          "type": "int32"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "measurement_season",
+          "type": "int64"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "rostered_weeks",
+          "type": "int64"
+        },
+        {
+          "name": "universe_evidence",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "on_field_designed_runs",
+          "type": "double"
+        },
+        {
+          "name": "late_down_exposure",
+          "type": "double"
+        },
+        {
+          "name": "on_field_pressured_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_missing_participation",
+          "type": "double"
+        },
+        {
+          "name": "event_credits_without_participation",
+          "type": "double"
+        },
+        {
+          "name": "sacks",
+          "type": "double"
+        },
+        {
+          "name": "qb_hits",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "forced_fumbles",
+          "type": "double"
+        },
+        {
+          "name": "passes_defended",
+          "type": "double"
+        },
+        {
+          "name": "negative_play_tackle_credits",
+          "type": "double"
+        },
+        {
+          "name": "solo_tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackle_assists",
+          "type": "double"
+        },
+        {
+          "name": "opponent_fumble_recoveries",
+          "type": "double"
+        },
+        {
+          "name": "safeties",
+          "type": "double"
+        },
+        {
+          "name": "pass_disruption_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_with_participation",
+          "type": "double"
+        },
+        {
+          "name": "observed_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_complete",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "has_defensive_opportunity",
+          "type": "bool"
+        },
+        {
+          "name": "direct_recovered_takeaways",
+          "type": "double"
+        },
+        {
+          "name": "official_tackles_for_loss",
+          "type": "double"
+        },
+        {
+          "name": "roster_source",
+          "type": "string"
+        },
+        {
+          "name": "participation_provider",
+          "type": "string"
+        },
+        {
+          "name": "role_confidence",
+          "type": "string"
+        },
+        {
+          "name": "log_lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "ewma_log_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_sacks_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_sacks_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_qb_hits_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_qb_hits_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_interceptions_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_interceptions_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_forced_fumbles_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_forced_fumbles_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_passes_defended_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_passes_defended_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_negative_play_tackle_credits_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_negative_play_tackle_credits_rate",
+          "type": "double"
+        },
+        {
+          "name": "target_season",
+          "type": "int64"
+        },
+        {
+          "name": "lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_age",
+          "type": "double"
+        },
+        {
+          "name": "prior_role",
+          "type": "string"
+        },
+        {
+          "name": "lag_sacks_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_qb_hits_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_interceptions_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_forced_fumbles_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_passes_defended_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_negative_play_tackle_credits_count",
+          "type": "double"
+        },
+        {
+          "name": "season_future",
+          "type": "double"
+        },
+        {
+          "name": "target_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "target_sacks",
+          "type": "double"
+        },
+        {
+          "name": "target_qb_hits",
+          "type": "double"
+        },
+        {
+          "name": "target_interceptions",
+          "type": "double"
+        },
+        {
+          "name": "target_forced_fumbles",
+          "type": "double"
+        },
+        {
+          "name": "target_passes_defended",
+          "type": "double"
+        },
+        {
+          "name": "target_negative_play_tackle_credits",
+          "type": "double"
+        },
+        {
+          "name": "future_join",
+          "type": "dictionary<values=string, indices=int8, ordered=0>"
+        },
+        {
+          "name": "target_appeared",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/games.parquet",
+      "rows": 1424,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "gameday",
+          "type": "string"
+        },
+        {
+          "name": "weekday",
+          "type": "string"
+        },
+        {
+          "name": "gametime",
+          "type": "string"
+        },
+        {
+          "name": "away_team",
+          "type": "string"
+        },
+        {
+          "name": "away_score",
+          "type": "double"
+        },
+        {
+          "name": "home_team",
+          "type": "string"
+        },
+        {
+          "name": "home_score",
+          "type": "double"
+        },
+        {
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "name": "result",
+          "type": "double"
+        },
+        {
+          "name": "total",
+          "type": "double"
+        },
+        {
+          "name": "overtime",
+          "type": "double"
+        },
+        {
+          "name": "old_game_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis",
+          "type": "double"
+        },
+        {
+          "name": "nfl_detail_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr",
+          "type": "string"
+        },
+        {
+          "name": "pff",
+          "type": "double"
+        },
+        {
+          "name": "espn",
+          "type": "string"
+        },
+        {
+          "name": "ftn",
+          "type": "double"
+        },
+        {
+          "name": "away_rest",
+          "type": "int32"
+        },
+        {
+          "name": "home_rest",
+          "type": "int32"
+        },
+        {
+          "name": "away_moneyline",
+          "type": "double"
+        },
+        {
+          "name": "home_moneyline",
+          "type": "double"
+        },
+        {
+          "name": "spread_line",
+          "type": "double"
+        },
+        {
+          "name": "away_spread_odds",
+          "type": "double"
+        },
+        {
+          "name": "home_spread_odds",
+          "type": "double"
+        },
+        {
+          "name": "total_line",
+          "type": "double"
+        },
+        {
+          "name": "under_odds",
+          "type": "double"
+        },
+        {
+          "name": "over_odds",
+          "type": "double"
+        },
+        {
+          "name": "div_game",
+          "type": "int32"
+        },
+        {
+          "name": "roof",
+          "type": "string"
+        },
+        {
+          "name": "surface",
+          "type": "string"
+        },
+        {
+          "name": "temp",
+          "type": "double"
+        },
+        {
+          "name": "wind",
+          "type": "double"
+        },
+        {
+          "name": "away_qb_id",
+          "type": "string"
+        },
+        {
+          "name": "home_qb_id",
+          "type": "string"
+        },
+        {
+          "name": "away_qb_name",
+          "type": "string"
+        },
+        {
+          "name": "home_qb_name",
+          "type": "string"
+        },
+        {
+          "name": "away_coach",
+          "type": "string"
+        },
+        {
+          "name": "home_coach",
+          "type": "string"
+        },
+        {
+          "name": "referee",
+          "type": "string"
+        },
+        {
+          "name": "stadium_id",
+          "type": "string"
+        },
+        {
+          "name": "stadium",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/measurement_events.parquet",
+      "rows": 31128,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "protocol",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/participation_credit_gaps.parquet",
+      "rows": 29,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "play_id",
+          "type": "double"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "down",
+          "type": "double"
+        },
+        {
+          "name": "ydstogo",
+          "type": "double"
+        },
+        {
+          "name": "yards_gained",
+          "type": "double"
+        },
+        {
+          "name": "epa",
+          "type": "double"
+        },
+        {
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "double"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/player_games.parquet",
+      "rows": 53013,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "on_field_designed_runs",
+          "type": "double"
+        },
+        {
+          "name": "late_down_exposure",
+          "type": "double"
+        },
+        {
+          "name": "on_field_pressured_plays",
+          "type": "double"
+        },
+        {
+          "name": "forced_fumbles",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "negative_play_tackle_credits",
+          "type": "double"
+        },
+        {
+          "name": "opponent_fumble_recoveries",
+          "type": "double"
+        },
+        {
+          "name": "passes_defended",
+          "type": "double"
+        },
+        {
+          "name": "qb_hits",
+          "type": "double"
+        },
+        {
+          "name": "sacks",
+          "type": "double"
+        },
+        {
+          "name": "safeties",
+          "type": "double"
+        },
+        {
+          "name": "solo_tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackle_assists",
+          "type": "double"
+        },
+        {
+          "name": "pass_disruption_plays",
+          "type": "double"
+        },
+        {
+          "name": "event_source_join",
+          "type": "dictionary<values=string, indices=int8, ordered=0>"
+        },
+        {
+          "name": "event_credits_without_participation",
+          "type": "int64"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "has_credited_event",
+          "type": "bool"
+        },
+        {
+          "name": "event_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "participation_observed",
+          "type": "bool"
+        },
+        {
+          "name": "games_missing_participation",
+          "type": "int64"
+        },
+        {
+          "name": "opportunity_complete",
+          "type": "bool"
+        },
+        {
+          "name": "participation_provider",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/player_identity.parquet",
+      "rows": 24854,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "display_name",
+          "type": "string"
+        },
+        {
+          "name": "common_first_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "short_name",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "suffix",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "nfl_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "pff_id",
+          "type": "string"
+        },
+        {
+          "name": "otc_id",
+          "type": "string"
+        },
+        {
+          "name": "espn_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "string"
+        },
+        {
+          "name": "position_group",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "ngs_position_group",
+          "type": "string"
+        },
+        {
+          "name": "ngs_position",
+          "type": "string"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "headshot",
+          "type": "string"
+        },
+        {
+          "name": "college_name",
+          "type": "string"
+        },
+        {
+          "name": "college_conference",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "string"
+        },
+        {
+          "name": "rookie_season",
+          "type": "int32"
+        },
+        {
+          "name": "last_season",
+          "type": "int32"
+        },
+        {
+          "name": "latest_team",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "ngs_status",
+          "type": "string"
+        },
+        {
+          "name": "ngs_status_short_description",
+          "type": "string"
+        },
+        {
+          "name": "years_of_experience",
+          "type": "int32"
+        },
+        {
+          "name": "pff_position",
+          "type": "string"
+        },
+        {
+          "name": "pff_status",
+          "type": "string"
+        },
+        {
+          "name": "draft_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_round",
+          "type": "double"
+        },
+        {
+          "name": "draft_pick",
+          "type": "double"
+        },
+        {
+          "name": "draft_team",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/player_seasons.parquet",
+      "rows": 7279,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "physical_first_roster_week",
+          "type": "int32"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "age",
+          "type": "double"
+        },
+        {
+          "name": "measurement_context",
+          "type": "string"
+        },
+        {
+          "name": "measurement_season",
+          "type": "int64"
+        },
+        {
+          "name": "physical_asof_valid",
+          "type": "bool"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "rostered_weeks",
+          "type": "int64"
+        },
+        {
+          "name": "universe_evidence",
+          "type": "string"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "on_field_dropbacks",
+          "type": "double"
+        },
+        {
+          "name": "on_field_designed_runs",
+          "type": "double"
+        },
+        {
+          "name": "late_down_exposure",
+          "type": "double"
+        },
+        {
+          "name": "on_field_pressured_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_missing_participation",
+          "type": "double"
+        },
+        {
+          "name": "event_credits_without_participation",
+          "type": "double"
+        },
+        {
+          "name": "sacks",
+          "type": "double"
+        },
+        {
+          "name": "qb_hits",
+          "type": "double"
+        },
+        {
+          "name": "interceptions",
+          "type": "double"
+        },
+        {
+          "name": "forced_fumbles",
+          "type": "double"
+        },
+        {
+          "name": "passes_defended",
+          "type": "double"
+        },
+        {
+          "name": "negative_play_tackle_credits",
+          "type": "double"
+        },
+        {
+          "name": "solo_tackles",
+          "type": "double"
+        },
+        {
+          "name": "tackle_assists",
+          "type": "double"
+        },
+        {
+          "name": "opponent_fumble_recoveries",
+          "type": "double"
+        },
+        {
+          "name": "safeties",
+          "type": "double"
+        },
+        {
+          "name": "pass_disruption_plays",
+          "type": "double"
+        },
+        {
+          "name": "games_with_participation",
+          "type": "double"
+        },
+        {
+          "name": "observed_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_complete",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity_observed",
+          "type": "bool"
+        },
+        {
+          "name": "event_counts_observed",
+          "type": "bool"
+        },
+        {
+          "name": "has_defensive_opportunity",
+          "type": "bool"
+        },
+        {
+          "name": "direct_recovered_takeaways",
+          "type": "double"
+        },
+        {
+          "name": "official_tackles_for_loss",
+          "type": "double"
+        },
+        {
+          "name": "roster_source",
+          "type": "string"
+        },
+        {
+          "name": "participation_provider",
+          "type": "string"
+        },
+        {
+          "name": "role_confidence",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/reported_player_games.parquet",
+      "rows": 90585,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "sacks",
+          "type": "double"
+        },
+        {
+          "name": "qb_hits",
+          "type": "int32"
+        },
+        {
+          "name": "interceptions",
+          "type": "int32"
+        },
+        {
+          "name": "forced_fumbles",
+          "type": "int32"
+        },
+        {
+          "name": "passes_defended",
+          "type": "int32"
+        },
+        {
+          "name": "tackles_for_loss",
+          "type": "int32"
+        },
+        {
+          "name": "solo_tackles",
+          "type": "int32"
+        },
+        {
+          "name": "tackle_assists",
+          "type": "int32"
+        },
+        {
+          "name": "opponent_fumble_recoveries",
+          "type": "int32"
+        },
+        {
+          "name": "safeties",
+          "type": "int32"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/unresolved_roster_2021.parquet",
+      "rows": 23,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "null"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "int32"
+        },
+        {
+          "name": "college",
+          "type": "null"
+        },
+        {
+          "name": "gsis_id",
+          "type": "null"
+        },
+        {
+          "name": "espn_id",
+          "type": "null"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "null"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "null"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "null"
+        },
+        {
+          "name": "pff_id",
+          "type": "null"
+        },
+        {
+          "name": "pfr_id",
+          "type": "null"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "null"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "null"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "null"
+        },
+        {
+          "name": "ngs_position",
+          "type": "null"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "null"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_club",
+          "type": "null"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/unresolved_roster_2022.parquet",
+      "rows": 26,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "null"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "college",
+          "type": "null"
+        },
+        {
+          "name": "gsis_id",
+          "type": "null"
+        },
+        {
+          "name": "espn_id",
+          "type": "null"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "null"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "null"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "null"
+        },
+        {
+          "name": "pff_id",
+          "type": "null"
+        },
+        {
+          "name": "pfr_id",
+          "type": "null"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "null"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "null"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "null"
+        },
+        {
+          "name": "ngs_position",
+          "type": "null"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "string"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_club",
+          "type": "null"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/unresolved_roster_2023.parquet",
+      "rows": 5,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "null"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "int32"
+        },
+        {
+          "name": "college",
+          "type": "null"
+        },
+        {
+          "name": "gsis_id",
+          "type": "null"
+        },
+        {
+          "name": "espn_id",
+          "type": "null"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "null"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "null"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "null"
+        },
+        {
+          "name": "pff_id",
+          "type": "null"
+        },
+        {
+          "name": "pfr_id",
+          "type": "null"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "null"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "null"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "null"
+        },
+        {
+          "name": "ngs_position",
+          "type": "null"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "null"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_club",
+          "type": "null"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/unresolved_roster_2024.parquet",
+      "rows": 7,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "null"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "int32"
+        },
+        {
+          "name": "college",
+          "type": "null"
+        },
+        {
+          "name": "gsis_id",
+          "type": "null"
+        },
+        {
+          "name": "espn_id",
+          "type": "null"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "null"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "null"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "null"
+        },
+        {
+          "name": "pff_id",
+          "type": "null"
+        },
+        {
+          "name": "pfr_id",
+          "type": "null"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "null"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "null"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "null"
+        },
+        {
+          "name": "ngs_position",
+          "type": "null"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "null"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_club",
+          "type": "null"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/unresolved_roster_2025.parquet",
+      "rows": 18,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "null"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "college",
+          "type": "null"
+        },
+        {
+          "name": "gsis_id",
+          "type": "null"
+        },
+        {
+          "name": "espn_id",
+          "type": "null"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "null"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "null"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "null"
+        },
+        {
+          "name": "pff_id",
+          "type": "null"
+        },
+        {
+          "name": "pfr_id",
+          "type": "null"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "null"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "null"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "null"
+        },
+        {
+          "name": "ngs_position",
+          "type": "null"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "null"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "int32"
+        },
+        {
+          "name": "draft_club",
+          "type": "string"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nfl/weekly_rosters.parquet",
+      "rows": 221234,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "season",
+          "type": "int32"
+        },
+        {
+          "name": "team",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "depth_chart_position",
+          "type": "string"
+        },
+        {
+          "name": "jersey_number",
+          "type": "double"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "date32[day]"
+        },
+        {
+          "name": "height",
+          "type": "double"
+        },
+        {
+          "name": "weight",
+          "type": "double"
+        },
+        {
+          "name": "college",
+          "type": "string"
+        },
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "espn_id",
+          "type": "string"
+        },
+        {
+          "name": "sportradar_id",
+          "type": "string"
+        },
+        {
+          "name": "yahoo_id",
+          "type": "string"
+        },
+        {
+          "name": "rotowire_id",
+          "type": "string"
+        },
+        {
+          "name": "pff_id",
+          "type": "string"
+        },
+        {
+          "name": "pfr_id",
+          "type": "string"
+        },
+        {
+          "name": "fantasy_data_id",
+          "type": "string"
+        },
+        {
+          "name": "sleeper_id",
+          "type": "string"
+        },
+        {
+          "name": "years_exp",
+          "type": "int32"
+        },
+        {
+          "name": "headshot_url",
+          "type": "string"
+        },
+        {
+          "name": "ngs_position",
+          "type": "string"
+        },
+        {
+          "name": "week",
+          "type": "int32"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "status_description_abbr",
+          "type": "string"
+        },
+        {
+          "name": "football_name",
+          "type": "string"
+        },
+        {
+          "name": "esb_id",
+          "type": "string"
+        },
+        {
+          "name": "gsis_it_id",
+          "type": "string"
+        },
+        {
+          "name": "smart_id",
+          "type": "string"
+        },
+        {
+          "name": "entry_year",
+          "type": "int32"
+        },
+        {
+          "name": "rookie_year",
+          "type": "double"
+        },
+        {
+          "name": "draft_club",
+          "type": "string"
+        },
+        {
+          "name": "draft_number",
+          "type": "double"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nhl/forecast_pairs.parquet",
+      "rows": 3798,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "games_played",
+          "type": "int64"
+        },
+        {
+          "name": "takeaways",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "hits",
+          "type": "double"
+        },
+        {
+          "name": "giveaways",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins",
+          "type": "double"
+        },
+        {
+          "name": "games_played_5v5",
+          "type": "int64"
+        },
+        {
+          "name": "takeaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "blocks_5v5",
+          "type": "double"
+        },
+        {
+          "name": "hits_5v5",
+          "type": "double"
+        },
+        {
+          "name": "giveaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins_5v5",
+          "type": "double"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "coverage_all",
+          "type": "bool"
+        },
+        {
+          "name": "coverage_5v5",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_5v5",
+          "type": "double"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "nationality",
+          "type": "string"
+        },
+        {
+          "name": "shoots_catches",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "age",
+          "type": "int64"
+        },
+        {
+          "name": "age_anchor",
+          "type": "string"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_scope",
+          "type": "string"
+        },
+        {
+          "name": "physical_is_confirmed_season_measurement",
+          "type": "bool"
+        },
+        {
+          "name": "sport",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "source_grain",
+          "type": "string"
+        },
+        {
+          "name": "coverage_scope",
+          "type": "string"
+        },
+        {
+          "name": "zero_game_roster_players_included",
+          "type": "bool"
+        },
+        {
+          "name": "situations_included",
+          "type": "string"
+        },
+        {
+          "name": "license_note",
+          "type": "string"
+        },
+        {
+          "name": "log_lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "ewma_log_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_takeaways_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_takeaways_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocks_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_blocks_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_hits_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_hits_rate",
+          "type": "double"
+        },
+        {
+          "name": "lag_faceoff_wins_rate",
+          "type": "double"
+        },
+        {
+          "name": "ewma_faceoff_wins_rate",
+          "type": "double"
+        },
+        {
+          "name": "target_season",
+          "type": "int64"
+        },
+        {
+          "name": "lag_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "lag_age",
+          "type": "int64"
+        },
+        {
+          "name": "prior_role",
+          "type": "string"
+        },
+        {
+          "name": "lag_takeaways_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_blocks_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_hits_count",
+          "type": "double"
+        },
+        {
+          "name": "lag_faceoff_wins_count",
+          "type": "double"
+        },
+        {
+          "name": "season_future",
+          "type": "double"
+        },
+        {
+          "name": "target_opportunity",
+          "type": "double"
+        },
+        {
+          "name": "target_takeaways",
+          "type": "double"
+        },
+        {
+          "name": "target_blocks",
+          "type": "double"
+        },
+        {
+          "name": "target_hits",
+          "type": "double"
+        },
+        {
+          "name": "target_faceoff_wins",
+          "type": "double"
+        },
+        {
+          "name": "future_join",
+          "type": "dictionary<values=string, indices=int8, ordered=0>"
+        },
+        {
+          "name": "target_appeared",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nhl/latest_player_bios.parquet",
+      "rows": 3400,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name_latest_profile",
+          "type": "string"
+        },
+        {
+          "name": "birth_date_latest_profile",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "position_latest_profile",
+          "type": "string"
+        },
+        {
+          "name": "nationality",
+          "type": "string"
+        },
+        {
+          "name": "shoots_catches",
+          "type": "string"
+        },
+        {
+          "name": "height_cm_latest_profile",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg_latest_profile",
+          "type": "double"
+        },
+        {
+          "name": "profile_temporality",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nhl/player_games.parquet",
+      "rows": 236069,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "game_id",
+          "type": "string"
+        },
+        {
+          "name": "takeaways",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "hits",
+          "type": "double"
+        },
+        {
+          "name": "giveaways",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins",
+          "type": "double"
+        },
+        {
+          "name": "takeaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "blocks_5v5",
+          "type": "double"
+        },
+        {
+          "name": "hits_5v5",
+          "type": "double"
+        },
+        {
+          "name": "giveaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins_5v5",
+          "type": "double"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "game_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "opponent",
+          "type": "string"
+        },
+        {
+          "name": "home_away",
+          "type": "string"
+        },
+        {
+          "name": "coverage_all",
+          "type": "bool"
+        },
+        {
+          "name": "coverage_5v5",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_5v5",
+          "type": "double"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "game_type",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "age",
+          "type": "int64"
+        },
+        {
+          "name": "age_anchor",
+          "type": "string"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_scope",
+          "type": "string"
+        },
+        {
+          "name": "physical_is_confirmed_season_measurement",
+          "type": "bool"
+        },
+        {
+          "name": "nationality",
+          "type": "string"
+        },
+        {
+          "name": "shoots_catches",
+          "type": "string"
+        },
+        {
+          "name": "sport",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "source_grain",
+          "type": "string"
+        },
+        {
+          "name": "coverage_scope",
+          "type": "string"
+        },
+        {
+          "name": "zero_game_roster_players_included",
+          "type": "bool"
+        },
+        {
+          "name": "situations_included",
+          "type": "string"
+        },
+        {
+          "name": "license_note",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "path": "data/processed/nhl/player_seasons.parquet",
+      "rows": 4738,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "season",
+          "type": "int64"
+        },
+        {
+          "name": "games_played",
+          "type": "int64"
+        },
+        {
+          "name": "takeaways",
+          "type": "double"
+        },
+        {
+          "name": "blocks",
+          "type": "double"
+        },
+        {
+          "name": "hits",
+          "type": "double"
+        },
+        {
+          "name": "giveaways",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins",
+          "type": "double"
+        },
+        {
+          "name": "games_played_5v5",
+          "type": "int64"
+        },
+        {
+          "name": "takeaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "blocks_5v5",
+          "type": "double"
+        },
+        {
+          "name": "hits_5v5",
+          "type": "double"
+        },
+        {
+          "name": "giveaways_5v5",
+          "type": "double"
+        },
+        {
+          "name": "faceoff_wins_5v5",
+          "type": "double"
+        },
+        {
+          "name": "teams",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "coverage_all",
+          "type": "bool"
+        },
+        {
+          "name": "coverage_5v5",
+          "type": "bool"
+        },
+        {
+          "name": "opportunity",
+          "type": "double"
+        },
+        {
+          "name": "opportunity_5v5",
+          "type": "double"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "name": "height_cm",
+          "type": "double"
+        },
+        {
+          "name": "weight_kg",
+          "type": "double"
+        },
+        {
+          "name": "nationality",
+          "type": "string"
+        },
+        {
+          "name": "shoots_catches",
+          "type": "string"
+        },
+        {
+          "name": "birth_date",
+          "type": "timestamp[ns]"
+        },
+        {
+          "name": "age",
+          "type": "int64"
+        },
+        {
+          "name": "age_anchor",
+          "type": "string"
+        },
+        {
+          "name": "physical_source",
+          "type": "string"
+        },
+        {
+          "name": "physical_measurement_scope",
+          "type": "string"
+        },
+        {
+          "name": "physical_is_confirmed_season_measurement",
+          "type": "bool"
+        },
+        {
+          "name": "sport",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "source_grain",
+          "type": "string"
+        },
+        {
+          "name": "coverage_scope",
+          "type": "string"
+        },
+        {
+          "name": "zero_game_roster_players_included",
+          "type": "bool"
+        },
+        {
+          "name": "situations_included",
+          "type": "string"
+        },
+        {
+          "name": "license_note",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "sports": {
+    "nfl": {
+      "eda": {
+        "rows": 7279,
+        "unique_players": 2754,
+        "seasons": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "zero_opportunity_rows": 2208,
+        "missing_opportunity_rows": 3,
+        "height_coverage": 0.9891468608325319,
+        "weight_coverage": 1.0,
+        "metric_coverage": {
+          "sacks": 1.0,
+          "qb_hits": 1.0,
+          "interceptions": 1.0,
+          "forced_fumbles": 1.0,
+          "passes_defended": 1.0,
+          "negative_play_tackle_credits": 1.0
+        },
+        "opportunity_unit": "observed defensive scrimmage player-plays",
+        "season_coverage": [
+          {
+            "season": 2021,
+            "players": 1368,
+            "active_players": 1048,
+            "opportunity": 375429.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "sacks_observed_players": 1368,
+            "sacks_total": 1232.0,
+            "qb_hits_observed_players": 1368,
+            "qb_hits_total": 3009.0,
+            "interceptions_observed_players": 1368,
+            "interceptions_total": 440.0,
+            "forced_fumbles_observed_players": 1368,
+            "forced_fumbles_total": 389.0,
+            "passes_defended_observed_players": 1368,
+            "passes_defended_total": 2276.0,
+            "negative_play_tackle_credits_observed_players": 1368,
+            "negative_play_tackle_credits_total": 2282.0
+          },
+          {
+            "season": 2022,
+            "players": 1455,
+            "active_players": 1007,
+            "opportunity": 371366.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "sacks_observed_players": 1455,
+            "sacks_total": 1291.0,
+            "qb_hits_observed_players": 1455,
+            "qb_hits_total": 3045.0,
+            "interceptions_observed_players": 1455,
+            "interceptions_total": 418.0,
+            "forced_fumbles_observed_players": 1455,
+            "forced_fumbles_total": 375.0,
+            "passes_defended_observed_players": 1455,
+            "passes_defended_total": 2293.0,
+            "negative_play_tackle_credits_observed_players": 1455,
+            "negative_play_tackle_credits_total": 2493.0
+          },
+          {
+            "season": 2023,
+            "players": 1456,
+            "active_players": 993,
+            "opportunity": 373444.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "sacks_observed_players": 1456,
+            "sacks_total": 1399.0,
+            "qb_hits_observed_players": 1456,
+            "qb_hits_total": 3179.0,
+            "interceptions_observed_players": 1456,
+            "interceptions_total": 430.0,
+            "forced_fumbles_observed_players": 1456,
+            "forced_fumbles_total": 405.0,
+            "passes_defended_observed_players": 1456,
+            "passes_defended_total": 2406.0,
+            "negative_play_tackle_credits_observed_players": 1456,
+            "negative_play_tackle_credits_total": 2656.0
+          },
+          {
+            "season": 2024,
+            "players": 1516,
+            "active_players": 1009,
+            "opportunity": 367950.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "sacks_observed_players": 1516,
+            "sacks_total": 1303.0,
+            "qb_hits_observed_players": 1516,
+            "qb_hits_total": 2982.0,
+            "interceptions_observed_players": 1516,
+            "interceptions_total": 387.0,
+            "forced_fumbles_observed_players": 1516,
+            "forced_fumbles_total": 387.0,
+            "passes_defended_observed_players": 1516,
+            "passes_defended_total": 2285.0,
+            "negative_play_tackle_credits_observed_players": 1516,
+            "negative_play_tackle_credits_total": 2661.0
+          },
+          {
+            "season": 2025,
+            "players": 1484,
+            "active_players": 1011,
+            "opportunity": 359715.0,
+            "missing_opportunity": 3,
+            "height_coverage": 0.9467654986522911,
+            "weight_coverage": 1.0,
+            "sacks_observed_players": 1484,
+            "sacks_total": 1277.0,
+            "qb_hits_observed_players": 1484,
+            "qb_hits_total": 3037.0,
+            "interceptions_observed_players": 1484,
+            "interceptions_total": 380.0,
+            "forced_fumbles_observed_players": 1484,
+            "forced_fumbles_total": 327.0,
+            "passes_defended_observed_players": 1484,
+            "passes_defended_total": 2353.0,
+            "negative_play_tackle_credits_observed_players": 1484,
+            "negative_play_tackle_credits_total": 2589.0
+          }
+        ]
+      },
+      "forecast_status": "trained",
+      "physical_role_status": "trained",
+      "limitations": [
+        "Core opportunity counts observed non-no-play scrimmage participation, not exact pass-rush or coverage snaps.",
+        "2021-2022 participation is NGS; 2023-2025 is FTN. Provider effects are retained and rates remain exposure proxies.",
+        "OLB usage cannot be reliably split into edge/off-ball; OLB_HYBRID is explicit.",
+        "PFR pressures, coverage targets, missed tackles, snaps and combine data are stored separately and excluded from default models.",
+        "Roster physical fields are archived listings, not verified yearly measurements; forecast models exclude them unless as-of validity is established.",
+        "Sacks, hits and pass breakups overlap in football value; they are modeled separately and are not added into an unvalidated total.",
+        "Default event counts are normalized PBP credits on the same valid scrimmage scope as participation; official weekly all-phase credits are preserved separately.",
+        "PBP negative_play_tackle_credits are broader than pre-2024 official TFL. Official weekly TFL is stored separately and is not spliced into the target.",
+        "Three 2025 player-seasons have uncovered event credits in participation. Their observed partial exposure is retained, but rate-model opportunity is null.",
+        "All-rostered universe includes zero-opportunity players with known GSIS IDs; unresolved roster identities are quarantined.",
+        "Anticipation/reaction/awareness are not directly measured by public box-score or participation data."
+      ]
+    },
+    "nba": {
+      "eda": {
+        "rows": 2932,
+        "unique_players": 1057,
+        "seasons": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "zero_opportunity_rows": 66,
+        "missing_opportunity_rows": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "metric_coverage": {
+          "steals": 1.0,
+          "blocks": 1.0,
+          "defensive_rebounds": 1.0
+        },
+        "opportunity_unit": "ESPN whole regular-season minutes",
+        "season_coverage": [
+          {
+            "season": 2021,
+            "players": 623,
+            "active_players": 605,
+            "opportunity": 593924.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "steals_observed_players": 623,
+            "steals_total": 18772.0,
+            "blocks_observed_players": 623,
+            "blocks_total": 11594.0,
+            "defensive_rebounds_observed_players": 623,
+            "defensive_rebounds_total": 83925.0
+          },
+          {
+            "season": 2022,
+            "players": 549,
+            "active_players": 539,
+            "opportunity": 595118.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "steals_observed_players": 549,
+            "steals_total": 17933.0,
+            "blocks_observed_players": 549,
+            "blocks_total": 11449.0,
+            "defensive_rebounds_observed_players": 549,
+            "defensive_rebounds_total": 81190.0
+          },
+          {
+            "season": 2023,
+            "players": 589,
+            "active_players": 571,
+            "opportunity": 593908.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "steals_observed_players": 589,
+            "steals_total": 18387.0,
+            "blocks_observed_players": 589,
+            "blocks_total": 12648.0,
+            "defensive_rebounds_observed_players": 589,
+            "defensive_rebounds_total": 81149.0
+          },
+          {
+            "season": 2024,
+            "players": 580,
+            "active_players": 569,
+            "opportunity": 593829.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "steals_observed_players": 580,
+            "steals_total": 20183.0,
+            "blocks_observed_players": 580,
+            "blocks_total": 11995.0,
+            "defensive_rebounds_observed_players": 580,
+            "defensive_rebounds_total": 81163.0
+          },
+          {
+            "season": 2025,
+            "players": 591,
+            "active_players": 582,
+            "opportunity": 593629.0,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "steals_observed_players": 591,
+            "steals_total": 20709.0,
+            "blocks_observed_players": 591,
+            "blocks_total": 11907.0,
+            "defensive_rebounds_observed_players": 591,
+            "defensive_rebounds_total": 79653.0
+          }
+        ]
+      },
+      "forecast_status": "trained",
+      "physical_role_status": "trained",
+      "limitations": [
+        "Steals are direct possession changes; blocks are disruptions and defensive rebounds end opponent possessions. They are not interchangeable and are modeled separately.",
+        "The public ESPN box score does not expose deflections, charges drawn, loose balls recovered, contested shots, matchup possessions, top speed or defensive tracking.",
+        "ESPN minutes are rounded to whole minutes. Zero-minute rows can be a sub-minute appearance or a roster-coding ambiguity; explicit flags are retained.",
+        "Historical SportsDataverse player_core files were regenerated from current ESPN profiles: reported age, experience, current team and status are not historical snapshots.",
+        "Height and weight are undated profile values. Height is treated as an adult static descriptor; weight must not be interpreted as season-specific change.",
+        "The 2026 NBA-ID crosswalk is current-season enrichment and is not comprehensive for players who left the league in earlier seasons; ESPN athlete_id remains canonical.",
+        "All-Star exhibitions and NBA Cup championship games are removed even though ESPN labels them season_type=2; only each team's 82 standings games remain.",
+        "No official NBA hustle/tracking enrichment is collected by default because the public website endpoints are undocumented and NBA reuse restrictions require separate review."
+      ]
+    },
+    "nhl": {
+      "eda": {
+        "rows": 4738,
+        "unique_players": 1480,
+        "seasons": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "zero_opportunity_rows": 0,
+        "missing_opportunity_rows": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "metric_coverage": {
+          "takeaways": 1.0,
+          "blocks": 1.0,
+          "hits": 1.0,
+          "faceoff_wins": 1.0
+        },
+        "opportunity_unit": "minutes",
+        "season_coverage": [
+          {
+            "season": 2021,
+            "players": 1003,
+            "active_players": 1003,
+            "opportunity": 779319.85,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "takeaways_observed_players": 1003,
+            "takeaways_total": 18384.0,
+            "blocks_observed_players": 1003,
+            "blocks_total": 35374.0,
+            "hits_observed_players": 1003,
+            "hits_total": 60176.0,
+            "faceoff_wins_observed_players": 1003,
+            "faceoff_wins_total": 74251.0
+          },
+          {
+            "season": 2022,
+            "players": 951,
+            "active_players": 951,
+            "opportunity": 779206.95,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "takeaways_observed_players": 951,
+            "takeaways_total": 19262.0,
+            "blocks_observed_players": 951,
+            "blocks_total": 38614.0,
+            "hits_observed_players": 951,
+            "hits_total": 59068.0,
+            "faceoff_wins_observed_players": 951,
+            "faceoff_wins_total": 74659.0
+          },
+          {
+            "season": 2023,
+            "players": 924,
+            "active_players": 924,
+            "opportunity": 778877.2666666667,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "takeaways_observed_players": 924,
+            "takeaways_total": 18298.0,
+            "blocks_observed_players": 924,
+            "blocks_total": 41300.0,
+            "hits_observed_players": 924,
+            "hits_total": 59616.0,
+            "faceoff_wins_observed_players": 924,
+            "faceoff_wins_total": 74189.0
+          },
+          {
+            "season": 2024,
+            "players": 920,
+            "active_players": 920,
+            "opportunity": 780238.2166666667,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "takeaways_observed_players": 920,
+            "takeaways_total": 12628.0,
+            "blocks_observed_players": 920,
+            "blocks_total": 40000.0,
+            "hits_observed_players": 920,
+            "hits_total": 56293.0,
+            "faceoff_wins_observed_players": 920,
+            "faceoff_wins_total": 74296.0
+          },
+          {
+            "season": 2025,
+            "players": 940,
+            "active_players": 940,
+            "opportunity": 780710.6333333333,
+            "missing_opportunity": 0,
+            "height_coverage": 1.0,
+            "weight_coverage": 1.0,
+            "takeaways_observed_players": 940,
+            "takeaways_total": 12096.0,
+            "blocks_observed_players": 940,
+            "blocks_total": 37217.0,
+            "hits_observed_players": 940,
+            "hits_total": 53638.0,
+            "faceoff_wins_observed_players": 940,
+            "faceoff_wins_total": 73463.0
+          }
+        ]
+      },
+      "forecast_status": "trained",
+      "physical_role_status": "trained",
+      "limitations": [
+        "Coverage is appearance-based; zero-game roster players are absent.",
+        "MoneyPuck all-situations includes 5-on-5; the pipeline keeps the views separate.",
+        "NHL bio height/weight measurement dates are unavailable and are not annual measurements.",
+        "NHL EDGE top speed is not included: official pages expose leaderboards and per-player detail, not a supported full-roster bulk file; this baseline covers listed size and age, not current skating tests.",
+        "League-wide NHL bios do not publish wingspan, arm length, or leg length.",
+        "Public NHL data do not provide league-wide reaction time, agility, or cognitive tests.",
+        "Takeaways are scorer-recorded events and do not capture every possession recovery."
+      ]
+    },
+    "epl": {
+      "eda": {
+        "rows": 4025,
+        "unique_players": 1797,
+        "seasons": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "zero_opportunity_rows": 1265,
+        "missing_opportunity_rows": 0,
+        "height_coverage": 0.35751552795031055,
+        "weight_coverage": 0.34732919254658384,
+        "metric_coverage": {
+          "tackle activity": 0.20894409937888198,
+          "interception activity": 0.20894409937888198,
+          "ball recovery activity": 0.20894409937888198,
+          "blocking activity": 0.20347826086956522
+        },
+        "opportunity_unit": "minutes",
+        "season_coverage": [
+          {
+            "season": 2021,
+            "players": 737,
+            "active_players": 537,
+            "opportunity": 749468.0,
+            "missing_opportunity": 0,
+            "height_coverage": 0.2225237449118046,
+            "weight_coverage": 0.2225237449118046,
+            "tackle activity_observed_players": 0,
+            "tackle activity_total": null,
+            "interception activity_observed_players": 0,
+            "interception activity_total": null,
+            "ball recovery activity_observed_players": 0,
+            "ball recovery activity_total": null,
+            "blocking activity_observed_players": 0,
+            "blocking activity_total": null
+          },
+          {
+            "season": 2022,
+            "players": 778,
+            "active_players": 554,
+            "opportunity": 749114.0,
+            "missing_opportunity": 0,
+            "height_coverage": 0.2879177377892031,
+            "weight_coverage": 0.2853470437017995,
+            "tackle activity_observed_players": 0,
+            "tackle activity_total": null,
+            "interception activity_observed_players": 0,
+            "interception activity_total": null,
+            "ball recovery activity_observed_players": 0,
+            "ball recovery activity_total": null,
+            "blocking activity_observed_players": 0,
+            "blocking activity_total": null
+          },
+          {
+            "season": 2023,
+            "players": 865,
+            "active_players": 570,
+            "opportunity": 748630.0,
+            "missing_opportunity": 0,
+            "height_coverage": 0.30289017341040464,
+            "weight_coverage": 0.30057803468208094,
+            "tackle activity_observed_players": 0,
+            "tackle activity_total": null,
+            "interception activity_observed_players": 0,
+            "interception activity_total": null,
+            "ball recovery activity_observed_players": 0,
+            "ball recovery activity_total": null,
+            "blocking activity_observed_players": 0,
+            "blocking activity_total": null
+          },
+          {
+            "season": 2024,
+            "players": 804,
+            "active_players": 562,
+            "opportunity": 748464.0,
+            "missing_opportunity": 0,
+            "height_coverage": 0.39303482587064675,
+            "weight_coverage": 0.38681592039800994,
+            "tackle activity_observed_players": 0,
+            "tackle activity_total": null,
+            "interception activity_observed_players": 0,
+            "interception activity_total": null,
+            "ball recovery activity_observed_players": 0,
+            "ball recovery activity_total": null,
+            "blocking activity_observed_players": 0,
+            "blocking activity_total": null
+          },
+          {
+            "season": 2025,
+            "players": 841,
+            "active_players": 537,
+            "opportunity": 748552.0,
+            "missing_opportunity": 0,
+            "height_coverage": 0.5624256837098692,
+            "weight_coverage": 0.5243757431629013,
+            "tackle activity_observed_players": 841,
+            "tackle activity_total": 12604.0,
+            "interception activity_observed_players": 841,
+            "interception activity_total": 6267.0,
+            "ball recovery activity_observed_players": 841,
+            "ball recovery activity_total": 35556.0,
+            "blocking activity_observed_players": 819,
+            "blocking activity_total": 2709.0
+          }
+        ]
+      },
+      "forecast_status": "trained",
+      "physical_role_status": "trained",
+      "limitations": [
+        "The five-season FPL common core has no tackles, interceptions, recoveries, or blocks before 2025-26.",
+        "The enhanced 2025-26 match archive publishes detailed events but no explicit open-data license.",
+        "Public events do not measure pressures, pressing attempts, forced turnovers, or possession-adjusted opportunities.",
+        "FPL role buckets do not separate center backs, fullbacks, holding midfielders, wingers, or pressing forwards.",
+        "ESPN height/weight are post-season profile snapshots and must not be interpreted as annual measurements.",
+        "Wingspan, arm length, and leg length are unavailable at league scale and remain missing."
+      ]
+    }
+  }
+}

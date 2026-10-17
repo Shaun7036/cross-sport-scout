@@ -1,0 +1,14 @@
+{
+  "tackle activity": {
+    "status": "insufficient_temporal_target_coverage"
+  },
+  "interception activity": {
+    "status": "insufficient_temporal_target_coverage"
+  },
+  "ball recovery activity": {
+    "status": "insufficient_temporal_target_coverage"
+  },
+  "blocking activity": {
+    "status": "insufficient_temporal_target_coverage"
+  }
+}

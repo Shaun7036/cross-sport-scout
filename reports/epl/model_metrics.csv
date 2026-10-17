@@ -1,0 +1,9 @@
+task,target,fold,model,selected_on_validation,n,brier,average_precision,mae,rmse,spearman,r2
+availability,any_opportunity,validation,prevalence,False,865,0.24881158086620772,0.44739884393063584,,,,
+availability,any_opportunity,validation,logistic,True,865,0.12567947052987014,0.8669738713024834,,,,
+availability,any_opportunity,test,prevalence,False,804,0.24884363315124122,0.4651741293532338,,,,
+availability,any_opportunity,test,logistic,True,804,0.22069717239321798,0.7574000071214627,,,,
+opportunity,opportunity,validation,persistence,False,865,,,513.2520231213873,850.2482745196837,0.6732461487773661,0.32704904453024797
+opportunity,opportunity,validation,hurdle_ridge,True,865,,,452.225258425412,747.4345312053001,0.7351084983361391,0.4799582488603038
+opportunity,opportunity,test,persistence,False,804,,,538.7674129353234,899.9214372841566,0.641116219025099,0.24336977926066006
+opportunity,opportunity,test,hurdle_ridge,True,804,,,576.2519055956913,821.761912974397,0.6351941817974861,0.36909131454983213

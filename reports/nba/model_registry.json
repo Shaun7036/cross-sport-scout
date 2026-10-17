@@ -1,0 +1,55 @@
+{
+  "sport": "nba",
+  "physical_effectiveness_files": [
+    "physical_effectiveness_steals.joblib",
+    "physical_effectiveness_blocks.joblib",
+    "physical_effectiveness_defensive_rebounds.joblib"
+  ],
+  "files": [
+    {
+      "filename": "availability.joblib",
+      "sha256": "ec9863d54df053e58fa3dee8b863d5d9dadfa26b8e8162f870cd9d38643530ee"
+    },
+    {
+      "filename": "opportunity.joblib",
+      "sha256": "513d02f232dbcae874532b332f3070aecf134aeb3831dd1b7d4c80cf12c44c44"
+    },
+    {
+      "filename": "effectiveness_steals.joblib",
+      "sha256": "d3e81935dd8a82e2af08d2e8ba78f4a1ea07263e2d90a97552329f56a3da5670"
+    },
+    {
+      "filename": "effectiveness_blocks.joblib",
+      "sha256": "0bf2b713e8201da2573954df8b3f0b32bf01ee53f8b8da7ec23e2ac0b215ae09"
+    },
+    {
+      "filename": "effectiveness_defensive_rebounds.joblib",
+      "sha256": "035cf0907ef65a766e05d501374a2f769c6d42a0434236b10c92276d6e8a71fd"
+    },
+    {
+      "filename": "physical_role_compatibility.joblib",
+      "sha256": "625a1f4412ca43e0975f6c8bcbb62785ae916ee7defe1f0f245803bc0f348522"
+    },
+    {
+      "filename": "physical_effectiveness_steals.joblib",
+      "sha256": "889bf37ba7ae2f8cfde0eb8f92ebb97e4833ab30583538ef7921eb7139ef66a8"
+    },
+    {
+      "filename": "physical_effectiveness_blocks.joblib",
+      "sha256": "2a09381255a70f94a4042c24d84ddeec6336b63b9c9e1c277010c75ed6b338a4"
+    },
+    {
+      "filename": "physical_effectiveness_defensive_rebounds.joblib",
+      "sha256": "3d01d8934b6be963b4c28988770d0f356f534781e38e5bad427b3ac85cbad546"
+    },
+    {
+      "filename": "physical_archetypes.joblib",
+      "sha256": "cbd9334e68179dccfc2beb4a10e5b5317a73d21966dc9fceec8a5e6f63c7a75b"
+    },
+    {
+      "filename": "play_style_archetypes.joblib",
+      "sha256": "157ae6a094f80feefb1c83ebd9b309d192c1d45dc63f68f229ae16cf6a8e3809"
+    }
+  ],
+  "note": "Only these artifacts belong to this run; older files in a local model directory are not active."
+}

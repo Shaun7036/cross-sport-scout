@@ -1,0 +1,34 @@
+{
+  "training_target_seasons": [
+    2022,
+    2023
+  ],
+  "validation_target_season": 2024,
+  "test_target_season": 2025,
+  "cohort": "Prior-season roster/appearance candidates, including subsequent zero-opportunity players.",
+  "forecast_type": "Retrospective temporal evaluation with corrected final source snapshots; not an audited historical live forecast.",
+  "physical_features_in_forecast": false,
+  "normalization": "Rate per 100 sport-specific opportunity units; cross-sport raw rates are not compared.",
+  "train_rows": 2823,
+  "validation_rows": 1456,
+  "test_rows": 1516,
+  "features": [
+    "log_lag_opportunity",
+    "ewma_log_opportunity",
+    "lag_age",
+    "lag_sacks_rate",
+    "lag_qb_hits_rate",
+    "lag_interceptions_rate",
+    "lag_forced_fumbles_rate",
+    "lag_passes_defended_rate",
+    "lag_negative_play_tackle_credits_rate",
+    "ewma_sacks_rate",
+    "ewma_qb_hits_rate",
+    "ewma_interceptions_rate",
+    "ewma_forced_fumbles_rate",
+    "ewma_passes_defended_rate",
+    "ewma_negative_play_tackle_credits_rate",
+    "prior_role"
+  ],
+  "source_snapshot_warning": "Final corrected snapshots; source publication history is not complete."
+}

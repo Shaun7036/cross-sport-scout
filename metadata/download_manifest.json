@@ -1,0 +1,1977 @@
+{
+  "files": [
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/306/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:35.038017+00:00",
+      "sha256": "a70c4f356f16df97d0e35940b8e1f84af923f07222006276dd956627ea3bbd96",
+      "bytes": 146969,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_306_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/331/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:35.333642+00:00",
+      "sha256": "fdbba1f9fcd151d5368b28ec48f0f9b7bec188ab1c8d4cbcf09a6b3002e7b276",
+      "bytes": 231848,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_331_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/337/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:35.662962+00:00",
+      "sha256": "1b7f75bc8529d1b8442facf5885b1371262cdd8434dd5e959528e3fc667c8b93",
+      "bytes": 238263,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_337_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/349/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:36.010402+00:00",
+      "sha256": "bbd8a8d69282e34585b85d15b93de11086b56b8777163c9c421ce3e85b9fd779",
+      "bytes": 226920,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_349_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/357/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:36.353670+00:00",
+      "sha256": "21f7db98ea83c7ae5405d73d1ec1dc900945db77c8248398f07225e4d5596959",
+      "bytes": 227013,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_357_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/359/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:36.603943+00:00",
+      "sha256": "e4feeb002de1cae174a347c0fbf8d84581a4658209f9d19b082f79c91301c208",
+      "bytes": 250006,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_359_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:36.905018+00:00",
+      "sha256": "3b71879153bea4d258e2a9963ddc6eca678458d38c504288d2a117fe7a3b0f0e",
+      "bytes": 256924,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_360_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/361/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:37.269996+00:00",
+      "sha256": "65c81f9c1575925146edc1b42584fb1106014578e1fca65816d9ba7bc54dfb84",
+      "bytes": 239269,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_361_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/362/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:37.597618+00:00",
+      "sha256": "6803996402add7bfcfbb245b404ecb61947f496e1dc024266266189ec69abbd3",
+      "bytes": 262201,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_362_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/363/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:37.921257+00:00",
+      "sha256": "6c06e3df30dfb59c7d07b47bd61f385112fd39dac95feb653ec511d06694847e",
+      "bytes": 282203,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_363_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/364/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:38.267526+00:00",
+      "sha256": "e856030a1835da76a4c29479ed3f27f961d0f3912a7cde9624151156669153dd",
+      "bytes": 294000,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_364_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/366/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:38.585623+00:00",
+      "sha256": "a86d4a6e8e021edc280103febe3b69ba2135a8dcec2d20f3b2734fb3716e75ad",
+      "bytes": 238618,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_366_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/367/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:38.964960+00:00",
+      "sha256": "248f1692c405b8f9f23cbaef1033828d0efaadfdfe37849401cc09d8cb77ad74",
+      "bytes": 279702,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_367_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/368/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:39.275868+00:00",
+      "sha256": "9ff0f619175e11bffaee99cddd8fde19f9aecdfddbd963f09ebd5312cefc3bc6",
+      "bytes": 223016,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_368_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/370/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:39.574956+00:00",
+      "sha256": "bb185bbd487b4de179f48f99eb241fef10f42aad9a9e9e18802d825d522ff97a",
+      "bytes": 210637,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_370_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/373/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:39.872223+00:00",
+      "sha256": "a517545fbd6ee812ac2370e8350391b06659c6d3b3d84e290dbac555b7f56e06",
+      "bytes": 121660,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_373_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/382/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:40.142010+00:00",
+      "sha256": "3fd59d7883045bfeb25960f7a5718f42d12ebc4b66669e6af683b5c952f3aa7f",
+      "bytes": 247916,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_382_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/384/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:40.477311+00:00",
+      "sha256": "6655fbcef1fe8af84280858a9bcda9abd5c4bc5db0df0a8fe2c73211a11d1a7d",
+      "bytes": 254880,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_384_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/388/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:40.716937+00:00",
+      "sha256": "3020ab2201dd78860c5ad700d0ae59baabb39c3ffbca4e81ae9599b708452abd",
+      "bytes": 568,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_388_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/393/roster?season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:41.061268+00:00",
+      "sha256": "4ed58c1c9b29f0f9e528c916e41a8ae376c0b76d9cfd9565b343ae75c88c24e7",
+      "bytes": 266065,
+      "path": "data/raw/epl/espn_profiles/2025-26/team_393_roster.json"
+    },
+    {
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100&season=2025",
+      "source": "ESPN public site API",
+      "license_note": "Public ESPN site JSON without an API key; no open-data license asserted. Store as a dated research profile snapshot and review ESPN/upstream terms before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:07:34.720687+00:00",
+      "sha256": "3f2716fefd5ebcdaaff815a3fe814e5c0d728ef639095f67a2bd055bebecd6fd",
+      "bytes": 24942,
+      "path": "data/raw/epl/espn_profiles/2025-26/teams.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW1/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:00.662681+00:00",
+      "sha256": "0824d1985f302349356d2e13c9bf7088d0ec7a7cbff35205c344e9a17b77fcbe",
+      "bytes": 36489,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_01_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW1/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:00.873477+00:00",
+      "sha256": "5549d2572a5e77faff51c713c23df73b1196a432db2376c450ec290d27cdbf9e",
+      "bytes": 7926,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_01_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW1/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:00.439765+00:00",
+      "sha256": "6bb92a50657056d41085ac42721b2b562f74cd116f91a217f8c28b8bb1cd761e",
+      "bytes": 57966,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_01_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW2/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:01.358159+00:00",
+      "sha256": "5fcb94ec38ae87854571eb1cf35c7c2e5a93d6bd302e4b521c0d69b2c39fe605",
+      "bytes": 36540,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_02_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW2/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:01.579079+00:00",
+      "sha256": "1ed769e2fcaecd6728bc77baf189cfb1631fd62cb7ad6eaa39345fc3f438652a",
+      "bytes": 7913,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_02_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW2/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:01.109936+00:00",
+      "sha256": "b7eff1368430ea85dde2df21353003cf633d2aa69a017b40292efbf1830d9c71",
+      "bytes": 60564,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_02_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW3/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:02.133117+00:00",
+      "sha256": "52ff828a1a930c6dd3e6b0c4aa330ed60925a731017be7b942c6b6fef3257d63",
+      "bytes": 36556,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_03_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW3/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:02.362518+00:00",
+      "sha256": "249cadaaa3201c0171618f55d01bbb0363d76142189acacc8357abd63d329a16",
+      "bytes": 7929,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_03_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW3/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:01.861282+00:00",
+      "sha256": "fae77e1bcfab538111f4b5f8b7496546283112a73ac1c4c053baa7d74b185fe1",
+      "bytes": 58711,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_03_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW4/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:03.019689+00:00",
+      "sha256": "2e9740c1da9a90f8a8da282f58177280f46a4b0070bfdfef72d9e85d0c92811f",
+      "bytes": 36531,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_04_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW4/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:03.280023+00:00",
+      "sha256": "7063fe7ddfa9ae4211f2ab5bd0dd796aea732a8b786589517db6ec8d274b3a4a",
+      "bytes": 7921,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_04_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW4/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:02.680110+00:00",
+      "sha256": "453f60b475e0e9ce34d73aa95a2803d984fadd42b48bd778180a50d7177c5f17",
+      "bytes": 59180,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_04_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW5/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:03.912137+00:00",
+      "sha256": "b137da1b67206252df180c26b4543c362921d1beae7841e6f97ca79472e20700",
+      "bytes": 36558,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_05_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW5/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:04.214833+00:00",
+      "sha256": "6f1b60a34f196224fcb4975f21d5c89996a999914689b16432981fc57ab24352",
+      "bytes": 7933,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_05_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW5/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:03.624811+00:00",
+      "sha256": "5ed565becaf71351e89fb159aba06939ead9b9643c7e90592746100bd1a1ec82",
+      "bytes": 59231,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_05_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW6/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:04.707769+00:00",
+      "sha256": "16a0afe51b3f834a3b084ff2be2614d629706ce63976dd9eb5dc781da2667e8e",
+      "bytes": 36654,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_06_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW6/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:04.923479+00:00",
+      "sha256": "3b134055a9b7b80a32d220b861d9f9a8e9ffad661057b856530b08b7869bfec2",
+      "bytes": 7940,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_06_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW6/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:04.475537+00:00",
+      "sha256": "73cde0b044dfe78ec4e0c8a2166deb46a4969cea65ea1f1972790146eb10152b",
+      "bytes": 60268,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_06_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW7/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:05.462796+00:00",
+      "sha256": "1c1d35202f755efb442007dbf465bbb42c2e42c13a486379fedbcf6b424c7254",
+      "bytes": 36567,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_07_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW7/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:05.713357+00:00",
+      "sha256": "af487fa4e2ec16c4323eea2505c3930c6ad06e4716d9844f0c65a2117d0ad823",
+      "bytes": 7927,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_07_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW7/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:05.177085+00:00",
+      "sha256": "be659f9058b0006650700490dc73c3c45aa50ec17d3fe84a13b67ceaf289a580",
+      "bytes": 60425,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_07_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW8/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:06.238105+00:00",
+      "sha256": "d6e6bffa04492d7165b4b46cb4c72530003c9ac47a50f30a499df64cedf2d85b",
+      "bytes": 36529,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_08_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW8/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:06.457118+00:00",
+      "sha256": "1d0930b113c8ce07d963f978f170c800b2e07253e8ec38c83118d6638811cc97",
+      "bytes": 7938,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_08_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW8/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:05.972657+00:00",
+      "sha256": "9c719e8c598ea17c17c8c5014c820764b8b7cf20a60df924e1d8123af3d68c2e",
+      "bytes": 59392,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_08_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW9/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:06.924881+00:00",
+      "sha256": "41ab661379abaa85596b4f902106d83bc0612e0610b0e6b220137c67bb1143e4",
+      "bytes": 36586,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_09_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW9/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:07.125934+00:00",
+      "sha256": "0aeb07c2e8c8cbb433faf3d37f48f4c837dc09d6a2bbd26b1d1d05942be718b5",
+      "bytes": 7931,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_09_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW9/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:06.697827+00:00",
+      "sha256": "c580bae7f6a0ccd8c9b4575055aadf8213714b52d5f76ac5383858dffdc0c4e3",
+      "bytes": 60968,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_09_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW10/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:07.719206+00:00",
+      "sha256": "6d3a6d85127578ef8b3ec5c61af3d3c8999752ace5074855c4281552b25f141c",
+      "bytes": 36587,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_10_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW10/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:07.960863+00:00",
+      "sha256": "741ce25519abd3deb69668e44ff7096e6e751154e28430d91e3393c5ce84f097",
+      "bytes": 7922,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_10_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW10/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:07.386269+00:00",
+      "sha256": "e061903bff01d5de6325c38ff489384d134acb385f304726da36d6031ab05a1c",
+      "bytes": 58864,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_10_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW11/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:08.420298+00:00",
+      "sha256": "fa86283d8b8379bfe1835140f27c0135a72a6f087a0b2c9c217648b9318e328b",
+      "bytes": 36565,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_11_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW11/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:08.659555+00:00",
+      "sha256": "206ce02f820ee1c2ef7f17887337b3b06733a49dd5cf1df74bf529d2f175e2cb",
+      "bytes": 7931,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_11_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW11/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:08.213073+00:00",
+      "sha256": "cce3e28a646c4f88ab4da548111de07e4cd2f5a698c22406518eea16613bc7f9",
+      "bytes": 58894,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_11_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW12/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:09.153068+00:00",
+      "sha256": "c1d76f9d5457848d585de09775b9738929200c7567b9be9852ff7cf7cfbf7fd1",
+      "bytes": 36482,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_12_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW12/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:09.407340+00:00",
+      "sha256": "cbae95721d2718f5941547831abd6770b13a47fb3bf59314a9795282e6c6d40d",
+      "bytes": 7939,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_12_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW12/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:08.929121+00:00",
+      "sha256": "d96f0ec0b5f401637e57681572833d51031011f15c1bfdbdd49ca9de8d3d3f74",
+      "bytes": 75785,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_12_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW13/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:10.086538+00:00",
+      "sha256": "2237d25c743d8e74b94d75c081272c53ea1872a5b229cdc6eac8dc1db03d5579",
+      "bytes": 36698,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_13_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW13/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:10.640518+00:00",
+      "sha256": "d7ccb8bad05a3de7c9ee42d03368ae303ae91a205f6b7e318bda4f232e853462",
+      "bytes": 7941,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_13_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW13/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:09.708653+00:00",
+      "sha256": "ace489d0910d27cd630d0cc11616e357a9c4014066a9a8fb5ca5a8db81513b3b",
+      "bytes": 75796,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_13_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW14/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:11.730426+00:00",
+      "sha256": "ed1a2ba118ad13c664d7bb460cf623773e600383bfba2a687ed8ce1ee1d0f8cd",
+      "bytes": 36547,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_14_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW14/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:11.959557+00:00",
+      "sha256": "5109c1665a9c3c6dd50a6fe224dc8f4483f9e7257ac58b00bd7d6f6cb140b0fc",
+      "bytes": 7948,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_14_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW14/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:11.362111+00:00",
+      "sha256": "7a7b969509a5aa652e6f3ed234eacf4e4867b153b33ffceceee534d649d2f031",
+      "bytes": 59183,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_14_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW15/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:12.432523+00:00",
+      "sha256": "d53773b654623c548aa9911024a120ed326cb3d343ee3d1dacd72956b94feb5e",
+      "bytes": 36562,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_15_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW15/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:12.617493+00:00",
+      "sha256": "a2d9ae0c6effe2d34d32c4515b0cae2f3fa2702b27fe189f669335b15f062542",
+      "bytes": 7936,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_15_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW15/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:12.215373+00:00",
+      "sha256": "a82d26231d324b45cd34674cdc6e0bb49e6da00849eaad0702f218e2efba1a73",
+      "bytes": 60243,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_15_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW16/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:13.041218+00:00",
+      "sha256": "f7007af1dff106fe045fbb94dccc47b6a800965372f55388118b50e470e0ad4d",
+      "bytes": 36557,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_16_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW16/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:13.246763+00:00",
+      "sha256": "ed77a51a517735946f2dd36f6debcc0550693a97b95ec3f7157fb913fbfecbd6",
+      "bytes": 7930,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_16_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW16/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:12.838855+00:00",
+      "sha256": "f9b4fc50213e9d8d641c2e68701da82226f87c31d08a8b0c3ae420b51ac30e64",
+      "bytes": 58451,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_16_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW17/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:13.659619+00:00",
+      "sha256": "811a512dd51efddf5673b545abd00619fcbc765d839905b97b1135b57e96bd72",
+      "bytes": 36621,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_17_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW17/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:13.919795+00:00",
+      "sha256": "1767be9305727f851be5e6b67cd8495b5cd8b0f0e43a8ec3a1db8d7814e193c9",
+      "bytes": 7935,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_17_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW17/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:13.452725+00:00",
+      "sha256": "6e2c85f463698108ccd4b78d8da05041845d4c58c687c7d3263118c9a2bcba1b",
+      "bytes": 58591,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_17_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW18/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:14.395728+00:00",
+      "sha256": "863bd13ad8f7be91e5a42063697942c0b4a48025183d5ba063f06817fdce7921",
+      "bytes": 36570,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_18_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW18/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:14.600389+00:00",
+      "sha256": "9696f26d09394a74b0265e1be7bbca0c10b8069f98d71deb3bc02bd029af5819",
+      "bytes": 7935,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_18_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW18/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:14.166906+00:00",
+      "sha256": "87c50585f36dcd170684cb373f3ed1a978363d2bd6feb143270e3ceff213e629",
+      "bytes": 56961,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_18_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW19/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:15.035715+00:00",
+      "sha256": "8ff9b22cb1c732383807604c06c64e494027e180ee2213a8ec979d15ff5864cf",
+      "bytes": 36600,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_19_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW19/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:15.291725+00:00",
+      "sha256": "ddbdc5e6c06a2a86616f5ab42ed6cb014f70c4e5d32061705c35547ddcf0c52b",
+      "bytes": 7945,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_19_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW19/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:14.824770+00:00",
+      "sha256": "35eed02c3cb78c19cba72c3394bbbe31a8e30fa64d6191cebb692268db356479",
+      "bytes": 57097,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_19_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW20/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:15.855724+00:00",
+      "sha256": "ee43150843977b6c5234cdbb69336677c05fa2702408334f7ef6477bc87a6f3c",
+      "bytes": 36598,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_20_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW20/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:16.095757+00:00",
+      "sha256": "3248f45151951ff44159e02721b6af6adea95449dfe215cd4507d03e4b933d4d",
+      "bytes": 7926,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_20_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW20/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:15.608127+00:00",
+      "sha256": "6d1beb472e97a64aee0cf4c7931ce4309eb8900e24c471d4646b2c7e63d028b8",
+      "bytes": 57871,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_20_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW21/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:17.716633+00:00",
+      "sha256": "0aa0cf7e741a7598e7f6f82202986bc9401d84a8fe68232b3aee05e01bb9330e",
+      "bytes": 36719,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_21_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW21/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:18.103549+00:00",
+      "sha256": "01e3e82c627ccf32857834db53c0e960cd9021ae46e1eb15eafeb9f74258e24d",
+      "bytes": 7939,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_21_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW21/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:17.156664+00:00",
+      "sha256": "5e1a8999be36a6f9b39b3a57cb8eb8f7aee915ae5a57eb60d897a11c61dc536b",
+      "bytes": 57256,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_21_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW22/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:18.868948+00:00",
+      "sha256": "e2336f5d78c8769c102a47f27ba5018602f3eee5233a9a1d349579c12cf319a4",
+      "bytes": 36617,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_22_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW22/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:19.064258+00:00",
+      "sha256": "b3be587273d9565f458de306bff41e8001e83a8d95e58bb60f349bd463bddbbb",
+      "bytes": 7938,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_22_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW22/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:18.317486+00:00",
+      "sha256": "3c4c1d3aea2424906c3e5031bf3185c5ed24136302b66378fe93f32d80c41be2",
+      "bytes": 56512,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_22_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW23/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:19.471222+00:00",
+      "sha256": "b30b88823784cbd6eaa8ca61c0cf85f754e6e7074eecc08127979f47446d2f73",
+      "bytes": 36663,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_23_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW23/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:19.832801+00:00",
+      "sha256": "eefeedfff43f4971410421dbebfd04a52f29cdec2cb3ae9a68da056d0ccf3f17",
+      "bytes": 7942,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_23_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW23/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:19.268220+00:00",
+      "sha256": "dbfdf052dae962e3440295900088d7ee4443ef181ec5c65e40a87d2926b1cadb",
+      "bytes": 58816,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_23_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW24/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:20.222797+00:00",
+      "sha256": "9cf8755feda8c587ba13637b8aa322fae14d59813ae1475d92022dc7c07e3702",
+      "bytes": 36503,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_24_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW24/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:20.588528+00:00",
+      "sha256": "20c977cc9db95e374872a82e65c2800bd30b24ef291fa57a8419492cfecd0de1",
+      "bytes": 7942,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_24_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW24/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:20.043828+00:00",
+      "sha256": "de252fbcd6ce0a7ba5e602bff8d3ec2a29c779961bbc71ebc8e7dceee33bb8ac",
+      "bytes": 58664,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_24_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW25/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:21.154455+00:00",
+      "sha256": "3dbdce8af8f5e535329f646aa52585021a60d09edc3d8717061118c764ed6a23",
+      "bytes": 36702,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_25_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW25/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:21.341552+00:00",
+      "sha256": "674b73371fece1d4421256dcf570c939bf5e19d24cbdc247a352290b3f0571ac",
+      "bytes": 7949,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_25_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW25/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:20.789509+00:00",
+      "sha256": "a110d1ed9e8992da3184d8017b49d542efd2175f4679e6012b13a00e4e82d3b6",
+      "bytes": 58538,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_25_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW26/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:21.741558+00:00",
+      "sha256": "acd2f760d82ae090a88c932758d2e4f1c38c318fcb595f12e06ad1fc2d725eb9",
+      "bytes": 40555,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_26_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW26/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:21.930387+00:00",
+      "sha256": "8d55cd022736d6d0685b9e684b4866f6c9e0f18b7271d6c96c0c9d1eeb2c8d05",
+      "bytes": 8558,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_26_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW26/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:21.556217+00:00",
+      "sha256": "cabd7204291eee2476f64852d895def78759e8172e810005330b591f41e1b1b4",
+      "bytes": 83216,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_26_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW27/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:22.636031+00:00",
+      "sha256": "52b83de815ab8aa04d997501f5f13c7069261e58dc2531c8b303bba83bedc44b",
+      "bytes": 36659,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_27_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW27/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:23.008627+00:00",
+      "sha256": "e3a9f5044395ef1316dfc2a8afcc156431772ae8af5c7787eaeca713b03032ed",
+      "bytes": 7947,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_27_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW27/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:22.446483+00:00",
+      "sha256": "8212ce5851866ff63eeb9d39d6cc26eae089b92d2aa50fbb0b4e01be06741f79",
+      "bytes": 75880,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_27_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW28/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:23.407963+00:00",
+      "sha256": "c79a8954910a789c48dd9ed887e9b3ce54a0c721e1673325298aaf98e26a0f05",
+      "bytes": 36648,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_28_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW28/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:23.780887+00:00",
+      "sha256": "ea4889d3ef620ff7d328f4c7b4954c07ba7a3df4a0b1877b0ac3364ee5b2575b",
+      "bytes": 7959,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_28_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW28/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:23.216740+00:00",
+      "sha256": "271bacad5071f68d25cb6e826750260f477f10ad1f55e5c8007e9a5e479d7d14",
+      "bytes": 76299,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_28_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW29/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:24.838211+00:00",
+      "sha256": "c62b67bc364d26d92ccddfe6d7593aa4b9ddb4109786f42f56d95582a13b6d5a",
+      "bytes": 36643,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_29_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW29/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:25.033458+00:00",
+      "sha256": "20000ecf5ccda29823abf0dce76c02762fb043e4f2e895d17e921c5a3a87c6f3",
+      "bytes": 7923,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_29_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW29/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:24.470019+00:00",
+      "sha256": "6ceac31b185461ce316c9387a55dc6ec963544aa54c0ffb020310e982fec186d",
+      "bytes": 72623,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_29_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW30/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:25.630486+00:00",
+      "sha256": "dc6a19b9d59c30f19dd03663b6609dade664a9a63c76023d03b7ed697666b43b",
+      "bytes": 36600,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_30_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW30/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:25.980221+00:00",
+      "sha256": "983fd004198ec391df58f63709a937cdaf4d28ddcde19666da8870bef677c678",
+      "bytes": 7934,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_30_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW30/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:25.451916+00:00",
+      "sha256": "db90b14d5081aef55f60e9b159c6057b0703027c6fc3dbc29a21108100152d66",
+      "bytes": 74021,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_30_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW31/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:26.909079+00:00",
+      "sha256": "3f7d531c3cf7342daa28fe74482d9bfb8167c2e07e032bb9bcdbe3c72e94a1ae",
+      "bytes": 29075,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_31_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW31/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:27.321339+00:00",
+      "sha256": "7d5d7c2255e9f029489943c614c78e9987eb8e5ec3ac64bcd329becae54368e3",
+      "bytes": 6729,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_31_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW31/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:26.682800+00:00",
+      "sha256": "6481381a6fc8fafb430b1c0cc351dbd58205bbd965147166e7095edf42a060c0",
+      "bytes": 58875,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_31_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW32/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:28.399856+00:00",
+      "sha256": "63462ad27a3e8923e9b52592cf4cf1e9f199bfaab9be49210a2814e48af08c2d",
+      "bytes": 35013,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_32_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW32/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:28.594533+00:00",
+      "sha256": "d9754d7183cf5ae3dac76cc7928dcfbe9efcfffcbbd8704c0154949ba6632176",
+      "bytes": 7953,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_32_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW32/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:27.856537+00:00",
+      "sha256": "be8dd521b064bf75d67c88108e2c54773e1caa006bac8285c066010c4af0ab7a",
+      "bytes": 74913,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_32_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW33/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:29.011140+00:00",
+      "sha256": "b4335017b8d0c9935214ec282983b61a004e2e849c73dbeee4aa31308cd63500",
+      "bytes": 46143,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_33_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW33/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:29.378536+00:00",
+      "sha256": "a1eb6195bbe9ea57912c1b043d11886774add6aa4f937418537e211484b1383c",
+      "bytes": 9748,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_33_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW33/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:28.806791+00:00",
+      "sha256": "e064e0d314bccd948fb41b34d65cbbe1c03cb9cc975634ef7d5c179538384cca",
+      "bytes": 97411,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_33_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW34/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:29.951255+00:00",
+      "sha256": "d43aba83015a8f8fdd5990d6ae3703d7a1d2e2f16812cd693e59631be3a0d92c",
+      "bytes": 25731,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_34_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW34/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:30.133005+00:00",
+      "sha256": "e38aacf1c8ecf7f2ebc520d25ce2e820cb1639560bbb30d5488c48d6df652848",
+      "bytes": 6133,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_34_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW34/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:29.773785+00:00",
+      "sha256": "c850738c91960968101fde72fd393c9e969bc53dc6d498bf0d6721c772d925b3",
+      "bytes": 52647,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_34_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW35/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:31.006182+00:00",
+      "sha256": "fcb667c0ea1ecf3e1bc06fe44a5f013c5194e4bf3f2238b3bac8d730591adc16",
+      "bytes": 36694,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_35_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW35/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:31.188944+00:00",
+      "sha256": "2603d16765786bf60a476d50a165e3a356ef7a64eefb825f848369788b8e2d60",
+      "bytes": 7948,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_35_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW35/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:30.800240+00:00",
+      "sha256": "b45136460e7e3ddae89e3ce421b4dc84c79e1c197754457a476065ffbd0ddc3c",
+      "bytes": 75102,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_35_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW36/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:31.934512+00:00",
+      "sha256": "ea860b952e1d2d3e985ee78b5aaa95230617f609bb64558c3eb2d2ed9319c040",
+      "bytes": 40573,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_36_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW36/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:32.110294+00:00",
+      "sha256": "8e788cb4bf377487d7cdd2cbb7a66b7f28d5256078635692f992c27e0fe4a0e7",
+      "bytes": 8539,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_36_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW36/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:31.721272+00:00",
+      "sha256": "481e09b709e1d68913ab35b2ab563e599936ad45f03d4fa4044b391f8c656a12",
+      "bytes": 80933,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_36_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW37/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:32.856602+00:00",
+      "sha256": "44ab93410315ec198206109ecfbc8574c5873328e20ee0ecaca151b65859e8b9",
+      "bytes": 36729,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_37_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW37/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:33.221991+00:00",
+      "sha256": "fa31ff7fd0ef5481e1fa1addef722e3271d83824ffec93c62fa6b704620e8478",
+      "bytes": 7947,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_37_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW37/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:32.646344+00:00",
+      "sha256": "9c227e1a01c1beeab13a84dfecc6883d18bc12b5a1ccfc226e507e04c22fdded",
+      "bytes": 74268,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_37_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW38/lineups.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:33.852090+00:00",
+      "sha256": "1f7d6dc52852a6bc2aab08e3e39d87e4aaaf817d209fcbf14768a32e726fa145",
+      "bytes": 36637,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_38_lineups.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW38/matches.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:34.215985+00:00",
+      "sha256": "840942f10839da6bbe29331b8f09638ae1d25ff8322ad02dfec74566511270e9",
+      "bytes": 7954,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_38_matches.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW38/playermatchstats.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:33.647471+00:00",
+      "sha256": "4dd0cbe7e016d9fb3a207bb56f4716bd07a4c6b38754ada00bccc85619a1702d",
+      "bytes": 74774,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/gw_38_playermatchstats.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/players.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:06:59.934221+00:00",
+      "sha256": "20621e5a365a5ab5ed4f787345b75975f2b32e79fab5d219235c6060084ccee4",
+      "bytes": 40339,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/players.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/teams.csv",
+      "source": "olbauday/FPL-Core-Insights",
+      "license_note": "Public GitHub data with no repository license found at retrieval; underlying provider rights are unclear. Research/prototyping only; do not redistribute raw files without permission review.",
+      "retrieved_at": "2026-10-17T23:07:00.137752+00:00",
+      "sha256": "8bf02fae3e246d6540a925ff4c1011d9656a8dad20ec19545dbfefb741cb93ce",
+      "bytes": 1628,
+      "path": "data/raw/epl/fpl_core_insights/2025-26/teams.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2021-22/gws/merged_gw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:16.002137+00:00",
+      "sha256": "29770bbe305feee681f7122c0bd08451783366e0a3a9604194f528a0880f23de",
+      "bytes": 3733462,
+      "path": "data/raw/epl/vaastav/2021-22/merged_gw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2021-22/players_raw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:15.424726+00:00",
+      "sha256": "78e185fb0b5c81f58c2b89f232358b1097bededc9852d4171edaea2e9d3bd887",
+      "bytes": 205493,
+      "path": "data/raw/epl/vaastav/2021-22/players_raw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2021-22/teams.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:16.211116+00:00",
+      "sha256": "c1dd02ed25fe832ba7bf6ce846ac506a00a0f0babdacb6bf2a011dc9eaa8cfad",
+      "bytes": 1701,
+      "path": "data/raw/epl/vaastav/2021-22/teams.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2022-23/gws/merged_gw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:53.561110+00:00",
+      "sha256": "b78a6d0456141f9033c32fc4122931baae780ac4a4938683451b1fce7a4fdd15",
+      "bytes": 4638801,
+      "path": "data/raw/epl/vaastav/2022-23/merged_gw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2022-23/players_raw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:52.825809+00:00",
+      "sha256": "a874c12817bbf4d454e60a5765629742b528d4ad0c2f39f56e4fc89640605f7f",
+      "bytes": 280362,
+      "path": "data/raw/epl/vaastav/2022-23/players_raw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2022-23/teams.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:53.803700+00:00",
+      "sha256": "be6a1fe120a61f9c441a0751ca177c933bcbf234c1d28d49b3cd8827ca18066b",
+      "bytes": 1711,
+      "path": "data/raw/epl/vaastav/2022-23/teams.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2023-24/gws/merged_gw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:55.491202+00:00",
+      "sha256": "e9c09c8856f1c86b4f920f46ddd5033af83409439dfda53be925df2a3e7c8a9e",
+      "bytes": 4997188,
+      "path": "data/raw/epl/vaastav/2023-24/merged_gw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2023-24/players_raw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:54.678623+00:00",
+      "sha256": "43d8cf5efb3d901f2499558c40b392b7f0ee22afe28030f36266ad29024c63d9",
+      "bytes": 310197,
+      "path": "data/raw/epl/vaastav/2023-24/players_raw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2023-24/teams.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:55.705145+00:00",
+      "sha256": "7795f091ccea17fda0752cb07b935e1515b09a9d3f924147997cbf28139edd49",
+      "bytes": 1715,
+      "path": "data/raw/epl/vaastav/2023-24/teams.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2024-25/gws/merged_gw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:57.296477+00:00",
+      "sha256": "5bbbcba6353b4c72ad273adcc8e3aa451946a826564679788f45b1cb3325b84e",
+      "bytes": 5125595,
+      "path": "data/raw/epl/vaastav/2024-25/merged_gw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2024-25/players_raw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:56.343458+00:00",
+      "sha256": "75686051b265cbe7755ac71213ecaad21b26ee1cc46a8bafbba19c39ce894b05",
+      "bytes": 342122,
+      "path": "data/raw/epl/vaastav/2024-25/players_raw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2024-25/teams.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:57.528855+00:00",
+      "sha256": "d10a6db8feca6db9e44a3ba50b15168396667ea387fee9235d6b211c7f598c3b",
+      "bytes": 1717,
+      "path": "data/raw/epl/vaastav/2024-25/teams.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2025-26/gws/merged_gw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:59.107238+00:00",
+      "sha256": "0d09f1f1cb1b5520ec8e2f25238aa652efe2a263d8ca7cb2b6538b27bf86727d",
+      "bytes": 5445456,
+      "path": "data/raw/epl/vaastav/2025-26/merged_gw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2025-26/players_raw.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:58.367891+00:00",
+      "sha256": "412ce0172016f8f98f25177dc6de9f3cd2a8ec7a6135f9aa638d7fdee784d67b",
+      "bytes": 380363,
+      "path": "data/raw/epl/vaastav/2025-26/players_raw.csv"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2025-26/teams.csv",
+      "source": "vaastav/Fantasy-Premier-League",
+      "license_note": "Repository software is MIT licensed, but its LICENSE says the underlying data belongs to fantasy.premierleague.com/Understat. Research use only; review upstream terms before redistribution.",
+      "retrieved_at": "2026-10-17T23:06:59.336229+00:00",
+      "sha256": "b29df099cb0ad25413e284e53116099b0e0496874f99743dbc0870d8241b46c5",
+      "bytes": 1744,
+      "path": "data/raw/epl/vaastav/2025-26/teams.csv"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_2022.parquet",
+      "source": "SportsDataverse ESPN NBA game rosters",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:13.864894+00:00",
+      "sha256": "50814fd5b907a33615a44201520d693e45dc6aac39e011b68d8668f4afa9267c",
+      "bytes": 362467,
+      "path": "data/raw/nba/2022/game_rosters_2022.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_2022.parquet",
+      "source": "SportsDataverse ESPN NBA player box scores",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:13.819612+00:00",
+      "sha256": "474d15255f2a908f2c0ac0f7104b504c3cf2815b02dd0b0097c69cb634fe4395",
+      "bytes": 605985,
+      "path": "data/raw/nba/2022/player_box_2022.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_2022.parquet",
+      "source": "SportsDataverse ESPN NBA player core",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:13.786466+00:00",
+      "sha256": "91b8ab5c73ac2148b8ef9b9ea3865278d5c29d29a2e4d213acef9ec2ed42d7a2",
+      "bytes": 72967,
+      "path": "data/raw/nba/2022/player_core_2022.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_2023.parquet",
+      "source": "SportsDataverse ESPN NBA game rosters",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.323276+00:00",
+      "sha256": "3a3c9212f3efd478911fca2e150ae51e8fcf400e7f6d353c14eff8695cb94a7b",
+      "bytes": 283794,
+      "path": "data/raw/nba/2023/game_rosters_2023.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_2023.parquet",
+      "source": "SportsDataverse ESPN NBA player box scores",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.284499+00:00",
+      "sha256": "968d835cd04b10533c5b5af8c0e41bf0154a73782e9446c76f765109223e8679",
+      "bytes": 595949,
+      "path": "data/raw/nba/2023/player_box_2023.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_2023.parquet",
+      "source": "SportsDataverse ESPN NBA player core",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.140460+00:00",
+      "sha256": "aa6ed5925a0d8e6063cea4533a27e309def2416aaec9b3c4a41618c613d46409",
+      "bytes": 66184,
+      "path": "data/raw/nba/2023/player_core_2023.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_2024.parquet",
+      "source": "SportsDataverse ESPN NBA game rosters",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.895104+00:00",
+      "sha256": "f9e48a0280cd217d100b6de1112d38a95209b08683c42bf77bf6c658b7fd8303",
+      "bytes": 360630,
+      "path": "data/raw/nba/2024/game_rosters_2024.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_2024.parquet",
+      "source": "SportsDataverse ESPN NBA player box scores",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.857032+00:00",
+      "sha256": "1e500a538ec45ddbcb58d9789b5494f8db4f25658eafd01d90f2d09600921665",
+      "bytes": 610610,
+      "path": "data/raw/nba/2024/player_box_2024.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_2024.parquet",
+      "source": "SportsDataverse ESPN NBA player core",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:14.579217+00:00",
+      "sha256": "5ffc70326afed15be66964d7b8a4881f57a17c9211f99a12be2bb28f67273017",
+      "bytes": 69751,
+      "path": "data/raw/nba/2024/player_core_2024.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_2025.parquet",
+      "source": "SportsDataverse ESPN NBA game rosters",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:15.351096+00:00",
+      "sha256": "2cbd73b08fd3f6e3e1e886859cab3a1927b8afe37a9e59210e8aa59b23e747ee",
+      "bytes": 299211,
+      "path": "data/raw/nba/2025/game_rosters_2025.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_2025.parquet",
+      "source": "SportsDataverse ESPN NBA player box scores",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:15.305668+00:00",
+      "sha256": "e89f7fbc1124092c715b722e6d72d9dd1b9d28776ca6888b508fd2831cd705e2",
+      "bytes": 610289,
+      "path": "data/raw/nba/2025/player_box_2025.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_2025.parquet",
+      "source": "SportsDataverse ESPN NBA player core",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:15.032885+00:00",
+      "sha256": "22590c9146e3da3a22cbcca3e186ad44a7d5db39920155cd1927728c41dc45ba",
+      "bytes": 68553,
+      "path": "data/raw/nba/2025/player_core_2025.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_2026.parquet",
+      "source": "SportsDataverse ESPN NBA game rosters",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:16.023836+00:00",
+      "sha256": "efd137f95a41633d944ef13a78b5442560165eefc99e4d325901134bce11ce2f",
+      "bytes": 299095,
+      "path": "data/raw/nba/2026/game_rosters_2026.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_2026.parquet",
+      "source": "SportsDataverse ESPN NBA player box scores",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:16.062729+00:00",
+      "sha256": "29a29dc9efd055a93e069a0382ac830d98a13274bee655beba69d95cff099713",
+      "bytes": 606444,
+      "path": "data/raw/nba/2026/player_box_2026.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_2026.parquet",
+      "source": "SportsDataverse ESPN NBA player core",
+      "license_note": "SportsDataverse public release packaging of ESPN NBA data. The repository/software license does not confer ownership of the underlying ESPN/NBA data; use for reproducible research/prototyping and review upstream rights before redistribution or commercial use.",
+      "retrieved_at": "2026-10-17T23:06:15.423221+00:00",
+      "sha256": "14ef141f398cf40bd30ea1c1a8d2862f0dc55cf6e8d5f7f6973e57ebaf9b8dc1",
+      "bytes": 69725,
+      "path": "data/raw/nba/2026/player_core_2026.parquet"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_crosswalk/nba_player_crosswalk_2026.parquet",
+      "source": "SportsDataverse NBA crosswalk",
+      "license_note": "SportsDataverse NBA crosswalk; current-season enrichment with incomplete historical-player coverage. Underlying provider identifiers retain their upstream rights.",
+      "retrieved_at": "2026-10-17T23:06:16.382905+00:00",
+      "sha256": "fbea9e4b180b17924f4fa1ee28c717f3f5707ec5ac71c7be1751b577c2765144",
+      "bytes": 37073,
+      "path": "data/raw/nba/nba_player_crosswalk_2026.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2021.parquet",
+      "source": "nflverse/pfr_advstats",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:43.002892+00:00",
+      "sha256": "1031b28e5fc27464c30f18800488c3e47c87e0ecde83b2c183e562e36857734e",
+      "bytes": 166280,
+      "path": "data/raw/nfl/2021/advstats_week_def_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2021.parquet",
+      "source": "nflverse/pbp_participation",
+      "license_note": "CC BY-SA 4.0; NFL NextGenStats via nflverse (through 2022), FTN Data via nflverse (2023 onwards).",
+      "retrieved_at": "2026-10-17T22:59:43.796403+00:00",
+      "sha256": "bc16b14c7043e780f995f914331e2f7ebd6661d024e61a2c892d560af04d9af1",
+      "bytes": 2949474,
+      "path": "data/raw/nfl/2021/pbp_participation_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2021.parquet",
+      "source": "nflverse/pbp",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:45.299430+00:00",
+      "sha256": "333ad34378e5339d5172717cc83378e908daf02c8699416ab3e17c2ec10f78d8",
+      "bytes": 20249925,
+      "path": "data/raw/nfl/2021/play_by_play_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2021.parquet",
+      "source": "nflverse/weekly_rosters",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:42.657641+00:00",
+      "sha256": "3e9f67569e940b54b3778ef2c9150850920b5bf93143bad3bd158e649825cf6b",
+      "bytes": 817361,
+      "path": "data/raw/nfl/2021/roster_weekly_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2021.parquet",
+      "source": "nflverse/snap_counts",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:42.528331+00:00",
+      "sha256": "1f6ab4c26a7d394c857652234dd39acd4088ffd92cfcf3f91ce03f4dc9fcaa2a",
+      "bytes": 240680,
+      "path": "data/raw/nfl/2021/snap_counts_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2021.parquet",
+      "source": "nflverse/stats_player",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:42.657694+00:00",
+      "sha256": "2c6894499e96dcf20b060969c607a0ff4e2018f369efad6e97d88abbe77b7277",
+      "bytes": 854980,
+      "path": "data/raw/nfl/2021/stats_player_week_2021.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2022.parquet",
+      "source": "nflverse/pfr_advstats",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:45.714712+00:00",
+      "sha256": "31f37c1d5064a8dc390b36403ad7c2bb2e99172130288dff56978bb3d72c67f6",
+      "bytes": 157000,
+      "path": "data/raw/nfl/2022/advstats_week_def_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2022.parquet",
+      "source": "nflverse/pbp_participation",
+      "license_note": "CC BY-SA 4.0; NFL NextGenStats via nflverse (through 2022), FTN Data via nflverse (2023 onwards).",
+      "retrieved_at": "2026-10-17T22:59:47.042520+00:00",
+      "sha256": "5f8d349316bf68de487ee0eb926706e65f5a8e37078c1faa37cb07cda2bf9e5e",
+      "bytes": 2941018,
+      "path": "data/raw/nfl/2022/pbp_participation_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2022.parquet",
+      "source": "nflverse/pbp",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:47.717529+00:00",
+      "sha256": "931121d8897779d7944e2a293e92ed8799c8e5cceef84096ac42339003fedc09",
+      "bytes": 20426548,
+      "path": "data/raw/nfl/2022/play_by_play_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2022.parquet",
+      "source": "nflverse/weekly_rosters",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:44.663015+00:00",
+      "sha256": "063c0da93f612811e1c4a4c12727a56fd2716197864795f15aa2f10a591b00c0",
+      "bytes": 803573,
+      "path": "data/raw/nfl/2022/roster_weekly_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2022.parquet",
+      "source": "nflverse/snap_counts",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:45.363054+00:00",
+      "sha256": "3cfde83eb6d859e3477aba4238fa2fb8e0592a5fc5ab8b26128fce085d4b7fea",
+      "bytes": 237678,
+      "path": "data/raw/nfl/2022/snap_counts_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2022.parquet",
+      "source": "nflverse/stats_player",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:45.202629+00:00",
+      "sha256": "64c1684938b029d68e33d7852cbee918266c8ac7f30b4c097c0a8912b4384e52",
+      "bytes": 847572,
+      "path": "data/raw/nfl/2022/stats_player_week_2022.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2023.parquet",
+      "source": "nflverse/pfr_advstats",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:48.276258+00:00",
+      "sha256": "857941121910635489c6bcb10fa023f7c04c6afd75974d975e14f8afc07be352",
+      "bytes": 157972,
+      "path": "data/raw/nfl/2023/advstats_week_def_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2023.parquet",
+      "source": "nflverse/pbp_participation",
+      "license_note": "CC BY-SA 4.0; NFL NextGenStats via nflverse (through 2022), FTN Data via nflverse (2023 onwards).",
+      "retrieved_at": "2026-10-17T22:59:49.823584+00:00",
+      "sha256": "b157736972248e6f71e0c5ad6c1010b71375a500a63944dc4956c65de263e5a6",
+      "bytes": 4700238,
+      "path": "data/raw/nfl/2023/pbp_participation_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2023.parquet",
+      "source": "nflverse/pbp",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:50.648624+00:00",
+      "sha256": "bd3484731408def6b0ec93225bba2bd7b2c65769ca707a2b9444d891abdc6776",
+      "bytes": 20534088,
+      "path": "data/raw/nfl/2023/play_by_play_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2023.parquet",
+      "source": "nflverse/weekly_rosters",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:48.133193+00:00",
+      "sha256": "0fa5abf9b462a087ecb17f3268ed7233ce9935e95d77be94ad6bac66adf8e281",
+      "bytes": 794392,
+      "path": "data/raw/nfl/2023/roster_weekly_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2023.parquet",
+      "source": "nflverse/snap_counts",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:48.073657+00:00",
+      "sha256": "97873cab365dfb39286bc1de3ac772fa4b51f09cce52ae5f8317e006cc007f62",
+      "bytes": 237882,
+      "path": "data/raw/nfl/2023/snap_counts_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2023.parquet",
+      "source": "nflverse/stats_player",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:47.898874+00:00",
+      "sha256": "ac776fbd7c9fefdb4069b72304f4c5fa05ae417acd49f6e4e27be14b9d7a4bbc",
+      "bytes": 846050,
+      "path": "data/raw/nfl/2023/stats_player_week_2023.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2024.parquet",
+      "source": "nflverse/pfr_advstats",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:51.060690+00:00",
+      "sha256": "13261d480979aee8f63f09c2dfbd383e0bb8970b2f7bd83dde6b1e217ae0d3e9",
+      "bytes": 156075,
+      "path": "data/raw/nfl/2024/advstats_week_def_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2024.parquet",
+      "source": "nflverse/pbp_participation",
+      "license_note": "CC BY-SA 4.0; NFL NextGenStats via nflverse (through 2022), FTN Data via nflverse (2023 onwards).",
+      "retrieved_at": "2026-10-17T22:59:53.368530+00:00",
+      "sha256": "5e8cf1f6a11bb2be573c3db1533c28a5658907302d1ad45ca769a4ca35890d7c",
+      "bytes": 4644767,
+      "path": "data/raw/nfl/2024/pbp_participation_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2024.parquet",
+      "source": "nflverse/pbp",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:53.345080+00:00",
+      "sha256": "3fd2896bc0b911b615142d2f1fabae54a4bbba5ab7b73b28187b118ef8af6a3b",
+      "bytes": 20597560,
+      "path": "data/raw/nfl/2024/play_by_play_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2024.parquet",
+      "source": "nflverse/weekly_rosters",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:50.365759+00:00",
+      "sha256": "4b144e8eda5a159f36037b02e8b7d5a7861acb65b0816b0a063244992038dcf8",
+      "bytes": 829272,
+      "path": "data/raw/nfl/2024/roster_weekly_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2024.parquet",
+      "source": "nflverse/snap_counts",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:50.884963+00:00",
+      "sha256": "9ec66a0c755939b329d4eba3f90e716bb874b5a6544f325ba220f003991ff99f",
+      "bytes": 240862,
+      "path": "data/raw/nfl/2024/snap_counts_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2024.parquet",
+      "source": "nflverse/stats_player",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:50.749358+00:00",
+      "sha256": "847569d194ca3d96b5efcf91e6eac5e18780fc47568a713fd545a82d29d155c1",
+      "bytes": 849243,
+      "path": "data/raw/nfl/2024/stats_player_week_2024.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2025.parquet",
+      "source": "nflverse/pfr_advstats",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:53.851491+00:00",
+      "sha256": "a1224b47bd23840a9c0e072d6ed91dd0298777fd53570290b273080975bdb7ea",
+      "bytes": 155798,
+      "path": "data/raw/nfl/2025/advstats_week_def_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2025.parquet",
+      "source": "nflverse/pbp_participation",
+      "license_note": "CC BY-SA 4.0; NFL NextGenStats via nflverse (through 2022), FTN Data via nflverse (2023 onwards).",
+      "retrieved_at": "2026-10-17T22:59:55.362585+00:00",
+      "sha256": "3b26b9487267f011fdbafbce133800ce964c963fdb8b27725abf65663cc46e0f",
+      "bytes": 4741443,
+      "path": "data/raw/nfl/2025/pbp_participation_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.parquet",
+      "source": "nflverse/pbp",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:56.480516+00:00",
+      "sha256": "c6ecedd6d678cc37ed316b23ef84ee1ec6abb69c514bb11868a7ebd5a367df29",
+      "bytes": 20337029,
+      "path": "data/raw/nfl/2025/play_by_play_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2025.parquet",
+      "source": "nflverse/weekly_rosters",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:53.470044+00:00",
+      "sha256": "a8764c947bfe6a9d8f122a194e3f026973c8efcc8a3456c67cbfac4371c20342",
+      "bytes": 850871,
+      "path": "data/raw/nfl/2025/roster_weekly_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2025.parquet",
+      "source": "nflverse/snap_counts",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:53.684152+00:00",
+      "sha256": "47220218fecda7af7ee5b0272a8ecce7c1bfb1f4e1f0a2c8c90047571728ce20",
+      "bytes": 242046,
+      "path": "data/raw/nfl/2025/snap_counts_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2025.parquet",
+      "source": "nflverse/stats_player",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:53.733841+00:00",
+      "sha256": "2a461becaa9adb3c93a3074a3a31f1e960162a50163371a2d34e28393b5fff10",
+      "bytes": 855077,
+      "path": "data/raw/nfl/2025/stats_player_week_2025.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/combine/combine.parquet",
+      "source": "nflverse/combine",
+      "license_note": "PFR-derived conditional enrichment. Sports Reference upstream AI/ML terms require review. Downloaded for source inspection; excluded from default model features/targets.",
+      "retrieved_at": "2026-10-17T22:59:56.639964+00:00",
+      "sha256": "1b6c48a0b56e515b043dd678ea38a2e6ae83cb9de488e6a0a89f8b2f980bf2cf",
+      "bytes": 374318,
+      "path": "data/raw/nfl/combine.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
+      "source": "nflverse/schedules",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:56.519883+00:00",
+      "sha256": "c2e13ae3c38814cb56c9e94c11f0aead45361cc55a2e94c74dd8015b63306204",
+      "bytes": 522368,
+      "path": "data/raw/nfl/games.parquet"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/array-carpenter/nfl-draft-data/master/data/combine_official.parquet",
+      "source": "nflverse/data",
+      "license_note": "Community NFL combine/pro-day extraction. No clear data reuse license; optional inventory, excluded from model training.",
+      "retrieved_at": "2026-10-17T23:09:58.619158+00:00",
+      "sha256": "7c517bd8930c25fb17f7261d1021905e60fc1626dcc16775a009d7ec1a0acde4",
+      "bytes": 501521,
+      "path": "data/raw/nfl/optional/combine_official.parquet"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/array-carpenter/nfl-draft-data/master/data/combine_pro_day.parquet",
+      "source": "nflverse/data",
+      "license_note": "Community NFL combine/pro-day extraction. No clear data reuse license; optional inventory, excluded from model training.",
+      "retrieved_at": "2026-10-17T23:09:58.790847+00:00",
+      "sha256": "e1712619a8f4b6aaba4ca863525bca64021494cadaefe199e371abbead8008b6",
+      "bytes": 476693,
+      "path": "data/raw/nfl/optional/combine_pro_day.parquet"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
+      "source": "nflverse/players",
+      "license_note": "nflverse CC BY 4.0; preserve upstream attribution. Research snapshot, no data relicensing.",
+      "retrieved_at": "2026-10-17T22:59:55.942204+00:00",
+      "sha256": "26c894128a13f1868ec72f9aa48d1982787e2eb9d42dd71b36faa425979ae3ed",
+      "bytes": 3393728,
+      "path": "data/raw/nfl/players.parquet"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/playerBios/allPlayersLookup.csv",
+      "source": "MoneyPuck player bios designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:08.797178+00:00",
+      "sha256": "7ffc13c81cd3cb39ee3d7b78fdd034980ae20a86b446243a55b6ccf0b0ba4449",
+      "bytes": 218227,
+      "path": "data/raw/nhl/moneypuck_all_players_lookup.csv"
+    },
+    {
+      "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2021.zip",
+      "source": "MoneyPuck season player-game skater summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:14.767218+00:00",
+      "sha256": "63ec885db3480cfe03cab159f6551b0b7398c26ebd8df4f88081df704a189a4d",
+      "bytes": 23634844,
+      "path": "data/raw/nhl/moneypuck_skater_games_2021.zip"
+    },
+    {
+      "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2022.zip",
+      "source": "MoneyPuck season player-game skater summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:29.875795+00:00",
+      "sha256": "55b2c94a2004cb0d310feda2d5fe1af56d2d9d4a4ddb804bdcf96d190750e790",
+      "bytes": 23825706,
+      "path": "data/raw/nhl/moneypuck_skater_games_2022.zip"
+    },
+    {
+      "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2023.zip",
+      "source": "MoneyPuck season player-game skater summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:40.742916+00:00",
+      "sha256": "57696178fd687f55cb9721b3702d1b938412309d68027e68623199cd2c3d8aeb",
+      "bytes": 23868126,
+      "path": "data/raw/nhl/moneypuck_skater_games_2023.zip"
+    },
+    {
+      "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2024.zip",
+      "source": "MoneyPuck season player-game skater summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:05:00.127549+00:00",
+      "sha256": "ec2be572d1e91b5a2b174da976fe3d1eeae37651a1eeec219056c56a55bd11b1",
+      "bytes": 23427199,
+      "path": "data/raw/nhl/moneypuck_skater_games_2024.zip"
+    },
+    {
+      "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2025.zip",
+      "source": "MoneyPuck season player-game skater summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:05:18.298794+00:00",
+      "sha256": "358d4fe42277ddbd7489152cb0f0d1033abf2a9df305b77ac65a9cffeedb62d1",
+      "bytes": 23609057,
+      "path": "data/raw/nhl/moneypuck_skater_games_2025.zip"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2021/regular/skaters.csv",
+      "source": "MoneyPuck regular-season skater season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:09.832894+00:00",
+      "sha256": "8e839a6bbb42b5c58409a300108f87d35ac4fd87ee41361b1dc8acaefd09f51f",
+      "bytes": 3698369,
+      "path": "data/raw/nhl/moneypuck_skaters_2021_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2022/regular/skaters.csv",
+      "source": "MoneyPuck regular-season skater season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:26.492587+00:00",
+      "sha256": "59a1a409d17ba24018a6b7063299f222b55ac9068221c083b4d5e24ee7bf14c3",
+      "bytes": 3522666,
+      "path": "data/raw/nhl/moneypuck_skaters_2022_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2023/regular/skaters.csv",
+      "source": "MoneyPuck regular-season skater season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:37.690076+00:00",
+      "sha256": "ee8d191d3633064c1f4f76d64c76e04f8a8e555528a4b49caa6d0ecb8bac9299",
+      "bytes": 3430973,
+      "path": "data/raw/nhl/moneypuck_skaters_2023_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2024/regular/skaters.csv",
+      "source": "MoneyPuck regular-season skater season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:04:56.841417+00:00",
+      "sha256": "467260ae6b411621fc3e736ed005588f75dd4470610416626584f2878a463fd4",
+      "bytes": 3410678,
+      "path": "data/raw/nhl/moneypuck_skaters_2024_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2025/regular/skaters.csv",
+      "source": "MoneyPuck regular-season skater season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-17T23:05:15.421539+00:00",
+      "sha256": "9a7e1f1a2f6bc8bc2bf10c5ba32947b47c4b26d5397287e4b30e9d662c4966e4",
+      "bytes": 3483132,
+      "path": "data/raw/nhl/moneypuck_skaters_2025_regular.csv"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId=20212022%20and%20gameTypeId=2",
+      "source": "NHL Stats season-filtered skater bios report",
+      "license_note": "Official NHL statistics used for research validation/enrichment; NHL data and marks remain subject to NHL terms.",
+      "retrieved_at": "2026-10-17T23:04:11.881066+00:00",
+      "sha256": "c40cd22e2c7ad6791c6c76413d6c18ef72cc906a4120914f321ed39b368b79c4",
+      "bytes": 427410,
+      "path": "data/raw/nhl/nhl_official_skater_bios_20212022.json"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId=20222023%20and%20gameTypeId=2",
+      "source": "NHL Stats season-filtered skater bios report",
+      "license_note": "Official NHL statistics used for research validation/enrichment; NHL data and marks remain subject to NHL terms.",
+      "retrieved_at": "2026-10-17T23:04:27.093899+00:00",
+      "sha256": "a6b60d80e0021e83918f524acfb93da91c8a83edaf35f4ef446c4804586b31f7",
+      "bytes": 405038,
+      "path": "data/raw/nhl/nhl_official_skater_bios_20222023.json"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId=20232024%20and%20gameTypeId=2",
+      "source": "NHL Stats season-filtered skater bios report",
+      "license_note": "Official NHL statistics used for research validation/enrichment; NHL data and marks remain subject to NHL terms.",
+      "retrieved_at": "2026-10-17T23:04:38.401602+00:00",
+      "sha256": "2fa2787a23dafd498c08d43bc5918c99584d2d5e94f07b0eced790478f545252",
+      "bytes": 393684,
+      "path": "data/raw/nhl/nhl_official_skater_bios_20232024.json"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId=20242025%20and%20gameTypeId=2",
+      "source": "NHL Stats season-filtered skater bios report",
+      "license_note": "Official NHL statistics used for research validation/enrichment; NHL data and marks remain subject to NHL terms.",
+      "retrieved_at": "2026-10-17T23:04:57.661083+00:00",
+      "sha256": "9aa01df51ad6527043794502c30eed88e006d180901f0a1c62bc4cb1fa11dd34",
+      "bytes": 391907,
+      "path": "data/raw/nhl/nhl_official_skater_bios_20242025.json"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId=20252026%20and%20gameTypeId=2",
+      "source": "NHL Stats season-filtered skater bios report",
+      "license_note": "Official NHL statistics used for research validation/enrichment; NHL data and marks remain subject to NHL terms.",
+      "retrieved_at": "2026-10-17T23:05:16.053265+00:00",
+      "sha256": "c0304c174040171b9feaa6cb65124df5dcbf09b0e1c6e0794ecc7f96adf2c37d",
+      "bytes": 400497,
+      "path": "data/raw/nhl/nhl_official_skater_bios_20252026.json"
+    }
+  ],
+  "file_count": 219,
+  "bytes": 315095954
+}

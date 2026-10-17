@@ -1,0 +1,13 @@
+{
+  "requested_season_starts": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "mandatory_files": 15,
+  "mandatory_failures": [],
+  "optional_crosswalk_available": true,
+  "optional_crosswalk_failure": null
+}

@@ -1,0 +1,323 @@
+{
+  "seasons": {
+    "2021": {
+      "roster_rows": 44516,
+      "roster_players": 2954,
+      "roster_rows_missing_gsis_quarantined": 23,
+      "completed_regular_games": 272,
+      "pbp_regular_games": 272,
+      "panel_rows": 2954,
+      "participant_not_rostered": 0,
+      "defensive_players": 1368,
+      "zero_defensive_opportunity": 1839,
+      "missing_opportunity": 0,
+      "participation_qa": {
+        "participation_rows": 50714,
+        "unmatched_plays": 792,
+        "duplicate_defender_play": 0,
+        "player_plays": 375505,
+        "games_with_scrimmage_participation": 272
+      },
+      "credit_participation_gaps": {
+        "metric_credit_rows": 0,
+        "distinct_player_plays": 0,
+        "player_games": 0,
+        "player_seasons_excluded_from_rate_modeling": 0
+      },
+      "negative_play_tackle_definition": {
+        "pbp_negative_play_tackle_credits": 2283.0,
+        "official_weekly_tfl": 1949.0,
+        "note": "These historical definitions differ before 2024; never splice or label them as the same target."
+      },
+      "unattributed_safety_plays": 3,
+      "event_scope_reconciliation": {
+        "sacks": {
+          "scrimmage_pbp": 1232.0,
+          "all_credited_weekly": 1232.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "qb_hits": {
+          "scrimmage_pbp": 3009.0,
+          "all_credited_weekly": 3009.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "interceptions": {
+          "scrimmage_pbp": 440.0,
+          "all_credited_weekly": 440.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "forced_fumbles": {
+          "scrimmage_pbp": 390.0,
+          "all_credited_weekly": 434.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "passes_defended": {
+          "scrimmage_pbp": 2277.0,
+          "all_credited_weekly": 2277.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        }
+      },
+      "snap_comparison": {
+        "matched_players": 2292,
+        "mean_pfr_snaps_minus_scrimmage_participation": 9.424956369982548,
+        "note": "Different scopes: PFR includes penalty snaps; core excludes no-plays and special teams."
+      }
+    },
+    "2022": {
+      "roster_rows": 44033,
+      "roster_players": 3131,
+      "roster_rows_missing_gsis_quarantined": 26,
+      "completed_regular_games": 271,
+      "pbp_regular_games": 271,
+      "panel_rows": 3131,
+      "participant_not_rostered": 0,
+      "defensive_players": 1455,
+      "zero_defensive_opportunity": 2061,
+      "missing_opportunity": 0,
+      "participation_qa": {
+        "participation_rows": 50150,
+        "unmatched_plays": 716,
+        "duplicate_defender_play": 0,
+        "player_plays": 371443,
+        "games_with_scrimmage_participation": 271
+      },
+      "credit_participation_gaps": {
+        "metric_credit_rows": 0,
+        "distinct_player_plays": 0,
+        "player_games": 0,
+        "player_seasons_excluded_from_rate_modeling": 0
+      },
+      "negative_play_tackle_definition": {
+        "pbp_negative_play_tackle_credits": 2494.0,
+        "official_weekly_tfl": 2089.0,
+        "note": "These historical definitions differ before 2024; never splice or label them as the same target."
+      },
+      "unattributed_safety_plays": 3,
+      "event_scope_reconciliation": {
+        "sacks": {
+          "scrimmage_pbp": 1291.0,
+          "all_credited_weekly": 1291.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "qb_hits": {
+          "scrimmage_pbp": 3045.0,
+          "all_credited_weekly": 3045.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "interceptions": {
+          "scrimmage_pbp": 418.0,
+          "all_credited_weekly": 418.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "forced_fumbles": {
+          "scrimmage_pbp": 375.0,
+          "all_credited_weekly": 419.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "passes_defended": {
+          "scrimmage_pbp": 2293.0,
+          "all_credited_weekly": 2293.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        }
+      },
+      "snap_comparison": {
+        "matched_players": 2188,
+        "mean_pfr_snaps_minus_scrimmage_participation": 9.493144424131627,
+        "note": "Different scopes: PFR includes penalty snaps; core excludes no-plays and special teams."
+      }
+    },
+    "2023": {
+      "roster_rows": 43540,
+      "roster_players": 3087,
+      "roster_rows_missing_gsis_quarantined": 5,
+      "completed_regular_games": 272,
+      "pbp_regular_games": 272,
+      "panel_rows": 3087,
+      "participant_not_rostered": 0,
+      "defensive_players": 1456,
+      "zero_defensive_opportunity": 2043,
+      "missing_opportunity": 0,
+      "participation_qa": {
+        "participation_rows": 46168,
+        "unmatched_plays": 0,
+        "duplicate_defender_play": 0,
+        "player_plays": 373506,
+        "games_with_scrimmage_participation": 272
+      },
+      "credit_participation_gaps": {
+        "metric_credit_rows": 0,
+        "distinct_player_plays": 0,
+        "player_games": 0,
+        "player_seasons_excluded_from_rate_modeling": 0
+      },
+      "negative_play_tackle_definition": {
+        "pbp_negative_play_tackle_credits": 2657.0,
+        "official_weekly_tfl": 2202.0,
+        "note": "These historical definitions differ before 2024; never splice or label them as the same target."
+      },
+      "unattributed_safety_plays": 8,
+      "event_scope_reconciliation": {
+        "sacks": {
+          "scrimmage_pbp": 1399.0,
+          "all_credited_weekly": 1399.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "qb_hits": {
+          "scrimmage_pbp": 3179.0,
+          "all_credited_weekly": 3179.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "interceptions": {
+          "scrimmage_pbp": 430.0,
+          "all_credited_weekly": 430.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "forced_fumbles": {
+          "scrimmage_pbp": 405.0,
+          "all_credited_weekly": 441.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "passes_defended": {
+          "scrimmage_pbp": 2406.0,
+          "all_credited_weekly": 2406.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        }
+      },
+      "snap_comparison": {
+        "matched_players": 2141,
+        "mean_pfr_snaps_minus_scrimmage_participation": 9.765063054647362,
+        "note": "Different scopes: PFR includes penalty snaps; core excludes no-plays and special teams."
+      }
+    },
+    "2024": {
+      "roster_rows": 44466,
+      "roster_players": 3214,
+      "roster_rows_missing_gsis_quarantined": 7,
+      "completed_regular_games": 272,
+      "pbp_regular_games": 272,
+      "panel_rows": 3214,
+      "participant_not_rostered": 0,
+      "defensive_players": 1516,
+      "zero_defensive_opportunity": 2153,
+      "missing_opportunity": 0,
+      "participation_qa": {
+        "participation_rows": 45919,
+        "unmatched_plays": 0,
+        "duplicate_defender_play": 1,
+        "player_plays": 368145,
+        "games_with_scrimmage_participation": 272
+      },
+      "credit_participation_gaps": {
+        "metric_credit_rows": 0,
+        "distinct_player_plays": 0,
+        "player_games": 0,
+        "player_seasons_excluded_from_rate_modeling": 0
+      },
+      "negative_play_tackle_definition": {
+        "pbp_negative_play_tackle_credits": 2664.0,
+        "official_weekly_tfl": 2664.0,
+        "note": "These historical definitions differ before 2024; never splice or label them as the same target."
+      },
+      "unattributed_safety_plays": 4,
+      "event_scope_reconciliation": {
+        "sacks": {
+          "scrimmage_pbp": 1304.0,
+          "all_credited_weekly": 1304.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "qb_hits": {
+          "scrimmage_pbp": 2983.0,
+          "all_credited_weekly": 2983.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "interceptions": {
+          "scrimmage_pbp": 387.0,
+          "all_credited_weekly": 387.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "forced_fumbles": {
+          "scrimmage_pbp": 388.0,
+          "all_credited_weekly": 431.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "passes_defended": {
+          "scrimmage_pbp": 2286.0,
+          "all_credited_weekly": 2286.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        }
+      },
+      "snap_comparison": {
+        "matched_players": 2183,
+        "mean_pfr_snaps_minus_scrimmage_participation": 10.600549702244617,
+        "note": "Different scopes: PFR includes penalty snaps; core excludes no-plays and special teams."
+      }
+    },
+    "2025": {
+      "roster_rows": 44679,
+      "roster_players": 3132,
+      "roster_rows_missing_gsis_quarantined": 18,
+      "completed_regular_games": 272,
+      "pbp_regular_games": 272,
+      "panel_rows": 3132,
+      "participant_not_rostered": 0,
+      "defensive_players": 1484,
+      "zero_defensive_opportunity": 2081,
+      "missing_opportunity": 3,
+      "participation_qa": {
+        "participation_rows": 45184,
+        "unmatched_plays": 0,
+        "duplicate_defender_play": 0,
+        "player_plays": 362324,
+        "games_with_scrimmage_participation": 272
+      },
+      "credit_participation_gaps": {
+        "metric_credit_rows": 29,
+        "distinct_player_plays": 23,
+        "player_games": 3,
+        "player_seasons_excluded_from_rate_modeling": 3
+      },
+      "negative_play_tackle_definition": {
+        "pbp_negative_play_tackle_credits": 2589.0,
+        "official_weekly_tfl": 2589.0,
+        "note": "These historical definitions differ before 2024; never splice or label them as the same target."
+      },
+      "unattributed_safety_plays": 1,
+      "event_scope_reconciliation": {
+        "sacks": {
+          "scrimmage_pbp": 1278.0,
+          "all_credited_weekly": 1278.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "qb_hits": {
+          "scrimmage_pbp": 3038.0,
+          "all_credited_weekly": 3038.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "interceptions": {
+          "scrimmage_pbp": 380.0,
+          "all_credited_weekly": 380.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "forced_fumbles": {
+          "scrimmage_pbp": 328.0,
+          "all_credited_weekly": 366.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        },
+        "passes_defended": {
+          "scrimmage_pbp": 2357.0,
+          "all_credited_weekly": 2357.0,
+          "note": "Differences include special teams, penalties/no-plays, and scoring conventions."
+        }
+      },
+      "snap_comparison": {
+        "matched_players": 2178,
+        "mean_pfr_snaps_minus_scrimmage_participation": 9.837924701561064,
+        "note": "Different scopes: PFR includes penalty snaps; core excludes no-plays and special teams."
+      }
+    }
+  },
+  "opportunity_definition": "Observed non-no-play scrimmage defender player-plays",
+  "total_model_rows": 7279,
+  "unique_defenders": 2754,
+  "combine_matched_defenders": 1354
+}

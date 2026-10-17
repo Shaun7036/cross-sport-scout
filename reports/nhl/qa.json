@@ -1,0 +1,94 @@
+{
+  "checks": {
+    "season_player_unique": true,
+    "game_player_unique": true,
+    "no_negative_event_counts": true,
+    "all_requested_seasons_present": true,
+    "all_opportunity_nonnegative": true
+  },
+  "season_rows": 4738,
+  "game_rows": 236069,
+  "players": 1480,
+  "seasons_requested": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "seasons_observed": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "season_rows_by_year": {
+    "2021": 1003,
+    "2022": 951,
+    "2023": 924,
+    "2024": 920,
+    "2025": 940
+  },
+  "physical_coverage": {
+    "height_pct": 100.0,
+    "weight_pct": 100.0,
+    "age_pct": 100.0
+  },
+  "physical_temporality": {
+    "interpretation": "NHL bios report for a season-filtered athlete universe; profile values are current/undated, their measurement date is unavailable, and repeated values must not be interpreted as annual measurements",
+    "multi_season_players": 1126,
+    "players_with_height_variation": 0,
+    "players_with_weight_variation": 0
+  },
+  "duplicate_season_rows": 0,
+  "duplicate_game_rows": 0,
+  "negative_counts": {
+    "takeaways": 0,
+    "blocks": 0,
+    "hits": 0,
+    "giveaways": 0,
+    "faceoff_wins": 0
+  },
+  "five_on_five_exceeds_all": {
+    "opportunity": 0,
+    "takeaways": 0,
+    "blocks": 0,
+    "hits": 0,
+    "giveaways": 0,
+    "faceoff_wins": 0
+  },
+  "game_to_season_reconciliation": {
+    "opportunity": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 2.2737367544323206e-13
+    },
+    "takeaways": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 0.0
+    },
+    "blocks": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 0.0
+    },
+    "hits": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 0.0
+    },
+    "giveaways": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 0.0
+    },
+    "faceoff_wins": {
+      "players_compared": 4738,
+      "rows_different": 0,
+      "max_absolute_difference": 0.0
+    }
+  },
+  "noncritical_source_errors": []
+}

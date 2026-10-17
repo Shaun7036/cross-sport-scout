@@ -1,0 +1,1140 @@
+{
+  "sport": "nfl",
+  "eda": {
+    "rows": 7279,
+    "unique_players": 2754,
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "zero_opportunity_rows": 2208,
+    "missing_opportunity_rows": 3,
+    "height_coverage": 0.9891468608325319,
+    "weight_coverage": 1.0,
+    "metric_coverage": {
+      "sacks": 1.0,
+      "qb_hits": 1.0,
+      "interceptions": 1.0,
+      "forced_fumbles": 1.0,
+      "passes_defended": 1.0,
+      "negative_play_tackle_credits": 1.0
+    },
+    "opportunity_unit": "observed defensive scrimmage player-plays",
+    "season_coverage": [
+      {
+        "season": 2021,
+        "players": 1368,
+        "active_players": 1048,
+        "opportunity": 375429.0,
+        "missing_opportunity": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "sacks_observed_players": 1368,
+        "sacks_total": 1232.0,
+        "qb_hits_observed_players": 1368,
+        "qb_hits_total": 3009.0,
+        "interceptions_observed_players": 1368,
+        "interceptions_total": 440.0,
+        "forced_fumbles_observed_players": 1368,
+        "forced_fumbles_total": 389.0,
+        "passes_defended_observed_players": 1368,
+        "passes_defended_total": 2276.0,
+        "negative_play_tackle_credits_observed_players": 1368,
+        "negative_play_tackle_credits_total": 2282.0
+      },
+      {
+        "season": 2022,
+        "players": 1455,
+        "active_players": 1007,
+        "opportunity": 371366.0,
+        "missing_opportunity": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "sacks_observed_players": 1455,
+        "sacks_total": 1291.0,
+        "qb_hits_observed_players": 1455,
+        "qb_hits_total": 3045.0,
+        "interceptions_observed_players": 1455,
+        "interceptions_total": 418.0,
+        "forced_fumbles_observed_players": 1455,
+        "forced_fumbles_total": 375.0,
+        "passes_defended_observed_players": 1455,
+        "passes_defended_total": 2293.0,
+        "negative_play_tackle_credits_observed_players": 1455,
+        "negative_play_tackle_credits_total": 2493.0
+      },
+      {
+        "season": 2023,
+        "players": 1456,
+        "active_players": 993,
+        "opportunity": 373444.0,
+        "missing_opportunity": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "sacks_observed_players": 1456,
+        "sacks_total": 1399.0,
+        "qb_hits_observed_players": 1456,
+        "qb_hits_total": 3179.0,
+        "interceptions_observed_players": 1456,
+        "interceptions_total": 430.0,
+        "forced_fumbles_observed_players": 1456,
+        "forced_fumbles_total": 405.0,
+        "passes_defended_observed_players": 1456,
+        "passes_defended_total": 2406.0,
+        "negative_play_tackle_credits_observed_players": 1456,
+        "negative_play_tackle_credits_total": 2656.0
+      },
+      {
+        "season": 2024,
+        "players": 1516,
+        "active_players": 1009,
+        "opportunity": 367950.0,
+        "missing_opportunity": 0,
+        "height_coverage": 1.0,
+        "weight_coverage": 1.0,
+        "sacks_observed_players": 1516,
+        "sacks_total": 1303.0,
+        "qb_hits_observed_players": 1516,
+        "qb_hits_total": 2982.0,
+        "interceptions_observed_players": 1516,
+        "interceptions_total": 387.0,
+        "forced_fumbles_observed_players": 1516,
+        "forced_fumbles_total": 387.0,
+        "passes_defended_observed_players": 1516,
+        "passes_defended_total": 2285.0,
+        "negative_play_tackle_credits_observed_players": 1516,
+        "negative_play_tackle_credits_total": 2661.0
+      },
+      {
+        "season": 2025,
+        "players": 1484,
+        "active_players": 1011,
+        "opportunity": 359715.0,
+        "missing_opportunity": 3,
+        "height_coverage": 0.9467654986522911,
+        "weight_coverage": 1.0,
+        "sacks_observed_players": 1484,
+        "sacks_total": 1277.0,
+        "qb_hits_observed_players": 1484,
+        "qb_hits_total": 3037.0,
+        "interceptions_observed_players": 1484,
+        "interceptions_total": 380.0,
+        "forced_fumbles_observed_players": 1484,
+        "forced_fumbles_total": 327.0,
+        "passes_defended_observed_players": 1484,
+        "passes_defended_total": 2353.0,
+        "negative_play_tackle_credits_observed_players": 1484,
+        "negative_play_tackle_credits_total": 2589.0
+      }
+    ]
+  },
+  "archetypes": {
+    "physical": {
+      "features": [
+        "height_cm",
+        "weight_kg"
+      ],
+      "roles_fitted": [
+        "CB",
+        "DB_UNKNOWN",
+        "EDGE",
+        "IDL",
+        "LB",
+        "OLB_HYBRID",
+        "S"
+      ],
+      "note": "Three descriptive size clusters per role where supported; not evidence of three natural biological types."
+    },
+    "play_style": {
+      "clusters": 2,
+      "training_silhouette": 0.3313622346372899,
+      "bootstrap_adjusted_rand_mean": 0.9635722222825247,
+      "features": [
+        "shrunk_sacks_per100",
+        "shrunk_qb_hits_per100",
+        "shrunk_interceptions_per100",
+        "shrunk_forced_fumbles_per100",
+        "shrunk_passes_defended_per100",
+        "shrunk_negative_play_tackle_credits_per100"
+      ],
+      "minimum_opportunity": 100,
+      "descriptive_only": false,
+      "normalization": "Role-relative means and standard deviations learned from development seasons.",
+      "note": "Descriptive event-rate groups; success is not independently proven by clustering on those events."
+    }
+  },
+  "forecast": {
+    "status": "trained",
+    "split": {
+      "training_target_seasons": [
+        2022,
+        2023
+      ],
+      "validation_target_season": 2024,
+      "test_target_season": 2025,
+      "cohort": "Prior-season roster/appearance candidates, including subsequent zero-opportunity players.",
+      "forecast_type": "Retrospective temporal evaluation with corrected final source snapshots; not an audited historical live forecast.",
+      "physical_features_in_forecast": false,
+      "normalization": "Rate per 100 sport-specific opportunity units; cross-sport raw rates are not compared."
+    },
+    "metrics": [
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "validation",
+        "model": "prevalence",
+        "selected_on_validation": false,
+        "n": 1456,
+        "brier": 0.24215056188448333,
+        "average_precision": 0.5885989010989011
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "validation",
+        "model": "logistic",
+        "selected_on_validation": true,
+        "n": 1456,
+        "brier": 0.13307504740117249,
+        "average_precision": 0.9049128960173062
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "test",
+        "model": "prevalence",
+        "selected_on_validation": false,
+        "n": 1513,
+        "brier": 0.24769558093041869,
+        "average_precision": 0.5571711830799736
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "test",
+        "model": "logistic",
+        "selected_on_validation": true,
+        "n": 1513,
+        "brier": 0.13350871186050045,
+        "average_precision": 0.9021427752565849
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "validation",
+        "selected_on_validation": true,
+        "model": "persistence",
+        "n": 1456,
+        "mae": 139.13873626373626,
+        "rmse": 235.06716949804832,
+        "spearman": 0.7476891455560829,
+        "r2": 0.4140226409419785
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "validation",
+        "selected_on_validation": false,
+        "model": "hurdle_ridge",
+        "n": 1456,
+        "mae": 2336.8783608089484,
+        "rmse": 83651.8297194114,
+        "spearman": 0.7484118183770223,
+        "r2": -74206.49470780842
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "test",
+        "selected_on_validation": true,
+        "model": "persistence",
+        "n": 1513,
+        "mae": 126.92663582286848,
+        "rmse": 218.41260213636073,
+        "spearman": 0.7629639806328745,
+        "r2": 0.47161321311414994
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "test",
+        "selected_on_validation": false,
+        "model": "hurdle_ridge",
+        "n": 1513,
+        "mae": 135.33717559375324,
+        "rmse": 221.95219207248851,
+        "spearman": 0.7590571338335641,
+        "r2": 0.4543483910919478
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.31255141949339765,
+        "rmse": 0.5371552019780687,
+        "spearman": 0.4805911353603895,
+        "r2": 0.15760060896557104
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.3003323171087267,
+        "rmse": 0.6197467763742692,
+        "spearman": 0.520715602654644,
+        "r2": -0.12136507354444825
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.2570127583057086,
+        "rmse": 0.5091937166427534,
+        "spearman": 0.6084321290180207,
+        "r2": 0.2430197578718779
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.30172709178169405,
+        "rmse": 0.4736785317565691,
+        "spearman": 0.513903203999494,
+        "r2": 0.23902920648428516
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.3010414704770196,
+        "rmse": 0.5694221620932975,
+        "spearman": 0.5105166368254221,
+        "r2": -0.09968757173898513
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "sacks",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.26298503306862453,
+        "rmse": 0.4510613268909874,
+        "spearman": 0.5939401774173814,
+        "r2": 0.30996396488712497
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "sacks",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 0.6622308124841016,
+        "rmse": 1.4401219389902975,
+        "spearman": 0.5999804699798587,
+        "r2": 0.47964135461412705
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "sacks",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 0.7078651685393258,
+        "rmse": 1.5914510540288271,
+        "spearman": 0.609887273973007,
+        "r2": 0.3645362024736527
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.6311410518214048,
+        "rmse": 1.1113838967904948,
+        "spearman": 0.567972160015705,
+        "r2": 0.21992519964109036
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.5858903100964116,
+        "rmse": 1.1587391348395528,
+        "spearman": 0.6102628602938069,
+        "r2": 0.15203212639749542
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.5155552408327935,
+        "rmse": 1.0480130016718516,
+        "spearman": 0.6889394255271446,
+        "r2": 0.30634840378811246
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.5895661343484148,
+        "rmse": 0.922730780178692,
+        "spearman": 0.5999605961609675,
+        "r2": 0.328905395356071
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.5662676388903285,
+        "rmse": 1.11568579064326,
+        "spearman": 0.5935551295627687,
+        "r2": 0.01889037722887943
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "qb_hits",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.5105671683496767,
+        "rmse": 0.9034156755216214,
+        "spearman": 0.67047495518869,
+        "r2": 0.35670677842394527
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "qb_hits",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 1.3326362824067763,
+        "rmse": 2.960212795827742,
+        "spearman": 0.6575167609454948,
+        "r2": 0.5772344919475005
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "qb_hits",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 1.3734302709847983,
+        "rmse": 3.083118223086505,
+        "spearman": 0.6659093430148567,
+        "r2": 0.5414000101667731
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.10508517877894112,
+        "rmse": 0.18410575628356582,
+        "spearman": 0.34654466973167886,
+        "r2": 0.06578833037455789
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.11322921728792378,
+        "rmse": 0.2779078940861002,
+        "spearman": 0.2897287814487489,
+        "r2": -1.1286895079202641
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.09945365187526381,
+        "rmse": 0.1813909560760702,
+        "spearman": 0.4034451739967133,
+        "r2": 0.0931367290076881
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.10581147164705892,
+        "rmse": 0.24643995727820983,
+        "spearman": 0.33985088595205976,
+        "r2": 0.017258469656247666
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.10862993181700652,
+        "rmse": 0.2882527950073511,
+        "spearman": 0.2746851250602176,
+        "r2": -0.3445102394764803
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "interceptions",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.09950514567604947,
+        "rmse": 0.24480075615181487,
+        "spearman": 0.42350561149048177,
+        "r2": 0.030288446897728583
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "interceptions",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 0.25572865457771327,
+        "rmse": 0.6045246979809666,
+        "spearman": 0.4652382101348568,
+        "r2": 0.27451374443715426
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "interceptions",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 0.29808327825512226,
+        "rmse": 0.801106307095182,
+        "spearman": 0.4029017587979222,
+        "r2": -0.2740351011077713
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.12997699966271212,
+        "rmse": 0.2629506743554293,
+        "spearman": 0.16199716710275072,
+        "r2": 0.020688905955323023
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.14733347280460227,
+        "rmse": 0.39051821336852127,
+        "spearman": 0.1793330661125725,
+        "r2": -1.1600046396716652
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.120839299871259,
+        "rmse": 0.26318931124053613,
+        "spearman": 0.2882869078725289,
+        "r2": 0.018910581598993392
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.13621652878092022,
+        "rmse": 0.3113445606231144,
+        "spearman": 0.11289489411071976,
+        "r2": -0.004744959589435105
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.13769256444187197,
+        "rmse": 0.41351794866025793,
+        "spearman": 0.18834710973479288,
+        "r2": -0.7724010564667128
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "forced_fumbles",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.12578640449576584,
+        "rmse": 0.30860140097452915,
+        "spearman": 0.25349474067398414,
+        "r2": 0.012882031694540164
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "forced_fumbles",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 0.26462903454427233,
+        "rmse": 0.5121207120152849,
+        "spearman": 0.40608290350552473,
+        "r2": 0.18772098616663369
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "forced_fumbles",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 0.29808327825512226,
+        "rmse": 0.6816449137928556,
+        "spearman": 0.3010658760482559,
+        "r2": -0.4390535282307164
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.43737750405667547,
+        "rmse": 0.7964648840077222,
+        "spearman": 0.4257166486993412,
+        "r2": 0.13570175674155438
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.5143766260782762,
+        "rmse": 1.010567448586691,
+        "spearman": 0.37591211443214073,
+        "r2": -0.39142875831377344
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.419942420094214,
+        "rmse": 0.7963153840751918,
+        "spearman": 0.4927180313675714,
+        "r2": 0.136026191389635
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.47544927950231464,
+        "rmse": 0.8464253748766082,
+        "spearman": 0.40166448079675715,
+        "r2": 0.11382868583123174
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.58206280135069,
+        "rmse": 1.4191284624364244,
+        "spearman": 0.381054515187034,
+        "r2": -1.4910575410089346
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "passes_defended",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.462552427978203,
+        "rmse": 0.8544020175932086,
+        "spearman": 0.45678347939072994,
+        "r2": 0.09704757444319023
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "passes_defended",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 1.054444761686553,
+        "rmse": 2.0745297677441608,
+        "spearman": 0.6494781338751547,
+        "r2": 0.4813829306653786
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "passes_defended",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 1.1295439524124256,
+        "rmse": 2.272424422530633,
+        "spearman": 0.6189308332859955,
+        "r2": 0.3777192577946512
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "validation",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.5336774108723885,
+        "rmse": 0.9427969372723217,
+        "spearman": 0.41296840734736223,
+        "r2": 0.11473504140119328
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "validation",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 857,
+        "mae": 0.5611475054642467,
+        "rmse": 1.1049923477912584,
+        "spearman": 0.4440156644578238,
+        "r2": -0.2160613592068017
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "validation",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 857,
+        "mae": 0.48921688757905935,
+        "rmse": 0.9413929154078682,
+        "spearman": 0.5211631783830452,
+        "r2": 0.11736976753617556
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "test",
+        "model": "role_mean",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.5260241568134646,
+        "rmse": 0.8911839902417593,
+        "spearman": 0.3867373274955189,
+        "r2": 0.09975427905285683
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "test",
+        "model": "persistence",
+        "selected_on_validation": false,
+        "n": 843,
+        "mae": 0.602781313265745,
+        "rmse": 1.155714134023389,
+        "spearman": 0.3894772165343627,
+        "r2": -0.5140044895382501
+      },
+      {
+        "task": "effectiveness_rate",
+        "target": "negative_play_tackle_credits",
+        "fold": "test",
+        "model": "ridge",
+        "selected_on_validation": true,
+        "n": 843,
+        "mae": 0.4978809183210454,
+        "rmse": 0.8875855484514739,
+        "spearman": 0.48692403695032127,
+        "r2": 0.10700966432606551
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "negative_play_tackle_credits",
+        "fold": "test",
+        "model": "selected_rate_x_expected_opportunity",
+        "n": 1513,
+        "mae": 1.163768038082032,
+        "rmse": 2.2400610710747557,
+        "spearman": 0.6729583637371125,
+        "r2": 0.46499051261992397
+      },
+      {
+        "task": "total_contribution_count",
+        "target": "negative_play_tackle_credits",
+        "fold": "test",
+        "model": "prior_count",
+        "n": 1513,
+        "mae": 1.3139458030403173,
+        "rmse": 2.4835213684021284,
+        "spearman": 0.6422133380719169,
+        "r2": 0.3423761306368829
+      }
+    ],
+    "selection": {
+      "sacks": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 100.0,
+        "validation_mae": {
+          "ridge": 0.2570127583057086,
+          "role_mean": 0.31255141949339765,
+          "persistence": 0.3003323171087267
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      },
+      "qb_hits": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 100.0,
+        "validation_mae": {
+          "ridge": 0.5155552408327935,
+          "role_mean": 0.6311410518214048,
+          "persistence": 0.5858903100964116
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      },
+      "interceptions": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 1.0,
+        "validation_mae": {
+          "ridge": 0.09945365187526381,
+          "role_mean": 0.10508517877894112,
+          "persistence": 0.11322921728792378
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      },
+      "forced_fumbles": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 100.0,
+        "validation_mae": {
+          "ridge": 0.120839299871259,
+          "role_mean": 0.12997699966271212,
+          "persistence": 0.14733347280460227
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      },
+      "passes_defended": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 1.0,
+        "validation_mae": {
+          "ridge": 0.419942420094214,
+          "role_mean": 0.43737750405667547,
+          "persistence": 0.5143766260782762
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      },
+      "negative_play_tackle_credits": {
+        "selected_on_2024": "ridge",
+        "ridge_alpha": 100.0,
+        "validation_mae": {
+          "ridge": 0.48921688757905935,
+          "role_mean": 0.5336774108723885,
+          "persistence": 0.5611475054642467
+        },
+        "n_train": 1660,
+        "n_validation": 857,
+        "n_test": 843
+      }
+    },
+    "availability_selection": "logistic",
+    "opportunity_selection": "persistence",
+    "train_rows": 2823,
+    "validation_rows": 1456,
+    "test_rows": 1516
+  },
+  "physical_role_model": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg"
+    ],
+    "n_train": 2072,
+    "n_test_unseen_players": 244,
+    "class_count": 6,
+    "unknown_role_athletes_excluded": 366,
+    "accuracy": 0.6967213114754098,
+    "balanced_accuracy": 0.6144252513467577,
+    "majority_accuracy": 0.19672131147540983,
+    "majority_balanced_accuracy": 0.16666666666666666,
+    "interpretation": "Role-label compatibility among observed elite athletes. No calibrated cross-sport success probability.",
+    "cohort": "First observed with sufficient body data, not necessarily league rookie; temporal first-observation cohorts.",
+    "physical_timing": "Archived listings or current source bios; see sport data card. Descriptive body-role association."
+  },
+  "physical_effectiveness_models": {
+    "status": "completed",
+    "targets": {
+      "sacks": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 1.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.2831118204896985,
+          "rmse": 0.471130282100529,
+          "spearman": 0.6014605389189909,
+          "r2": 0.29391420977673355
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.282628235102636,
+          "rmse": 0.46433589043567597,
+          "spearman": 0.6372094552399825,
+          "r2": 0.3141329502721901
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      },
+      "qb_hits": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 1.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.5247835235755672,
+          "rmse": 0.7796590246198025,
+          "spearman": 0.7020793858473919,
+          "r2": 0.43370767521303755
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.5233917263333423,
+          "rmse": 0.7550582673540045,
+          "spearman": 0.7276133836562937,
+          "r2": 0.4688805703503306
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      },
+      "interceptions": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 1.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.11491304896151923,
+          "rmse": 0.20255226553666975,
+          "spearman": 0.5017542418117368,
+          "r2": 0.17653151597046957
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.11646252405969364,
+          "rmse": 0.20173664010437864,
+          "spearman": 0.5071632351615959,
+          "r2": 0.18314995168885173
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      },
+      "forced_fumbles": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 100.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.13435563653794974,
+          "rmse": 0.22268958159066443,
+          "spearman": 0.15117241036103657,
+          "r2": 0.023517677401585946
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.13561145491494198,
+          "rmse": 0.22201022208129462,
+          "spearman": 0.1860395065054724,
+          "r2": 0.029466502269659522
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      },
+      "passes_defended": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 1.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.3228327662910337,
+          "rmse": 0.4874721028649515,
+          "spearman": 0.6643436597679456,
+          "r2": 0.3932835488737755
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.3236810474423735,
+          "rmse": 0.4810866857558971,
+          "spearman": 0.676650213496188,
+          "r2": 0.40907425296075506
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      },
+      "negative_play_tackle_credits": {
+        "status": "trained",
+        "features": [
+          "height_cm",
+          "weight_kg",
+          "age",
+          "prior_role"
+        ],
+        "n_train": 1333,
+        "n_validation": 139,
+        "n_test": 141,
+        "ridge_alpha": 1.0,
+        "rate_scale": 100.0,
+        "model_test": {
+          "n": 141,
+          "mae": 0.461103052708262,
+          "rmse": 0.7895638880699809,
+          "spearman": 0.5410735336420078,
+          "r2": 0.1620658517086636
+        },
+        "role_mean_test": {
+          "n": 141,
+          "mae": 0.46495818285931306,
+          "rmse": 0.7868045425954041,
+          "spearman": 0.5455886346793952,
+          "r2": 0.16791239463494279
+        },
+        "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+        "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+        "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+      }
+    }
+  },
+  "limitations": [
+    "Core opportunity counts observed non-no-play scrimmage participation, not exact pass-rush or coverage snaps.",
+    "2021-2022 participation is NGS; 2023-2025 is FTN. Provider effects are retained and rates remain exposure proxies.",
+    "OLB usage cannot be reliably split into edge/off-ball; OLB_HYBRID is explicit.",
+    "PFR pressures, coverage targets, missed tackles, snaps and combine data are stored separately and excluded from default models.",
+    "Roster physical fields are archived listings, not verified yearly measurements; forecast models exclude them unless as-of validity is established.",
+    "Sacks, hits and pass breakups overlap in football value; they are modeled separately and are not added into an unvalidated total.",
+    "Default event counts are normalized PBP credits on the same valid scrimmage scope as participation; official weekly all-phase credits are preserved separately.",
+    "PBP negative_play_tackle_credits are broader than pre-2024 official TFL. Official weekly TFL is stored separately and is not spliced into the target.",
+    "Three 2025 player-seasons have uncovered event credits in participation. Their observed partial exposure is retained, but rate-model opportunity is null.",
+    "All-rostered universe includes zero-opportunity players with known GSIS IDs; unresolved roster identities are quarantined.",
+    "Anticipation/reaction/awareness are not directly measured by public box-score or participation data."
+  ],
+  "model_scope": "Research baseline; temporal validation, returning-player forecast, descriptive role compatibility."
+}

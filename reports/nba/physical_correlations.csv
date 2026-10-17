@@ -1,0 +1,10 @@
+metric,physical_attribute,player_seasons,within_role_season_spearman,note
+steals,height_cm,2441,-0.12774440428210884,Descriptive repeated player-seasons; no causal or independent-sample inference.
+steals,weight_kg,2441,-0.10573089317970609,Descriptive repeated player-seasons; no causal or independent-sample inference.
+steals,age,2441,0.00756707240436741,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,height_cm,2441,0.2670170767449439,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,weight_kg,2441,0.032279664706907504,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,age,2441,-0.12532761470761494,Descriptive repeated player-seasons; no causal or independent-sample inference.
+defensive_rebounds,height_cm,2441,0.36096289687275596,Descriptive repeated player-seasons; no causal or independent-sample inference.
+defensive_rebounds,weight_kg,2441,0.269494412663041,Descriptive repeated player-seasons; no causal or independent-sample inference.
+defensive_rebounds,age,2441,-0.0345485338431493,Descriptive repeated player-seasons; no causal or independent-sample inference.

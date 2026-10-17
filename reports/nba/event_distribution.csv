@@ -1,0 +1,4 @@
+metric,observed_player_seasons,missing_player_seasons,zero_event_player_seasons,total_recorded_events,reliable_exposure_sample
+steals,2932,0,226,95984.0,2441
+blocks,2932,0,363,59593.0,2441
+defensive_rebounds,2932,0,125,407080.0,2441

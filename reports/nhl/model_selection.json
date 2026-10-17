@@ -1,0 +1,50 @@
+{
+  "takeaways": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.9418622579890171,
+      "role_mean": 1.0378690053651731,
+      "persistence": 1.1373158795262555
+    },
+    "n_train": 1596,
+    "n_validation": 778,
+    "n_test": 791
+  },
+  "blocks": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 1.3759448546998603,
+      "role_mean": 1.5661223592129396,
+      "persistence": 1.491202542533099
+    },
+    "n_train": 1596,
+    "n_validation": 778,
+    "n_test": 791
+  },
+  "hits": {
+    "selected_on_2024": "persistence",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 4.878981607877886,
+      "role_mean": 5.758508849457728,
+      "persistence": 3.021430655141018
+    },
+    "n_train": 1596,
+    "n_validation": 778,
+    "n_test": 791
+  },
+  "faceoff_wins": {
+    "selected_on_2024": "persistence",
+    "ridge_alpha": 1.0,
+    "validation_mae": {
+      "ridge": 4.3710594527517665,
+      "role_mean": 6.49671691180021,
+      "persistence": 2.703678305001642
+    },
+    "n_train": 1596,
+    "n_validation": 778,
+    "n_test": 791
+  }
+}

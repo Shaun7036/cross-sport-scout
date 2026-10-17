@@ -1,0 +1,308 @@
+{
+  "sport": "epl",
+  "eda": {
+    "rows": 4025,
+    "unique_players": 1797,
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "zero_opportunity_rows": 1265,
+    "missing_opportunity_rows": 0,
+    "height_coverage": 0.35751552795031055,
+    "weight_coverage": 0.34732919254658384,
+    "metric_coverage": {
+      "tackle activity": 0.20894409937888198,
+      "interception activity": 0.20894409937888198,
+      "ball recovery activity": 0.20894409937888198,
+      "blocking activity": 0.20347826086956522
+    },
+    "opportunity_unit": "minutes",
+    "season_coverage": [
+      {
+        "season": 2021,
+        "players": 737,
+        "active_players": 537,
+        "opportunity": 749468.0,
+        "missing_opportunity": 0,
+        "height_coverage": 0.2225237449118046,
+        "weight_coverage": 0.2225237449118046,
+        "tackle activity_observed_players": 0,
+        "tackle activity_total": null,
+        "interception activity_observed_players": 0,
+        "interception activity_total": null,
+        "ball recovery activity_observed_players": 0,
+        "ball recovery activity_total": null,
+        "blocking activity_observed_players": 0,
+        "blocking activity_total": null
+      },
+      {
+        "season": 2022,
+        "players": 778,
+        "active_players": 554,
+        "opportunity": 749114.0,
+        "missing_opportunity": 0,
+        "height_coverage": 0.2879177377892031,
+        "weight_coverage": 0.2853470437017995,
+        "tackle activity_observed_players": 0,
+        "tackle activity_total": null,
+        "interception activity_observed_players": 0,
+        "interception activity_total": null,
+        "ball recovery activity_observed_players": 0,
+        "ball recovery activity_total": null,
+        "blocking activity_observed_players": 0,
+        "blocking activity_total": null
+      },
+      {
+        "season": 2023,
+        "players": 865,
+        "active_players": 570,
+        "opportunity": 748630.0,
+        "missing_opportunity": 0,
+        "height_coverage": 0.30289017341040464,
+        "weight_coverage": 0.30057803468208094,
+        "tackle activity_observed_players": 0,
+        "tackle activity_total": null,
+        "interception activity_observed_players": 0,
+        "interception activity_total": null,
+        "ball recovery activity_observed_players": 0,
+        "ball recovery activity_total": null,
+        "blocking activity_observed_players": 0,
+        "blocking activity_total": null
+      },
+      {
+        "season": 2024,
+        "players": 804,
+        "active_players": 562,
+        "opportunity": 748464.0,
+        "missing_opportunity": 0,
+        "height_coverage": 0.39303482587064675,
+        "weight_coverage": 0.38681592039800994,
+        "tackle activity_observed_players": 0,
+        "tackle activity_total": null,
+        "interception activity_observed_players": 0,
+        "interception activity_total": null,
+        "ball recovery activity_observed_players": 0,
+        "ball recovery activity_total": null,
+        "blocking activity_observed_players": 0,
+        "blocking activity_total": null
+      },
+      {
+        "season": 2025,
+        "players": 841,
+        "active_players": 537,
+        "opportunity": 748552.0,
+        "missing_opportunity": 0,
+        "height_coverage": 0.5624256837098692,
+        "weight_coverage": 0.5243757431629013,
+        "tackle activity_observed_players": 841,
+        "tackle activity_total": 12604.0,
+        "interception activity_observed_players": 841,
+        "interception activity_total": 6267.0,
+        "ball recovery activity_observed_players": 841,
+        "ball recovery activity_total": 35556.0,
+        "blocking activity_observed_players": 819,
+        "blocking activity_total": 2709.0
+      }
+    ]
+  },
+  "archetypes": {
+    "physical": {
+      "features": [
+        "height_cm",
+        "weight_kg"
+      ],
+      "roles_fitted": [
+        "DEF",
+        "MID"
+      ],
+      "note": "Three descriptive size clusters per role where supported; not evidence of three natural biological types."
+    },
+    "play_style": {
+      "clusters": 2,
+      "training_silhouette": 0.2695668562458386,
+      "bootstrap_adjusted_rand_mean": 0.8684988055778764,
+      "features": [
+        "shrunk_tackle activity_per100",
+        "shrunk_interception activity_per100",
+        "shrunk_ball recovery activity_per100",
+        "shrunk_blocking activity_per100"
+      ],
+      "minimum_opportunity": 100,
+      "descriptive_only": true,
+      "normalization": "Role-relative means and standard deviations learned from development seasons.",
+      "note": "Descriptive event-rate groups; success is not independently proven by clustering on those events."
+    }
+  },
+  "forecast": {
+    "status": "trained",
+    "split": {
+      "training_target_seasons": [
+        2022,
+        2023
+      ],
+      "validation_target_season": 2024,
+      "test_target_season": 2025,
+      "cohort": "Prior-season roster/appearance candidates, including subsequent zero-opportunity players.",
+      "forecast_type": "Retrospective temporal evaluation with corrected final source snapshots; not an audited historical live forecast.",
+      "physical_features_in_forecast": false,
+      "normalization": "Rate per 100 sport-specific opportunity units; cross-sport raw rates are not compared."
+    },
+    "metrics": [
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "validation",
+        "model": "prevalence",
+        "selected_on_validation": false,
+        "n": 865,
+        "brier": 0.24881158086620772,
+        "average_precision": 0.44739884393063584
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "validation",
+        "model": "logistic",
+        "selected_on_validation": true,
+        "n": 865,
+        "brier": 0.12567947052987014,
+        "average_precision": 0.8669738713024834
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "test",
+        "model": "prevalence",
+        "selected_on_validation": false,
+        "n": 804,
+        "brier": 0.24884363315124122,
+        "average_precision": 0.4651741293532338
+      },
+      {
+        "task": "availability",
+        "target": "any_opportunity",
+        "fold": "test",
+        "model": "logistic",
+        "selected_on_validation": true,
+        "n": 804,
+        "brier": 0.22069717239321798,
+        "average_precision": 0.7574000071214627
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "validation",
+        "selected_on_validation": false,
+        "model": "persistence",
+        "n": 865,
+        "mae": 513.2520231213873,
+        "rmse": 850.2482745196837,
+        "spearman": 0.6732461487773661,
+        "r2": 0.32704904453024797
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "validation",
+        "selected_on_validation": true,
+        "model": "hurdle_ridge",
+        "n": 865,
+        "mae": 452.225258425412,
+        "rmse": 747.4345312053001,
+        "spearman": 0.7351084983361391,
+        "r2": 0.4799582488603038
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "test",
+        "selected_on_validation": false,
+        "model": "persistence",
+        "n": 804,
+        "mae": 538.7674129353234,
+        "rmse": 899.9214372841566,
+        "spearman": 0.641116219025099,
+        "r2": 0.24336977926066006
+      },
+      {
+        "task": "opportunity",
+        "target": "opportunity",
+        "fold": "test",
+        "selected_on_validation": true,
+        "model": "hurdle_ridge",
+        "n": 804,
+        "mae": 576.2519055956913,
+        "rmse": 821.761912974397,
+        "spearman": 0.6351941817974861,
+        "r2": 0.36909131454983213
+      }
+    ],
+    "selection": {
+      "tackle activity": {
+        "status": "insufficient_temporal_target_coverage"
+      },
+      "interception activity": {
+        "status": "insufficient_temporal_target_coverage"
+      },
+      "ball recovery activity": {
+        "status": "insufficient_temporal_target_coverage"
+      },
+      "blocking activity": {
+        "status": "insufficient_temporal_target_coverage"
+      }
+    },
+    "availability_selection": "logistic",
+    "opportunity_selection": "hurdle_ridge",
+    "train_rows": 1515,
+    "validation_rows": 865,
+    "test_rows": 804
+  },
+  "physical_role_model": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg"
+    ],
+    "n_train": 337,
+    "n_test_unseen_players": 104,
+    "class_count": 4,
+    "unknown_role_athletes_excluded": 0,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.3743904726181545,
+    "majority_accuracy": 0.41346153846153844,
+    "majority_balanced_accuracy": 0.25,
+    "interpretation": "Role-label compatibility among observed elite athletes. No calibrated cross-sport success probability.",
+    "cohort": "First observed with sufficient body data, not necessarily league rookie; temporal first-observation cohorts.",
+    "physical_timing": "Archived listings or current source bios; see sport data card. Descriptive body-role association."
+  },
+  "physical_effectiveness_models": {
+    "status": "completed",
+    "targets": {
+      "tackle activity": {
+        "status": "insufficient_independent_temporal_samples"
+      },
+      "interception activity": {
+        "status": "insufficient_independent_temporal_samples"
+      },
+      "ball recovery activity": {
+        "status": "insufficient_independent_temporal_samples"
+      },
+      "blocking activity": {
+        "status": "insufficient_independent_temporal_samples"
+      }
+    }
+  },
+  "limitations": [
+    "The five-season FPL common core has no tackles, interceptions, recoveries, or blocks before 2025-26.",
+    "The enhanced 2025-26 match archive publishes detailed events but no explicit open-data license.",
+    "Public events do not measure pressures, pressing attempts, forced turnovers, or possession-adjusted opportunities.",
+    "FPL role buckets do not separate center backs, fullbacks, holding midfielders, wingers, or pressing forwards.",
+    "ESPN height/weight are post-season profile snapshots and must not be interpreted as annual measurements.",
+    "Wingspan, arm length, and leg length are unavailable at league scale and remain missing."
+  ],
+  "model_scope": "Research baseline; temporal validation, returning-player forecast, descriptive role compatibility."
+}

@@ -1,0 +1,27 @@
+{
+  "sport": "epl",
+  "physical_effectiveness_files": [],
+  "files": [
+    {
+      "filename": "availability.joblib",
+      "sha256": "245db684e5fb3abfed476eff8fc9af2e02a4c3284518530cade586d018a43cec"
+    },
+    {
+      "filename": "opportunity.joblib",
+      "sha256": "63c8c291d840c90fa71fd3ba8374807951814f94434cde8aa1a0c062c0fb61de"
+    },
+    {
+      "filename": "physical_role_compatibility.joblib",
+      "sha256": "7eabc1ba2b28b81a5252b00152f0443f377bdc13c917f49cfed67fefc1ac73ed"
+    },
+    {
+      "filename": "physical_archetypes.joblib",
+      "sha256": "01045cf114106bae451c9ca37112c433be903c05d8e0df004e44c515dfd2eba8"
+    },
+    {
+      "filename": "play_style_archetypes.joblib",
+      "sha256": "5b94adc8435df073085252d7ea9de0d9b22c6b3ac8c45cfcfb8e3df5a330f16e"
+    }
+  ],
+  "note": "Only these artifacts belong to this run; older files in a local model directory are not active."
+}

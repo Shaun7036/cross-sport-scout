@@ -1,0 +1,74 @@
+{
+  "sacks": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.2570127583057086,
+      "role_mean": 0.31255141949339765,
+      "persistence": 0.3003323171087267
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  },
+  "qb_hits": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.5155552408327935,
+      "role_mean": 0.6311410518214048,
+      "persistence": 0.5858903100964116
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  },
+  "interceptions": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 1.0,
+    "validation_mae": {
+      "ridge": 0.09945365187526381,
+      "role_mean": 0.10508517877894112,
+      "persistence": 0.11322921728792378
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  },
+  "forced_fumbles": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.120839299871259,
+      "role_mean": 0.12997699966271212,
+      "persistence": 0.14733347280460227
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  },
+  "passes_defended": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 1.0,
+    "validation_mae": {
+      "ridge": 0.419942420094214,
+      "role_mean": 0.43737750405667547,
+      "persistence": 0.5143766260782762
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  },
+  "negative_play_tackle_credits": {
+    "selected_on_2024": "ridge",
+    "ridge_alpha": 100.0,
+    "validation_mae": {
+      "ridge": 0.48921688757905935,
+      "role_mean": 0.5336774108723885,
+      "persistence": 0.5611475054642467
+    },
+    "n_train": 1660,
+    "n_validation": 857,
+    "n_test": 843
+  }
+}

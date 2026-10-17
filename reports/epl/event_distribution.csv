@@ -1,0 +1,5 @@
+metric,observed_player_seasons,missing_player_seasons,zero_event_player_seasons,total_recorded_events,reliable_exposure_sample
+tackle activity,841,3184,370,12604.0,468
+interception activity,841,3184,414,6267.0,468
+ball recovery activity,841,3184,325,35556.0,468
+blocking activity,819,3206,451,2709.0,457

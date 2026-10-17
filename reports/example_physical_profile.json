@@ -1,0 +1,479 @@
+{
+  "nfl": {
+    "sport": "nfl",
+    "status": "scored",
+    "input": {
+      "height_cm": 188.0,
+      "weight_kg": 95.0,
+      "age": 25.0
+    },
+    "interpretation": "Similarity to role labels among elite athletes; not a probability of entering or succeeding in a sport.",
+    "physical_measurement_warning": "Archived listings or current source bios; see sport data card. Descriptive body-role association.",
+    "roles": [
+      {
+        "role": "S",
+        "role_label_probability_within_this_sport": 0.36890882138042796,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 1.4267604993674383,
+        "reference_athletes_with_measured_size": 352,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.08290891094984783,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.21110689284618578,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 0.2581116649055492,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 0.6989043363607713,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 0.1866424725707388,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.10049393262332844,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      },
+      {
+        "role": "CB",
+        "role_label_probability_within_this_sport": 0.3187683901867197,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 3.3828310903381866,
+        "reference_athletes_with_measured_size": 503,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.06236822455364789,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.1672584107578156,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 0.2136390478960555,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 1.1306502357331514,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 0.124365039858409,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.06365849896006741,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      },
+      {
+        "role": "LB",
+        "role_label_probability_within_this_sport": 0.2639993275338323,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 5.6549087417668735,
+        "reference_athletes_with_measured_size": 463,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.10096709482094048,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.08041169837646941,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 0.7684959248806935,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 0.4533631418903767,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 0.5611899879742043,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.272940174138143,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      },
+      {
+        "role": "OLB_HYBRID",
+        "role_label_probability_within_this_sport": 0.0429281421173979,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 5.420482487467018,
+        "reference_athletes_with_measured_size": 327,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.17410930029795027,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.058355359128024045,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 1.1821477839150292,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 0.33459744599979446,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 1.4055116718635077,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.7277818669326057,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      },
+      {
+        "role": "EDGE",
+        "role_label_probability_within_this_sport": 0.005372466140010407,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 6.600507019686535,
+        "reference_athletes_with_measured_size": 401,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.15570281921215565,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.027204321440092636,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 1.2251332417189578,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 0.27031969041734766,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 1.7610882934805647,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.8153629461435614,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      },
+      {
+        "role": "IDL",
+        "role_label_probability_within_this_sport": 2.2852641611706084e-05,
+        "physical_out_of_distribution": true,
+        "mahalanobis_distance_squared": 11.42087686668396,
+        "reference_athletes_with_measured_size": 418,
+        "physical_rate_associations": {
+          "forced_fumbles": {
+            "associated_rate_per100_opportunity": 0.10744822509774901,
+            "heldout_player_test_mae": 0.13435563653794974,
+            "role_mean_test_mae": 0.13561145491494198
+          },
+          "interceptions": {
+            "associated_rate_per100_opportunity": 0.03219302968590606,
+            "heldout_player_test_mae": 0.11491304896151923,
+            "role_mean_test_mae": 0.11646252405969364
+          },
+          "negative_play_tackle_credits": {
+            "associated_rate_per100_opportunity": 1.0661192290513037,
+            "heldout_player_test_mae": 0.461103052708262,
+            "role_mean_test_mae": 0.46495818285931306
+          },
+          "passes_defended": {
+            "associated_rate_per100_opportunity": 0.2266274566954317,
+            "heldout_player_test_mae": 0.3228327662910337,
+            "role_mean_test_mae": 0.3236810474423735
+          },
+          "qb_hits": {
+            "associated_rate_per100_opportunity": 1.2534190599272736,
+            "heldout_player_test_mae": 0.5247835235755672,
+            "role_mean_test_mae": 0.5233917263333423
+          },
+          "sacks": {
+            "associated_rate_per100_opportunity": 0.5980989292117436,
+            "heldout_player_test_mae": 0.2831118204896985,
+            "role_mean_test_mae": 0.282628235102636
+          }
+        }
+      }
+    ]
+  },
+  "nba": {
+    "sport": "nba",
+    "status": "scored",
+    "input": {
+      "height_cm": 188.0,
+      "weight_kg": 95.0,
+      "age": 25.0
+    },
+    "interpretation": "Similarity to role labels among elite athletes; not a probability of entering or succeeding in a sport.",
+    "physical_measurement_warning": "Archived listings or current source bios; see sport data card. Descriptive body-role association.",
+    "roles": [
+      {
+        "role": "guard",
+        "role_label_probability_within_this_sport": 0.9689457149720881,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 2.5484464593225296,
+        "reference_athletes_with_measured_size": 457,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 0.8688541551002952,
+            "heldout_player_test_mae": 0.8509901773927436,
+            "role_mean_test_mae": 0.9346963431601297
+          },
+          "defensive_rebounds": {
+            "associated_rate_per100_opportunity": 9.712991763227452,
+            "heldout_player_test_mae": 2.8953448793896386,
+            "role_mean_test_mae": 3.1498967478256548
+          },
+          "steals": {
+            "associated_rate_per100_opportunity": 3.3865794686006025,
+            "heldout_player_test_mae": 1.018993226389786,
+            "role_mean_test_mae": 0.9852667127113433
+          }
+        }
+      },
+      {
+        "role": "forward",
+        "role_label_probability_within_this_sport": 0.031051409175071133,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 8.39551114194822,
+        "reference_athletes_with_measured_size": 397,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 1.1754140198519063,
+            "heldout_player_test_mae": 0.8509901773927436,
+            "role_mean_test_mae": 0.9346963431601297
+          },
+          "defensive_rebounds": {
+            "associated_rate_per100_opportunity": 9.752522978079492,
+            "heldout_player_test_mae": 2.8953448793896386,
+            "role_mean_test_mae": 3.1498967478256548
+          },
+          "steals": {
+            "associated_rate_per100_opportunity": 3.062045793835848,
+            "heldout_player_test_mae": 1.018993226389786,
+            "role_mean_test_mae": 0.9852667127113433
+          }
+        }
+      },
+      {
+        "role": "center",
+        "role_label_probability_within_this_sport": 2.8758528407432065e-06,
+        "physical_out_of_distribution": true,
+        "mahalanobis_distance_squared": 25.75300895865226,
+        "reference_athletes_with_measured_size": 126,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 2.2480827428056616,
+            "heldout_player_test_mae": 0.8509901773927436,
+            "role_mean_test_mae": 0.9346963431601297
+          },
+          "defensive_rebounds": {
+            "associated_rate_per100_opportunity": 11.159374584078348,
+            "heldout_player_test_mae": 2.8953448793896386,
+            "role_mean_test_mae": 3.1498967478256548
+          },
+          "steals": {
+            "associated_rate_per100_opportunity": 2.7501419450556415,
+            "heldout_player_test_mae": 1.018993226389786,
+            "role_mean_test_mae": 0.9852667127113433
+          }
+        }
+      }
+    ]
+  },
+  "nhl": {
+    "sport": "nhl",
+    "status": "scored",
+    "input": {
+      "height_cm": 188.0,
+      "weight_kg": 95.0,
+      "age": 25.0
+    },
+    "interpretation": "Similarity to role labels among elite athletes; not a probability of entering or succeeding in a sport.",
+    "physical_measurement_warning": "Archived listings or current source bios; see sport data card. Descriptive body-role association.",
+    "roles": [
+      {
+        "role": "defense",
+        "role_label_probability_within_this_sport": 0.3769431681409911,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 0.23780338080365765,
+        "reference_athletes_with_measured_size": 467,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 7.401355895003909,
+            "heldout_player_test_mae": 1.3930400249510546,
+            "role_mean_test_mae": 1.4232520997078317
+          },
+          "faceoff_wins": {
+            "associated_rate_per100_opportunity": 0.0,
+            "heldout_player_test_mae": 5.472475127044567,
+            "role_mean_test_mae": 5.459380507103748
+          },
+          "hits": {
+            "associated_rate_per100_opportunity": 6.681620995531839,
+            "heldout_player_test_mae": 4.514970811794528,
+            "role_mean_test_mae": 5.20941149587173
+          },
+          "takeaways": {
+            "associated_rate_per100_opportunity": 1.5190054992918038,
+            "heldout_player_test_mae": 0.8593145171998938,
+            "role_mean_test_mae": 0.9056494870387665
+          }
+        }
+      },
+      {
+        "role": "wing",
+        "role_label_probability_within_this_sport": 0.336438243974885,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 0.3767697032149098,
+        "reference_athletes_with_measured_size": 477,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 2.882712543027527,
+            "heldout_player_test_mae": 1.3930400249510546,
+            "role_mean_test_mae": 1.4232520997078317
+          },
+          "faceoff_wins": {
+            "associated_rate_per100_opportunity": 1.5040919946067046,
+            "heldout_player_test_mae": 5.472475127044567,
+            "role_mean_test_mae": 5.459380507103748
+          },
+          "hits": {
+            "associated_rate_per100_opportunity": 7.835681989309145,
+            "heldout_player_test_mae": 4.514970811794528,
+            "role_mean_test_mae": 5.20941149587173
+          },
+          "takeaways": {
+            "associated_rate_per100_opportunity": 2.417863279862922,
+            "heldout_player_test_mae": 0.8593145171998938,
+            "role_mean_test_mae": 0.9056494870387665
+          }
+        }
+      },
+      {
+        "role": "center",
+        "role_label_probability_within_this_sport": 0.28661858788412387,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 0.7455524665705102,
+        "reference_athletes_with_measured_size": 458,
+        "physical_rate_associations": {
+          "blocks": {
+            "associated_rate_per100_opportunity": 3.441046120311686,
+            "heldout_player_test_mae": 1.3930400249510546,
+            "role_mean_test_mae": 1.4232520997078317
+          },
+          "faceoff_wins": {
+            "associated_rate_per100_opportunity": 17.4300944335314,
+            "heldout_player_test_mae": 5.472475127044567,
+            "role_mean_test_mae": 5.459380507103748
+          },
+          "hits": {
+            "associated_rate_per100_opportunity": 8.18992870172253,
+            "heldout_player_test_mae": 4.514970811794528,
+            "role_mean_test_mae": 5.20941149587173
+          },
+          "takeaways": {
+            "associated_rate_per100_opportunity": 2.545587916895478,
+            "heldout_player_test_mae": 0.8593145171998938,
+            "role_mean_test_mae": 0.9056494870387665
+          }
+        }
+      }
+    ]
+  },
+  "epl": {
+    "sport": "epl",
+    "status": "scored",
+    "input": {
+      "height_cm": 188.0,
+      "weight_kg": 95.0,
+      "age": 25.0
+    },
+    "interpretation": "Similarity to role labels among elite athletes; not a probability of entering or succeeding in a sport.",
+    "physical_measurement_warning": "Archived listings or current source bios; see sport data card. Descriptive body-role association.",
+    "roles": [
+      {
+        "role": "DEF",
+        "role_label_probability_within_this_sport": 0.4530262192985234,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 7.015606865415984,
+        "reference_athletes_with_measured_size": 119,
+        "physical_rate_associations": {}
+      },
+      {
+        "role": "GK",
+        "role_label_probability_within_this_sport": 0.2762781992626466,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 5.9927835000451815,
+        "reference_athletes_with_measured_size": 39,
+        "physical_rate_associations": {}
+      },
+      {
+        "role": "MID",
+        "role_label_probability_within_this_sport": 0.15888846150139266,
+        "physical_out_of_distribution": true,
+        "mahalanobis_distance_squared": 12.092586707343727,
+        "reference_athletes_with_measured_size": 152,
+        "physical_rate_associations": {}
+      },
+      {
+        "role": "FWD",
+        "role_label_probability_within_this_sport": 0.11180711993743739,
+        "physical_out_of_distribution": false,
+        "mahalanobis_distance_squared": 7.006423937886288,
+        "reference_athletes_with_measured_size": 39,
+        "physical_rate_associations": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "sacks": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 1.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.2831118204896985,
+      "rmse": 0.471130282100529,
+      "spearman": 0.6014605389189909,
+      "r2": 0.29391420977673355
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.282628235102636,
+      "rmse": 0.46433589043567597,
+      "spearman": 0.6372094552399825,
+      "r2": 0.3141329502721901
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  },
+  "qb_hits": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 1.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.5247835235755672,
+      "rmse": 0.7796590246198025,
+      "spearman": 0.7020793858473919,
+      "r2": 0.43370767521303755
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.5233917263333423,
+      "rmse": 0.7550582673540045,
+      "spearman": 0.7276133836562937,
+      "r2": 0.4688805703503306
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  },
+  "interceptions": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 1.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.11491304896151923,
+      "rmse": 0.20255226553666975,
+      "spearman": 0.5017542418117368,
+      "r2": 0.17653151597046957
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.11646252405969364,
+      "rmse": 0.20173664010437864,
+      "spearman": 0.5071632351615959,
+      "r2": 0.18314995168885173
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  },
+  "forced_fumbles": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 100.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.13435563653794974,
+      "rmse": 0.22268958159066443,
+      "spearman": 0.15117241036103657,
+      "r2": 0.023517677401585946
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.13561145491494198,
+      "rmse": 0.22201022208129462,
+      "spearman": 0.1860395065054724,
+      "r2": 0.029466502269659522
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  },
+  "passes_defended": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 1.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.3228327662910337,
+      "rmse": 0.4874721028649515,
+      "spearman": 0.6643436597679456,
+      "r2": 0.3932835488737755
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.3236810474423735,
+      "rmse": 0.4810866857558971,
+      "spearman": 0.676650213496188,
+      "r2": 0.40907425296075506
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  },
+  "negative_play_tackle_credits": {
+    "status": "trained",
+    "features": [
+      "height_cm",
+      "weight_kg",
+      "age",
+      "prior_role"
+    ],
+    "n_train": 1333,
+    "n_validation": 139,
+    "n_test": 141,
+    "ridge_alpha": 1.0,
+    "rate_scale": 100.0,
+    "model_test": {
+      "n": 141,
+      "mae": 0.461103052708262,
+      "rmse": 0.7895638880699809,
+      "spearman": 0.5410735336420078,
+      "r2": 0.1620658517086636
+    },
+    "role_mean_test": {
+      "n": 141,
+      "mae": 0.46495818285931306,
+      "rmse": 0.7868045425954041,
+      "spearman": 0.5455886346793952,
+      "r2": 0.16791239463494279
+    },
+    "interpretation": "Physical association within elite role populations; conditional on 100+ opportunity.",
+    "timing": "Physical source timing is not verified for historical deployment; not a live preseason forecast.",
+    "athlete_split": "SHA256 ID buckets: train 0-5, validation 6-7, test 8-9; no shared athletes."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "physical": {
+    "features": [
+      "height_cm",
+      "weight_kg"
+    ],
+    "roles_fitted": [
+      "DEF",
+      "MID"
+    ],
+    "note": "Three descriptive size clusters per role where supported; not evidence of three natural biological types."
+  },
+  "play_style": {
+    "clusters": 2,
+    "training_silhouette": 0.2695668562458386,
+    "bootstrap_adjusted_rand_mean": 0.8684988055778764,
+    "features": [
+      "shrunk_tackle activity_per100",
+      "shrunk_interception activity_per100",
+      "shrunk_ball recovery activity_per100",
+      "shrunk_blocking activity_per100"
+    ],
+    "minimum_opportunity": 100,
+    "descriptive_only": true,
+    "normalization": "Role-relative means and standard deviations learned from development seasons.",
+    "note": "Descriptive event-rate groups; success is not independently proven by clustering on those events."
+  }
+}

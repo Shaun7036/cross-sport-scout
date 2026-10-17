@@ -1,0 +1,64 @@
+{
+  "sport": "nhl",
+  "physical_effectiveness_files": [
+    "physical_effectiveness_takeaways.joblib",
+    "physical_effectiveness_blocks.joblib",
+    "physical_effectiveness_hits.joblib",
+    "physical_effectiveness_faceoff_wins.joblib"
+  ],
+  "files": [
+    {
+      "filename": "availability.joblib",
+      "sha256": "e9f5bf2b94c9f89b93f8485e7a8b83d9fed5792ccbfc088e90ffb88d775ff25a"
+    },
+    {
+      "filename": "opportunity.joblib",
+      "sha256": "1192da5976de104cdd1e66b0dd8956f74a04f6ca8a2c1aa60dfa25e8ffbc41ec"
+    },
+    {
+      "filename": "effectiveness_takeaways.joblib",
+      "sha256": "32aecd681c42f410c7ab5190b9af3f2edaee973444dcb2e5d9054b6ce518d72c"
+    },
+    {
+      "filename": "effectiveness_blocks.joblib",
+      "sha256": "84a93443554f3103347db8f4d7b10f734105692f8e62cccb45970ef644873688"
+    },
+    {
+      "filename": "effectiveness_hits.joblib",
+      "sha256": "52998f14ec48a7e493d2039b44884cb8ea7f21601f201d2c286337b963bac8a4"
+    },
+    {
+      "filename": "effectiveness_faceoff_wins.joblib",
+      "sha256": "25516f3f599327bb103bc3c033dd1beb0bb1cea86555573ce804ca7d79548cef"
+    },
+    {
+      "filename": "physical_role_compatibility.joblib",
+      "sha256": "c63b6dbde9d04372f5dca1e03ce3e01900a20e939d36c3713ae6271943181ff5"
+    },
+    {
+      "filename": "physical_effectiveness_takeaways.joblib",
+      "sha256": "6e54bc20fbb2bf162a2ff3a30ed1f6f2f63dec4026054dbd9fd3b7c457c739e2"
+    },
+    {
+      "filename": "physical_effectiveness_blocks.joblib",
+      "sha256": "8b5edf247b21c9eebaac1d67ef6306ab4737aab118f24f68ed491e70e3125278"
+    },
+    {
+      "filename": "physical_effectiveness_hits.joblib",
+      "sha256": "c1fecc42c1064140fa043aa8e64580008c2c664dbfe14b9aedb8b6da12a16bef"
+    },
+    {
+      "filename": "physical_effectiveness_faceoff_wins.joblib",
+      "sha256": "18b235a52bb4376f14cc4b0b215d712cd5ad404e1e9a5b6eba7c83fbd530c177"
+    },
+    {
+      "filename": "physical_archetypes.joblib",
+      "sha256": "0f16ed443a9d1537dc86ec899eac8e7d48c02ba9d6ad1721ce0ab585d5d9cce1"
+    },
+    {
+      "filename": "play_style_archetypes.joblib",
+      "sha256": "2a905ff419d6c77e5b68a73b4e6762632bfe1b73014e659ca3797a13904c4f89"
+    }
+  ],
+  "note": "Only these artifacts belong to this run; older files in a local model directory are not active."
+}

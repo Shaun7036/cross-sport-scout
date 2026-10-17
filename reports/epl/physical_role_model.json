@@ -1,0 +1,18 @@
+{
+  "status": "trained",
+  "features": [
+    "height_cm",
+    "weight_kg"
+  ],
+  "n_train": 337,
+  "n_test_unseen_players": 104,
+  "class_count": 4,
+  "unknown_role_athletes_excluded": 0,
+  "accuracy": 0.5,
+  "balanced_accuracy": 0.3743904726181545,
+  "majority_accuracy": 0.41346153846153844,
+  "majority_balanced_accuracy": 0.25,
+  "interpretation": "Role-label compatibility among observed elite athletes. No calibrated cross-sport success probability.",
+  "cohort": "First observed with sufficient body data, not necessarily league rookie; temporal first-observation cohorts.",
+  "physical_timing": "Archived listings or current source bios; see sport data card. Descriptive body-role association."
+}

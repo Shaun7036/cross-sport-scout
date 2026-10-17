@@ -1,0 +1,111 @@
+{
+  "sport": "epl",
+  "seasons_requested": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "season_rows": 4025,
+  "game_rows": 56272,
+  "unique_players": 1797,
+  "common_core_by_season": {
+    "2021": {
+      "rostered_players": 737,
+      "appearance_rows": 10485,
+      "unique_appearing_players": 537,
+      "minutes": 749468.0
+    },
+    "2022": {
+      "rostered_players": 778,
+      "appearance_rows": 11345,
+      "unique_appearing_players": 554,
+      "minutes": 749114.0
+    },
+    "2023": {
+      "rostered_players": 865,
+      "appearance_rows": 11384,
+      "unique_appearing_players": 570,
+      "minutes": 748630.0
+    },
+    "2024": {
+      "rostered_players": 804,
+      "appearance_rows": 11566,
+      "unique_appearing_players": 562,
+      "minutes": 748464.0
+    },
+    "2025": {
+      "rostered_players": 841,
+      "appearance_rows": 11498,
+      "unique_appearing_players": 537,
+      "minutes": 748715.0
+    }
+  },
+  "enhanced_2025_26": {
+    "raw_appearance_rows": 11492,
+    "duplicate_player_match_rows_removed": 0,
+    "appearance_rows": 11492,
+    "unique_matches": 380,
+    "unique_players": 537,
+    "metric_non_null_rows": {
+      "tackles": 11492,
+      "tackles_won": 11492,
+      "interceptions": 11492,
+      "recoveries": 11492,
+      "blocks": 11199
+    }
+  },
+  "stable_id_namespace": "fpl:<Fantasy Premier League player code>",
+  "stable_id_missing": 0,
+  "duplicate_player_seasons": 0,
+  "duplicate_player_games": 0,
+  "negative_value_counts": {
+    "opportunity_minutes": 0,
+    "tackles": 0,
+    "interceptions": 0,
+    "recoveries": 0,
+    "blocks": 0
+  },
+  "physical_profile_matches": 499,
+  "player_season_rows_with_height": 1439,
+  "physical_profile_match_methods": {
+    "exact_normalized_name": 464,
+    "team_constrained_fuzzy_name": 35
+  },
+  "possession_coverage_by_season": {
+    "2021": {
+      "tackles": 0,
+      "interceptions": 0,
+      "recoveries": 0,
+      "blocks": 0
+    },
+    "2022": {
+      "tackles": 0,
+      "interceptions": 0,
+      "recoveries": 0,
+      "blocks": 0
+    },
+    "2023": {
+      "tackles": 0,
+      "interceptions": 0,
+      "recoveries": 0,
+      "blocks": 0
+    },
+    "2024": {
+      "tackles": 0,
+      "interceptions": 0,
+      "recoveries": 0,
+      "blocks": 0
+    },
+    "2025": {
+      "tackles": 841,
+      "interceptions": 841,
+      "recoveries": 841,
+      "blocks": 819
+    }
+  },
+  "checks_passed": true,
+  "important_boundary": "Tackles/interceptions/recoveries/blocks are observed only in the enhanced 2025-26 source. Earlier seasons remain NA, not zero. Defensive_contributions_raw is a 2025-26-only FPL rule field.",
+  "physical_boundary": "ESPN height/weight are dated profile snapshots, not measurements taken in each historic season."
+}

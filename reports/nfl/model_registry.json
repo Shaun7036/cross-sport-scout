@@ -1,0 +1,82 @@
+{
+  "sport": "nfl",
+  "physical_effectiveness_files": [
+    "physical_effectiveness_sacks.joblib",
+    "physical_effectiveness_qb_hits.joblib",
+    "physical_effectiveness_interceptions.joblib",
+    "physical_effectiveness_forced_fumbles.joblib",
+    "physical_effectiveness_passes_defended.joblib",
+    "physical_effectiveness_negative_play_tackle_credits.joblib"
+  ],
+  "files": [
+    {
+      "filename": "availability.joblib",
+      "sha256": "c6b9255c4289ee4d8e93318a91947fce822a18c4dd90950c61c98719e13f5bae"
+    },
+    {
+      "filename": "opportunity.joblib",
+      "sha256": "d985c8c60c4ce156b2322be2de745fbfaf3aed2811d360a50d08e20a04a0ed72"
+    },
+    {
+      "filename": "effectiveness_sacks.joblib",
+      "sha256": "a10b9cd1d914143bcae967097304c0ad233a242e54b888b7b4320069cc411a93"
+    },
+    {
+      "filename": "effectiveness_qb_hits.joblib",
+      "sha256": "7daff68d082e6d7155bfab9e721abe4adb6e5b21ad00ed49da9bb9034feeee2a"
+    },
+    {
+      "filename": "effectiveness_interceptions.joblib",
+      "sha256": "f3f8662cb6cf3f0e9d831013196240e0ce02e00fc9b2ed0313cfd19fab43c85b"
+    },
+    {
+      "filename": "effectiveness_forced_fumbles.joblib",
+      "sha256": "f577501f76b9dd777927bdf7d9652bbc1de0260920929501babe05339ad0d2e3"
+    },
+    {
+      "filename": "effectiveness_passes_defended.joblib",
+      "sha256": "87b1a9ece9c32fa2f23a3ec7cd202a43861ffffab71b46049923fbdd317654c9"
+    },
+    {
+      "filename": "effectiveness_negative_play_tackle_credits.joblib",
+      "sha256": "42215b4f33883ad4687a89cd0f92d64cad75302586c6b3eda98dcb2d6d021428"
+    },
+    {
+      "filename": "physical_role_compatibility.joblib",
+      "sha256": "a2640d92825bda0fef2c97e95291b7350df862c43d4f41fa09936166a50393d7"
+    },
+    {
+      "filename": "physical_effectiveness_sacks.joblib",
+      "sha256": "55ae8a997167d4b84513f5096ffa7152917677ad197e376fb28d45795d5f9189"
+    },
+    {
+      "filename": "physical_effectiveness_qb_hits.joblib",
+      "sha256": "fbe616174fd9e6fc09a0410a6c317aa2288b0521ac3e24201dcb1f9c348583f8"
+    },
+    {
+      "filename": "physical_effectiveness_interceptions.joblib",
+      "sha256": "e39489e2e83a3d235b2acfa428a5a261dffec72fb784f939b66951eb751ac2df"
+    },
+    {
+      "filename": "physical_effectiveness_forced_fumbles.joblib",
+      "sha256": "1e4611d87d02f67a0a120a7291ec09f635d65614d3802ac5ef6440f585723af3"
+    },
+    {
+      "filename": "physical_effectiveness_passes_defended.joblib",
+      "sha256": "79a47bb75ea6d933b4abd1a0b6faf74d12809e4121d95971e4f4ec558e79dc08"
+    },
+    {
+      "filename": "physical_effectiveness_negative_play_tackle_credits.joblib",
+      "sha256": "3ffae0b7ca89ecde667bd6806bdc52b91a3fe43238f234cd1bc4dc3a4df784e5"
+    },
+    {
+      "filename": "physical_archetypes.joblib",
+      "sha256": "766a217cce2cd183dfe88f9f5feb9d5363d992b51826431d512e6b6f43ecc3c7"
+    },
+    {
+      "filename": "play_style_archetypes.joblib",
+      "sha256": "4b8bf8e2fd868ab967554997d9a8014728ab745edb1bb2be7fac813c89f337f3"
+    }
+  ],
+  "note": "Only these artifacts belong to this run; older files in a local model directory are not active."
+}

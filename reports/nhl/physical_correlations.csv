@@ -1,0 +1,13 @@
+metric,physical_attribute,player_seasons,within_role_season_spearman,note
+takeaways,height_cm,3952,-0.013772721502240223,Descriptive repeated player-seasons; no causal or independent-sample inference.
+takeaways,weight_kg,3952,-0.06400082411869645,Descriptive repeated player-seasons; no causal or independent-sample inference.
+takeaways,age,3952,0.0012965588204781144,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,height_cm,3952,0.13994196998893899,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,weight_kg,3952,0.16779057007271142,Descriptive repeated player-seasons; no causal or independent-sample inference.
+blocks,age,3952,0.08026702479350739,Descriptive repeated player-seasons; no causal or independent-sample inference.
+hits,height_cm,3952,0.2344060494095775,Descriptive repeated player-seasons; no causal or independent-sample inference.
+hits,weight_kg,3952,0.3111139133920172,Descriptive repeated player-seasons; no causal or independent-sample inference.
+hits,age,3952,0.007804916044747081,Descriptive repeated player-seasons; no causal or independent-sample inference.
+faceoff_wins,height_cm,3952,0.12099425564839542,Descriptive repeated player-seasons; no causal or independent-sample inference.
+faceoff_wins,weight_kg,3952,0.1408974738593907,Descriptive repeated player-seasons; no causal or independent-sample inference.
+faceoff_wins,age,3952,0.14326053097342983,Descriptive repeated player-seasons; no causal or independent-sample inference.

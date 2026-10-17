@@ -1,0 +1,149 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<title>EPL — Possession Lab</title>
+<style>body{font:16px/1.55 system-ui;margin:40px auto;max-width:1100px;padding:0 24px;color:#17303b}
+h1,h2{line-height:1.15}img{width:100%;height:auto}table{border-collapse:collapse;font-size:12px}
+td,th{padding:7px;border-bottom:1px solid #ddd;text-align:right}.table{overflow:auto}
+.note{background:#edf4f7;padding:16px}a{color:#155e83}</style>
+<h1>EPL research baseline</h1>
+<p>4,025 player-season rows · 1,797 athletes · [2021, 2022, 2023, 2024, 2025]</p>
+<p class="note">Role-specific event evidence, data coverage and uncertainty govern interpretation.
+Physical role similarity does not establish cross-sport success.</p>
+<h2>Data coverage</h2><img src="figures/coverage.png" alt="Coverage and missingness">
+<h2>Body profiles and opportunity</h2><img src="figures/physical_opportunity.png" alt="Body profiles">
+<h2>Within-role physical associations</h2><img src="figures/physical_association.png" alt="Descriptive physical correlations">
+<h2>Temporal model evaluation</h2><p>2024 selects the model; 2025 evaluates it.
+Forecasts exclude current physical listings. Baselines are retained when they perform better on validation.</p>
+<div class="table"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>task</th>
+      <th>target</th>
+      <th>fold</th>
+      <th>model</th>
+      <th>selected_on_validation</th>
+      <th>n</th>
+      <th>brier</th>
+      <th>average_precision</th>
+      <th>mae</th>
+      <th>rmse</th>
+      <th>spearman</th>
+      <th>r2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>availability</td>
+      <td>any_opportunity</td>
+      <td>validation</td>
+      <td>prevalence</td>
+      <td>False</td>
+      <td>865</td>
+      <td>0.249</td>
+      <td>0.447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>availability</td>
+      <td>any_opportunity</td>
+      <td>validation</td>
+      <td>logistic</td>
+      <td>True</td>
+      <td>865</td>
+      <td>0.126</td>
+      <td>0.867</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>availability</td>
+      <td>any_opportunity</td>
+      <td>test</td>
+      <td>prevalence</td>
+      <td>False</td>
+      <td>804</td>
+      <td>0.249</td>
+      <td>0.465</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>availability</td>
+      <td>any_opportunity</td>
+      <td>test</td>
+      <td>logistic</td>
+      <td>True</td>
+      <td>804</td>
+      <td>0.221</td>
+      <td>0.757</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>opportunity</td>
+      <td>opportunity</td>
+      <td>validation</td>
+      <td>persistence</td>
+      <td>False</td>
+      <td>865</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>513.252</td>
+      <td>850.248</td>
+      <td>0.673</td>
+      <td>0.327</td>
+    </tr>
+    <tr>
+      <td>opportunity</td>
+      <td>opportunity</td>
+      <td>validation</td>
+      <td>hurdle_ridge</td>
+      <td>True</td>
+      <td>865</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>452.225</td>
+      <td>747.435</td>
+      <td>0.735</td>
+      <td>0.480</td>
+    </tr>
+    <tr>
+      <td>opportunity</td>
+      <td>opportunity</td>
+      <td>test</td>
+      <td>persistence</td>
+      <td>False</td>
+      <td>804</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>538.767</td>
+      <td>899.921</td>
+      <td>0.641</td>
+      <td>0.243</td>
+    </tr>
+    <tr>
+      <td>opportunity</td>
+      <td>opportunity</td>
+      <td>test</td>
+      <td>hurdle_ridge</td>
+      <td>True</td>
+      <td>804</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>576.252</td>
+      <td>821.762</td>
+      <td>0.635</td>
+      <td>0.369</td>
+    </tr>
+  </tbody>
+</table></div><h2>Limitations</h2><ul>
+<li>The five-season FPL common core has no tackles, interceptions, recoveries, or blocks before 2025-26.</li><li>The enhanced 2025-26 match archive publishes detailed events but no explicit open-data license.</li><li>Public events do not measure pressures, pressing attempts, forced turnovers, or possession-adjusted opportunities.</li><li>FPL role buckets do not separate center backs, fullbacks, holding midfielders, wingers, or pressing forwards.</li><li>ESPN height/weight are post-season profile snapshots and must not be interpreted as annual measurements.</li><li>Wingspan, arm length, and leg length are unavailable at league scale and remain missing.</li></ul>
+<p><a href="report.md">Detailed report</a> · <a href="summary.json">Machine-readable results</a></p></html>

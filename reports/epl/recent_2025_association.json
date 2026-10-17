@@ -1,0 +1,79 @@
+{
+  "status": "trained",
+  "scope": "retrospective within-2025-26 association; not a next-season forecast",
+  "season": 2025,
+  "target_unit": "events per 90 minutes",
+  "minimum_minutes": 450,
+  "eligible_players": 400,
+  "n_train_players": 300,
+  "n_test_players": 100,
+  "player_overlap": 0,
+  "features": [
+    "role",
+    "height_cm",
+    "weight_kg",
+    "age"
+  ],
+  "same_season_event_predictors_used": false,
+  "profile_caveat": "Height/weight are dated ESPN profile snapshots and may postdate the playing season; missing values are median-imputed with indicators.",
+  "feature_coverage": {
+    "height_cm": 0.7775,
+    "weight_kg": 0.7775,
+    "age": 1.0
+  },
+  "baseline": "training-fold role mean for the same per-90 target",
+  "targets": {
+    "tackles": {
+      "status": "trained",
+      "n_train": 300,
+      "n_test": 100,
+      "target": "tackles_per_90_minutes",
+      "ridge_alpha": 0.1,
+      "model_mae": 0.5689548335498396,
+      "role_mean_baseline_mae": 0.5626943893646044,
+      "mae_improvement_vs_role_mean_pct": -1.112583367377183,
+      "model_rmse": 0.7543715580910825,
+      "model_r2": 0.3957299742403215,
+      "model_spearman": 0.5180634422800378
+    },
+    "interceptions": {
+      "status": "trained",
+      "n_train": 300,
+      "n_test": 100,
+      "target": "interceptions_per_90_minutes",
+      "ridge_alpha": 0.1,
+      "model_mae": 0.2865881504979555,
+      "role_mean_baseline_mae": 0.29068563544184556,
+      "mae_improvement_vs_role_mean_pct": 1.4095931977037106,
+      "model_rmse": 0.3673119196688628,
+      "model_r2": 0.4736152583348583,
+      "model_spearman": 0.7117501193364947
+    },
+    "recoveries": {
+      "status": "trained",
+      "n_train": 300,
+      "n_test": 100,
+      "target": "recoveries_per_90_minutes",
+      "ridge_alpha": 0.1,
+      "model_mae": 0.772072007345475,
+      "role_mean_baseline_mae": 0.7676250872409571,
+      "mae_improvement_vs_role_mean_pct": -0.5793088551210903,
+      "model_rmse": 0.9788927592954537,
+      "model_r2": 0.6471330380364153,
+      "model_spearman": 0.6048846351768024
+    },
+    "blocks": {
+      "status": "trained",
+      "n_train": 299,
+      "n_test": 97,
+      "target": "blocks_per_90_minutes",
+      "ridge_alpha": 0.1,
+      "model_mae": 0.1542075559185023,
+      "role_mean_baseline_mae": 0.17051294551209908,
+      "mae_improvement_vs_role_mean_pct": 9.56255230042918,
+      "model_rmse": 0.2010430366308244,
+      "model_r2": 0.4013915779885201,
+      "model_spearman": 0.7074039901793886
+    }
+  }
+}
