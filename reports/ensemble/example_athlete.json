@@ -1,0 +1,2686 @@
+{
+  "schema": "possession_lab.cross_sport_efficacy_score",
+  "version": "efficacy-ensemble-v1",
+  "interpretation": "Role-relative estimate of possession/disruption efficacy associated with height and mass among observed elite athletes. It is not a probability of making a roster, overall defensive quality, or evidence that an athlete can transfer successfully between sports.",
+  "sport_selection": "Highest supported in-domain role estimate; this maximum has no separate sport-level calibration and is not a validated cross-sport ranking.",
+  "measurement_timing": "Reference height/weight are often undated/current snapshots; this is descriptive association, not a historical or preseason forecast.",
+  "interval_interpretation": "Provisional 90% individual activity-target prediction interval, not a confidence interval on the mean or a success probability; not simultaneous across roles.",
+  "trained_at": "2026-10-17T23:56:18.921499+00:00",
+  "features_used": {
+    "height_cm": 188.0,
+    "weight_kg": 95.0
+  },
+  "features_unused": {
+    "age": {
+      "value": 25.0,
+      "reason": "recorded for provenance but unused by the v1 height/mass ensemble"
+    },
+    "bmi": {
+      "value": 26.87867813490267,
+      "reason": "derived for provenance but excluded to avoid duplicating height and mass"
+    },
+    "wingspan_cm": {
+      "value": 197.0,
+      "reason": "recognized measurement without consistent cross-sport training coverage in v1"
+    },
+    "arm_length_cm": {
+      "value": 82.0,
+      "reason": "recognized measurement without consistent cross-sport training coverage in v1"
+    },
+    "leg_length_cm": {
+      "value": 98.0,
+      "reason": "recognized measurement without consistent cross-sport training coverage in v1"
+    }
+  },
+  "warnings": [
+    "Age was recorded but is not used by the v1 efficacy ensemble.",
+    "Recognized measurements not used by v1: arm_length_cm, leg_length_cm, wingspan_cm.",
+    "epl:DEF: profile is outside the observed height/weight bounds and beyond the 99% body-profile distance threshold; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "epl:DEF: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "epl:DEF: nominal 90% interval covered only 52.4% of test athletes. Treat the displayed interval as poorly calibrated.",
+    "epl:MID: profile is beyond the 99% body-profile distance threshold; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "epl:MID: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nba:center: profile is outside the observed height/weight bounds and beyond the 99% body-profile distance threshold; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "nba:center: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nba:center: Fewer than 15 independent test athletes.",
+    "nba:center: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nba:forward: profile is outside the observed height/weight bounds; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "nba:forward: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nba:guard: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nba:guard: Nested athlete-heldout CV did not improve MSE by more than 1%.",
+    "nba:guard: Nested CV did not show positive rank association.",
+    "nba:guard: Frozen test MSE did not improve over neutral 50.",
+    "nba:guard: Frozen test did not show positive rank association.",
+    "nba:guard: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:CB: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nfl:CB: Frozen test did not show positive rank association.",
+    "nfl:CB: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:EDGE: profile is outside the observed height/weight bounds and beyond the 99% body-profile distance threshold; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "nfl:EDGE: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nfl:EDGE: Frozen test MSE did not improve over neutral 50.",
+    "nfl:EDGE: Fewer than 15 independent test athletes.",
+    "nfl:EDGE: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:EDGE: nominal 90% interval covered only 75.0% of test athletes. Treat the displayed interval as poorly calibrated.",
+    "nfl:IDL: profile is outside the observed height/weight bounds and beyond the 99% body-profile distance threshold; the estimate is an unsupported extrapolation and the primary efficacy rating is withheld.",
+    "nfl:IDL: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nfl:IDL: Frozen test MSE did not improve over neutral 50.",
+    "nfl:IDL: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:LB: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nfl:LB: Nested athlete-heldout CV did not improve MSE by more than 1%.",
+    "nfl:LB: Nested CV did not show positive rank association.",
+    "nfl:LB: Frozen test MSE did not improve over neutral 50.",
+    "nfl:LB: Frozen test did not show positive rank association.",
+    "nfl:LB: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:OLB_HYBRID: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:S: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nfl:S: Nested athlete-heldout CV did not improve MSE by more than 1%.",
+    "nfl:S: Nested CV did not show positive rank association.",
+    "nfl:S: Frozen test MSE did not improve over neutral 50.",
+    "nfl:S: Frozen test did not show positive rank association.",
+    "nfl:S: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nfl:S: nominal 90% interval covered only 77.8% of test athletes. Treat the displayed interval as poorly calibrated.",
+    "nhl:center: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nhl:defense: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nhl:defense: Frozen test MSE did not improve over neutral 50.",
+    "nhl:defense: bootstrap 95% improvement interval includes zero; efficacy is not statistically established.",
+    "nhl:wing: predictive-evidence or independent-sample checks failed; the primary efficacy rating is withheld.",
+    "nhl:wing: Nested athlete-heldout CV did not improve MSE by more than 1%.",
+    "nhl:wing: Frozen test MSE did not improve over neutral 50.",
+    "nhl:wing: Frozen test did not show positive rank association.",
+    "nhl:wing: bootstrap 95% improvement interval includes zero; efficacy is not statistically established."
+  ],
+  "sports": {
+    "epl": {
+      "best_role": null,
+      "efficacy_rating": null,
+      "status": "no_evidence_supported_in_domain_role",
+      "roles": [
+        {
+          "role": "DEF",
+          "status": "evidence_supported",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 34.394213885076816,
+          "interval": [
+            3.31762622802988,
+            65.47080154212375
+          ],
+          "calibration_radius": 31.076587657046936,
+          "interval_is_unbounded": false,
+          "stack_estimate": 34.394213885076816,
+          "physical_fit": 0.0,
+          "mahalanobis_distance_squared": 10.722183251453849,
+          "out_of_domain": true,
+          "outside_training_bounds": true,
+          "beyond_distance_threshold": true,
+          "training_bounds": {
+            "height_cm": [
+              170.18,
+              200.66
+            ],
+            "weight_kg": [
+              63.04933943,
+              93.89362059
+            ]
+          },
+          "archetype": {
+            "prediction": 38.76272451191943,
+            "nearest_archetype": 1,
+            "nearest_center_distance": 1.6051401295495702,
+            "nearest_center": {
+              "height_cm": 191.98166666666665,
+              "weight_kg": 84.87847223625
+            },
+            "probabilities": {
+              "0": 0.0004045727203016368,
+              "1": 0.9995954266096886,
+              "2": 6.700097098421738e-10
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.0004045727203016368,
+                "support": 33.0,
+                "training_rows": 33,
+                "outcome_mean": 55.42452830188681
+              },
+              {
+                "archetype": 1,
+                "probability": 0.9995954266096886,
+                "support": 24.0,
+                "training_rows": 24,
+                "outcome_mean": 38.75598086124402
+              },
+              {
+                "archetype": 2,
+                "probability": 6.700097098421738e-10,
+                "support": 19.0,
+                "training_rows": 19,
+                "outcome_mean": 55.31376518218625
+              }
+            ],
+            "effective_support": 24.019428452456793,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 1.53896922045972e-16,
+            "archetype": 0.4790935067381046,
+            "ridge": 9.119239653356217e-17,
+            "hist_gradient_boosting": 0.5209064932618951,
+            "extra_trees": 3.6774360466891136e-18,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 38.76272451191943,
+            "ridge": 30.99196880091248,
+            "hist_gradient_boosting": 30.37636211607526,
+            "extra_trees": 43.10849479628037,
+            "shared": 45.08454168581335
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 76,
+            "calibration_athletes": 20,
+            "test_athletes": 21,
+            "evaluation": "same_season_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 21,
+              "n_athletes": 21,
+              "mae": 24.791296133304357,
+              "rmse": 28.549661881673295,
+              "r2": 0.15938840583608105,
+              "spearman": 0.533961679157168,
+              "baseline_mae": 26.065162907268192,
+              "baseline_rmse": 31.272004520328277,
+              "relative_mse_improvement": 0.16652899135225863,
+              "top_quartile_ap": 0.6,
+              "top_quartile_base_rate": 0.2857142857142857,
+              "precision_at_top_quartile": 0.5,
+              "interval_90_empirical_coverage": 0.5238095238095238,
+              "interval_90_mean_width": 62.15317531409388
+            },
+            "evidence_grade": "provisional_point_gate_passed",
+            "nested_cv": {
+              "n_rows": 76,
+              "n_athletes": 76,
+              "mae": 23.376868833734605,
+              "rmse": 27.462131988093763,
+              "r2": 0.1113111684158099,
+              "spearman": 0.3727982705634943,
+              "baseline_mae": 25.114400584795323,
+              "baseline_rmse": 29.13166037569221,
+              "relative_mse_improvement": 0.1113351064296294,
+              "top_quartile_ap": 0.35777923774442766,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.4
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.151486845129909,
+              "lower95": -0.07605569551175978,
+              "upper95": 0.34512596466190687
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.876748013840864,
+              "mean_absolute_percentile_change": 11.560150375939864
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [],
+            "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable.",
+            "reference_seasons": [
+              "2025"
+            ],
+            "target_definition": {
+              "role": "DEF",
+              "sport": "epl",
+              "domains": {
+                "ball_recovery": {
+                  "weight": 0.35,
+                  "metrics": {
+                    "recoveries": 1.0
+                  }
+                },
+                "tackle_wins": {
+                  "weight": 0.35,
+                  "metrics": {
+                    "tackles_won": 1.0
+                  }
+                },
+                "interceptions": {
+                  "weight": 0.2,
+                  "metrics": {
+                    "interceptions": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 450,
+              "shrinkage_prior_exposure": 927.75,
+              "reference_athletes": 76,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "FWD",
+          "status": "insufficient_support",
+          "score_label": "unsupported: no fitted efficacy model",
+          "efficacy_rating": null,
+          "experimental_estimate": null,
+          "interval": null,
+          "physical_fit": null,
+          "mahalanobis_distance_squared": null,
+          "out_of_domain": null,
+          "archetype": null,
+          "expert_weights": null,
+          "explanation": "This role did not have enough eligible athlete evidence to fit and evaluate a model; no estimate was generated.",
+          "evidence": {
+            "train_athletes": 19
+          }
+        },
+        {
+          "role": "MID",
+          "status": "evidence_supported",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 61.46128789788088,
+          "interval": [
+            17.006790519351732,
+            100.0
+          ],
+          "calibration_radius": 44.45449737852915,
+          "interval_is_unbounded": false,
+          "stack_estimate": 61.46128789788088,
+          "physical_fit": 1.2499999999999956,
+          "mahalanobis_distance_squared": 11.439268597517172,
+          "out_of_domain": true,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": true,
+          "training_bounds": {
+            "height_cm": [
+              170.18,
+              195.58
+            ],
+            "weight_kg": [
+              58.05982336,
+              96.16158244
+            ]
+          },
+          "archetype": {
+            "prediction": 55.96342308987863,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 2.026288798266763,
+            "nearest_center": {
+              "height_cm": 188.43625,
+              "weight_kg": 81.561578030625
+            },
+            "probabilities": {
+              "0": 3.882883200890967e-10,
+              "1": 0.0010658020097462262,
+              "2": 0.9989341976019653
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 3.882883200890967e-10,
+                "support": 32.0,
+                "training_rows": 32,
+                "outcome_mean": 48.14903846153844
+              },
+              {
+                "archetype": 1,
+                "probability": 0.0010658020097462262,
+                "support": 32.0,
+                "training_rows": 32,
+                "outcome_mean": 47.71634615384612
+              },
+              {
+                "archetype": 2,
+                "probability": 0.9989341976019653,
+                "support": 16.0,
+                "training_rows": 16,
+                "outcome_mean": 55.97222222222218
+              }
+            ],
+            "effective_support": 16.034151152880753,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.0,
+            "archetype": 2.5922853335887014e-18,
+            "ridge": 0.14336822068668093,
+            "hist_gradient_boosting": 0.856631779313319,
+            "extra_trees": 2.5763090866492e-18,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 55.96342308987863,
+            "ridge": 55.01869177454119,
+            "hist_gradient_boosting": 62.53953827933012,
+            "extra_trees": 54.24318322244702,
+            "shared": 46.02280874187709
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 80,
+            "calibration_athletes": 29,
+            "test_athletes": 33,
+            "evaluation": "same_season_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 33,
+              "n_athletes": 33,
+              "mae": 26.378729271577047,
+              "rmse": 29.645020886566005,
+              "r2": 0.08110213973104496,
+              "spearman": 0.31006198453000045,
+              "baseline_mae": 28.712121212121172,
+              "baseline_rmse": 31.048974632950003,
+              "relative_mse_improvement": 0.08839017694715356,
+              "top_quartile_ap": 0.5682740303566562,
+              "top_quartile_base_rate": 0.2727272727272727,
+              "precision_at_top_quartile": 0.4444444444444444,
+              "interval_90_empirical_coverage": 0.8787878787878788,
+              "interval_90_mean_width": 86.31607873547638
+            },
+            "evidence_grade": "provisional_point_gate_passed",
+            "nested_cv": {
+              "n_rows": 80,
+              "n_athletes": 80,
+              "mae": 24.516705853610468,
+              "rmse": 28.684131642906447,
+              "r2": 0.046522217254178266,
+              "spearman": 0.23132425636931747,
+              "baseline_mae": 25.25783730158731,
+              "baseline_rmse": 29.3757049109322,
+              "relative_mse_improvement": 0.046530467164541234,
+              "top_quartile_ap": 0.3719226877361272,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.4
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.0898776085164013,
+              "lower95": -0.08079740988029725,
+              "upper95": 0.2607536745609705
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9887781627504106,
+              "mean_absolute_percentile_change": 2.0075757575757565
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2025"
+            ],
+            "target_definition": {
+              "role": "MID",
+              "sport": "epl",
+              "domains": {
+                "ball_recovery": {
+                  "weight": 0.4,
+                  "metrics": {
+                    "recoveries": 1.0
+                  }
+                },
+                "tackle_wins": {
+                  "weight": 0.35,
+                  "metrics": {
+                    "tackles_won": 1.0
+                  }
+                },
+                "interceptions": {
+                  "weight": 0.25,
+                  "metrics": {
+                    "interceptions": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 450,
+              "shrinkage_prior_exposure": 903.5,
+              "reference_athletes": 80,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        }
+      ]
+    },
+    "nba": {
+      "best_role": null,
+      "efficacy_rating": null,
+      "status": "no_evidence_supported_in_domain_role",
+      "roles": [
+        {
+          "role": "center",
+          "status": "no_evidence",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 12.117879196910488,
+          "interval": [
+            0.0,
+            62.12913415273353
+          ],
+          "calibration_radius": 50.01125495582304,
+          "interval_is_unbounded": false,
+          "stack_estimate": 12.117879196910488,
+          "physical_fit": 0.0,
+          "mahalanobis_distance_squared": 31.706548285394618,
+          "out_of_domain": true,
+          "outside_training_bounds": true,
+          "beyond_distance_threshold": true,
+          "training_bounds": {
+            "height_cm": [
+              200.66,
+              223.52
+            ],
+            "weight_kg": [
+              92.98643585,
+              131.5417873
+            ]
+          },
+          "archetype": {
+            "prediction": 40.202870752084166,
+            "nearest_archetype": 0,
+            "nearest_center_distance": 4.685615877714142,
+            "nearest_center": {
+              "height_cm": 206.13076923076923,
+              "weight_kg": 111.82796506538462
+            },
+            "probabilities": {
+              "0": 0.9999997997898961,
+              "1": 1.9791183154833816e-07,
+              "2": 2.298272486326533e-09
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.9999997997898961,
+                "support": 74.33802816901407,
+                "training_rows": 72,
+                "outcome_mean": 40.2028685319377
+              },
+              {
+                "archetype": 1,
+                "probability": 1.9791183154833816e-07,
+                "support": 80.056338028169,
+                "training_rows": 82,
+                "outcome_mean": 51.182797462284896
+              },
+              {
+                "archetype": 2,
+                "probability": 2.298272486326533e-09,
+                "support": 48.60563380281688,
+                "training_rows": 49,
+                "outcome_mean": 60.69156864399523
+              }
+            ],
+            "effective_support": 74.338057935469,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.0,
+            "archetype": 1.1360297855758998e-17,
+            "ridge": 0.6456949381389763,
+            "hist_gradient_boosting": 0.35430506186102384,
+            "extra_trees": 0.0,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 40.202870752084166,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 34.20182351688705,
+            "extra_trees": 38.04131138567942,
+            "shared": 33.08390013475959
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 71,
+            "calibration_athletes": 10,
+            "test_athletes": 10,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 10,
+              "n_athletes": 10,
+              "mae": 35.12608062625943,
+              "rmse": 37.44353718916539,
+              "r2": 0.028687330928781396,
+              "spearman": 0.1406787033217016,
+              "baseline_mae": 36.58536585365856,
+              "baseline_rmse": 38.08706641627185,
+              "relative_mse_improvement": 0.03350704931949766,
+              "top_quartile_ap": 0.5694444444444444,
+              "top_quartile_base_rate": 0.3,
+              "precision_at_top_quartile": 0.3333333333333333,
+              "interval_90_empirical_coverage": 0.9,
+              "interval_90_mean_width": 92.54555412747455
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 203,
+              "n_athletes": 71,
+              "mae": 24.156097874485518,
+              "rmse": 28.418514919937525,
+              "r2": 0.13691678207982338,
+              "spearman": 0.35449624540974767,
+              "baseline_mae": 26.314938717448715,
+              "baseline_rmse": 30.59010038687674,
+              "relative_mse_improvement": 0.13694007007067943,
+              "top_quartile_ap": 0.49676236734713797,
+              "top_quartile_base_rate": 0.2715962441314554,
+              "precision_at_top_quartile": 0.46140350877192987
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.04057272224215054,
+              "lower95": -0.22648346306043432,
+              "upper95": 0.275744888292216
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9570732259820033,
+              "mean_absolute_percentile_change": 9.268292682926834
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Fewer than 15 independent test athletes."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "center",
+              "sport": "nba",
+              "domains": {
+                "possession_recovery": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "steals": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.45,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                },
+                "defensive_recovery": {
+                  "weight": 0.4,
+                  "metrics": {
+                    "defensive_rebounds": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 604.5,
+              "reference_athletes": 41,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "forward",
+          "status": "evidence_supported",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 36.379145851194345,
+          "interval": [
+            0.0,
+            86.91460494374192
+          ],
+          "calibration_radius": 50.535459092547576,
+          "interval_is_unbounded": false,
+          "stack_estimate": 36.379145851194345,
+          "physical_fit": 1.7857142857142905,
+          "mahalanobis_distance_squared": 8.768051180437391,
+          "out_of_domain": true,
+          "outside_training_bounds": true,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              193.04,
+              223.52
+            ],
+            "weight_kg": [
+              83.91458845000001,
+              122.4699399
+            ]
+          },
+          "archetype": {
+            "prediction": 46.837419204585075,
+            "nearest_archetype": 0,
+            "nearest_center_distance": 2.6083469863614517,
+            "nearest_center": {
+              "height_cm": 199.1441935483871,
+              "weight_kg": 104.31161308806452
+            },
+            "probabilities": {
+              "0": 0.7509965532496004,
+              "1": 4.15786850612467e-08,
+              "2": 0.24900340517171474
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.7509965532496004,
+                "support": 180.83333333333357,
+                "training_rows": 194,
+                "outcome_mean": 44.8463157231548
+              },
+              {
+                "archetype": 1,
+                "probability": 4.15786850612467e-08,
+                "support": 125.41666666666661,
+                "training_rows": 124,
+                "outcome_mean": 62.998607596850164
+              },
+              {
+                "archetype": 2,
+                "probability": 0.24900340517171474,
+                "support": 183.75000000000026,
+                "training_rows": 172,
+                "outcome_mean": 52.84260286352047
+              }
+            ],
+            "effective_support": 289.32669085289166,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 2.241738440340458e-17,
+            "archetype": 0.17598691062742414,
+            "ridge": 0.4778896600414424,
+            "hist_gradient_boosting": 0.3461234293311335,
+            "extra_trees": 4.137690235235759e-17,
+            "shared": 3.604740419210931e-18
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 46.837419204585075,
+            "ridge": 24.555533228650916,
+            "hist_gradient_boosting": 47.38638395134553,
+            "extra_trees": 46.487610162944385,
+            "shared": 39.57798903228236
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 168,
+            "calibration_athletes": 27,
+            "test_athletes": 36,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 36,
+              "n_athletes": 36,
+              "mae": 25.286727858670663,
+              "rmse": 28.555198342327007,
+              "r2": 0.011890291332295688,
+              "spearman": 0.241383837787908,
+              "baseline_mae": 26.091269841269863,
+              "baseline_rmse": 28.74942027394997,
+              "relative_mse_improvement": 0.013465724108981836,
+              "top_quartile_ap": 0.345943151498707,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.3333333333333333,
+              "interval_90_empirical_coverage": 1.0,
+              "interval_90_mean_width": 92.13175805271504
+            },
+            "evidence_grade": "provisional_point_gate_passed",
+            "nested_cv": {
+              "n_rows": 490,
+              "n_athletes": 168,
+              "mae": 23.372179690564,
+              "rmse": 27.40889254704854,
+              "r2": 0.10668889377109836,
+              "spearman": 0.3300092541644721,
+              "baseline_mae": 25.351497569784048,
+              "baseline_rmse": 29.111314425252726,
+              "relative_mse_improvement": 0.11353958575037515,
+              "top_quartile_ap": 0.40542946278668773,
+              "top_quartile_base_rate": 0.25496031746031744,
+              "precision_at_top_quartile": 0.3465116279069767
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.010310663754263441,
+              "lower95": -0.20215448064267624,
+              "upper95": 0.20022337575717752
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9850399875571555,
+              "mean_absolute_percentile_change": 3.075396825396828
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "forward",
+              "sport": "nba",
+              "domains": {
+                "possession_recovery": {
+                  "weight": 0.4,
+                  "metrics": {
+                    "steals": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.3,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                },
+                "defensive_recovery": {
+                  "weight": 0.3,
+                  "metrics": {
+                    "defensive_rebounds": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 609.25,
+              "reference_athletes": 98,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "guard",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 50.0,
+          "interval": [
+            6.896551724137936,
+            93.10344827586206
+          ],
+          "calibration_radius": 43.103448275862064,
+          "interval_is_unbounded": false,
+          "stack_estimate": 51.37778559631487,
+          "physical_fit": 25.945945945945947,
+          "mahalanobis_distance_squared": 2.201648893417779,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              175.26,
+              205.74
+            ],
+            "weight_kg": [
+              72.57477920000001,
+              113.3980925
+            ]
+          },
+          "archetype": {
+            "prediction": 48.64310113356672,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 1.2251222788170335,
+            "nearest_center": {
+              "height_cm": 194.82179104477612,
+              "weight_kg": 96.68964519910449
+            },
+            "probabilities": {
+              "0": 0.007748242230093434,
+              "1": 0.3104754217854613,
+              "2": 0.6817763359844453
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.007748242230093434,
+                "support": 105.78378378378368,
+                "training_rows": 106,
+                "outcome_mean": 53.99231318948376
+              },
+              {
+                "archetype": 1,
+                "probability": 0.3104754217854613,
+                "support": 222.70270270270242,
+                "training_rows": 225,
+                "outcome_mean": 48.92152383768803
+              },
+              {
+                "archetype": 2,
+                "probability": 0.6817763359844453,
+                "support": 186.5135135135134,
+                "training_rows": 184,
+                "outcome_mean": 48.455517038173575
+              }
+            ],
+            "effective_support": 341.8154319764751,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.0,
+            "archetype": 6.299763307470273e-20,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 0.07675764613712736,
+            "extra_trees": 0.7565822194323092,
+            "shared": 0.16666013443056354
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 48.64310113356672,
+            "ridge": 47.91919396508233,
+            "hist_gradient_boosting": 56.53341275916891,
+            "extra_trees": 52.40636374845754,
+            "shared": 44.33388304217345
+          },
+          "selected_method": "baseline",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 185,
+            "calibration_athletes": 48,
+            "test_athletes": 48,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 48,
+              "n_athletes": 48,
+              "mae": 24.26364942528733,
+              "rmse": 27.19932325797161,
+              "r2": -0.10408648673628473,
+              "spearman": null,
+              "baseline_mae": 24.26364942528733,
+              "baseline_rmse": 27.19932325797161,
+              "relative_mse_improvement": 0.0,
+              "top_quartile_ap": 0.25,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.25,
+              "interval_90_empirical_coverage": 0.9375,
+              "interval_90_mean_width": 86.20689655172413
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 515,
+              "n_athletes": 185,
+              "mae": 24.57412480214756,
+              "rmse": 28.38945170035299,
+              "r2": -0.0027176380204649853,
+              "spearman": -0.04367545477119557,
+              "baseline_mae": 24.59788864014664,
+              "baseline_rmse": 28.35195907646388,
+              "relative_mse_improvement": -0.0026465482618924785,
+              "top_quartile_ap": 0.28309528733822703,
+              "top_quartile_base_rate": 0.25684684684684683,
+              "precision_at_top_quartile": 0.2819148936170212
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.0,
+              "lower95": 0.0,
+              "upper95": 0.0
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9269645712481249,
+              "mean_absolute_percentile_change": 7.579022988505739
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+              "Nested CV did not show positive rank association.",
+              "Frozen test MSE did not improve over neutral 50.",
+              "Frozen test did not show positive rank association."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "guard",
+              "sport": "nba",
+              "domains": {
+                "possession_recovery": {
+                  "weight": 0.55,
+                  "metrics": {
+                    "steals": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                },
+                "defensive_recovery": {
+                  "weight": 0.3,
+                  "metrics": {
+                    "defensive_rebounds": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 678.25,
+              "reference_athletes": 116,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        }
+      ]
+    },
+    "nfl": {
+      "best_role": "OLB_HYBRID",
+      "efficacy_rating": 31.883494581348632,
+      "status": "scored",
+      "roles": [
+        {
+          "role": "OLB_HYBRID",
+          "status": "evidence_supported",
+          "score_label": "provisional role-relative estimate",
+          "efficacy_rating": 31.883494581348632,
+          "experimental_estimate": 31.883494581348632,
+          "interval": [
+            0.0,
+            84.91000282310063
+          ],
+          "calibration_radius": 53.026508241752,
+          "interval_is_unbounded": false,
+          "stack_estimate": 31.883494581348632,
+          "physical_fit": 4.1666666666666625,
+          "mahalanobis_distance_squared": 6.004403866910968,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              180.34,
+              200.66
+            ],
+            "weight_kg": [
+              94.80080533,
+              131.5417873
+            ]
+          },
+          "archetype": {
+            "prediction": 32.53142649490052,
+            "nearest_archetype": 1,
+            "nearest_center_distance": 1.2243006212408043,
+            "nearest_center": {
+              "height_cm": 185.6978125,
+              "weight_kg": 103.3481865521875
+            },
+            "probabilities": {
+              "0": 6.711605729180446e-07,
+              "1": 0.9922577507574167,
+              "2": 0.007741578082010327
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 6.711605729180446e-07,
+                "support": 87.66666666666656,
+                "training_rows": 92,
+                "outcome_mean": 55.35631730921463
+              },
+              {
+                "archetype": 1,
+                "probability": 0.9922577507574167,
+                "support": 70.13333333333325,
+                "training_rows": 60,
+                "outcome_mean": 32.41023641195204
+              },
+              {
+                "archetype": 2,
+                "probability": 0.007741578082010327,
+                "support": 105.19999999999986,
+                "training_rows": 111,
+                "outcome_mean": 48.062688813777456
+              }
+            ],
+            "effective_support": 71.22916565310933,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 1.1307672383302372e-17,
+            "archetype": 0.6050944825388394,
+            "ridge": 0.21157862875115876,
+            "hist_gradient_boosting": 0.18332688871000155,
+            "extra_trees": 4.307557049425589e-16,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 32.53142649490052,
+            "ridge": 30.415311830373344,
+            "hist_gradient_boosting": 31.43934842626699,
+            "extra_trees": 35.94794625724966,
+            "shared": 52.1999277420018
+          },
+          "selected_method": "stack",
+          "explanation": "Exploratory held-out point checks passed and the profile is within the body domain. This does not establish improvement statistically or validate sport switching; inspect bootstrap evidence and interval coverage.",
+          "evidence": {
+            "train_athletes": 120,
+            "calibration_athletes": 20,
+            "test_athletes": 22,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 22,
+              "n_athletes": 22,
+              "mae": 24.08180372378394,
+              "rmse": 27.820441102560654,
+              "r2": 0.07091331569596104,
+              "spearman": 0.26823063877897113,
+              "baseline_mae": 25.042881646655232,
+              "baseline_rmse": 28.977080370006192,
+              "relative_mse_improvement": 0.07823805873520162,
+              "top_quartile_ap": 0.3970538720538721,
+              "top_quartile_base_rate": 0.2727272727272727,
+              "precision_at_top_quartile": 0.3333333333333333,
+              "interval_90_empirical_coverage": 1.0,
+              "interval_90_mean_width": 97.3009051702013
+            },
+            "evidence_grade": "provisional_point_gate_passed",
+            "nested_cv": {
+              "n_rows": 263,
+              "n_athletes": 120,
+              "mae": 23.462450655165423,
+              "rmse": 27.404074511595933,
+              "r2": 0.11826138456726587,
+              "spearman": 0.3522398771620148,
+              "baseline_mae": 25.59222998241605,
+              "baseline_rmse": 29.51227860912105,
+              "relative_mse_improvement": 0.13776669310645473,
+              "top_quartile_ap": 0.3680282279469159,
+              "top_quartile_base_rate": 0.2556944444444445,
+              "precision_at_top_quartile": 0.365
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.06910272629558678,
+              "lower95": -0.06944914839476143,
+              "upper95": 0.213780610550627
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9425426931172788,
+              "mean_absolute_percentile_change": 8.447684391080614
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "OLB_HYBRID",
+              "sport": "nfl",
+              "domains": {
+                "rush_disruption": {
+                  "weight": 0.4,
+                  "metrics": {
+                    "sacks": 0.5,
+                    "qb_hits": 0.5
+                  }
+                },
+                "negative_play_stops": {
+                  "weight": 0.35,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "ball_disruption": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "passes_defended": 0.5,
+                    "interceptions": 0.5
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 246.0,
+              "reference_athletes": 53,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "CB",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 48.71946387507925,
+          "interval": [
+            7.4196073207501385,
+            90.01932042940837
+          ],
+          "calibration_radius": 41.29985655432911,
+          "interval_is_unbounded": false,
+          "stack_estimate": 48.71946387507925,
+          "physical_fit": 14.857142857142858,
+          "mahalanobis_distance_squared": 3.53126023059659,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              172.72,
+              195.58
+            ],
+            "weight_kg": [
+              77.1107029,
+              97.06876718000001
+            ]
+          },
+          "archetype": {
+            "prediction": 47.93444066518927,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 0.7789194022962116,
+            "nearest_center": {
+              "height_cm": 187.4266,
+              "weight_kg": 91.9250297042
+            },
+            "probabilities": {
+              "0": 0.018975375873582143,
+              "1": 4.4765953874749466e-06,
+              "2": 0.9810201475310304
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.018975375873582143,
+                "support": 175.9817142857146,
+                "training_rows": 182,
+                "outcome_mean": 47.129226960095465
+              },
+              {
+                "archetype": 1,
+                "probability": 4.4765953874749466e-06,
+                "support": 110.44685714285718,
+                "training_rows": 104,
+                "outcome_mean": 49.84315440073033
+              },
+              {
+                "archetype": 2,
+                "probability": 0.9810201475310304,
+                "support": 114.57142857142857,
+                "training_rows": 115,
+                "outcome_mean": 47.950006796233616
+              }
+            ],
+            "effective_support": 119.01856348889422,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.017856230233170668,
+            "archetype": 0.26713836252299605,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 1.4716603399665556e-17,
+            "extra_trees": 0.0,
+            "shared": 0.7150054072438332
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 47.93444066518927,
+            "ridge": 46.46025871498039,
+            "hist_gradient_boosting": 66.9790282864442,
+            "extra_trees": 55.66458504568228,
+            "shared": 48.98078255193278
+          },
+          "selected_method": "stack",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 175,
+            "calibration_athletes": 31,
+            "test_athletes": 19,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 19,
+              "n_athletes": 19,
+              "mae": 23.300254022606886,
+              "rmse": 27.466906763238654,
+              "r2": -0.03647297460761889,
+              "spearman": -0.06514094602539877,
+              "baseline_mae": 23.026315789473667,
+              "baseline_rmse": 27.79228198726101,
+              "relative_mse_improvement": 0.023277726962488976,
+              "top_quartile_ap": 0.4576330532212885,
+              "top_quartile_base_rate": 0.2631578947368421,
+              "precision_at_top_quartile": 0.2,
+              "interval_90_empirical_coverage": 0.8947368421052632,
+              "interval_90_mean_width": 82.59971310865824
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 401,
+              "n_athletes": 175,
+              "mae": 25.340155539691697,
+              "rmse": 29.197814598952668,
+              "r2": 0.006218525196530433,
+              "spearman": 0.06477077047075028,
+              "baseline_mae": 25.459258428790573,
+              "baseline_rmse": 29.352394796301517,
+              "relative_mse_improvement": 0.010504979995446195,
+              "top_quartile_ap": 0.33777453822976833,
+              "top_quartile_base_rate": 0.2515238095238095,
+              "precision_at_top_quartile": 0.29734848484848486
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.01940022797902439,
+              "lower95": -0.05409973109487693,
+              "upper95": 0.10170914102676684
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.7663898876567197,
+              "mean_absolute_percentile_change": 15.037593984962392
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Frozen test did not show positive rank association."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "CB",
+              "sport": "nfl",
+              "domains": {
+                "ball_disruption": {
+                  "weight": 0.75,
+                  "metrics": {
+                    "passes_defended": 0.5,
+                    "interceptions": 0.5
+                  }
+                },
+                "negative_play_stops": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 284.25,
+              "reference_athletes": 84,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "EDGE",
+          "status": "no_evidence",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 75.89505811781552,
+          "interval": [
+            35.47812974783971,
+            100.0
+          ],
+          "calibration_radius": 40.416928369975814,
+          "interval_is_unbounded": false,
+          "stack_estimate": 75.89505811781552,
+          "physical_fit": 0.7633587786259555,
+          "mahalanobis_distance_squared": 15.434653776142591,
+          "out_of_domain": true,
+          "outside_training_bounds": true,
+          "beyond_distance_threshold": true,
+          "training_bounds": {
+            "height_cm": [
+              180.34,
+              203.2
+            ],
+            "weight_kg": [
+              107.04779932000001,
+              149.6854821
+            ]
+          },
+          "archetype": {
+            "prediction": 51.12214892572076,
+            "nearest_archetype": 1,
+            "nearest_center_distance": 3.1914690713677962,
+            "nearest_center": {
+              "height_cm": 191.3273142857143,
+              "weight_kg": 119.14359585333332
+            },
+            "probabilities": {
+              "0": 0.00018832494046635821,
+              "1": 0.9998110032607691,
+              "2": 6.717987644892799e-07
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.00018832494046635821,
+                "support": 109.78549618320592,
+                "training_rows": 124,
+                "outcome_mean": 47.79929955445049
+              },
+              {
+                "archetype": 1,
+                "probability": 0.9998110032607691,
+                "support": 119.82824427480895,
+                "training_rows": 116,
+                "outcome_mean": 51.122786189311135
+              },
+              {
+                "archetype": 2,
+                "probability": 6.717987644892799e-07,
+                "support": 69.38625954198467,
+                "training_rows": 59,
+                "outcome_mean": 34.20080252138289
+              }
+            ],
+            "effective_support": 119.87354677140303,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 6.7801357478395686e-18,
+            "archetype": 1.0731002313213349e-18,
+            "ridge": 0.6693239901005689,
+            "hist_gradient_boosting": 0.1470511281371519,
+            "extra_trees": 0.18362488176227934,
+            "shared": 1.3335869585300533e-18
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 51.12214892572076,
+            "ridge": 85.29129729680716,
+            "hist_gradient_boosting": 59.61143187104225,
+            "extra_trees": 54.685499521545395,
+            "shared": 51.46454676050291
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 131,
+            "calibration_athletes": 23,
+            "test_athletes": 12,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 12,
+              "n_athletes": 12,
+              "mae": 24.261983426236693,
+              "rmse": 29.091640462105136,
+              "r2": -0.26434191440627774,
+              "spearman": 0.40422354458564236,
+              "baseline_mae": 22.756410256410277,
+              "baseline_rmse": 28.328692043569706,
+              "relative_mse_improvement": -0.054589338744406524,
+              "top_quartile_ap": 0.42986111111111114,
+              "top_quartile_base_rate": 0.3333333333333333,
+              "precision_at_top_quartile": 0.3333333333333333,
+              "interval_90_empirical_coverage": 0.75,
+              "interval_90_mean_width": 75.76439169119875
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 299,
+              "n_athletes": 131,
+              "mae": 24.905411500251358,
+              "rmse": 28.5353194531211,
+              "r2": 0.11959897985221402,
+              "spearman": 0.36646242020418085,
+              "baseline_mae": 27.240783531541858,
+              "baseline_rmse": 30.731541107682133,
+              "relative_mse_improvement": 0.1378222745323202,
+              "top_quartile_ap": 0.4361258894895432,
+              "top_quartile_base_rate": 0.25496183206106876,
+              "precision_at_top_quartile": 0.44141414141414137
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": -0.10403688005374209,
+              "lower95": -0.7895618064652248,
+              "upper95": 0.44706257755471746
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9665552876307006,
+              "mean_absolute_percentile_change": 2.804487179487184
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Frozen test MSE did not improve over neutral 50.",
+              "Fewer than 15 independent test athletes."
+            ],
+            "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "EDGE",
+              "sport": "nfl",
+              "domains": {
+                "rush_disruption": {
+                  "weight": 0.55,
+                  "metrics": {
+                    "sacks": 0.5,
+                    "qb_hits": 0.5
+                  }
+                },
+                "negative_play_stops": {
+                  "weight": 0.25,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.2,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 197.0,
+              "reference_athletes": 52,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "IDL",
+          "status": "no_evidence",
+          "score_label": "experimental out-of-domain estimate",
+          "efficacy_rating": null,
+          "experimental_estimate": 67.01511431514803,
+          "interval": [
+            19.220515518426026,
+            100.0
+          ],
+          "calibration_radius": 47.794598796722,
+          "interval_is_unbounded": false,
+          "stack_estimate": 67.01511431514803,
+          "physical_fit": 0.0,
+          "mahalanobis_distance_squared": 26.34221676401582,
+          "out_of_domain": true,
+          "outside_training_bounds": true,
+          "beyond_distance_threshold": true,
+          "training_bounds": {
+            "height_cm": [
+              180.34,
+              200.66
+            ],
+            "weight_kg": [
+              124.73790175,
+              166.01480742
+            ]
+          },
+          "archetype": {
+            "prediction": 53.22618300358977,
+            "nearest_archetype": 1,
+            "nearest_center_distance": 4.384921724800791,
+            "nearest_center": {
+              "height_cm": 188.4687426900585,
+              "weight_kg": 133.60483680741228
+            },
+            "probabilities": {
+              "0": 0.0007472914069540808,
+              "1": 0.9992526456980547,
+              "2": 6.289499118456888e-08
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.0007472914069540808,
+                "support": 111.68181818181814,
+                "training_rows": 116,
+                "outcome_mean": 48.09344044411706
+              },
+              {
+                "archetype": 1,
+                "probability": 0.9992526456980547,
+                "support": 151.5681818181819,
+                "training_rows": 144,
+                "outcome_mean": 53.23002252668151
+              },
+              {
+                "archetype": 2,
+                "probability": 6.289499118456888e-08,
+                "support": 87.75000000000003,
+                "training_rows": 91,
+                "outcome_mean": 37.3394037982086
+              }
+            ],
+            "effective_support": 151.79487109110806,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.026802430973104138,
+            "archetype": 0.20771127048134663,
+            "ridge": 0.3946321717616148,
+            "hist_gradient_boosting": 0.28479442815243383,
+            "extra_trees": 0.08605969863150059,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 53.22618300358977,
+            "ridge": 82.22132499551223,
+            "hist_gradient_boosting": 61.87393417032756,
+            "extra_trees": 52.87937323315807,
+            "shared": 61.64006324968693
+          },
+          "selected_method": "stack",
+          "explanation": "The experimental estimate and interval are shown for transparency, but extrapolation outside the observed body domain is not promoted as an efficacy rating.",
+          "evidence": {
+            "train_athletes": 132,
+            "calibration_athletes": 26,
+            "test_athletes": 28,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 28,
+              "n_athletes": 28,
+              "mae": 26.991107928819524,
+              "rmse": 31.207658496673446,
+              "r2": -0.018570854560202577,
+              "spearman": 0.09747743729777583,
+              "baseline_mae": 27.43506493506492,
+              "baseline_rmse": 30.946893528654115,
+              "relative_mse_improvement": -0.016923417384868022,
+              "top_quartile_ap": 0.3132142857142857,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.2857142857142857,
+              "interval_90_empirical_coverage": 0.8928571428571429,
+              "interval_90_mean_width": 92.13186935105725
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 351,
+              "n_athletes": 132,
+              "mae": 23.9298440437709,
+              "rmse": 27.938637616266195,
+              "r2": 0.046358083956966056,
+              "spearman": 0.22622932784862945,
+              "baseline_mae": 25.059974830963892,
+              "baseline_rmse": 28.734346274278234,
+              "relative_mse_improvement": 0.05461695965022939,
+              "top_quartile_ap": 0.2979203000968734,
+              "top_quartile_base_rate": 0.25580808080808076,
+              "precision_at_top_quartile": 0.25404040404040407
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": -0.020026216379065685,
+              "lower95": -0.16727204403495669,
+              "upper95": 0.14546993385485638
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.9410152308181419,
+              "mean_absolute_percentile_change": 9.79437229437229
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Frozen test MSE did not improve over neutral 50."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "IDL",
+              "sport": "nfl",
+              "domains": {
+                "rush_disruption": {
+                  "weight": 0.55,
+                  "metrics": {
+                    "sacks": 0.5,
+                    "qb_hits": 0.5
+                  }
+                },
+                "negative_play_stops": {
+                  "weight": 0.35,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 217.25,
+              "reference_athletes": 66,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "LB",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 50.0,
+          "interval": [
+            7.1428571428570535,
+            92.85714285714295
+          ],
+          "calibration_radius": 42.85714285714295,
+          "interval_is_unbounded": false,
+          "stack_estimate": 50.0,
+          "physical_fit": 3.200000000000003,
+          "mahalanobis_distance_squared": 6.670342993056064,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              177.8,
+              195.58
+            ],
+            "weight_kg": [
+              94.80080533,
+              122.4699399
+            ]
+          },
+          "archetype": {
+            "prediction": 47.77039958402738,
+            "nearest_archetype": 1,
+            "nearest_center_distance": 1.9870695382107209,
+            "nearest_center": {
+              "height_cm": 189.40354037267082,
+              "weight_kg": 103.92618226434783
+            },
+            "probabilities": {
+              "0": 1.3966856139492172e-06,
+              "1": 0.9584739474611347,
+              "2": 0.041524655853251186
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 1.3966856139492172e-06,
+                "support": 64.21333333333335,
+                "training_rows": 54,
+                "outcome_mean": 50.15213138770391
+              },
+              {
+                "archetype": 1,
+                "probability": 0.9584739474611347,
+                "support": 120.21333333333341,
+                "training_rows": 124,
+                "outcome_mean": 47.7347963243875
+              },
+              {
+                "archetype": 2,
+                "probability": 0.041524655853251186,
+                "support": 95.57333333333341,
+                "training_rows": 102,
+                "outcome_mean": 48.5921154917897
+              }
+            ],
+            "effective_support": 130.5473080659525,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 1.0,
+            "archetype": 0.0,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 0.0,
+            "extra_trees": 0.0,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 47.77039958402738,
+            "ridge": 46.034023161294215,
+            "hist_gradient_boosting": 52.75176764336643,
+            "extra_trees": 51.57454045290214,
+            "shared": 56.9160577732024
+          },
+          "selected_method": "baseline",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 125,
+            "calibration_athletes": 10,
+            "test_athletes": 16,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 16,
+              "n_athletes": 16,
+              "mae": 22.098214285714306,
+              "rmse": 25.931313806174323,
+              "r2": -0.0026745913818724265,
+              "spearman": null,
+              "baseline_mae": 22.098214285714306,
+              "baseline_rmse": 25.931313806174323,
+              "relative_mse_improvement": 0.0,
+              "top_quartile_ap": 0.25,
+              "top_quartile_base_rate": 0.25,
+              "precision_at_top_quartile": 0.25,
+              "interval_90_empirical_coverage": 0.9375,
+              "interval_90_mean_width": 85.7142857142859
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 280,
+              "n_athletes": 125,
+              "mae": 25.336741487791915,
+              "rmse": 29.2355581443489,
+              "r2": -0.032588875051694055,
+              "spearman": -0.15882185736421586,
+              "baseline_mae": 24.95761411244526,
+              "baseline_rmse": 28.811572257022274,
+              "relative_mse_improvement": -0.02964819367306215,
+              "top_quartile_ap": 0.20739698361913028,
+              "top_quartile_base_rate": 0.25200000000000006,
+              "precision_at_top_quartile": 0.1842233009708738
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.0,
+              "lower95": 0.0,
+              "upper95": 0.0
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.946676016599423,
+              "mean_absolute_percentile_change": 8.091517857142863
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+              "Nested CV did not show positive rank association.",
+              "Frozen test MSE did not improve over neutral 50.",
+              "Frozen test did not show positive rank association."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "LB",
+              "sport": "nfl",
+              "domains": {
+                "negative_play_stops": {
+                  "weight": 0.4,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "ball_disruption": {
+                  "weight": 0.3,
+                  "metrics": {
+                    "passes_defended": 0.5,
+                    "interceptions": 0.5
+                  }
+                },
+                "rush_disruption": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "sacks": 0.5,
+                    "qb_hits": 0.5
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 320.5,
+              "reference_athletes": 56,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "S",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 50.0,
+          "interval": [
+            2.7397260273972606,
+            97.26027397260273
+          ],
+          "calibration_radius": 47.26027397260274,
+          "interval_is_unbounded": false,
+          "stack_estimate": 51.7254508733485,
+          "physical_fit": 48.22695035460993,
+          "mahalanobis_distance_squared": 1.4507354756632103,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              172.72,
+              193.04
+            ],
+            "weight_kg": [
+              83.91458845000001,
+              102.96546799000001
+            ]
+          },
+          "archetype": {
+            "prediction": 48.830842080570505,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 0.38652023776601446,
+            "nearest_center": {
+              "height_cm": 189.51786666666666,
+              "weight_kg": 94.891523804
+            },
+            "probabilities": {
+              "0": 0.002048515046170537,
+              "1": 0.46355320929153865,
+              "2": 0.5343982756622908
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.002048515046170537,
+                "support": 118.83687943262404,
+                "training_rows": 118,
+                "outcome_mean": 47.70899739293752
+              },
+              {
+                "archetype": 1,
+                "probability": 0.46355320929153865,
+                "support": 172.39716312056706,
+                "training_rows": 185,
+                "outcome_mean": 46.24850861770658
+              },
+              {
+                "archetype": 2,
+                "probability": 0.5343982756622908,
+                "support": 62.765957446808514,
+                "training_rows": 51,
+                "outcome_mean": 51.07513652258984
+              }
+            ],
+            "effective_support": 172.52053271835206,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.1632918976228799,
+            "archetype": 0.0,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 2.01429516769959e-17,
+            "extra_trees": 0.0,
+            "shared": 0.83670810237712
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 48.830842080570505,
+            "ridge": 49.97287875768463,
+            "hist_gradient_boosting": 39.13331733297954,
+            "extra_trees": 45.83680780449501,
+            "shared": 52.06218975105706
+          },
+          "selected_method": "baseline",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 141,
+            "calibration_athletes": 20,
+            "test_athletes": 18,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 18,
+              "n_athletes": 18,
+              "mae": 27.47336377473367,
+              "rmse": 32.19178082191784,
+              "r2": -0.028989924549134738,
+              "spearman": null,
+              "baseline_mae": 27.47336377473367,
+              "baseline_rmse": 32.19178082191784,
+              "relative_mse_improvement": 0.0,
+              "top_quartile_ap": 0.2777777777777778,
+              "top_quartile_base_rate": 0.2777777777777778,
+              "precision_at_top_quartile": 0.2777777777777778,
+              "interval_90_empirical_coverage": 0.7777777777777778,
+              "interval_90_mean_width": 94.52054794520546
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 354,
+              "n_athletes": 141,
+              "mae": 26.01995225925656,
+              "rmse": 30.131778465778964,
+              "r2": -0.04237492880832039,
+              "spearman": -0.12693434370906595,
+              "baseline_mae": 25.73208821781473,
+              "baseline_rmse": 29.578911011152734,
+              "relative_mse_improvement": -0.03773190650922631,
+              "top_quartile_ap": 0.21884688052373286,
+              "top_quartile_base_rate": 0.25224586288416073,
+              "precision_at_top_quartile": 0.11408450704225356
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.0,
+              "lower95": 0.0,
+              "upper95": 0.0
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.877076576413802,
+              "mean_absolute_percentile_change": 10.235920852359227
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+              "Nested CV did not show positive rank association.",
+              "Frozen test MSE did not improve over neutral 50.",
+              "Frozen test did not show positive rank association."
+            ],
+            "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "S",
+              "sport": "nfl",
+              "domains": {
+                "ball_disruption": {
+                  "weight": 0.55,
+                  "metrics": {
+                    "passes_defended": 0.5,
+                    "interceptions": 0.5
+                  }
+                },
+                "negative_play_stops": {
+                  "weight": 0.25,
+                  "metrics": {
+                    "negative_play_tackle_credits": 1.0
+                  }
+                },
+                "rush_disruption": {
+                  "weight": 0.05,
+                  "metrics": {
+                    "sacks": 0.5,
+                    "qb_hits": 0.5
+                  }
+                },
+                "fumble_creation": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "forced_fumbles": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 150,
+              "shrinkage_prior_exposure": 345.5,
+              "reference_athletes": 73,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        }
+      ]
+    },
+    "nhl": {
+      "best_role": "center",
+      "efficacy_rating": 52.05122372431047,
+      "status": "scored",
+      "roles": [
+        {
+          "role": "center",
+          "status": "evidence_supported",
+          "score_label": "provisional role-relative estimate",
+          "efficacy_rating": 52.05122372431047,
+          "experimental_estimate": 52.05122372431047,
+          "interval": [
+            0.25043360749083377,
+            100.0
+          ],
+          "calibration_radius": 51.800790116819634,
+          "interval_is_unbounded": false,
+          "stack_estimate": 52.05122372431047,
+          "physical_fit": 73.91304347826086,
+          "mahalanobis_distance_squared": 0.4997978074149017,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              172.72,
+              205.74
+            ],
+            "weight_kg": [
+              74.84274105,
+              121.56275516000001
+            ]
+          },
+          "archetype": {
+            "prediction": 48.471994029033795,
+            "nearest_archetype": 0,
+            "nearest_center_distance": 0.6356000561899573,
+            "nearest_center": {
+              "height_cm": 186.33108695652174,
+              "weight_kg": 91.39886255500001
+            },
+            "probabilities": {
+              "0": 0.9066822610459474,
+              "1": 0.00388974396153921,
+              "2": 0.08942799499251342
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.9066822610459474,
+                "support": 295.55555555555594,
+                "training_rows": 328,
+                "outcome_mean": 47.90334525043603
+              },
+              {
+                "archetype": 1,
+                "probability": 0.00388974396153921,
+                "support": 247.36714975845464,
+                "training_rows": 210,
+                "outcome_mean": 40.31677112872569
+              },
+              {
+                "archetype": 2,
+                "probability": 0.08942799499251342,
+                "support": 122.07729468599024,
+                "training_rows": 127,
+                "outcome_mean": 54.59206291123702
+              }
+            ],
+            "effective_support": 351.24434768776246,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 1.5310450996914885e-17,
+            "archetype": 0.7349918455329916,
+            "ridge": 0.0,
+            "hist_gradient_boosting": 0.26500815446700854,
+            "extra_trees": 0.0,
+            "shared": 0.0
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 48.471994029033795,
+            "ridge": 49.05920161215105,
+            "hist_gradient_boosting": 61.97810557671542,
+            "extra_trees": 49.77176573319632,
+            "shared": 49.01280050164784
+          },
+          "selected_method": "stack",
+          "explanation": "Exploratory held-out point checks passed and the profile is within the body domain. This does not establish improvement statistically or validate sport switching; inspect bootstrap evidence and interval coverage.",
+          "evidence": {
+            "train_athletes": 207,
+            "calibration_athletes": 45,
+            "test_athletes": 45,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 45,
+              "n_athletes": 45,
+              "mae": 24.42834155642322,
+              "rmse": 29.02691195840043,
+              "r2": 0.04392649689666683,
+              "spearman": 0.2504379314692402,
+              "baseline_mae": 26.717948717948648,
+              "baseline_rmse": 29.72346799480826,
+              "relative_mse_improvement": 0.04631991789150225,
+              "top_quartile_ap": 0.3852589618843488,
+              "top_quartile_base_rate": 0.28888888888888886,
+              "precision_at_top_quartile": 0.3333333333333333,
+              "interval_90_empirical_coverage": 0.9333333333333333,
+              "interval_90_mean_width": 94.81684339599983
+            },
+            "evidence_grade": "provisional_point_gate_passed",
+            "nested_cv": {
+              "n_rows": 665,
+              "n_athletes": 207,
+              "mae": 24.086319532028504,
+              "rmse": 28.036428238508154,
+              "r2": 0.031748926290487756,
+              "spearman": 0.18445825348183856,
+              "baseline_mae": 24.681480521429613,
+              "baseline_rmse": 28.6950264420027,
+              "relative_mse_improvement": 0.04537652175253615,
+              "top_quartile_ap": 0.31444569200655464,
+              "top_quartile_base_rate": 0.250402576489533,
+              "precision_at_top_quartile": 0.3721153846153845
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.046487454691180825,
+              "lower95": -0.1252721331416919,
+              "upper95": 0.21536812391317317
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.904875085789644,
+              "mean_absolute_percentile_change": 10.20512820512819
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "center",
+              "sport": "nhl",
+              "domains": {
+                "puck_acquisition": {
+                  "weight": 0.45,
+                  "metrics": {
+                    "takeaways": 1.0
+                  }
+                },
+                "faceoff_acquisition_activity": {
+                  "weight": 0.45,
+                  "metrics": {
+                    "faceoff_wins": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 538.6458333333333,
+              "reference_athletes": 130,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "defense",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 52.15428911911182,
+          "interval": [
+            3.6889691072227464,
+            100.0
+          ],
+          "calibration_radius": 48.46532001188908,
+          "interval_is_unbounded": false,
+          "stack_estimate": 52.15428911911182,
+          "physical_fit": 86.78414096916299,
+          "mahalanobis_distance_squared": 0.2629359340045351,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              175.26,
+              205.74
+            ],
+            "weight_kg": [
+              73.48196394,
+              113.3980925
+            ]
+          },
+          "archetype": {
+            "prediction": 50.65857806825028,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 0.2765722206419101,
+            "nearest_center": {
+              "height_cm": 188.9424528301887,
+              "weight_kg": 93.46142408650944
+            },
+            "probabilities": {
+              "0": 0.014622213601577163,
+              "1": 0.02847738235371398,
+              "2": 0.9569004040447089
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.014622213601577163,
+                "support": 140.9471365638764,
+                "training_rows": 157,
+                "outcome_mean": 51.644077784966186
+              },
+              {
+                "archetype": 1,
+                "probability": 0.02847738235371398,
+                "support": 238.04405286343544,
+                "training_rows": 228,
+                "outcome_mean": 42.10050399407926
+              },
+              {
+                "archetype": 2,
+                "probability": 0.9569004040447089,
+                "support": 332.0088105726865,
+                "training_rows": 326,
+                "outcome_mean": 50.89820735390031
+              }
+            ],
+            "effective_support": 361.94408364771414,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.13363644325700544,
+            "archetype": 3.667759148524656e-18,
+            "ridge": 0.14410765116505528,
+            "hist_gradient_boosting": 0.4520100077149938,
+            "extra_trees": 3.525003016262646e-18,
+            "shared": 0.27024589786294556
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 50.65857806825028,
+            "ridge": 48.77531760019434,
+            "hist_gradient_boosting": 56.33967109294853,
+            "extra_trees": 51.560551156089396,
+            "shared": 48.020989178032124
+          },
+          "selected_method": "stack",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 227,
+            "calibration_athletes": 47,
+            "test_athletes": 43,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 43,
+              "n_athletes": 43,
+              "mae": 23.86505740893788,
+              "rmse": 28.65357088871229,
+              "r2": -0.04292918983143079,
+              "spearman": 0.020963966140118643,
+              "baseline_mae": 23.89922480620161,
+              "baseline_rmse": 28.05812534601733,
+              "relative_mse_improvement": -0.04289408259131933,
+              "top_quartile_ap": 0.28715955761410306,
+              "top_quartile_base_rate": 0.2558139534883721,
+              "precision_at_top_quartile": 0.36363636363636365,
+              "interval_90_empirical_coverage": 0.9302325581395349,
+              "interval_90_mean_width": 93.90078149589343
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 711,
+              "n_athletes": 227,
+              "mae": 24.309971660772543,
+              "rmse": 28.344784291799392,
+              "r2": 0.02135285823402,
+              "spearman": 0.14162725138225613,
+              "baseline_mae": 24.77612989371616,
+              "baseline_rmse": 28.733236031850407,
+              "relative_mse_improvement": 0.02685572567903527,
+              "top_quartile_ap": 0.3332612080517152,
+              "top_quartile_base_rate": 0.2547723935389134,
+              "precision_at_top_quartile": 0.28421052631578947
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": -0.041522762023995165,
+              "lower95": -0.1803327070004924,
+              "upper95": 0.06794189430989431
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.7003664789281221,
+              "mean_absolute_percentile_change": 17.077519379844986
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Frozen test MSE did not improve over neutral 50."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "defense",
+              "sport": "nhl",
+              "domains": {
+                "puck_acquisition": {
+                  "weight": 0.6,
+                  "metrics": {
+                    "takeaways": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.3,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                },
+                "contact_disruption": {
+                  "weight": 0.1,
+                  "metrics": {
+                    "hits": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 625.2458333333334,
+              "reference_athletes": 150,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        },
+        {
+          "role": "wing",
+          "status": "no_evidence",
+          "score_label": "experimental estimate; evidence gate failed",
+          "efficacy_rating": null,
+          "experimental_estimate": 50.0,
+          "interval": [
+            3.076923076923336,
+            96.92307692307666
+          ],
+          "calibration_radius": 46.923076923076664,
+          "interval_is_unbounded": false,
+          "stack_estimate": 49.51900284222952,
+          "physical_fit": 90.99526066350711,
+          "mahalanobis_distance_squared": 0.24399707500603246,
+          "out_of_domain": false,
+          "outside_training_bounds": false,
+          "beyond_distance_threshold": false,
+          "training_bounds": {
+            "height_cm": [
+              172.72,
+              203.2
+            ],
+            "weight_kg": [
+              72.57477920000001,
+              115.21246198
+            ]
+          },
+          "archetype": {
+            "prediction": 50.100080276900464,
+            "nearest_archetype": 2,
+            "nearest_center_distance": 0.3811378043913858,
+            "nearest_center": {
+              "height_cm": 186.66557692307694,
+              "weight_kg": 92.63315717721154
+            },
+            "probabilities": {
+              "0": 0.0054175317793181965,
+              "1": 0.05400526172458384,
+              "2": 0.9405772064960979
+            },
+            "archetypes": [
+              {
+                "archetype": 0,
+                "probability": 0.0054175317793181965,
+                "support": 214.8483412322267,
+                "training_rows": 210,
+                "outcome_mean": 48.27837818853899
+              },
+              {
+                "archetype": 1,
+                "probability": 0.05400526172458384,
+                "support": 118.32227488151666,
+                "training_rows": 122,
+                "outcome_mean": 52.62727349540233
+              },
+              {
+                "archetype": 2,
+                "probability": 0.9405772064960979,
+                "support": 323.8293838862547,
+                "training_rows": 325,
+                "outcome_mean": 49.96546867738138
+              }
+            ],
+            "effective_support": 362.74791666983543,
+            "observed_feature_fraction": 1.0,
+            "observed_features": [
+              "height_cm",
+              "weight_kg"
+            ],
+            "missing_features": []
+          },
+          "expert_weights": {
+            "baseline50": 0.0,
+            "archetype": 0.15954577778388243,
+            "ridge": 0.17466526783453354,
+            "hist_gradient_boosting": 0.04879392376666137,
+            "extra_trees": 0.0,
+            "shared": 0.6169950306149227
+          },
+          "expert_predictions": {
+            "baseline50": 50.0,
+            "archetype": 50.100080276900464,
+            "ridge": 50.24392417057964,
+            "hist_gradient_boosting": 48.09630634734506,
+            "extra_trees": 46.76320189806992,
+            "shared": 49.276038024865294
+          },
+          "selected_method": "baseline",
+          "explanation": "The estimate and interval are shown for transparency, but held-out evaluation did not establish predictive evidence beyond the neutral 50 baseline.",
+          "evidence": {
+            "train_athletes": 211,
+            "calibration_athletes": 36,
+            "test_athletes": 58,
+            "evaluation": "contemporaneous_2025_unseen_athletes",
+            "metrics": {
+              "n_rows": 58,
+              "n_athletes": 58,
+              "mae": 24.409814323607357,
+              "rmse": 28.89416870417066,
+              "r2": -0.003999223476395919,
+              "spearman": null,
+              "baseline_mae": 24.409814323607357,
+              "baseline_rmse": 28.89416870417066,
+              "relative_mse_improvement": 0.0,
+              "top_quartile_ap": 0.25862068965517243,
+              "top_quartile_base_rate": 0.25862068965517243,
+              "precision_at_top_quartile": 0.25862068965517243,
+              "interval_90_empirical_coverage": 0.8793103448275862,
+              "interval_90_mean_width": 93.84615384615334
+            },
+            "evidence_grade": "insufficient_predictive_evidence",
+            "nested_cv": {
+              "n_rows": 657,
+              "n_athletes": 211,
+              "mae": 25.20160918265484,
+              "rmse": 28.956069057756576,
+              "r2": 0.004421347953978638,
+              "spearman": 0.11655944633024504,
+              "baseline_mae": 25.303767808977135,
+              "baseline_rmse": 29.02032683444864,
+              "relative_mse_improvement": 0.004423563952317799,
+              "top_quartile_ap": 0.30636715459648806,
+              "top_quartile_base_rate": 0.2536334913112165,
+              "precision_at_top_quartile": 0.34532828282828276
+            },
+            "mse_improvement_cluster_bootstrap": {
+              "mean": 0.0,
+              "lower95": 0.0,
+              "upper95": 0.0
+            },
+            "target_weight_sensitivity": {
+              "specification": "equal domain and equal within-domain atomic weights",
+              "target_rank_correlation": 0.7476656583956585,
+              "mean_absolute_percentile_change": 16.6777188328912
+            },
+            "improvement_statistically_established": false,
+            "abstention_reasons": [
+              "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+              "Frozen test MSE did not improve over neutral 50.",
+              "Frozen test did not show positive rank association."
+            ],
+            "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation.",
+            "reference_seasons": [
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025"
+            ],
+            "target_definition": {
+              "role": "wing",
+              "sport": "nhl",
+              "domains": {
+                "puck_acquisition": {
+                  "weight": 0.65,
+                  "metrics": {
+                    "takeaways": 1.0
+                  }
+                },
+                "shot_disruption": {
+                  "weight": 0.2,
+                  "metrics": {
+                    "blocks": 1.0
+                  }
+                },
+                "contact_disruption": {
+                  "weight": 0.15,
+                  "metrics": {
+                    "hits": 1.0
+                  }
+                }
+              },
+              "minimum_opportunity": 300,
+              "shrinkage_prior_exposure": 537.9541666666667,
+              "reference_athletes": 130,
+              "constant_components_rank_at_50": [],
+              "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+              "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+            }
+          }
+        }
+      ]
+    }
+  }
+}

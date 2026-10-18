@@ -1,0 +1,64 @@
+{
+  "version": "efficacy-ensemble-v1",
+  "path": "models/ensemble/unified.joblib",
+  "sha256": "e24107f8a129cc1cf980e5281a610f841c90b849b4751dbb902c0c415dea8b15",
+  "trained_at": "2026-10-17T23:56:18.921499+00:00",
+  "data_sources": {
+    "nfl": {
+      "path": "data/processed/nfl/player_seasons.parquet",
+      "sha256": "e85fa5931643d7445fcd0acf84f359691b50021d61dce25b00ae377447403a3e",
+      "rows": 7279,
+      "athletes": 2754
+    },
+    "nba": {
+      "path": "data/processed/nba/player_seasons.parquet",
+      "sha256": "19179f977fa596c781a64bcb3cf64f71f3abe73cb9744e180f573d82c1b294d9",
+      "rows": 2932,
+      "athletes": 1057
+    },
+    "nhl": {
+      "path": "data/processed/nhl/player_seasons.parquet",
+      "sha256": "10158ab90eaf5ec8df3190d4058216a89507c3c7944fe475ebd6e6735acf4dee",
+      "rows": 4738,
+      "athletes": 1480
+    },
+    "epl": {
+      "path": "data/processed/epl/player_seasons.parquet",
+      "sha256": "ee72a25c7d3886e242582deffc77afd9c461750bf7f3ca7f5e6ebc9d516bbf0f",
+      "rows": 4025,
+      "athletes": 1797
+    }
+  },
+  "fast_development_fit": false,
+  "features": [
+    "height_cm",
+    "weight_kg"
+  ],
+  "reference_seasons": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "split": "SHA256 athlete partitions 60/20/20; calibration/test only 2025; train includes 2025.",
+  "heads": {
+    "nfl:EDGE": "no_evidence",
+    "nfl:IDL": "no_evidence",
+    "nfl:LB": "no_evidence",
+    "nfl:OLB_HYBRID": "evidence_supported",
+    "nfl:CB": "no_evidence",
+    "nfl:S": "no_evidence",
+    "nba:guard": "no_evidence",
+    "nba:forward": "evidence_supported",
+    "nba:center": "no_evidence",
+    "nhl:defense": "no_evidence",
+    "nhl:center": "evidence_supported",
+    "nhl:wing": "no_evidence",
+    "epl:DEF": "evidence_supported",
+    "epl:MID": "evidence_supported",
+    "epl:FWD": "insufficient_support"
+  },
+  "split_salt": "efficacy-ensemble-v1",
+  "support_policy": "At least 50 distinct measured training athletes; no held-out eligibility-count gate."
+}

@@ -1,0 +1,3221 @@
+{
+  "version": "efficacy-ensemble-v1",
+  "features": [
+    "height_cm",
+    "weight_kg"
+  ],
+  "heads": {
+    "nfl:EDGE": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "stack",
+      "train_rows": 299,
+      "train_athletes": 131,
+      "calibration_athletes": 23,
+      "test_athletes": 12,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 299,
+        "n_athletes": 131,
+        "mae": 24.905411500251358,
+        "rmse": 28.5353194531211,
+        "r2": 0.11959897985221402,
+        "spearman": 0.36646242020418085,
+        "baseline_mae": 27.240783531541858,
+        "baseline_rmse": 30.731541107682133,
+        "relative_mse_improvement": 0.1378222745323202,
+        "top_quartile_ap": 0.4361258894895432,
+        "top_quartile_base_rate": 0.25496183206106876,
+        "precision_at_top_quartile": 0.44141414141414137
+      },
+      "metrics": {
+        "n_rows": 12,
+        "n_athletes": 12,
+        "mae": 24.261983426236693,
+        "rmse": 29.091640462105136,
+        "r2": -0.26434191440627774,
+        "spearman": 0.40422354458564236,
+        "baseline_mae": 22.756410256410277,
+        "baseline_rmse": 28.328692043569706,
+        "relative_mse_improvement": -0.054589338744406524,
+        "top_quartile_ap": 0.42986111111111114,
+        "top_quartile_base_rate": 0.3333333333333333,
+        "precision_at_top_quartile": 0.3333333333333333,
+        "interval_90_empirical_coverage": 0.75,
+        "interval_90_mean_width": 75.76439169119875
+      },
+      "candidate_metrics": {
+        "n_rows": 12,
+        "n_athletes": 12,
+        "mae": 24.261983426236693,
+        "rmse": 29.091640462105136,
+        "r2": -0.26434191440627774,
+        "spearman": 0.40422354458564236,
+        "baseline_mae": 22.756410256410277,
+        "baseline_rmse": 28.328692043569706,
+        "relative_mse_improvement": -0.054589338744406524,
+        "top_quartile_ap": 0.42986111111111114,
+        "top_quartile_base_rate": 0.3333333333333333,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": -0.10403688005374209,
+        "lower95": -0.7895618064652248,
+        "upper95": 0.44706257755471746
+      },
+      "calibration_radius": 40.416928369975814,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "EDGE",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.2,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 212.0,
+            "reference_athletes": 64,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "EDGE",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.2,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 223.0,
+            "reference_athletes": 68,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "EDGE",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.2,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 215.0,
+            "reference_athletes": 56,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "EDGE",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.2,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 252.5,
+            "reference_athletes": 59,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "EDGE",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.2,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 197.0,
+            "reference_athletes": 52,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 6.780135747839568e-18,
+        "archetype": 1.0731002313213347e-18,
+        "ridge": 0.6693239901005688,
+        "hist_gradient_boosting": 0.14705112813715188,
+        "extra_trees": 0.1836248817622793,
+        "shared": 1.333586958530053e-18
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9665552876307006,
+        "mean_absolute_percentile_change": 2.804487179487184
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Frozen test MSE did not improve over neutral 50.",
+        "Fewer than 15 independent test athletes."
+      ],
+      "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable."
+    },
+    "nfl:IDL": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "stack",
+      "train_rows": 351,
+      "train_athletes": 132,
+      "calibration_athletes": 26,
+      "test_athletes": 28,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 351,
+        "n_athletes": 132,
+        "mae": 23.9298440437709,
+        "rmse": 27.938637616266195,
+        "r2": 0.046358083956966056,
+        "spearman": 0.22622932784862945,
+        "baseline_mae": 25.059974830963892,
+        "baseline_rmse": 28.734346274278234,
+        "relative_mse_improvement": 0.05461695965022939,
+        "top_quartile_ap": 0.2979203000968734,
+        "top_quartile_base_rate": 0.25580808080808076,
+        "precision_at_top_quartile": 0.25404040404040407
+      },
+      "metrics": {
+        "n_rows": 28,
+        "n_athletes": 28,
+        "mae": 26.991107928819524,
+        "rmse": 31.207658496673446,
+        "r2": -0.018570854560202577,
+        "spearman": 0.09747743729777583,
+        "baseline_mae": 27.43506493506492,
+        "baseline_rmse": 30.946893528654115,
+        "relative_mse_improvement": -0.016923417384868022,
+        "top_quartile_ap": 0.3132142857142857,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.2857142857142857,
+        "interval_90_empirical_coverage": 0.8928571428571429,
+        "interval_90_mean_width": 92.13186935105725
+      },
+      "candidate_metrics": {
+        "n_rows": 28,
+        "n_athletes": 28,
+        "mae": 26.991107928819524,
+        "rmse": 31.207658496673446,
+        "r2": -0.018570854560202577,
+        "spearman": 0.09747743729777583,
+        "baseline_mae": 27.43506493506492,
+        "baseline_rmse": 30.946893528654115,
+        "relative_mse_improvement": -0.016923417384868022,
+        "top_quartile_ap": 0.3132142857142857,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.2857142857142857
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": -0.020026216379065685,
+        "lower95": -0.16727204403495669,
+        "upper95": 0.14546993385485638
+      },
+      "calibration_radius": 47.794598796722,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "IDL",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 226.0,
+            "reference_athletes": 71,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "IDL",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 219.5,
+            "reference_athletes": 74,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "IDL",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 237.0,
+            "reference_athletes": 70,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "IDL",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 213.0,
+            "reference_athletes": 70,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "IDL",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 217.25,
+            "reference_athletes": 66,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.026802430973104138,
+        "archetype": 0.20771127048134663,
+        "ridge": 0.3946321717616148,
+        "hist_gradient_boosting": 0.28479442815243383,
+        "extra_trees": 0.08605969863150059,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9410152308181419,
+        "mean_absolute_percentile_change": 9.79437229437229
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Frozen test MSE did not improve over neutral 50."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nfl:LB": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "baseline",
+      "train_rows": 280,
+      "train_athletes": 125,
+      "calibration_athletes": 10,
+      "test_athletes": 16,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 280,
+        "n_athletes": 125,
+        "mae": 25.336741487791915,
+        "rmse": 29.2355581443489,
+        "r2": -0.032588875051694055,
+        "spearman": -0.15882185736421586,
+        "baseline_mae": 24.95761411244526,
+        "baseline_rmse": 28.811572257022274,
+        "relative_mse_improvement": -0.02964819367306215,
+        "top_quartile_ap": 0.20739698361913028,
+        "top_quartile_base_rate": 0.25200000000000006,
+        "precision_at_top_quartile": 0.1842233009708738
+      },
+      "metrics": {
+        "n_rows": 16,
+        "n_athletes": 16,
+        "mae": 22.098214285714306,
+        "rmse": 25.931313806174323,
+        "r2": -0.0026745913818724265,
+        "spearman": null,
+        "baseline_mae": 22.098214285714306,
+        "baseline_rmse": 25.931313806174323,
+        "relative_mse_improvement": 0.0,
+        "top_quartile_ap": 0.25,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.25,
+        "interval_90_empirical_coverage": 0.9375,
+        "interval_90_mean_width": 85.7142857142859
+      },
+      "candidate_metrics": {
+        "n_rows": 16,
+        "n_athletes": 16,
+        "mae": 22.098214285714306,
+        "rmse": 25.931313806174323,
+        "r2": -0.0026745913818724265,
+        "spearman": null,
+        "baseline_mae": 22.098214285714306,
+        "baseline_rmse": 25.931313806174323,
+        "relative_mse_improvement": 0.0,
+        "top_quartile_ap": 0.25,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.25
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.0,
+        "lower95": 0.0,
+        "upper95": 0.0
+      },
+      "calibration_radius": 42.85714285714295,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "LB",
+            "sport": "nfl",
+            "domains": {
+              "negative_play_stops": {
+                "weight": 0.4,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 279.0,
+            "reference_athletes": 49,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "LB",
+            "sport": "nfl",
+            "domains": {
+              "negative_play_stops": {
+                "weight": 0.4,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 301.25,
+            "reference_athletes": 56,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "LB",
+            "sport": "nfl",
+            "domains": {
+              "negative_play_stops": {
+                "weight": 0.4,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 332.5,
+            "reference_athletes": 51,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "LB",
+            "sport": "nfl",
+            "domains": {
+              "negative_play_stops": {
+                "weight": 0.4,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 266.5,
+            "reference_athletes": 68,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "LB",
+            "sport": "nfl",
+            "domains": {
+              "negative_play_stops": {
+                "weight": 0.4,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 320.5,
+            "reference_athletes": 56,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 1.0,
+        "archetype": 0.0,
+        "ridge": 0.0,
+        "hist_gradient_boosting": 0.0,
+        "extra_trees": 0.0,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.946676016599423,
+        "mean_absolute_percentile_change": 8.091517857142863
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+        "Nested CV did not show positive rank association.",
+        "Frozen test MSE did not improve over neutral 50.",
+        "Frozen test did not show positive rank association."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nfl:OLB_HYBRID": {
+      "status": "evidence_supported",
+      "evidence_grade": "provisional_point_gate_passed",
+      "selected_method": "stack",
+      "train_rows": 263,
+      "train_athletes": 120,
+      "calibration_athletes": 20,
+      "test_athletes": 22,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 263,
+        "n_athletes": 120,
+        "mae": 23.462450655165423,
+        "rmse": 27.404074511595933,
+        "r2": 0.11826138456726587,
+        "spearman": 0.3522398771620148,
+        "baseline_mae": 25.59222998241605,
+        "baseline_rmse": 29.51227860912105,
+        "relative_mse_improvement": 0.13776669310645473,
+        "top_quartile_ap": 0.3680282279469159,
+        "top_quartile_base_rate": 0.2556944444444445,
+        "precision_at_top_quartile": 0.365
+      },
+      "metrics": {
+        "n_rows": 22,
+        "n_athletes": 22,
+        "mae": 24.08180372378394,
+        "rmse": 27.820441102560654,
+        "r2": 0.07091331569596104,
+        "spearman": 0.26823063877897113,
+        "baseline_mae": 25.042881646655232,
+        "baseline_rmse": 28.977080370006192,
+        "relative_mse_improvement": 0.07823805873520162,
+        "top_quartile_ap": 0.3970538720538721,
+        "top_quartile_base_rate": 0.2727272727272727,
+        "precision_at_top_quartile": 0.3333333333333333,
+        "interval_90_empirical_coverage": 1.0,
+        "interval_90_mean_width": 97.3009051702013
+      },
+      "candidate_metrics": {
+        "n_rows": 22,
+        "n_athletes": 22,
+        "mae": 24.08180372378394,
+        "rmse": 27.820441102560654,
+        "r2": 0.07091331569596104,
+        "spearman": 0.26823063877897113,
+        "baseline_mae": 25.042881646655232,
+        "baseline_rmse": 28.977080370006192,
+        "relative_mse_improvement": 0.07823805873520162,
+        "top_quartile_ap": 0.3970538720538721,
+        "top_quartile_base_rate": 0.2727272727272727,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.06910272629558678,
+        "lower95": -0.06944914839476143,
+        "upper95": 0.213780610550627
+      },
+      "calibration_radius": 53.026508241752,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "OLB_HYBRID",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.4,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 243.5,
+            "reference_athletes": 61,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "OLB_HYBRID",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.4,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 265.25,
+            "reference_athletes": 52,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "OLB_HYBRID",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.4,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 301.0,
+            "reference_athletes": 54,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "OLB_HYBRID",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.4,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 267.0,
+            "reference_athletes": 43,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "OLB_HYBRID",
+            "sport": "nfl",
+            "domains": {
+              "rush_disruption": {
+                "weight": 0.4,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.35,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "ball_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.1,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 246.0,
+            "reference_athletes": 53,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 1.1307672383302372e-17,
+        "archetype": 0.6050944825388394,
+        "ridge": 0.21157862875115876,
+        "hist_gradient_boosting": 0.18332688871000155,
+        "extra_trees": 4.307557049425589e-16,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9425426931172788,
+        "mean_absolute_percentile_change": 8.447684391080614
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nfl:CB": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "stack",
+      "train_rows": 401,
+      "train_athletes": 175,
+      "calibration_athletes": 31,
+      "test_athletes": 19,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 401,
+        "n_athletes": 175,
+        "mae": 25.340155539691697,
+        "rmse": 29.197814598952668,
+        "r2": 0.006218525196530433,
+        "spearman": 0.06477077047075028,
+        "baseline_mae": 25.459258428790573,
+        "baseline_rmse": 29.352394796301517,
+        "relative_mse_improvement": 0.010504979995446195,
+        "top_quartile_ap": 0.33777453822976833,
+        "top_quartile_base_rate": 0.2515238095238095,
+        "precision_at_top_quartile": 0.29734848484848486
+      },
+      "metrics": {
+        "n_rows": 19,
+        "n_athletes": 19,
+        "mae": 23.300254022606886,
+        "rmse": 27.466906763238654,
+        "r2": -0.03647297460761889,
+        "spearman": -0.06514094602539877,
+        "baseline_mae": 23.026315789473667,
+        "baseline_rmse": 27.79228198726101,
+        "relative_mse_improvement": 0.023277726962488976,
+        "top_quartile_ap": 0.4576330532212885,
+        "top_quartile_base_rate": 0.2631578947368421,
+        "precision_at_top_quartile": 0.2,
+        "interval_90_empirical_coverage": 0.8947368421052632,
+        "interval_90_mean_width": 82.59971310865824
+      },
+      "candidate_metrics": {
+        "n_rows": 19,
+        "n_athletes": 19,
+        "mae": 23.300254022606886,
+        "rmse": 27.466906763238654,
+        "r2": -0.03647297460761889,
+        "spearman": -0.06514094602539877,
+        "baseline_mae": 23.026315789473667,
+        "baseline_rmse": 27.79228198726101,
+        "relative_mse_improvement": 0.023277726962488976,
+        "top_quartile_ap": 0.4576330532212885,
+        "top_quartile_base_rate": 0.2631578947368421,
+        "precision_at_top_quartile": 0.2
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.01940022797902439,
+        "lower95": -0.05409973109487693,
+        "upper95": 0.10170914102676684
+      },
+      "calibration_radius": 41.29985655432911,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "CB",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.75,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.1,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 256.5,
+            "reference_athletes": 77,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "CB",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.75,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.1,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 272.75,
+            "reference_athletes": 70,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "CB",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.75,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.1,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 262.25,
+            "reference_athletes": 92,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "CB",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.75,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.1,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 315.75,
+            "reference_athletes": 78,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "CB",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.75,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.1,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 284.25,
+            "reference_athletes": 84,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.017856230233170668,
+        "archetype": 0.26713836252299605,
+        "ridge": 0.0,
+        "hist_gradient_boosting": 1.4716603399665556e-17,
+        "extra_trees": 0.0,
+        "shared": 0.7150054072438332
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.7663898876567197,
+        "mean_absolute_percentile_change": 15.037593984962392
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Frozen test did not show positive rank association."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nfl:S": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "baseline",
+      "train_rows": 354,
+      "train_athletes": 141,
+      "calibration_athletes": 20,
+      "test_athletes": 18,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 354,
+        "n_athletes": 141,
+        "mae": 26.01995225925656,
+        "rmse": 30.131778465778964,
+        "r2": -0.04237492880832039,
+        "spearman": -0.12693434370906595,
+        "baseline_mae": 25.73208821781473,
+        "baseline_rmse": 29.578911011152734,
+        "relative_mse_improvement": -0.03773190650922631,
+        "top_quartile_ap": 0.21884688052373286,
+        "top_quartile_base_rate": 0.25224586288416073,
+        "precision_at_top_quartile": 0.11408450704225356
+      },
+      "metrics": {
+        "n_rows": 18,
+        "n_athletes": 18,
+        "mae": 27.47336377473367,
+        "rmse": 32.19178082191784,
+        "r2": -0.028989924549134738,
+        "spearman": null,
+        "baseline_mae": 27.47336377473367,
+        "baseline_rmse": 32.19178082191784,
+        "relative_mse_improvement": 0.0,
+        "top_quartile_ap": 0.2777777777777778,
+        "top_quartile_base_rate": 0.2777777777777778,
+        "precision_at_top_quartile": 0.2777777777777778,
+        "interval_90_empirical_coverage": 0.7777777777777778,
+        "interval_90_mean_width": 94.52054794520546
+      },
+      "candidate_metrics": {
+        "n_rows": 18,
+        "n_athletes": 18,
+        "mae": 28.084101255288182,
+        "rmse": 32.05353152524037,
+        "r2": -0.020170799644552373,
+        "spearman": -0.04136506865393546,
+        "baseline_mae": 27.47336377473367,
+        "baseline_rmse": 32.19178082191784,
+        "relative_mse_improvement": 0.008570662058179579,
+        "top_quartile_ap": 0.4216619981325863,
+        "top_quartile_base_rate": 0.2777777777777778,
+        "precision_at_top_quartile": 0.4
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.0,
+        "lower95": 0.0,
+        "upper95": 0.0
+      },
+      "calibration_radius": 47.26027397260274,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "S",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.05,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 342.0,
+            "reference_athletes": 69,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "S",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.05,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 375.0,
+            "reference_athletes": 63,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "S",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.05,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 323.0,
+            "reference_athletes": 78,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "S",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.05,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 346.5,
+            "reference_athletes": 71,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "S",
+            "sport": "nfl",
+            "domains": {
+              "ball_disruption": {
+                "weight": 0.55,
+                "metrics": {
+                  "passes_defended": 0.5,
+                  "interceptions": 0.5
+                }
+              },
+              "negative_play_stops": {
+                "weight": 0.25,
+                "metrics": {
+                  "negative_play_tackle_credits": 1.0
+                }
+              },
+              "rush_disruption": {
+                "weight": 0.05,
+                "metrics": {
+                  "sacks": 0.5,
+                  "qb_hits": 0.5
+                }
+              },
+              "fumble_creation": {
+                "weight": 0.15,
+                "metrics": {
+                  "forced_fumbles": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 150,
+            "shrinkage_prior_exposure": 345.5,
+            "reference_athletes": 73,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.1632918976228799,
+        "archetype": 0.0,
+        "ridge": 0.0,
+        "hist_gradient_boosting": 2.01429516769959e-17,
+        "extra_trees": 0.0,
+        "shared": 0.83670810237712
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.877076576413802,
+        "mean_absolute_percentile_change": 10.235920852359227
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+        "Nested CV did not show positive rank association.",
+        "Frozen test MSE did not improve over neutral 50.",
+        "Frozen test did not show positive rank association."
+      ],
+      "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable."
+    },
+    "nba:guard": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "baseline",
+      "train_rows": 515,
+      "train_athletes": 185,
+      "calibration_athletes": 48,
+      "test_athletes": 48,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 515,
+        "n_athletes": 185,
+        "mae": 24.57412480214756,
+        "rmse": 28.38945170035299,
+        "r2": -0.0027176380204649853,
+        "spearman": -0.04367545477119557,
+        "baseline_mae": 24.59788864014664,
+        "baseline_rmse": 28.35195907646388,
+        "relative_mse_improvement": -0.0026465482618924785,
+        "top_quartile_ap": 0.28309528733822703,
+        "top_quartile_base_rate": 0.25684684684684683,
+        "precision_at_top_quartile": 0.2819148936170212
+      },
+      "metrics": {
+        "n_rows": 48,
+        "n_athletes": 48,
+        "mae": 24.26364942528733,
+        "rmse": 27.19932325797161,
+        "r2": -0.10408648673628473,
+        "spearman": null,
+        "baseline_mae": 24.26364942528733,
+        "baseline_rmse": 27.19932325797161,
+        "relative_mse_improvement": 0.0,
+        "top_quartile_ap": 0.25,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.25,
+        "interval_90_empirical_coverage": 0.9375,
+        "interval_90_mean_width": 86.20689655172413
+      },
+      "candidate_metrics": {
+        "n_rows": 48,
+        "n_athletes": 48,
+        "mae": 24.42298694120535,
+        "rmse": 27.349312452304208,
+        "r2": -0.11629691124077657,
+        "spearman": 0.12697248745263354,
+        "baseline_mae": 24.26364942528733,
+        "baseline_rmse": 27.19932325797161,
+        "relative_mse_improvement": -0.011059300744261646,
+        "top_quartile_ap": 0.33978349368019334,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.0,
+        "lower95": 0.0,
+        "upper95": 0.0
+      },
+      "calibration_radius": 43.103448275862064,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "guard",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.55,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 681.75,
+            "reference_athletes": 98,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "guard",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.55,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 751.25,
+            "reference_athletes": 90,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "guard",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.55,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 722.0,
+            "reference_athletes": 97,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "guard",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.55,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 646.25,
+            "reference_athletes": 114,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "guard",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.55,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 678.25,
+            "reference_athletes": 116,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.0,
+        "archetype": 6.299763307470273e-20,
+        "ridge": 0.0,
+        "hist_gradient_boosting": 0.07675764613712736,
+        "extra_trees": 0.7565822194323092,
+        "shared": 0.16666013443056354
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9269645712481249,
+        "mean_absolute_percentile_change": 7.579022988505739
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+        "Nested CV did not show positive rank association.",
+        "Frozen test MSE did not improve over neutral 50.",
+        "Frozen test did not show positive rank association."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nba:forward": {
+      "status": "evidence_supported",
+      "evidence_grade": "provisional_point_gate_passed",
+      "selected_method": "stack",
+      "train_rows": 490,
+      "train_athletes": 168,
+      "calibration_athletes": 27,
+      "test_athletes": 36,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 490,
+        "n_athletes": 168,
+        "mae": 23.372179690564,
+        "rmse": 27.40889254704854,
+        "r2": 0.10668889377109836,
+        "spearman": 0.3300092541644721,
+        "baseline_mae": 25.351497569784048,
+        "baseline_rmse": 29.111314425252726,
+        "relative_mse_improvement": 0.11353958575037515,
+        "top_quartile_ap": 0.40542946278668773,
+        "top_quartile_base_rate": 0.25496031746031744,
+        "precision_at_top_quartile": 0.3465116279069767
+      },
+      "metrics": {
+        "n_rows": 36,
+        "n_athletes": 36,
+        "mae": 25.286727858670663,
+        "rmse": 28.555198342327007,
+        "r2": 0.011890291332295688,
+        "spearman": 0.241383837787908,
+        "baseline_mae": 26.091269841269863,
+        "baseline_rmse": 28.74942027394997,
+        "relative_mse_improvement": 0.013465724108981836,
+        "top_quartile_ap": 0.345943151498707,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.3333333333333333,
+        "interval_90_empirical_coverage": 1.0,
+        "interval_90_mean_width": 92.13175805271504
+      },
+      "candidate_metrics": {
+        "n_rows": 36,
+        "n_athletes": 36,
+        "mae": 25.286727858670663,
+        "rmse": 28.555198342327007,
+        "r2": 0.011890291332295688,
+        "spearman": 0.241383837787908,
+        "baseline_mae": 26.091269841269863,
+        "baseline_rmse": 28.74942027394997,
+        "relative_mse_improvement": 0.013465724108981836,
+        "top_quartile_ap": 0.345943151498707,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.010310663754263441,
+        "lower95": -0.20215448064267624,
+        "upper95": 0.20022337575717752
+      },
+      "calibration_radius": 50.535459092547576,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "forward",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 640.0,
+            "reference_athletes": 95,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "forward",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 635.25,
+            "reference_athletes": 98,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "forward",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 597.0,
+            "reference_athletes": 103,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "forward",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 620.0,
+            "reference_athletes": 96,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "forward",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.3,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 609.25,
+            "reference_athletes": 98,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 2.241738440340458e-17,
+        "archetype": 0.17598691062742414,
+        "ridge": 0.4778896600414424,
+        "hist_gradient_boosting": 0.3461234293311335,
+        "extra_trees": 4.137690235235759e-17,
+        "shared": 3.604740419210931e-18
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9850399875571555,
+        "mean_absolute_percentile_change": 3.075396825396828
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nba:center": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "stack",
+      "train_rows": 203,
+      "train_athletes": 71,
+      "calibration_athletes": 10,
+      "test_athletes": 10,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 203,
+        "n_athletes": 71,
+        "mae": 24.156097874485518,
+        "rmse": 28.418514919937525,
+        "r2": 0.13691678207982338,
+        "spearman": 0.35449624540974767,
+        "baseline_mae": 26.314938717448715,
+        "baseline_rmse": 30.59010038687674,
+        "relative_mse_improvement": 0.13694007007067943,
+        "top_quartile_ap": 0.49676236734713797,
+        "top_quartile_base_rate": 0.2715962441314554,
+        "precision_at_top_quartile": 0.46140350877192987
+      },
+      "metrics": {
+        "n_rows": 10,
+        "n_athletes": 10,
+        "mae": 35.12608062625943,
+        "rmse": 37.44353718916539,
+        "r2": 0.028687330928781396,
+        "spearman": 0.1406787033217016,
+        "baseline_mae": 36.58536585365856,
+        "baseline_rmse": 38.08706641627185,
+        "relative_mse_improvement": 0.03350704931949766,
+        "top_quartile_ap": 0.5694444444444444,
+        "top_quartile_base_rate": 0.3,
+        "precision_at_top_quartile": 0.3333333333333333,
+        "interval_90_empirical_coverage": 0.9,
+        "interval_90_mean_width": 92.54555412747455
+      },
+      "candidate_metrics": {
+        "n_rows": 10,
+        "n_athletes": 10,
+        "mae": 35.12608062625943,
+        "rmse": 37.44353718916539,
+        "r2": 0.028687330928781396,
+        "spearman": 0.1406787033217016,
+        "baseline_mae": 36.58536585365856,
+        "baseline_rmse": 38.08706641627185,
+        "relative_mse_improvement": 0.03350704931949766,
+        "top_quartile_ap": 0.5694444444444444,
+        "top_quartile_base_rate": 0.3,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.04057272224215054,
+        "lower95": -0.22648346306043432,
+        "upper95": 0.275744888292216
+      },
+      "calibration_radius": 50.01125495582304,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "center",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.15,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.45,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 516.5,
+            "reference_athletes": 42,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "center",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.15,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.45,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 541.0,
+            "reference_athletes": 39,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "center",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.15,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.45,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 655.0,
+            "reference_athletes": 41,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "center",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.15,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.45,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 566.0,
+            "reference_athletes": 40,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "center",
+            "sport": "nba",
+            "domains": {
+              "possession_recovery": {
+                "weight": 0.15,
+                "metrics": {
+                  "steals": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.45,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "defensive_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "defensive_rebounds": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 604.5,
+            "reference_athletes": 41,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.0,
+        "archetype": 1.1360297855758998e-17,
+        "ridge": 0.6456949381389763,
+        "hist_gradient_boosting": 0.35430506186102384,
+        "extra_trees": 0.0,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9570732259820033,
+        "mean_absolute_percentile_change": 9.268292682926834
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Fewer than 15 independent test athletes."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nhl:defense": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "stack",
+      "train_rows": 711,
+      "train_athletes": 227,
+      "calibration_athletes": 47,
+      "test_athletes": 43,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 711,
+        "n_athletes": 227,
+        "mae": 24.309971660772543,
+        "rmse": 28.344784291799392,
+        "r2": 0.02135285823402,
+        "spearman": 0.14162725138225613,
+        "baseline_mae": 24.77612989371616,
+        "baseline_rmse": 28.733236031850407,
+        "relative_mse_improvement": 0.02685572567903527,
+        "top_quartile_ap": 0.3332612080517152,
+        "top_quartile_base_rate": 0.2547723935389134,
+        "precision_at_top_quartile": 0.28421052631578947
+      },
+      "metrics": {
+        "n_rows": 43,
+        "n_athletes": 43,
+        "mae": 23.86505740893788,
+        "rmse": 28.65357088871229,
+        "r2": -0.04292918983143079,
+        "spearman": 0.020963966140118643,
+        "baseline_mae": 23.89922480620161,
+        "baseline_rmse": 28.05812534601733,
+        "relative_mse_improvement": -0.04289408259131933,
+        "top_quartile_ap": 0.28715955761410306,
+        "top_quartile_base_rate": 0.2558139534883721,
+        "precision_at_top_quartile": 0.36363636363636365,
+        "interval_90_empirical_coverage": 0.9302325581395349,
+        "interval_90_mean_width": 93.90078149589343
+      },
+      "candidate_metrics": {
+        "n_rows": 43,
+        "n_athletes": 43,
+        "mae": 23.86505740893788,
+        "rmse": 28.65357088871229,
+        "r2": -0.04292918983143079,
+        "spearman": 0.020963966140118643,
+        "baseline_mae": 23.89922480620161,
+        "baseline_rmse": 28.05812534601733,
+        "relative_mse_improvement": -0.04289408259131933,
+        "top_quartile_ap": 0.28715955761410306,
+        "top_quartile_base_rate": 0.2558139534883721,
+        "precision_at_top_quartile": 0.36363636363636365
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": -0.041522762023995165,
+        "lower95": -0.1803327070004924,
+        "upper95": 0.06794189430989431
+      },
+      "calibration_radius": 48.46532001188908,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "defense",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.6,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 612.1583333333333,
+            "reference_athletes": 142,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "defense",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.6,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 677.8083333333334,
+            "reference_athletes": 132,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "defense",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.6,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 611.3958333333333,
+            "reference_athletes": 142,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "defense",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.6,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 606.225,
+            "reference_athletes": 145,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "defense",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.6,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.3,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 625.2458333333334,
+            "reference_athletes": 150,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.13363644325700544,
+        "archetype": 3.667759148524656e-18,
+        "ridge": 0.14410765116505528,
+        "hist_gradient_boosting": 0.4520100077149938,
+        "extra_trees": 3.525003016262646e-18,
+        "shared": 0.27024589786294556
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.7003664789281221,
+        "mean_absolute_percentile_change": 17.077519379844986
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Frozen test MSE did not improve over neutral 50."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nhl:center": {
+      "status": "evidence_supported",
+      "evidence_grade": "provisional_point_gate_passed",
+      "selected_method": "stack",
+      "train_rows": 665,
+      "train_athletes": 207,
+      "calibration_athletes": 45,
+      "test_athletes": 45,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 665,
+        "n_athletes": 207,
+        "mae": 24.086319532028504,
+        "rmse": 28.036428238508154,
+        "r2": 0.031748926290487756,
+        "spearman": 0.18445825348183856,
+        "baseline_mae": 24.681480521429613,
+        "baseline_rmse": 28.6950264420027,
+        "relative_mse_improvement": 0.04537652175253615,
+        "top_quartile_ap": 0.31444569200655464,
+        "top_quartile_base_rate": 0.250402576489533,
+        "precision_at_top_quartile": 0.3721153846153845
+      },
+      "metrics": {
+        "n_rows": 45,
+        "n_athletes": 45,
+        "mae": 24.42834155642322,
+        "rmse": 29.02691195840043,
+        "r2": 0.04392649689666683,
+        "spearman": 0.2504379314692402,
+        "baseline_mae": 26.717948717948648,
+        "baseline_rmse": 29.72346799480826,
+        "relative_mse_improvement": 0.04631991789150225,
+        "top_quartile_ap": 0.3852589618843488,
+        "top_quartile_base_rate": 0.28888888888888886,
+        "precision_at_top_quartile": 0.3333333333333333,
+        "interval_90_empirical_coverage": 0.9333333333333333,
+        "interval_90_mean_width": 94.81684339599983
+      },
+      "candidate_metrics": {
+        "n_rows": 45,
+        "n_athletes": 45,
+        "mae": 24.42834155642322,
+        "rmse": 29.02691195840043,
+        "r2": 0.04392649689666683,
+        "spearman": 0.2504379314692402,
+        "baseline_mae": 26.717948717948648,
+        "baseline_rmse": 29.72346799480826,
+        "relative_mse_improvement": 0.04631991789150225,
+        "top_quartile_ap": 0.3852589618843488,
+        "top_quartile_base_rate": 0.28888888888888886,
+        "precision_at_top_quartile": 0.3333333333333333
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.046487454691180825,
+        "lower95": -0.1252721331416919,
+        "upper95": 0.21536812391317317
+      },
+      "calibration_radius": 51.800790116819634,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "center",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.45,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "faceoff_acquisition_activity": {
+                "weight": 0.45,
+                "metrics": {
+                  "faceoff_wins": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 511.4583333333333,
+            "reference_athletes": 131,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "center",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.45,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "faceoff_acquisition_activity": {
+                "weight": 0.45,
+                "metrics": {
+                  "faceoff_wins": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 530.6583333333333,
+            "reference_athletes": 140,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "center",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.45,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "faceoff_acquisition_activity": {
+                "weight": 0.45,
+                "metrics": {
+                  "faceoff_wins": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 519.9541666666667,
+            "reference_athletes": 130,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "center",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.45,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "faceoff_acquisition_activity": {
+                "weight": 0.45,
+                "metrics": {
+                  "faceoff_wins": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 528.5875,
+            "reference_athletes": 134,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "center",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.45,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "faceoff_acquisition_activity": {
+                "weight": 0.45,
+                "metrics": {
+                  "faceoff_wins": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 538.6458333333333,
+            "reference_athletes": 130,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 1.5310450996914885e-17,
+        "archetype": 0.7349918455329916,
+        "ridge": 0.0,
+        "hist_gradient_boosting": 0.26500815446700854,
+        "extra_trees": 0.0,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.904875085789644,
+        "mean_absolute_percentile_change": 10.20512820512819
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "nhl:wing": {
+      "status": "no_evidence",
+      "evidence_grade": "insufficient_predictive_evidence",
+      "selected_method": "baseline",
+      "train_rows": 657,
+      "train_athletes": 211,
+      "calibration_athletes": 36,
+      "test_athletes": 58,
+      "evaluation": "contemporaneous_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 657,
+        "n_athletes": 211,
+        "mae": 25.20160918265484,
+        "rmse": 28.956069057756576,
+        "r2": 0.004421347953978638,
+        "spearman": 0.11655944633024504,
+        "baseline_mae": 25.303767808977135,
+        "baseline_rmse": 29.02032683444864,
+        "relative_mse_improvement": 0.004423563952317799,
+        "top_quartile_ap": 0.30636715459648806,
+        "top_quartile_base_rate": 0.2536334913112165,
+        "precision_at_top_quartile": 0.34532828282828276
+      },
+      "metrics": {
+        "n_rows": 58,
+        "n_athletes": 58,
+        "mae": 24.409814323607357,
+        "rmse": 28.89416870417066,
+        "r2": -0.003999223476395919,
+        "spearman": null,
+        "baseline_mae": 24.409814323607357,
+        "baseline_rmse": 28.89416870417066,
+        "relative_mse_improvement": 0.0,
+        "top_quartile_ap": 0.25862068965517243,
+        "top_quartile_base_rate": 0.25862068965517243,
+        "precision_at_top_quartile": 0.25862068965517243,
+        "interval_90_empirical_coverage": 0.8793103448275862,
+        "interval_90_mean_width": 93.84615384615334
+      },
+      "candidate_metrics": {
+        "n_rows": 58,
+        "n_athletes": 58,
+        "mae": 24.57629646992966,
+        "rmse": 29.367824874406395,
+        "r2": -0.03718572780096885,
+        "spearman": -0.08716600432043671,
+        "baseline_mae": 24.409814323607357,
+        "baseline_rmse": 28.89416870417066,
+        "relative_mse_improvement": -0.03305431274106274,
+        "top_quartile_ap": 0.23861364122632575,
+        "top_quartile_base_rate": 0.25862068965517243,
+        "precision_at_top_quartile": 0.1875
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.0,
+        "lower95": 0.0,
+        "upper95": 0.0
+      },
+      "calibration_radius": 46.923076923076664,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2021": {
+            "role": "wing",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.65,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.2,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 527.5166666666667,
+            "reference_athletes": 135,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2022": {
+            "role": "wing",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.65,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.2,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 502.125,
+            "reference_athletes": 135,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2023": {
+            "role": "wing",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.65,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.2,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 512.7083333333333,
+            "reference_athletes": 132,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2024": {
+            "role": "wing",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.65,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.2,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 569.6416666666667,
+            "reference_athletes": 125,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          },
+          "2025": {
+            "role": "wing",
+            "sport": "nhl",
+            "domains": {
+              "puck_acquisition": {
+                "weight": 0.65,
+                "metrics": {
+                  "takeaways": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.2,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              },
+              "contact_disruption": {
+                "weight": 0.15,
+                "metrics": {
+                  "hits": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 300,
+            "shrinkage_prior_exposure": 537.9541666666667,
+            "reference_athletes": 130,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.0,
+        "archetype": 0.15954577778388243,
+        "ridge": 0.17466526783453354,
+        "hist_gradient_boosting": 0.04879392376666137,
+        "extra_trees": 0.0,
+        "shared": 0.6169950306149227
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.7476656583956585,
+        "mean_absolute_percentile_change": 16.6777188328912
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [
+        "Nested athlete-heldout CV did not improve MSE by more than 1%.",
+        "Frozen test MSE did not improve over neutral 50.",
+        "Frozen test did not show positive rank association."
+      ],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "epl:DEF": {
+      "status": "evidence_supported",
+      "evidence_grade": "provisional_point_gate_passed",
+      "selected_method": "stack",
+      "train_rows": 76,
+      "train_athletes": 76,
+      "calibration_athletes": 20,
+      "test_athletes": 21,
+      "evaluation": "same_season_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 76,
+        "n_athletes": 76,
+        "mae": 23.376868833734605,
+        "rmse": 27.462131988093763,
+        "r2": 0.1113111684158099,
+        "spearman": 0.3727982705634943,
+        "baseline_mae": 25.114400584795323,
+        "baseline_rmse": 29.13166037569221,
+        "relative_mse_improvement": 0.1113351064296294,
+        "top_quartile_ap": 0.35777923774442766,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.4
+      },
+      "metrics": {
+        "n_rows": 21,
+        "n_athletes": 21,
+        "mae": 24.791296133304357,
+        "rmse": 28.549661881673295,
+        "r2": 0.15938840583608105,
+        "spearman": 0.533961679157168,
+        "baseline_mae": 26.065162907268192,
+        "baseline_rmse": 31.272004520328277,
+        "relative_mse_improvement": 0.16652899135225863,
+        "top_quartile_ap": 0.6,
+        "top_quartile_base_rate": 0.2857142857142857,
+        "precision_at_top_quartile": 0.5,
+        "interval_90_empirical_coverage": 0.5238095238095238,
+        "interval_90_mean_width": 62.15317531409388
+      },
+      "candidate_metrics": {
+        "n_rows": 21,
+        "n_athletes": 21,
+        "mae": 24.791296133304357,
+        "rmse": 28.549661881673295,
+        "r2": 0.15938840583608105,
+        "spearman": 0.533961679157168,
+        "baseline_mae": 26.065162907268192,
+        "baseline_rmse": 31.272004520328277,
+        "relative_mse_improvement": 0.16652899135225863,
+        "top_quartile_ap": 0.6,
+        "top_quartile_base_rate": 0.2857142857142857,
+        "precision_at_top_quartile": 0.5
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.151486845129909,
+        "lower95": -0.07605569551175978,
+        "upper95": 0.34512596466190687
+      },
+      "calibration_radius": 31.076587657046936,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2025": {
+            "role": "DEF",
+            "sport": "epl",
+            "domains": {
+              "ball_recovery": {
+                "weight": 0.35,
+                "metrics": {
+                  "recoveries": 1.0
+                }
+              },
+              "tackle_wins": {
+                "weight": 0.35,
+                "metrics": {
+                  "tackles_won": 1.0
+                }
+              },
+              "interceptions": {
+                "weight": 0.2,
+                "metrics": {
+                  "interceptions": 1.0
+                }
+              },
+              "shot_disruption": {
+                "weight": 0.1,
+                "metrics": {
+                  "blocks": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 450,
+            "shrinkage_prior_exposure": 927.75,
+            "reference_athletes": 76,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 1.53896922045972e-16,
+        "archetype": 0.4790935067381046,
+        "ridge": 9.119239653356217e-17,
+        "hist_gradient_boosting": 0.5209064932618951,
+        "extra_trees": 3.6774360466891136e-18,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.876748013840864,
+        "mean_absolute_percentile_change": 11.560150375939864
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [],
+      "interval_diagnostic": "Observed test coverage is below 80% for a nominal 90% interval; these intervals are not well calibrated. Do not interpret their nominal level as reliable."
+    },
+    "epl:MID": {
+      "status": "evidence_supported",
+      "evidence_grade": "provisional_point_gate_passed",
+      "selected_method": "stack",
+      "train_rows": 80,
+      "train_athletes": 80,
+      "calibration_athletes": 29,
+      "test_athletes": 33,
+      "evaluation": "same_season_2025_unseen_athletes",
+      "nested_cv": {
+        "n_rows": 80,
+        "n_athletes": 80,
+        "mae": 24.516705853610468,
+        "rmse": 28.684131642906447,
+        "r2": 0.046522217254178266,
+        "spearman": 0.23132425636931747,
+        "baseline_mae": 25.25783730158731,
+        "baseline_rmse": 29.3757049109322,
+        "relative_mse_improvement": 0.046530467164541234,
+        "top_quartile_ap": 0.3719226877361272,
+        "top_quartile_base_rate": 0.25,
+        "precision_at_top_quartile": 0.4
+      },
+      "metrics": {
+        "n_rows": 33,
+        "n_athletes": 33,
+        "mae": 26.378729271577047,
+        "rmse": 29.645020886566005,
+        "r2": 0.08110213973104496,
+        "spearman": 0.31006198453000045,
+        "baseline_mae": 28.712121212121172,
+        "baseline_rmse": 31.048974632950003,
+        "relative_mse_improvement": 0.08839017694715356,
+        "top_quartile_ap": 0.5682740303566562,
+        "top_quartile_base_rate": 0.2727272727272727,
+        "precision_at_top_quartile": 0.4444444444444444,
+        "interval_90_empirical_coverage": 0.8787878787878788,
+        "interval_90_mean_width": 86.31607873547638
+      },
+      "candidate_metrics": {
+        "n_rows": 33,
+        "n_athletes": 33,
+        "mae": 26.378729271577047,
+        "rmse": 29.645020886566005,
+        "r2": 0.08110213973104496,
+        "spearman": 0.31006198453000045,
+        "baseline_mae": 28.712121212121172,
+        "baseline_rmse": 31.048974632950003,
+        "relative_mse_improvement": 0.08839017694715356,
+        "top_quartile_ap": 0.5682740303566562,
+        "top_quartile_base_rate": 0.2727272727272727,
+        "precision_at_top_quartile": 0.4444444444444444
+      },
+      "mse_improvement_cluster_bootstrap": {
+        "mean": 0.0898776085164013,
+        "lower95": -0.08079740988029725,
+        "upper95": 0.2607536745609705
+      },
+      "calibration_radius": 44.45449737852915,
+      "target": {
+        "normalization": "sport-role-season; training athletes only",
+        "seasons": {
+          "2025": {
+            "role": "MID",
+            "sport": "epl",
+            "domains": {
+              "ball_recovery": {
+                "weight": 0.4,
+                "metrics": {
+                  "recoveries": 1.0
+                }
+              },
+              "tackle_wins": {
+                "weight": 0.35,
+                "metrics": {
+                  "tackles_won": 1.0
+                }
+              },
+              "interceptions": {
+                "weight": 0.25,
+                "metrics": {
+                  "interceptions": 1.0
+                }
+              }
+            },
+            "minimum_opportunity": 450,
+            "shrinkage_prior_exposure": 903.5,
+            "reference_athletes": 80,
+            "constant_components_rank_at_50": [],
+            "definition": "Observed percentile of a role-specific possession/disruption activity composite among eligible elite peers.",
+            "sparse_components": "Constant components contribute a neutral tied mid-rank; they do not become fabricated signal."
+          }
+        }
+      },
+      "expert_weights": {
+        "baseline50": 0.0,
+        "archetype": 2.5922853335887014e-18,
+        "ridge": 0.14336822068668093,
+        "hist_gradient_boosting": 0.856631779313319,
+        "extra_trees": 2.5763090866492e-18,
+        "shared": 0.0
+      },
+      "target_weight_sensitivity": {
+        "specification": "equal domain and equal within-domain atomic weights",
+        "target_rank_correlation": 0.9887781627504106,
+        "mean_absolute_percentile_change": 2.0075757575757565
+      },
+      "uncertainty": "90% split-conformal residual interval; nominal coverage is not guaranteed under drift or extrapolation.",
+      "improvement_statistically_established": false,
+      "abstention_reasons": [],
+      "interval_diagnostic": "Empirical test coverage is reported, not guaranteed; sample sizes and distribution shift limit interpretation."
+    },
+    "epl:FWD": {
+      "status": "insufficient_support",
+      "train_athletes": 19,
+      "eligible_athletes": 29,
+      "reason": "Requires at least 50 measured training athletes; held-out counts never decide which experts are trained."
+    }
+  },
+  "data_sources": {
+    "nfl": {
+      "path": "data/processed/nfl/player_seasons.parquet",
+      "sha256": "e85fa5931643d7445fcd0acf84f359691b50021d61dce25b00ae377447403a3e",
+      "rows": 7279,
+      "athletes": 2754
+    },
+    "nba": {
+      "path": "data/processed/nba/player_seasons.parquet",
+      "sha256": "19179f977fa596c781a64bcb3cf64f71f3abe73cb9744e180f573d82c1b294d9",
+      "rows": 2932,
+      "athletes": 1057
+    },
+    "nhl": {
+      "path": "data/processed/nhl/player_seasons.parquet",
+      "sha256": "10158ab90eaf5ec8df3190d4058216a89507c3c7944fe475ebd6e6735acf4dee",
+      "rows": 4738,
+      "athletes": 1480
+    },
+    "epl": {
+      "path": "data/processed/epl/player_seasons.parquet",
+      "sha256": "ee72a25c7d3886e242582deffc77afd9c461750bf7f3ca7f5e6ebc9d516bbf0f",
+      "rows": 4025,
+      "athletes": 1797
+    }
+  },
+  "fast_development_fit": false
+}

@@ -1,6 +1,44 @@
-# First model release
+# Model releases
 
 This release is a research baseline built from actual public source snapshots. The tasks have separate interpretations.
+
+## Unified physical efficacy ensemble (v1)
+
+The `efficacy` command is distinct from the original role classifier and returning-player
+forecast. It combines four local experts, one shared role-standardized polynomial
+expert, and a neutral-50 expert into separate sport-role heads. Nonnegative stack
+weights use inner athlete-disjoint out-of-fold predictions; outer folds gate model
+selection. Height and weight are the only learned common inputs. Identifiers,
+opportunity, season and event counts never enter the physical regressors.
+
+The response is a shrunk possession/disruption activity composite, mapped to an
+elite-peer percentile within sport, role and season. The complete reference
+transform is refitted inside each training fold. This avoids confusing provider/year
+drift with physical associations. Domain weights are hand-specified research choices
+with an equal-weight sensitivity audit, not empirically established definitions of
+overall defensive value. Low-minute players and missing body/event records do not
+become low-efficacy labels; they are outside this model's eligible universe.
+
+All seasons of an athlete share a deterministic train/calibration/test partition.
+Training athletes contribute 2021–25, including 2025 contemporary reference rows;
+calibration and frozen test use unseen 2025 athlete identities. EPL has only 2025
+possession labels. This is a descriptive contemporaneous association evaluation,
+not a point-in-time or preseason forecasting experiment. Final-test metrics can
+withhold a primary rating but do not retune model weights. These tests were inspected
+during development; a prospective external dataset remains necessary for
+confirmatory claims.
+
+The scorer reports all roles, separate physical similarity, provisional 90%
+prediction intervals, sample sizes and evidence status. It abstains on insufficient
+measured reference support, out-of-domain physiques and unhelpful held-out models.
+Experimental estimates are labeled and retained for auditing. Primary sport output
+selects the highest supported in-domain role estimate; that maximum has no separate
+sport-level calibration, and should not be treated as a validated sport ranking.
+Intervals cover an individual's observed activity target, not uncertainty in the
+population mean or a professional-success probability. No true sport-switching
+outcomes or measured mental/reaction features are available.
+
+See [ensemble design](ensemble_design.md) and [evaluation](../reports/ensemble/findings.md).
 
 ## Returning-player forecasting
 

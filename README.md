@@ -4,7 +4,7 @@ Research repository for physical archetypes, possession creation, and defensive 
 
 The initial collection window is NFL 2021–2025 and 2021–22 through 2025–26 for the other leagues. NFL is the reference implementation. Each sport retains its own definitions, opportunities, roles, source attribution, and missing-data indicators.
 
-The first working release downloads, cleans, audits, explores, and models all four leagues. It includes 219 cached public source files (300.5 MiB), 38 processed tables, saved model artifacts, and 29 automated tests.
+The working release downloads, cleans, audits, explores, and models all four leagues. It includes 219 cached public source files (300.5 MiB), 38 processed tables, saved model artifacts, automated tests, and a unified physical-profile efficacy ensemble.
 
 | League | Seasons | Player-seasons | Distinct athletes | Current model coverage |
 |---|---|---:|---:|---|
@@ -48,6 +48,44 @@ uv run possession-lab score --sport all --height-cm 188 --weight-kg 95 --age 25
 
 This returns role-label probabilities, physical rate associations where supported, reference sample sizes, and out-of-distribution flags. It does not estimate the probability of entering or succeeding in a different sport. An example output is in [reports/example_physical_profile.json](reports/example_physical_profile.json).
 
+## Unified efficacy ensemble
+
+After processing the four sports, train the common model and score an athlete:
+
+~~~bash
+uv run possession-lab train-ensemble
+uv run possession-lab efficacy --profile examples/athlete.json
+uv run possession-lab efficacy --height-cm 188 --weight-kg 95 --age 25 --output work/athlete_rating.json
+~~~
+
+`efficacy` returns each sport's best provisionally supported role, all role estimates,
+separate physical-fit percentiles, prediction intervals, model evidence, and unused
+measurements. Metric and imperial JSON profiles are supported. A rating of 70
+means an estimated 70th-percentile possession/disruption activity composite among
+eligible elite peers in that role. It is not an entry probability or evidence of
+successful sport switching. Ratings are ordinal within roles, not equal units of
+sporting value. Unsupported, out-of-domain, and no-evidence roles have a null
+primary rating; explicitly labeled experimental estimates remain auditable.
+
+The ensemble combines four sport-role experts, a shared role-standardized expert,
+and a neutral-50 baseline using nonnegative weights learned from athlete-heldout
+predictions. Height and weight are the only common learned inputs in this release.
+Age/BMI are retained for reporting; submitted limb lengths, wingspan, speed, and
+mental attributes do not silently influence predictions without training coverage.
+The ensemble uses sport × role × season target scales to limit provider/year drift.
+
+This evaluation holds out athlete identities, with a frozen 2025 test and
+separate calibration athletes. Training identities include 2025 contemporaneous
+reference players; this is descriptive association, not a preseason forecast. EPL
+possession evidence is 2025 only. See the [ensemble report](reports/ensemble/findings.md),
+[design](docs/ensemble_design.md), and [example score](reports/ensemble/example_athlete.json).
+Model binaries stay local; a fresh clone must process the source data and train.
+
+Current result: five heads pass exploratory point checks, but every bootstrap 95%
+improvement interval includes zero. Height/weight alone have not established
+reliable efficacy prediction. Intervals are wide, and EPL defenders show marked
+undercoverage. Treat all scores as research estimates, not validated player ratings.
+
 ## Reports and evidence
 
 - [NFL report](reports/nfl/report.md) · [HTML with charts](reports/nfl/report.html)
@@ -57,6 +95,7 @@ This returns role-label probabilities, physical rate associations where supporte
 - [Research findings](reports/findings.md)
 - [Data inventory](metadata/data_inventory.md) · [schemas](metadata/dataset_catalog.json) · [download manifest](metadata/download_manifest.json)
 - [Model card and limitations](docs/model_card.md)
+- [Unified ensemble evaluation](reports/ensemble/findings.md) · [per-role metrics](reports/ensemble/evaluation.csv)
 
 Each sport report includes seasonal coverage, missingness, size/opportunity distributions, within-role physical correlations, role event rates, baseline comparisons, model selection, and temporal split details.
 
