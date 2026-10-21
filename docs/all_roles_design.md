@@ -298,6 +298,19 @@ The presentation hierarchy should remain:
 3. transfer guesstimate for a different sport, if available; and
 4. physical-only association beside it, never multiplied into the transfer number.
 
+### 11.1 Compact comparison view
+
+The original all-role explorer above is preserved as the full evidence view. A second frontend presents one selected target role at a time while reading the same frozen export:
+
+~~~bash
+uv run athlete-translation-lab build-all-roles-compact-portal
+uv run athlete-translation-lab all-roles-compact-portal
+~~~
+
+Open `http://127.0.0.1:8767/compact/`. The compact frontend lives under `portal-all-roles/compact/`; player data remain in the single ignored `portal-all-roles/data/` directory. The existing 8766 server also exposes the compact page at `/compact/`.
+
+The compact page keeps four distinct claims visible: observed native standing, native next-season forecast, target-role physical association, and the cross-sport transfer analogy. It never substitutes one when another is withheld. Its Body fit card is a fifth, non-predictive diagnostic: an empirical survival percentile of Mahalanobis distance in height/weight space. The reference uses one latest selectable profile per target-role athlete, a 10% diagonal covariance shrinkage, and at least 20 athletes. Higher means more central to that role's current build distribution—not more capable.
+
 ## 12. Outputs and how to read them
 
 | Path | Purpose |

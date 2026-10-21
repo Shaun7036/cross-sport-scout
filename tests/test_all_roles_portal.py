@@ -5,7 +5,13 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from possession_lab.all_roles_portal import _latest_active_rows, _safe, build_all_roles_portal
+from possession_lab.all_roles_portal import (
+    _body_fit,
+    _body_fit_references,
+    _latest_active_rows,
+    _safe,
+    build_all_roles_portal,
+)
 
 
 def _observed_rows() -> pd.DataFrame:
@@ -253,6 +259,8 @@ def test_build_portal_exports_latest_active_players_and_four_score_contract(port
     wr = detail["targets"]["nfl"]["roles"]["WR"]
     assert wr["physical_only"]["kind"] == "cross_sport_physical_estimate"
     assert wr["transfer_guesstimate"]["kind"] == "cross_sport_transfer_guesstimate"
+    assert wr["body_fit"]["kind"] == "target_role_body_centrality"
+    assert wr["body_fit"]["status"] == "withheld_insufficient_reference"
     assert detail["native_profile"]["domains"][0]["value"] == 96.0
     assert detail["native_profile"]["transferable_dimensions"][0]["value"] == 95.0
     assert written["model"]["sha256"]
@@ -272,6 +280,31 @@ def test_safe_produces_strict_json_scalars():
     assert json.dumps(value, allow_nan=False)
 
 
+def test_body_fit_is_descriptive_centrality_separate_from_outcome_models():
+    athletes = pd.DataFrame(
+        {
+            "sport": ["nba"] * 24,
+            "role": ["guard"] * 24,
+            "player_id": [str(index) for index in range(24)],
+            "height_cm": np.linspace(180.0, 196.0, 24),
+            "weight_kg": np.linspace(75.0, 99.0, 24) + np.sin(np.arange(24)),
+        }
+    )
+    reference = _body_fit_references(athletes)["nba:guard"]
+    center = _body_fit(
+        {"height_cm": reference["center"][0], "weight_kg": reference["center"][1]},
+        reference,
+    )
+    extreme = _body_fit({"height_cm": 215.0, "weight_kg": 135.0}, reference)
+
+    assert center["status"] == "available"
+    assert center["value"] > extreme["value"]
+    assert center["kind"] == "target_role_body_centrality"
+    assert center["features_used"] == ["height_cm", "weight_kg"]
+    assert "ability" in center["note"]
+    assert _body_fit({"height_cm": None, "weight_kg": 90.0}, reference)["value"] is None
+
+
 def test_static_portal_names_four_scores_and_uses_local_assets_only():
     portal = Path(__file__).parents[1] / "portal-all-roles"
     html = (portal / "index.html").read_text()
@@ -288,3 +321,23 @@ def test_static_portal_names_four_scores_and_uses_local_assets_only():
     assert "http://" not in html
     assert "innerHTML" not in script
     assert "textContent" in script
+
+
+def test_compact_portal_is_single_role_and_uses_shared_export_safely():
+    portal = Path(__file__).parents[1] / "portal-all-roles" / "compact"
+    html = (portal / "index.html").read_text()
+    script = (portal / "app.js").read_text()
+    assert "Body fit" in html or "Body fit" in script
+    assert 'select.id = "target-role"' in script
+    for label in (
+        "Native observed",
+        "Next-season forecast",
+        "Physical-only estimate",
+        "Transfer efficacy guesstimate",
+    ):
+        assert label in script
+    assert "not a probability" in html.lower() or "not a probability" in script.lower()
+    assert 'new URL("../data/", document.baseURI)' in script
+    assert "innerHTML" not in script
+    assert "https://" not in html
+    assert "http://" not in html

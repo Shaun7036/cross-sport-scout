@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3ed">
+    <meta name="description" content="A compact player-by-player view of the Athlete Translation Lab's all-role estimates.">
+    <title>Athlete Translation Lab · Compact explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to player explorer</a>
+
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="Compact athlete explorer home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span>Athlete Translation Lab</span>
+      </a>
+      <div class="header-actions">
+        <span class="prototype"><i aria-hidden="true"></i> Research prototype</span>
+        <a class="view-link" href="../">Detailed view <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="top" class="shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Compact player explorer</p>
+          <h1 id="page-title">Find the role.<br><em>Read the evidence.</em></h1>
+        </div>
+        <p>Select one athlete, target sport and role. The main readout keeps build, mapped performance and body similarity separate so a compact answer does not hide the model's limits.</p>
+      </section>
+
+      <div id="app-error" class="notice" role="alert" hidden></div>
+
+      <section id="explorer" class="explorer" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Compare a player</p>
+            <h2 id="explorer-title">Player and target role</h2>
+          </div>
+          <p id="snapshot-note">Loading the saved snapshot…</p>
+        </div>
+
+        <div class="explorer-grid" id="explorer-grid" aria-busy="true">
+          <aside class="picker panel" aria-label="Choose a player">
+            <div class="picker-controls">
+              <label for="player-search">Search athlete</label>
+              <input id="player-search" type="search" placeholder="Name, team or role" autocomplete="off" spellcheck="false" aria-controls="player-list">
+              <label for="source-sport">Source league</label>
+              <select id="source-sport" aria-controls="player-list">
+                <option value="all">All four leagues</option>
+              </select>
+            </div>
+            <p class="picker-count"><strong id="player-count">—</strong> matching athletes</p>
+            <div id="player-list" class="player-list" role="listbox" aria-label="Athletes">
+              <p class="empty-state">Loading athletes…</p>
+            </div>
+          </aside>
+
+          <article id="result" class="result panel" aria-live="off" aria-busy="true">
+            <div class="loading-state"><span aria-hidden="true"></span><p>Preparing the compact view…</p></div>
+          </article>
+        </div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="reading-note" aria-label="How to interpret this explorer">
+        <p><strong>Percentiles are role-relative.</strong> Equal values in different roles do not mean equal sporting value.</p>
+        <p><strong>Withheld is not zero.</strong> Missing data, weak evidence or an out-of-domain profile produces no number.</p>
+        <p><strong>Transfer is exploratory.</strong> It is an analogy from public data, not a probability or validated sport-switch forecast.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Athlete Translation Lab · Compact view</span>
+      <a href="../">Open the detailed evidence view <span aria-hidden="true">→</span></a>
+    </footer>
+    <noscript><p class="notice">This local explorer needs JavaScript to read its exported result files.</p></noscript>
+  </body>
+</html>

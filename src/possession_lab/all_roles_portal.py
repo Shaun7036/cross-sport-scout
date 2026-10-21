@@ -30,6 +30,10 @@ SPORT_LABELS = {
     "epl": "Premier League",
 }
 
+BODY_FIT_FEATURES = ("height_cm", "weight_kg")
+BODY_FIT_MIN_REFERENCE_ATHLETES = 20
+BODY_FIT_COVARIANCE_SHRINKAGE = 0.10
+
 
 def _safe(value: Any) -> Any:
     """Convert pandas/numpy values into strict JSON-compatible values."""
@@ -154,6 +158,119 @@ def _sport_manifest() -> list[dict]:
     return result
 
 
+def _body_fit_references(snapshot: pd.DataFrame) -> dict[str, dict]:
+    """Build descriptive role-body references from one latest row per athlete.
+
+    This is deliberately separate from every learned outcome head.  The
+    empirical survival percentile answers only how central a height/weight
+    profile is in a target-role cohort; it is not an efficacy estimate.
+    """
+    required = {"sport", "role", "player_id", *BODY_FIT_FEATURES}
+    missing = sorted(required.difference(snapshot.columns))
+    if missing:
+        raise ValueError(f"Body-fit reference is missing columns: {missing}")
+    references: dict[str, dict] = {}
+    source = snapshot.copy()
+    for feature in BODY_FIT_FEATURES:
+        source[feature] = pd.to_numeric(source[feature], errors="coerce")
+    source = source.drop_duplicates(["sport", "player_id"], keep="last")
+    for (sport, role), group in source.groupby(["sport", "role"], dropna=False, sort=True):
+        key = f"{sport}:{role}"
+        valid = group.loc[
+            group[list(BODY_FIT_FEATURES)].notna().all(axis=1)
+            & group[list(BODY_FIT_FEATURES)].gt(0).all(axis=1),
+            list(BODY_FIT_FEATURES),
+        ]
+        values = valid.to_numpy(dtype=float)
+        reference_athletes = int(len(values))
+        if reference_athletes < BODY_FIT_MIN_REFERENCE_ATHLETES:
+            references[key] = {
+                "status": "insufficient_reference",
+                "reference_athletes": reference_athletes,
+            }
+            continue
+        center = values.mean(axis=0)
+        covariance = np.atleast_2d(np.cov(values, rowvar=False, ddof=1))
+        diagonal = np.diag(np.diag(covariance))
+        covariance = (
+            (1.0 - BODY_FIT_COVARIANCE_SHRINKAGE) * covariance
+            + BODY_FIT_COVARIANCE_SHRINKAGE * diagonal
+        )
+        inverse = np.linalg.pinv(covariance, hermitian=True)
+        deltas = values - center
+        distances = np.einsum("ij,jk,ik->i", deltas, inverse, deltas)
+        distances = np.maximum(distances, 0.0)
+        references[key] = {
+            "status": "available",
+            "reference_athletes": reference_athletes,
+            "center": center,
+            "inverse_covariance": inverse,
+            "distances": np.sort(distances),
+            "lower": np.quantile(values, 0.01, axis=0),
+            "upper": np.quantile(values, 0.99, axis=0),
+        }
+    return references
+
+
+def _body_fit(profile: Mapping[str, Any], reference: Mapping[str, Any] | None) -> dict:
+    """Return a role-relative build-centrality percentile, never a talent score."""
+    base = {
+        "kind": "target_role_body_centrality",
+        "value": None,
+        "evidence_class": "descriptive_height_weight_centrality",
+        "method": "empirical_mahalanobis_survival_percentile_height_weight",
+        "features_used": list(BODY_FIT_FEATURES),
+        "reference_athletes": int(reference.get("reference_athletes", 0)) if reference else 0,
+        "note": (
+            "Height/weight centrality within the latest target-role cohort; higher means a more "
+            "typical build, not greater ability or sport-switch success."
+        ),
+    }
+    values = []
+    for feature in BODY_FIT_FEATURES:
+        value = profile.get(feature)
+        try:
+            number = float(value)
+        except (TypeError, ValueError):
+            number = np.nan
+        values.append(number)
+    body = np.asarray(values, dtype=float)
+    if not np.isfinite(body).all() or np.any(body <= 0):
+        return {**base, "status": "withheld_missing_height_or_weight"}
+    if not reference or reference.get("status") != "available":
+        return {**base, "status": "withheld_insufficient_reference"}
+
+    center = np.asarray(reference["center"], dtype=float)
+    inverse = np.asarray(reference["inverse_covariance"], dtype=float)
+    delta = body - center
+    distance = max(float(delta @ inverse @ delta), 0.0)
+    distances = np.asarray(reference["distances"], dtype=float)
+    cdf = int(np.searchsorted(distances, distance, side="right"))
+    value = float(100.0 * (1.0 - cdf / len(distances)))
+    lower = np.asarray(reference["lower"], dtype=float)
+    upper = np.asarray(reference["upper"], dtype=float)
+    return _safe(
+        {
+            **base,
+            "status": "available",
+            "value": value,
+            "mahalanobis_distance_squared": distance,
+            "outside_1_99_reference": bool(np.any(body < lower) or np.any(body > upper)),
+            "reference_center": dict(zip(BODY_FIT_FEATURES, center.tolist())),
+            "reference_bounds": {
+                feature: [float(lower[index]), float(upper[index])]
+                for index, feature in enumerate(BODY_FIT_FEATURES)
+            },
+        }
+    )
+
+
+def _attach_body_fit(score: dict, profile: Mapping[str, Any], references: Mapping[str, dict]) -> None:
+    for sport, target in score.get("targets", {}).items():
+        for role, payload in target.get("roles", {}).items():
+            payload["body_fit"] = _body_fit(profile, references.get(f"{sport}:{role}"))
+
+
 def _evidence_counts(artifact: Mapping[str, Any]) -> dict:
     physical = artifact.get("physical_models", {})
     native = artifact.get("native_forecast_models", {})
@@ -202,12 +319,14 @@ def build_all_roles_portal(root: Path | str, output_dir: Path | str | None = Non
 
     observed = pd.read_parquet(observed_path)
     snapshot = _latest_active_rows(observed)
+    body_fit_references = _body_fit_references(snapshot)
     artifact = load_all_role_models(root)
     players: list[dict] = []
     sport_counts: Counter[str] = Counter()
     for _, row in snapshot.sort_values(["sport", "name", "player_id"]).iterrows():
         player = _catalog_player(row)
         score = score_all_roles_profile(artifact, row)
+        _attach_body_fit(score, row, body_fit_references)
         score["player"] = {**score["player"], **player}
         score["native_profile"] = {
             "domains": _profile_values(row, "domain_"),
@@ -224,7 +343,7 @@ def build_all_roles_portal(root: Path | str, output_dir: Path | str | None = Non
     seasons = sorted(int(value) for value in snapshot["season"].unique()) if len(snapshot) else []
     manifest = _safe(
         {
-            "schema_version": 2,
+            "schema_version": 3,
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "title": "Athlete Translation Lab — All Roles",
             "model": {

@@ -104,6 +104,19 @@ Open `http://127.0.0.1:8766`. The export is rebuilt from the local processed tab
 
 The explorer separates observed native performance, native forecast, physical estimate, and transfer guesstimate; it also displays withholding reasons, evidence status, out-of-domain checks, and model contributions. Generated player-level JSON under `portal-all-roles/data/` is intentionally ignored by Git.
 
+### Compact alternative
+
+The detailed portal remains available unchanged. A second, single-role-at-a-time view uses the same model and the same player JSON export:
+
+~~~bash
+uv run athlete-translation-lab build-all-roles-compact-portal
+uv run athlete-translation-lab all-roles-compact-portal
+~~~
+
+Open `http://127.0.0.1:8767/compact/`. If the detailed server is already running on port 8766, the same compact page is also available at `http://127.0.0.1:8766/compact/`—no second data copy is created.
+
+The compact view adds target-sport tabs, one target-role dropdown, a switch between the physical-only and transfer estimates, concise model reasons, and native observed/forecast context. Its separate **Body fit** number is a descriptive height/weight centrality percentile within the latest target-role cohort. It does not use age or performance, does not enter either efficacy estimate, and must not be read as ability or sport-switch probability.
+
 ## What the pipeline currently learns
 
 - Observed targets use same-sport, same-role, same-season peers and shrink low-exposure rate statistics toward the cohort prior.

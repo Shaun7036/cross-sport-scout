@@ -30,6 +30,8 @@ def main() -> None:
             "all-roles-score",
             "build-all-roles-portal",
             "all-roles-portal",
+            "build-all-roles-compact-portal",
+            "all-roles-compact-portal",
         ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
@@ -42,7 +44,7 @@ def main() -> None:
     parser.add_argument(
         "--port",
         type=int,
-        help="Local portal port (default: 8765 legacy, 8766 all-roles)",
+        help="Local portal port (default: 8765 legacy, 8766 detailed, 8767 compact)",
     )
     parser.add_argument("--player-id", help="Stable source-sport player identifier")
     parser.add_argument("--season", type=int, help="Player season; defaults to their latest season")
@@ -80,6 +82,8 @@ def main() -> None:
                 "all-roles-score",
                 "build-all-roles-portal",
                 "all-roles-portal",
+                "build-all-roles-compact-portal",
+                "all-roles-compact-portal",
             }
             else "nfl"
         )
@@ -94,6 +98,8 @@ def main() -> None:
         "all-roles-score",
         "build-all-roles-portal",
         "all-roles-portal",
+        "build-all-roles-compact-portal",
+        "all-roles-compact-portal",
     }:
         import json
 
@@ -160,12 +166,19 @@ def main() -> None:
 
         if args.sport != "all":
             parser.error(f"{args.command} includes all four sports; omit --sport")
-        port = args.port or 8766
+        compact_portal = args.command in {
+            "build-all-roles-compact-portal",
+            "all-roles-compact-portal",
+        }
+        port = args.port or (8767 if compact_portal else 8766)
         if not 1 <= port <= 65535:
             parser.error("--port must be between 1 and 65535")
         directory = (args.output or root / "portal-all-roles").resolve()
         try:
-            if args.command == "build-all-roles-portal" or not (
+            if args.command in {
+                "build-all-roles-portal",
+                "build-all-roles-compact-portal",
+            } or not (
                 directory / "data" / "manifest.json"
             ).exists():
                 manifest = build_all_roles_portal(root, output_dir=directory)
@@ -174,6 +187,15 @@ def main() -> None:
                 from possession_lab.portal_server import serve_portal
 
                 serve_portal(directory, port=port)
+            if args.command == "all-roles-compact-portal":
+                from possession_lab.portal_server import serve_portal
+
+                serve_portal(
+                    directory,
+                    port=port,
+                    entry_path="/compact/",
+                    label="Athlete Translation Lab Compact",
+                )
         except (ValueError, TypeError, OSError) as error:
             parser.error(str(error))
         return
