@@ -1,0 +1,921 @@
+{
+  "schema_version": "1.1.0",
+  "role_taxonomy_version": "all-roles-broad-v2",
+  "as_of": "2026-10-21",
+  "purpose": "Machine-readable source, coverage, temporality, and release-gate register for the four-sport all-role project.",
+  "legal_disclaimer": "The green/amber/red labels are conservative project-governance decisions, not legal advice.",
+  "posture_legend": {
+    "green": "An explicit license supports the stated use when its attribution and other conditions are followed.",
+    "amber": "Local research is supportable only within stated conditions, or the upstream rights chain is not sufficiently clear for raw redistribution or commercial use.",
+    "red": "Do not use for a release model, redistribute, or commercialize without written permission, a licensed replacement, or a documented rights review."
+  },
+  "study_window": {
+    "canonical_season_start_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "nfl_convention": "NFL season year.",
+    "nba_nhl_epl_convention": "Season start year; 2025 means 2025-26.",
+    "competition_scope": "Regular season only. EPL means Premier League, not UEFA Champions League."
+  },
+  "provenance_authority": {
+    "per_file": "data/raw/**/<filename>.source.json",
+    "central_manifest": "metadata/download_manifest.json",
+    "derived_schema_catalog": "metadata/dataset_catalog.json",
+    "rule": "The per-file sidecar is authoritative for the exact URL, retrieval time, SHA-256, byte count, and source note. Regenerate the central manifest after any acquisition before publishing a snapshot.",
+    "central_manifest_snapshot": {
+      "file_count": 224,
+      "moneypuck_goalie_files": 5,
+      "goalie_seasons": [2021, 2022, 2023, 2024, 2025],
+      "status": "current_manifest_includes_all_designated_goalie_files"
+    }
+  },
+  "current_all_role_panels": {
+    "nfl": {
+      "path": "data/processed/all_roles/nfl_player_seasons.parquet",
+      "seasons": [2021, 2022, 2023, 2024, 2025],
+      "rows": 15518,
+      "distinct_players": 5850,
+      "role_rows": {
+        "QB": 631,
+        "RB_FB": 1163,
+        "WR": 2017,
+        "TE": 1048,
+        "OT": 1208,
+        "IOL": 1473,
+        "EDGE": 1959,
+        "IDL": 1234,
+        "LB": 1112,
+        "CB": 1613,
+        "S": 1111,
+        "K": 263,
+        "P": 223,
+        "LS": 214,
+        "unmapped": 249
+      },
+      "height_and_weight_rows": 15337,
+      "height_and_weight_pct": 98.8,
+      "age_rows": 14784,
+      "count_note": "Hardened snapshot using the season-modal specific weekly depth-chart role. Snapshot counts are not a stable API contract; rebuilds can change them."
+    },
+    "nba": {
+      "path": "data/processed/all_roles/nba_player_seasons.parquet",
+      "seasons": [2021, 2022, 2023, 2024, 2025],
+      "rows": 2866,
+      "distinct_players": 1030,
+      "role_rows": {
+        "guard": 1325,
+        "forward": 1138,
+        "center": 403
+      },
+      "height_and_weight_rows": 2866,
+      "height_and_weight_pct": 100.0,
+      "age_rows": 2866,
+      "count_note": "All-role counts are confirmed regular-season appearance rows and therefore differ from the broader 2,932-row canonical roster/profile panel."
+    },
+    "nhl": {
+      "path": "data/processed/all_roles/nhl_player_seasons.parquet",
+      "seasons": [2021, 2022, 2023, 2024, 2025],
+      "rows": 5263,
+      "distinct_players": 1654,
+      "role_rows": {
+        "center": 1517,
+        "left_wing": 861,
+        "right_wing": 722,
+        "defense": 1638,
+        "goalie": 525
+      },
+      "height_and_weight_rows": 5257,
+      "height_and_weight_pct": 99.9,
+      "age_rows": 5257,
+      "count_note": "Appearance-based skaters and goalies; not a complete zero-game contract roster."
+    },
+    "epl": {
+      "path": "data/processed/all_roles/epl_player_seasons.parquet",
+      "seasons": [2021, 2022, 2023, 2024, 2025],
+      "rows": 4005,
+      "distinct_players": 1777,
+      "role_rows": {
+        "GK": 447,
+        "DEF": 1325,
+        "MID": 1747,
+        "FWD": 486
+      },
+      "height_and_weight_rows": 1398,
+      "height_and_weight_pct": 34.9,
+      "age_rows": 2109,
+      "count_note": "Only broad FPL roles are retained. Current ESPN profile matches are sparse and are not historical measurements."
+    }
+  },
+  "sports": {
+    "nfl": {
+      "canonical_id": "GSIS player_id",
+      "v1_roles": [
+        "QB",
+        "RB_FB",
+        "WR",
+        "TE",
+        "OT",
+        "IOL",
+        "EDGE",
+        "IDL",
+        "LB",
+        "CB",
+        "S",
+        "K",
+        "P",
+        "LS"
+      ],
+      "role_feasibility": {
+        "supported": "The listed broad roles are feasible from roster and depth-chart labels. OLB is grouped with EDGE as an explicit broad-taxonomy assumption.",
+        "withheld": "Generic DB, DL, and OL labels are not guessed. Slot/outside corner, box/deep safety, rush/coverage linebacker, route, and blocking-assignment roles require licensed charting or tracking.",
+        "abstention": "OT, IOL, and LS identities remain in the roster-inclusive panel, but the hardened runtime assigns them no performance opportunity or label and fits no performance models for them."
+      },
+      "outcome_domains": {
+        "QB": ["passing value", "creation", "scoring", "possession security"],
+        "RB_FB": ["rushing value", "receiving", "scoring", "possession security"],
+        "WR_TE": ["receiving value", "conversion", "scoring", "possession security"],
+        "OT_IOL": [],
+        "EDGE_IDL": ["pass rush", "backfield stops", "forced fumbles"],
+        "LB_CB_S": ["coverage disruption", "stops", "forced fumbles"],
+        "K": ["field goals", "extra points"],
+        "P": ["field position", "error avoidance"],
+        "LS": []
+      },
+      "sources": [
+        {
+          "id": "nflverse_core",
+          "included_in_v1": true,
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_{season}.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{season}.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_{season}.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+          ],
+          "cached_paths": [
+            "data/raw/nfl/{season}/roster_weekly_{season}.parquet",
+            "data/raw/nfl/{season}/stats_player_week_{season}.parquet",
+            "data/raw/nfl/{season}/play_by_play_{season}.parquet",
+            "data/raw/nfl/players.parquet",
+            "data/raw/nfl/games.parquet"
+          ],
+          "grain": ["player-week roster", "player-week statistics", "play", "player registry", "game schedule"],
+          "key_fields_consumed": [
+            "player_id",
+            "display_name",
+            "position",
+            "depth_chart_position",
+            "height",
+            "weight",
+            "birth_date",
+            "week",
+            "team",
+            "passing/rushing/receiving totals and EPA",
+            "kicking and punting totals",
+            "credited sacks, QB hits, interceptions, forced fumbles, passes defended, tackles, and negative-play tackles",
+            "penalty_player_id and penalty context"
+          ],
+          "license_basis": "nflverse-data is distributed under CC BY 4.0; retain nflverse and applicable provider attribution and do not imply ownership of third-party marks.",
+          "license_url": "https://github.com/nflverse/nflverse-data/blob/main/LICENSE.md",
+          "posture": "green",
+          "use_case_posture": {
+            "local_research": "green",
+            "derived_publication": "green",
+            "raw_redistribution": "green",
+            "commercial_product": "amber"
+          },
+          "conditions": "Attribution is mandatory. A commercial release still needs a source-chain, trademark, and product-terms review."
+        },
+        {
+          "id": "nflverse_pbp_participation",
+          "included_in_v1": true,
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_{season}.parquet"
+          ],
+          "cached_paths": [
+            "data/raw/nfl/{season}/pbp_participation_{season}.parquet"
+          ],
+          "grain": "one participation record per play",
+          "key_fields_consumed": [
+            "nflverse_game_id",
+            "play_id",
+            "defense_players",
+            "was_pressure",
+            "paired play type, no-play flag, down, defense team, dropback, rush, and scramble flags"
+          ],
+          "provider_split": "NFL NextGenStats via nflverse through 2022; FTN Data via nflverse from 2023 onward.",
+          "license_basis": "CC BY-SA 4.0 with provider attribution; share-alike obligations apply to covered derivatives.",
+          "license_url": "https://nflreadr.nflverse.com/reference/load_participation.html",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_research": "green",
+            "derived_publication": "amber",
+            "raw_redistribution": "amber",
+            "commercial_product": "amber"
+          },
+          "conditions": "Resolve how CC BY-SA applies to distributed models and applications before release; preserve NGS/FTN-via-nflverse attribution and the provider-era flag."
+        },
+        {
+          "id": "pfr_derived_nflverse_enrichment",
+          "included_in_v1": false,
+          "v1_usage": "Cached source inventory only. The hardened all-role runtime and model training do not load PFR-derived snap counts, advanced defense, or combine fields. OT/IOL/LS identities are retained from roster data and abstain from performance modeling.",
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_{season}.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_{season}.parquet",
+            "https://github.com/nflverse/nflverse-data/releases/download/combine/combine.parquet"
+          ],
+          "cached_paths": [
+            "data/raw/nfl/{season}/snap_counts_{season}.parquet",
+            "data/raw/nfl/{season}/advstats_week_def_{season}.parquet",
+            "data/raw/nfl/combine.parquet"
+          ],
+          "key_fields_inventoried": [
+            "offense_snaps",
+            "defense_snaps",
+            "st_snaps",
+            "coverage targets and yards allowed",
+            "blitzes, hurries, hits, sacks, pressures",
+            "tackles and missed tackles",
+            "combine height, weight, arm length, hand size, 40-yard dash, 10-yard split, vertical, broad jump, three-cone, shuttle, and bench"
+          ],
+          "license_basis": "PFR-derived conditional enrichment. The cached source note requires Sports Reference AI/ML and reuse review.",
+          "license_url": "https://www.sports-reference.com/data_use.html",
+          "posture": "red",
+          "use_case_posture": {
+            "local_source_inspection": "amber",
+            "model_training": "red",
+            "derived_publication": "red",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Excluded from all-role runtime, labels, features, denominators, and model training. Reconsider only after a documented rights review or replacement with a cleared source."
+        },
+        {
+          "id": "array_carpenter_prospect_testing",
+          "included_in_v1": false,
+          "seasons": "historical prospect tests; not annual player-season measurements",
+          "designated_url_templates": [
+            "https://raw.githubusercontent.com/array-carpenter/nfl-draft-data/master/data/combine_official.parquet",
+            "https://raw.githubusercontent.com/array-carpenter/nfl-draft-data/master/data/combine_pro_day.parquet"
+          ],
+          "cached_paths": [
+            "data/raw/nfl/optional/combine_official.parquet",
+            "data/raw/nfl/optional/combine_pro_day.parquet"
+          ],
+          "key_fields_inventoried": [
+            "arm length",
+            "hand size",
+            "wingspan",
+            "40-yard dash",
+            "10-yard split",
+            "vertical jump",
+            "broad jump",
+            "three-cone",
+            "short shuttle",
+            "bench press",
+            "test year",
+            "protocol"
+          ],
+          "license_basis": "No clear data reuse license was found for the dataset at retrieval.",
+          "license_url": "https://github.com/array-carpenter/nfl-draft-data",
+          "posture": "red",
+          "use_case_posture": {
+            "local_source_inspection": "amber",
+            "model_training": "red",
+            "derived_publication": "red",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Keep out of learned features until the dataset license and upstream rights are documented."
+        }
+      ],
+      "physical_coverage_and_temporality": {
+        "default_fields": ["height", "weight", "height_cm", "weight_kg", "age"],
+        "default_source": "Earliest archived weekly roster listing within each season.",
+        "measurement_status": "Season-attached roster listing; actual measurement date and protocol are unknown. It is not a verified annual body test.",
+        "optional_testing_status": "Combine/pro-day tests are dated historical events, often years before a modeled season. Test year and protocol must travel with every value.",
+        "known_gaps": "Arm/hand measures have much broader coverage than wingspan; there is no general leg-length source."
+      },
+      "gates": [
+        {
+          "decision": "go",
+          "scope": "Local research for core offense, defense, kicking, and punting roles using cleared nflverse core plus correctly attributed participation."
+        },
+        {
+          "decision": "abstain",
+          "scope": "OT, IOL, and LS retain roster identity and build fields only. Do not emit observed performance, native forecasts, or target-role performance heads without a release-safe individual label and complete denominator."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Train on PFR-derived advanced/combine data or array-carpenter testing until rights are cleared."
+        },
+        {
+          "decision": "conditional",
+          "scope": "Publish participation-derived models only after CC BY-SA obligations and NGS/FTN attribution are implemented."
+        }
+      ]
+    },
+    "nba": {
+      "canonical_id": "ESPN athlete_id represented as a string",
+      "v1_roles": ["guard", "forward", "center"],
+      "role_feasibility": {
+        "supported": "Broad guard, forward/wing, and center/interior-big cohorts are stable enough for v1.",
+        "withheld": "PG/SG/SF/PF, primary-handler, wing-stopper, rim-protector, and matchup roles are not treated as reliable longitudinal labels from the cached profile and box-score sources.",
+        "missing_data_domain": "The cache has no league-wide deflections, charges drawn, loose balls recovered, contested shots, matchup possessions, top speed, or player tracking."
+      },
+      "outcome_domains": {
+        "guard": ["scoring efficiency", "creation", "ball security", "steals/blocks", "defensive rebounding"],
+        "forward": ["scoring efficiency", "creation", "ball security", "steals/blocks", "offensive and defensive rebounding"],
+        "center": ["finishing", "creation", "ball security", "rim disruption", "offensive and defensive rebounding"]
+      },
+      "sources": [
+        {
+          "id": "sportsdataverse_espn_nba",
+          "included_in_v1": true,
+          "canonical_seasons": [2021, 2022, 2023, 2024, 2025],
+          "source_ending_years": [2022, 2023, 2024, 2025, 2026],
+          "designated_url_templates": [
+            "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_core/player_core_{ending_year}.parquet",
+            "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_game_rosters/game_rosters_{ending_year}.parquet",
+            "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores/player_box_{ending_year}.parquet"
+          ],
+          "cached_paths": [
+            "data/raw/nba/{ending_year}/player_core_{ending_year}.parquet",
+            "data/raw/nba/{ending_year}/game_rosters_{ending_year}.parquet",
+            "data/raw/nba/{ending_year}/player_box_{ending_year}.parquet"
+          ],
+          "grain": ["player profile", "game roster", "player-game box score"],
+          "key_fields_consumed": [
+            "athlete_id",
+            "athlete_display_name",
+            "athlete_position_abbreviation",
+            "team_id and team_abbreviation",
+            "game_id",
+            "season_type",
+            "minutes",
+            "starter and did_not_play",
+            "field goals, three-pointers, free throws, points",
+            "assists, turnovers, offensive/defensive rebounds, steals, blocks, fouls, plus_minus",
+            "height, weight, birth date"
+          ],
+          "license_basis": "SportsDataverse publicly packages ESPN-derived release assets. A repository or packaging license does not resolve ownership and reuse rights in the underlying ESPN/NBA data.",
+          "license_url": "https://github.com/sportsdataverse/sportsdataverse-data",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_research": "amber",
+            "derived_publication": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Use for reproducible local research/prototyping; perform an upstream rights review before sharing row-level data, trained artifacts that embed protected data, or a commercial service."
+        },
+        {
+          "id": "sportsdataverse_nba_crosswalk",
+          "included_in_v1": false,
+          "v1_usage": "Optional identifier enrichment only; ESPN athlete_id remains canonical and the all-role output does not require this crosswalk.",
+          "designated_url_templates": [
+            "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_crosswalk/nba_player_crosswalk_2026.parquet"
+          ],
+          "cached_paths": ["data/raw/nba/nba_player_crosswalk_2026.parquet"],
+          "key_fields_consumed": ["ESPN athlete ID", "NBA ID", "other provider IDs where present"],
+          "coverage_note": "Current-season enrichment with incomplete historical-player coverage.",
+          "license_basis": "Underlying provider identifiers retain their upstream rights.",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_identity_join": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          }
+        }
+      ],
+      "physical_coverage_and_temporality": {
+        "fields": ["height_cm", "weight_kg", "birth-date-derived age"],
+        "coverage": "Complete in the current all-role panel.",
+        "measurement_status": "Historical player_core files were regenerated from current ESPN profiles. Height and weight are current/undated profile values, not annual measurements.",
+        "missing_fields": ["wingspan", "arm length", "leg length", "top speed", "agility tests", "tracking-derived reaction measures"]
+      },
+      "gates": [
+        {
+          "decision": "go",
+          "scope": "Local broad-role research using guard/forward/center and transparent box-score rate composites."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Claim annual weight change or physical development from repeated current-profile values."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Train granular defensive-role or tracking models without a licensed, season-dated tracking/hustle source."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Redistribute cached ESPN-derived row-level data or commercialize the model before upstream rights review."
+        }
+      ]
+    },
+    "nhl": {
+      "canonical_id": "NHL playerId",
+      "v1_roles": ["center", "left_wing", "right_wing", "defense", "goalie"],
+      "role_feasibility": {
+        "supported": "C, L/LW, R/RW, D, and G map directly to the five v1 roles.",
+        "withheld": "Line number, handed side deployment, shutdown/transition role, special-team unit, defense pairing, and goalie style require additional shift, lineup, or tracking data."
+      },
+      "outcome_domains": {
+        "skaters": ["goals and expected goals", "primary and secondary assists", "puck security", "takeaways/blocks/hits", "on-ice and relative expected-goal share"],
+        "goalies": ["save percentage", "high-danger save percentage", "goals saved above expected per 60", "rebounds allowed per save"]
+      },
+      "sources": [
+        {
+          "id": "moneypuck_skater_season_summaries",
+          "included_in_v1": true,
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/{season}/regular/skaters.csv"
+          ],
+          "cached_paths": ["data/raw/nhl/moneypuck_skaters_{season}_regular.csv"],
+          "grain": "provider season-summary rows by player, team, and situation; the builder selects situation=all and collapses team stints",
+          "key_fields_consumed": [
+            "playerId",
+            "season",
+            "name",
+            "team",
+            "position",
+            "situation",
+            "games_played",
+            "icetime",
+            "I_F_goals",
+            "I_F_xGoals",
+            "I_F_primaryAssists",
+            "I_F_secondaryAssists",
+            "I_F_giveaways",
+            "I_F_takeaways",
+            "shotsBlockedByPlayer",
+            "I_F_hits",
+            "onIce_xGoalsPercentage",
+            "offIce_xGoalsPercentage"
+          ],
+          "license_basis": "MoneyPuck permits noncommercial use and ad-hoc journalism with clear attribution; other uses require contact and approval.",
+          "license_url": "https://moneypuck.com/data.htm",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_noncommercial_research": "green",
+            "derived_noncommercial_publication": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Credit MoneyPuck clearly. Do not scrape undesignated pages. Obtain permission for commercial or other unlisted uses."
+        },
+        {
+          "id": "moneypuck_goalie_season_summaries",
+          "included_in_v1": true,
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/{season}/regular/goalies.csv"
+          ],
+          "cached_paths": ["data/raw/nhl/moneypuck_goalies_{season}_regular.csv"],
+          "cached_file_provenance": [
+            {
+              "season": 2021,
+              "sha256": "7fb1b4b7dcda448d95063bac873e38ac0de32e3441497a2e3b1df20faeb4bf46",
+              "bytes": 111789,
+              "retrieved_at": "2026-10-21T20:42:16.433989+00:00"
+            },
+            {
+              "season": 2022,
+              "sha256": "a7f712fd7f50229b5f2ffa607fb0cbb8016b8e84bee034b44399eeca16d2d5a3",
+              "bytes": 101858,
+              "retrieved_at": "2026-10-21T20:42:16.768462+00:00"
+            },
+            {
+              "season": 2023,
+              "sha256": "9b9ca9dad5f2b4fc9ebb65f3fea09915335fb1bbe3868366f61a7f3075389645",
+              "bytes": 93777,
+              "retrieved_at": "2026-10-21T20:42:17.072940+00:00"
+            },
+            {
+              "season": 2024,
+              "sha256": "a718782ffbeb8d0d05eb6921f4cbea300dbcaa86be8e068930e71be4a22a9d8d",
+              "bytes": 97451,
+              "retrieved_at": "2026-10-21T20:42:17.378913+00:00"
+            },
+            {
+              "season": 2025,
+              "sha256": "2fe2a2dbf25822cf1650e2ad00388c94ef303681fbfd8a8c7fdcb065212cd2fc",
+              "bytes": 93386,
+              "retrieved_at": "2026-10-21T20:42:17.983762+00:00"
+            }
+          ],
+          "grain": "provider season-summary rows by goalie, team, and situation; the builder selects situation=all and collapses team stints",
+          "key_fields_consumed": [
+            "playerId",
+            "season",
+            "name",
+            "team",
+            "situation",
+            "games_played",
+            "icetime",
+            "xGoals",
+            "goals",
+            "ongoal",
+            "highDangerShots",
+            "highDangerGoals",
+            "rebounds"
+          ],
+          "derived_fields": [
+            "save_pct",
+            "high_danger_save_pct",
+            "goals_saved_above_expected",
+            "goals_saved_above_expected_per_60",
+            "rebound_rate"
+          ],
+          "semantic_warning": "The source has actual rebounds but no rebound-goal field. rebound_rate is rebounds divided by saves. The legacy rebound_goals_against_rate output is an identical alias and must not be described as rebound goals against.",
+          "license_basis": "Same MoneyPuck noncommercial and attribution conditions as the skater downloads.",
+          "license_url": "https://moneypuck.com/data.htm",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_noncommercial_research": "green",
+            "derived_noncommercial_publication": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          }
+        },
+        {
+          "id": "moneypuck_skater_game_archives",
+          "included_in_v1": false,
+          "v1_usage": "Used by the base possession pipeline and QA, not by the all-role season-summary builder.",
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/{season}.zip"
+          ],
+          "cached_paths": ["data/raw/nhl/moneypuck_skater_games_{season}.zip"],
+          "key_fields_consumed": [
+            "playerId",
+            "gameId",
+            "season",
+            "playerTeam",
+            "opposingTeam",
+            "position",
+            "situation",
+            "icetime",
+            "takeaways",
+            "blocks",
+            "hits",
+            "giveaways",
+            "faceoff wins"
+          ],
+          "license_basis": "MoneyPuck noncommercial use with attribution.",
+          "license_url": "https://moneypuck.com/data.htm",
+          "posture": "amber"
+        },
+        {
+          "id": "moneypuck_player_lookup",
+          "included_in_v1": true,
+          "v1_usage": "Goalie physical/profile enrichment and NHL fallback profile data.",
+          "designated_url_templates": [
+            "https://www.moneypuck.com/moneypuck/playerData/playerBios/allPlayersLookup.csv"
+          ],
+          "cached_paths": ["data/raw/nhl/moneypuck_all_players_lookup.csv"],
+          "key_fields_consumed": ["playerId", "name", "birthDate", "position", "nationality", "shootsCatches", "height", "weight"],
+          "measurement_status": "Current/undated lookup; not season history.",
+          "license_basis": "MoneyPuck noncommercial use with attribution.",
+          "license_url": "https://moneypuck.com/data.htm",
+          "posture": "amber"
+        },
+        {
+          "id": "nhl_stats_bios",
+          "included_in_v1": true,
+          "v1_usage": "Skater physical and birth-date enrichment.",
+          "seasons": [2021, 2022, 2023, 2024, 2025],
+          "designated_url_templates": [
+            "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&isGame=false&start=0&limit=-1&cayenneExp=seasonId={season}{season_plus_one}%20and%20gameTypeId=2"
+          ],
+          "cached_paths": [
+            "data/raw/nhl/nhl_official_skater_bios_{season}{season_plus_one}.json"
+          ],
+          "key_fields_consumed": ["playerId", "birthDate", "height", "weight"],
+          "measurement_status": "The query selects a season-filtered player universe, but the returned profile values are current/undated and are not confirmed measurements from that season.",
+          "license_basis": "Official NHL statistics and marks remain subject to NHL terms; no general open-data redistribution grant is asserted by this project.",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_research_enrichment": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          }
+        }
+      ],
+      "physical_coverage_and_temporality": {
+        "fields": ["height_cm", "weight_kg", "birth-date-derived age", "nationality", "shoots_catches"],
+        "coverage": "5,257 of 5,263 current all-role rows have height and weight.",
+        "measurement_status": "Every row is explicitly marked physical_is_confirmed_season_measurement=false. Skater bios and goalie lookup values are current/undated profiles.",
+        "missing_fields": ["wingspan", "arm length", "leg length", "top speed", "agility tests", "reaction time"]
+      },
+      "gates": [
+        {
+          "decision": "go",
+          "scope": "Local noncommercial all-role research for skaters and goalies with clear MoneyPuck attribution."
+        },
+        {
+          "decision": "conditional",
+          "scope": "Public derived work only after confirming MoneyPuck attribution/display requirements and excluding raw-file redistribution."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Commercial model or portal use without MoneyPuck permission and an NHL source/marks review."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Interpret repeated height/weight as annual measurements or the legacy rebound_goals_against_rate alias as actual rebound goals."
+        },
+        {
+          "decision": "go",
+          "scope": "The current 224-file central download manifest includes all five designated 2021-2025 MoneyPuck goalie summaries and their sidecar provenance."
+        }
+      ]
+    },
+    "epl": {
+      "canonical_id": "Stable FPL player code prefixed with fpl:",
+      "v1_roles": ["GK", "DEF", "MID", "FWD"],
+      "role_feasibility": {
+        "supported": "Only the broad Fantasy Premier League labels GK, DEF, MID, and FWD are supported in v1.",
+        "withheld": "Current five-season caches do not provide reliable longitudinal CB, fullback, wingback, defensive/central/attacking midfield, wing, second-striker, or center-forward labels.",
+        "hard_gate": "A recent granular EPL role model requires a licensed lineup/event or tracking source with dated position/deployment labels. Do not infer granular ground truth from broad FPL roles."
+      },
+      "outcome_domains": {
+        "GK": ["shot stopping", "goals conceded", "clean sheets", "penalties saved"],
+        "DEF": ["team-context defensive outcome", "attacking output", "finishing", "discipline"],
+        "MID": ["creation", "scoring/threat", "discipline"],
+        "FWD": ["finishing/threat", "creation", "discipline"]
+      },
+      "sources": [
+        {
+          "id": "vaastav_fpl_archive",
+          "included_in_v1": true,
+          "seasons": ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"],
+          "designated_url_templates": [
+            "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/{season_slug}/players_raw.csv",
+            "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/{season_slug}/gws/merged_gw.csv",
+            "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/{season_slug}/teams.csv"
+          ],
+          "cached_paths": [
+            "data/raw/epl/vaastav/{season_slug}/players_raw.csv",
+            "data/raw/epl/vaastav/{season_slug}/merged_gw.csv",
+            "data/raw/epl/vaastav/{season_slug}/teams.csv"
+          ],
+          "grain": ["season player profile", "player-fixture/gameweek", "season team lookup"],
+          "key_fields_consumed": [
+            "id and stable code",
+            "first_name and second_name",
+            "element_type or position",
+            "team",
+            "birth_date where present",
+            "fixture",
+            "minutes",
+            "goals_scored",
+            "assists",
+            "clean_sheets",
+            "goals_conceded",
+            "saves",
+            "yellow_cards",
+            "red_cards",
+            "penalties_saved",
+            "creativity",
+            "threat"
+          ],
+          "license_basis": "The repository software is MIT licensed, while its license notice says the underlying data belong to Fantasy Premier League and Understat. The software license is not treated as a data-rights grant.",
+          "license_url": "https://github.com/vaastav/Fantasy-Premier-League/blob/master/LICENSE",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_research": "amber",
+            "derived_publication": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Attribute the community archive and review FPL/Understat terms before any release."
+        },
+        {
+          "id": "fpl_core_insights_2025_26",
+          "included_in_v1": false,
+          "season": "2025-26 only",
+          "designated_url_templates": [
+            "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/players.csv",
+            "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/teams.csv",
+            "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW{gameweek}/playermatchstats.csv",
+            "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW{gameweek}/lineups.csv",
+            "https://raw.githubusercontent.com/olbauday/FPL-Core-Insights/main/data/2025-2026/By%20Tournament/Premier%20League/GW{gameweek}/matches.csv"
+          ],
+          "cached_paths": [
+            "data/raw/epl/fpl_core_insights/2025-26/players.csv",
+            "data/raw/epl/fpl_core_insights/2025-26/teams.csv",
+            "data/raw/epl/fpl_core_insights/2025-26/gw_{gameweek}_playermatchstats.csv",
+            "data/raw/epl/fpl_core_insights/2025-26/gw_{gameweek}_lineups.csv",
+            "data/raw/epl/fpl_core_insights/2025-26/gw_{gameweek}_matches.csv"
+          ],
+          "key_fields_inventoried": [
+            "player and match IDs",
+            "minutes_played",
+            "goals and assists",
+            "tackles and tackles_won",
+            "interceptions",
+            "recoveries",
+            "blocks",
+            "clearances",
+            "duels",
+            "dribbled_past",
+            "fouls_committed",
+            "dispossessed",
+            "defensive_contributions",
+            "top_speed",
+            "distance_covered",
+            "number_of_sprints"
+          ],
+          "coverage_warning": "The existing audit found 293 missing block values among 11,492 enhanced player-match rows. Fifty-one players had a mixture of observed and missing block values, 22 had every observed-appearance block value missing, and eight eligible defenders reached the earlier unified cohort with affected season totals. Present numeric season totals are not automatically complete totals.",
+          "license_basis": "No repository data license was found at retrieval and underlying provider rights are unclear.",
+          "license_url": "https://github.com/olbauday/FPL-Core-Insights",
+          "posture": "red",
+          "use_case_posture": {
+            "local_source_inspection": "amber",
+            "model_training": "red",
+            "derived_publication": "red",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Do not use as the all-role training target until reuse rights and metric-specific completeness are resolved. Schema presence is not sufficient validation for speed or tracking fields."
+        },
+        {
+          "id": "espn_epl_roster_profiles",
+          "included_in_v1": true,
+          "v1_usage": "Physical/profile enrichment only.",
+          "season_parameter": 2025,
+          "designated_url_templates": [
+            "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams?limit=100&season=2025",
+            "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/{team_id}/roster?season=2025"
+          ],
+          "cached_paths": [
+            "data/raw/epl/espn_profiles/2025-26/teams.json",
+            "data/raw/epl/espn_profiles/2025-26/team_{team_id}_roster.json"
+          ],
+          "key_fields_consumed": ["ESPN athlete ID", "name", "team", "position", "date of birth", "height", "weight"],
+          "coverage_note": "Current all-role panel: 1,398 of 4,005 rows have both height and weight. Matching is name/team based and unresolved or fuzzy cases require review.",
+          "measurement_status": "Profile snapshot retrieved after 2025-26. Values are current/undated and are not asserted as historical season measurements even when propagated to earlier stable identities.",
+          "license_basis": "Public site JSON without an asserted open-data license.",
+          "posture": "amber",
+          "use_case_posture": {
+            "local_research_enrichment": "amber",
+            "derived_publication": "amber",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Retain retrieval date and match confidence; review ESPN and upstream terms before release."
+        }
+      ],
+      "physical_coverage_and_temporality": {
+        "fields": ["height_cm", "weight_kg", "birth-date-derived age"],
+        "coverage": "1,398 of 4,005 all-role rows have both height and weight; age is present for 2,109 rows.",
+        "measurement_status": "The ESPN values are a current/undated profile snapshot, not annual measurements. Vaastav birth dates provide age for additional rows but no historical body dimensions.",
+        "unaccepted_as_features": ["top_speed", "distance_covered", "sprint count from the unlicensed enhanced source"],
+        "missing_fields": ["wingspan", "arm length", "leg length", "verified league-wide top speed", "agility tests", "reaction time"]
+      },
+      "gates": [
+        {
+          "decision": "go",
+          "scope": "Local broad-role v1 prototype using only GK/DEF/MID/FWD and transparent FPL-derived outcome proxies."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Build or describe recent granular CB/FB/WB/DM/CM/AM/wing/striker models from the current cache. A licensed source is required."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Use the FPL-Core enhanced defensive or speed fields for release training until rights and metric-specific completeness are resolved."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Claim annual physical change or full physical coverage from the ESPN snapshot."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Redistribute the cached community or ESPN raw files, or commercialize the resulting model, before upstream rights review."
+        }
+      ]
+    }
+  },
+  "external_soccer_candidates": [
+    {
+      "id": "pappalardo_wyscout_historical_benchmark",
+      "cached": false,
+      "recommended_use": "Historical event-engineering and reproducibility benchmark, including the 2017-18 Premier League; not a source of current EPL truth or a sufficient current granular-role label set.",
+      "coverage": "One complete season for La Liga, Serie A, Bundesliga, Premier League, and Ligue 1, plus FIFA World Cup 2018 and UEFA Euro 2016; 1,941 matches, 3,251 players, and roughly three million events are described in the data paper.",
+      "primary_urls": [
+        "https://doi.org/10.6084/m9.figshare.c.4415000",
+        "https://doi.org/10.1038/s41597-019-0247-7"
+      ],
+      "item_dois": {
+        "events": "10.6084/m9.figshare.7770599.v1",
+        "matches": "10.6084/m9.figshare.7770422.v1",
+        "players": "10.6084/m9.figshare.7765196.v3"
+      },
+      "key_fields": [
+        "event and subevent IDs/names",
+        "tags and event outcome",
+        "pitch positions",
+        "matchId",
+        "playerId",
+        "teamId",
+        "matchPeriod",
+        "eventSec",
+        "match/player/team lookup metadata",
+        "player foot, height, weight, birth date, and broad role where present"
+      ],
+      "license_basis": "The Figshare Events, Matches, and Players items report CC BY 4.0. Cite the collection and data paper and preserve attribution.",
+      "posture": "green",
+      "use_case_posture": {
+        "historical_research_benchmark": "green",
+        "derived_publication": "green",
+        "current_epl_model": "red"
+      },
+      "go_no_go": "GO for an explicitly historical benchmark; NO-GO as evidence that a 2025-26 player has a particular granular role or current efficacy."
+    },
+    {
+      "id": "statsbomb_open_data",
+      "cached": false,
+      "recommended_use": "Conditional historical event/lineup benchmark after accepting and recording the custom agreement. For recent EPL granular roles, obtain a licensed product feed with the required seasons and position/deployment fields.",
+      "primary_urls": [
+        "https://github.com/hudl/open-data",
+        "https://github.com/hudl/open-data/blob/master/LICENSE.pdf",
+        "https://raw.githubusercontent.com/hudl/open-data/master/data/competitions.json"
+      ],
+      "current_epl_open_coverage": ["2003/2004", "2015/2016"],
+      "current_epl_coverage_checked_on": "2026-10-21",
+      "key_fields": [
+        "competition and season index",
+        "match metadata",
+        "event JSON with player, team, location, timestamp, type, outcome, and qualifiers",
+        "lineup JSON with position intervals",
+        "selected-match StatsBomb 360 freeze frames"
+      ],
+      "license_basis": "Custom StatsBomb Public Data User Agreement. The repository README says selected leagues are free for public research/genuine interest and requires StatsBomb source attribution and logo use when publishing, sharing, or distributing analysis. The full agreement must be reviewed for the intended use.",
+      "posture": "amber",
+      "use_case_posture": {
+        "local_research_after_terms_acceptance": "amber",
+        "derived_publication_with_required_attribution": "amber",
+        "raw_redistribution": "red",
+        "commercial_product": "red",
+        "recent_epl_model": "red"
+      },
+      "go_no_go": "CONDITIONAL for listed open competitions under the recorded terms; NO-GO as a recent EPL source because the open index does not contain recent EPL seasons."
+    }
+  ],
+  "global_go_no_go_gates": [
+    {
+      "id": "G1_provenance",
+      "decision_rule": "GO only when every training source has a sidecar with exact URL, retrieval timestamp, SHA-256, byte count, and source-use note, and the central manifest has been regenerated after the last download."
+    },
+    {
+      "id": "G2_rights",
+      "decision_rule": "GO for local research only within each source's stated scope. NO-GO for raw redistribution or commercial use when any required source is amber or red without written clearance."
+    },
+    {
+      "id": "G3_identity_and_grain",
+      "decision_rule": "GO only after canonical IDs are unique at player-season grain, trade/team stints are collapsed without double counting provider total rows, and unresolved joins are quarantined."
+    },
+    {
+      "id": "G4_opportunity",
+      "decision_rule": "GO only when every rate has a documented, complete denominator on the same event scope. Missing exposure is not zero exposure."
+    },
+    {
+      "id": "G5_role_support",
+      "decision_rule": "GO only for observed role labels with adequate samples. Abstain on unsupported roles; do not infer granular ground truth from broad labels."
+    },
+    {
+      "id": "G6_metric_completeness",
+      "decision_rule": "GO only after metric-specific completeness checks. A numeric season sum is not complete when some games are missing the metric."
+    },
+    {
+      "id": "G7_physical_temporality",
+      "decision_rule": "GO for a profile-based association only when measurement timing is disclosed. NO-GO for annual-change claims unless the value has a dated, season-valid measurement and protocol."
+    },
+    {
+      "id": "G8_leakage",
+      "decision_rule": "GO only with athlete-disjoint and chronological evaluation, a frozen 2025 test season, and no future profile or performance information entering earlier-season training features."
+    },
+    {
+      "id": "G9_peer_percentiles",
+      "decision_rule": "Season-role performance percentiles are acceptable context. A repeated undated physical value may be ranked against each season's cohort but must be labeled a profile percentile, not an annual body measurement."
+    },
+    {
+      "id": "G10_cross_sport_claim",
+      "decision_rule": "The unified result may be described as a build-and-transferable-performance analogy or guestimate. NO-GO on calling it a probability of sport-switch success until labeled cross-sport outcomes and external validation exist."
+    },
+    {
+      "id": "G11_release",
+      "decision_rule": "A public portal may expose aggregate/derived results only after source-specific attribution, license compatibility, uncertainty, evidence status, and abstention text are implemented. Never bundle red-source raw data."
+    }
+  ]
+}

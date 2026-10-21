@@ -24,6 +24,12 @@ def main() -> None:
             "efficacy",
             "build-portal",
             "portal",
+            "run-all-roles",
+            "analyze-all-roles",
+            "train-all-roles",
+            "all-roles-score",
+            "build-all-roles-portal",
+            "all-roles-portal",
         ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
@@ -33,7 +39,18 @@ def main() -> None:
     parser.add_argument("--weight-kg", type=float)
     parser.add_argument("--age", type=float)
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--port", type=int, default=8765, help="Local portal port (default: 8765)")
+    parser.add_argument(
+        "--port",
+        type=int,
+        help="Local portal port (default: 8765 legacy, 8766 all-roles)",
+    )
+    parser.add_argument("--player-id", help="Stable source-sport player identifier")
+    parser.add_argument("--season", type=int, help="Player season; defaults to their latest season")
+    parser.add_argument(
+        "--target-sport",
+        choices=["nfl", "nba", "nhl", "epl"],
+        help="Limit an all-roles score to one destination sport",
+    )
     parser.add_argument(
         "--profile", type=Path, help="JSON athlete profile with explicitly named measurement units"
     )
@@ -50,19 +67,125 @@ def main() -> None:
     args = parser.parse_args()
     if args.sport is None:
         args.sport = (
-            "all" if args.command in {"efficacy", "train-ensemble", "build-portal", "portal"} else "nfl"
+            "all"
+            if args.command
+            in {
+                "efficacy",
+                "train-ensemble",
+                "build-portal",
+                "portal",
+                "run-all-roles",
+                "analyze-all-roles",
+                "train-all-roles",
+                "all-roles-score",
+                "build-all-roles-portal",
+                "all-roles-portal",
+            }
+            else "nfl"
         )
     root = args.root.resolve()
     os.environ.setdefault("MPLCONFIGDIR", str(root / ".matplotlib"))
     if args.accept_source_updates:
         os.environ["POSSESSION_LAB_ACCEPT_SOURCE_UPDATES"] = "1"
+    if args.command in {
+        "run-all-roles",
+        "analyze-all-roles",
+        "train-all-roles",
+        "all-roles-score",
+        "build-all-roles-portal",
+        "all-roles-portal",
+    }:
+        import json
+
+        from possession_lab.all_roles_eda import build_all_roles_eda
+        from possession_lab.all_roles_pipeline import (
+            load_all_role_models,
+            run_all_roles,
+            train_all_roles,
+        )
+        from possession_lab.all_roles_portal import build_all_roles_portal
+        from possession_lab.all_roles_score import score_all_roles_profile, score_known_player
+
+        if args.command in {"run-all-roles", "analyze-all-roles", "train-all-roles"}:
+            if args.sport != "all":
+                parser.error(f"{args.command} uses the common four-sport contract; omit --sport")
+            if args.command == "run-all-roles":
+                result = run_all_roles(root, sorted(set(args.seasons)))
+                result["eda"] = build_all_roles_eda(root)
+            elif args.command == "train-all-roles":
+                _, report = train_all_roles(root)
+                result = {"models": report["counts"], "eda": build_all_roles_eda(root)}
+            else:
+                result = build_all_roles_eda(root)
+            print(json.dumps(result, indent=2))
+            return
+
+        if args.command == "all-roles-score":
+            if args.profile and any(
+                value is not None
+                for value in [args.player_id, args.height_cm, args.weight_kg, args.age]
+            ):
+                parser.error("Use --profile, --player-id, or measurement flags—not a mixture")
+            try:
+                if args.player_id:
+                    if args.sport == "all":
+                        parser.error("--player-id also requires its source --sport")
+                    result = score_known_player(
+                        root,
+                        args.sport,
+                        args.player_id,
+                        season=args.season,
+                        target_sport=args.target_sport,
+                    )
+                else:
+                    profile = (
+                        json.loads(args.profile.read_text())
+                        if args.profile
+                        else {
+                            "height_cm": args.height_cm,
+                            "weight_kg": args.weight_kg,
+                            "age": args.age,
+                        }
+                    )
+                    result = score_all_roles_profile(
+                        load_all_role_models(root), profile, target_sport=args.target_sport
+                    )
+            except (ValueError, TypeError, OSError) as error:
+                parser.error(str(error))
+            if args.output:
+                write_json(args.output, result)
+            else:
+                print(json.dumps(result, indent=2))
+            return
+
+        if args.sport != "all":
+            parser.error(f"{args.command} includes all four sports; omit --sport")
+        port = args.port or 8766
+        if not 1 <= port <= 65535:
+            parser.error("--port must be between 1 and 65535")
+        directory = (args.output or root / "portal-all-roles").resolve()
+        try:
+            if args.command == "build-all-roles-portal" or not (
+                directory / "data" / "manifest.json"
+            ).exists():
+                manifest = build_all_roles_portal(root, output_dir=directory)
+                print(f"Exported {manifest['counts']['players']:,} players to {directory / 'data'}")
+            if args.command == "all-roles-portal":
+                from possession_lab.portal_server import serve_portal
+
+                serve_portal(directory, port=port)
+        except (ValueError, TypeError, OSError) as error:
+            parser.error(str(error))
+        return
+
     if args.command in {"build-portal", "portal"}:
         from possession_lab.portal import build_portal
         from possession_lab.portal_server import serve_portal
 
         if args.sport != "all":
             parser.error("The portal includes all four sports; omit --sport")
-        if not 1 <= args.port <= 65535:
+        port = args.port or 8765
+        if not 1 <= port <= 65535:
             parser.error("--port must be between 1 and 65535")
         directory = (args.output or root / "portal").resolve()
         try:
@@ -70,7 +193,7 @@ def main() -> None:
                 manifest = build_portal(root, output_dir=directory)
                 print(f"Exported {len(manifest['players']):,} players to {directory / 'data'}")
             if args.command == "portal":
-                serve_portal(directory, port=args.port)
+                serve_portal(directory, port=port)
         except (ValueError, TypeError, OSError) as error:
             parser.error(str(error))
         return

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="description" content="Explore role-relative athlete evidence and bounded cross-sport analogies across the NFL, NBA, NHL and Premier League.">
+    <title>Athlete Translation Lab · Player explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to the explorer</a>
+
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="Athlete Translation Lab home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span>Athlete Translation Lab</span>
+      </a>
+      <span class="prototype"><span aria-hidden="true"></span> Research prototype</span>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">All roles · four elite leagues</p>
+          <h1 id="page-title">One athlete.<br><em>Four kinds of evidence.</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p>Start with what a player actually did in their recorded role, then inspect a next-season forecast and carefully bounded comparisons with roles in other sports.</p>
+          <p class="quiet">The cross-sport result is an exploratory percentile guesstimate, not a probability that an athlete can switch sports.</p>
+        </div>
+      </section>
+
+      <section class="score-key shell" aria-labelledby="score-key-title">
+        <h2 id="score-key-title" class="sr-only">The four score types</h2>
+        <ol>
+          <li><span>01</span><strong>Native observed</strong><small>Retrospective role-season standing</small></li>
+          <li><span>02</span><strong>Native next-season forecast</strong><small>Prospective, history-aware model</small></li>
+          <li><span>03</span><strong>Target-role physical-only estimate</strong><small>Body-profile association</small></li>
+          <li><span>04</span><strong>Cross-sport transfer guesstimate</strong><small>Build plus mapped performance</small></li>
+        </ol>
+      </section>
+
+      <section id="explorer" class="explorer shell" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Player explorer</p>
+            <h2 id="explorer-title">Follow the evidence, score by score.</h2>
+          </div>
+          <p id="snapshot-note" class="snapshot-note">Loading the saved research snapshot…</p>
+        </div>
+
+        <div id="app-error" class="notice error" role="alert" hidden></div>
+        <div class="explorer-grid" id="explorer-grid" aria-busy="true">
+          <aside class="picker card" aria-label="Choose a player">
+            <div class="picker-controls">
+              <label for="player-search">Search an athlete</label>
+              <input id="player-search" type="search" placeholder="Name or team" autocomplete="off" spellcheck="false" aria-controls="player-list">
+              <label for="source-sport">Source league</label>
+              <select id="source-sport" aria-controls="player-list">
+                <option value="all">All leagues</option>
+              </select>
+            </div>
+            <div class="picker-summary">
+              <span id="player-count">—</span>
+              <span>athletes shown</span>
+            </div>
+            <div id="player-list" class="player-list" role="listbox" aria-label="Athletes">
+              <p class="empty-state">Loading athletes…</p>
+            </div>
+          </aside>
+
+          <article id="result" class="result card" aria-live="off" aria-busy="true">
+            <div class="loading-state"><span aria-hidden="true"></span><p>Preparing the explorer…</p></div>
+          </article>
+        </div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="reading-guide shell" aria-labelledby="guide-title">
+        <div>
+          <p class="eyebrow">How to read it</p>
+          <h2 id="guide-title">Comparable does not mean equivalent.</h2>
+        </div>
+        <div class="guide-grid">
+          <div><span>Relative</span><p>Every number is a percentile within a specific role and reference cohort. A 75 in two roles does not imply equal sporting value.</p></div>
+          <div><span>Conditional</span><p>Missing inputs, unsupported models and out-of-domain builds produce a withheld result—not a zero.</p></div>
+          <div><span>Exploratory</span><p>Mapped performance dimensions are analogies between public statistics. They do not establish transferable skill or causality.</p></div>
+        </div>
+      </section>
+
+      <section class="model-notes shell" aria-labelledby="model-title">
+        <div>
+          <p class="eyebrow">Model record</p>
+          <h2 id="model-title">Evidence and limitations</h2>
+        </div>
+        <div id="model-record" class="model-record"><p>Model details will appear after the local export loads.</p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Athlete Translation Lab · All Roles</span>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+    <noscript><p class="notice">This local explorer needs JavaScript to read its exported result files.</p></noscript>
+  </body>
+</html>

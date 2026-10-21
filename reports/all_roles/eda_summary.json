@@ -1,0 +1,12 @@
+{
+  "rows": 27652,
+  "scored_rows": 19197,
+  "roles": 27,
+  "role_summary": "reports/all_roles/role_summary.csv",
+  "model_evidence_rows": 52,
+  "figures": [
+    "reports/all_roles/figures/listed_build_map.png",
+    "reports/all_roles/figures/observed_score_distributions.png",
+    "reports/all_roles/figures/role_cohort_counts.png"
+  ]
+}

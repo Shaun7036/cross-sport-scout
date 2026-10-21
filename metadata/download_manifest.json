@@ -1837,6 +1837,51 @@
       "path": "data/raw/nhl/moneypuck_all_players_lookup.csv"
     },
     {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2021/regular/goalies.csv",
+      "source": "MoneyPuck regular-season goalie season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-21T20:42:16.433989+00:00",
+      "sha256": "7fb1b4b7dcda448d95063bac873e38ac0de32e3441497a2e3b1df20faeb4bf46",
+      "bytes": 111789,
+      "path": "data/raw/nhl/moneypuck_goalies_2021_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2022/regular/goalies.csv",
+      "source": "MoneyPuck regular-season goalie season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-21T20:42:16.768462+00:00",
+      "sha256": "a7f712fd7f50229b5f2ffa607fb0cbb8016b8e84bee034b44399eeca16d2d5a3",
+      "bytes": 101858,
+      "path": "data/raw/nhl/moneypuck_goalies_2022_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2023/regular/goalies.csv",
+      "source": "MoneyPuck regular-season goalie season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-21T20:42:17.072940+00:00",
+      "sha256": "9b9ca9dad5f2b4fc9ebb65f3fea09915335fb1bbe3868366f61a7f3075389645",
+      "bytes": 93777,
+      "path": "data/raw/nhl/moneypuck_goalies_2023_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2024/regular/goalies.csv",
+      "source": "MoneyPuck regular-season goalie season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-21T20:42:17.378913+00:00",
+      "sha256": "a718782ffbeb8d0d05eb6921f4cbea300dbcaa86be8e068930e71be4a22a9d8d",
+      "bytes": 97451,
+      "path": "data/raw/nhl/moneypuck_goalies_2024_regular.csv"
+    },
+    {
+      "url": "https://www.moneypuck.com/moneypuck/playerData/seasonSummary/2025/regular/goalies.csv",
+      "source": "MoneyPuck regular-season goalie season summary designated download",
+      "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
+      "retrieved_at": "2026-10-21T20:42:17.983762+00:00",
+      "sha256": "2fe2a2dbf25822cf1650e2ad00388c94ef303681fbfd8a8c7fdcb065212cd2fc",
+      "bytes": 93386,
+      "path": "data/raw/nhl/moneypuck_goalies_2025_regular.csv"
+    },
+    {
       "url": "https://peter-tanner.com/moneypuck/downloads/seasonPlayersSummary/skaters/2021.zip",
       "source": "MoneyPuck season player-game skater summary designated download",
       "license_note": "MoneyPuck data are free for non-commercial use and ad-hoc journalism with clear MoneyPuck attribution; contact MoneyPuck for other uses.",
@@ -1972,6 +2017,6 @@
       "path": "data/raw/nhl/nhl_official_skater_bios_20252026.json"
     }
   ],
-  "file_count": 219,
-  "bytes": 315095954
+  "file_count": 224,
+  "bytes": 315594215
 }

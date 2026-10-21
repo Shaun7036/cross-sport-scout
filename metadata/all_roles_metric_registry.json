@@ -1,0 +1,1848 @@
+{
+  "schema_version": "2.1.0",
+  "role_taxonomy_version": "all-roles-broad-v2",
+  "target_version": "role-season-shrunk-percentiles-v1",
+  "bridge_version": "ordered-pair-dimension-intersection-v2",
+  "frozen_test_season": 2025,
+  "roles": {
+    "nfl:QB": {
+      "sport": "nfl",
+      "role": "QB",
+      "label": "Quarterback",
+      "min_opportunity": 150,
+      "opportunity_unit": "dropbacks",
+      "domains": [
+        {
+          "name": "passing_value",
+          "dimension": "progression_territory",
+          "weight": 0.38,
+          "metrics": [
+            {
+              "column": "passing_epa_per_play",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "passing_yards_per_attempt",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "completion_over_expected",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.22,
+          "metrics": [
+            {
+              "column": "passing_first_down_rate",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "passing_air_yards_per_attempt",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "touchdown_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "security",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "turnover_rate",
+              "weight": 0.65,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "sack_rate",
+              "weight": 0.35,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:RB_FB": {
+      "sport": "nfl",
+      "role": "RB_FB",
+      "label": "Running back / fullback",
+      "min_opportunity": 60,
+      "opportunity_unit": "touches",
+      "domains": [
+        {
+          "name": "ground_value",
+          "dimension": "progression_territory",
+          "weight": 0.34,
+          "metrics": [
+            {
+              "column": "rushing_epa_per_carry",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "rushing_yards_per_carry",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "rushing_first_down_rate",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "receiving",
+          "dimension": "creation_distribution",
+          "weight": 0.23,
+          "metrics": [
+            {
+              "column": "receiving_epa_per_target",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "receiving_yards_per_target",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.23,
+          "metrics": [
+            {
+              "column": "touchdown_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "security",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "turnover_rate",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:WR": {
+      "sport": "nfl",
+      "role": "WR",
+      "label": "Wide receiver",
+      "min_opportunity": 40,
+      "opportunity_unit": "targets",
+      "domains": [
+        {
+          "name": "receiving_value",
+          "dimension": "progression_territory",
+          "weight": 0.36,
+          "metrics": [
+            {
+              "column": "receiving_epa_per_target",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "receiving_yards_per_target",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "receiving_first_down_rate",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "conversion",
+          "dimension": "creation_distribution",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "catch_rate",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "yards_after_catch_per_reception",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.24,
+          "metrics": [
+            {
+              "column": "touchdown_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "security",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "turnover_rate",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:TE": {
+      "sport": "nfl",
+      "role": "TE",
+      "label": "Tight end",
+      "min_opportunity": 30,
+      "opportunity_unit": "targets",
+      "domains": [
+        {
+          "name": "receiving_value",
+          "dimension": "progression_territory",
+          "weight": 0.36,
+          "metrics": [
+            {
+              "column": "receiving_epa_per_target",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "receiving_yards_per_target",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "receiving_first_down_rate",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "conversion",
+          "dimension": "creation_distribution",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "catch_rate",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "yards_after_catch_per_reception",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.24,
+          "metrics": [
+            {
+              "column": "touchdown_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "security",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "turnover_rate",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:OT": {
+      "sport": "nfl",
+      "role": "OT",
+      "label": "Offensive tackle",
+      "min_opportunity": 0,
+      "opportunity_unit": "offensive snaps",
+      "domains": [],
+      "evidence_status": "abstain_source_rights_and_label_limit",
+      "limitation": "Roster rows are retained, but no numeric target is released: the available exposure is derived from a red-posture PFR source and charged penalties are not a credible proxy for blocking quality."
+    },
+    "nfl:IOL": {
+      "sport": "nfl",
+      "role": "IOL",
+      "label": "Interior offensive line",
+      "min_opportunity": 0,
+      "opportunity_unit": "offensive snaps",
+      "domains": [],
+      "evidence_status": "abstain_source_rights_and_label_limit",
+      "limitation": "Roster rows are retained, but no numeric target is released: the available exposure is derived from a red-posture PFR source and charged penalties are not a credible proxy for blocking quality."
+    },
+    "nfl:EDGE": {
+      "sport": "nfl",
+      "role": "EDGE",
+      "label": "Edge defender",
+      "min_opportunity": 150,
+      "opportunity_unit": "defensive snaps / charted plays",
+      "domains": [
+        {
+          "name": "pass_rush",
+          "dimension": "defensive_disruption",
+          "weight": 0.5,
+          "metrics": [
+            {
+              "column": "sack_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "qb_hit_rate",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "backfield_stops",
+          "dimension": "recovery_rebounding",
+          "weight": 0.3,
+          "metrics": [
+            {
+              "column": "negative_play_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "turnovers",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "forced_fumble_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:IDL": {
+      "sport": "nfl",
+      "role": "IDL",
+      "label": "Interior defensive line",
+      "min_opportunity": 150,
+      "opportunity_unit": "defensive snaps / charted plays",
+      "domains": [
+        {
+          "name": "backfield_stops",
+          "dimension": "defensive_disruption",
+          "weight": 0.45,
+          "metrics": [
+            {
+              "column": "negative_play_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "pass_rush",
+          "dimension": "progression_territory",
+          "weight": 0.4,
+          "metrics": [
+            {
+              "column": "sack_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "qb_hit_rate",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "turnovers",
+          "dimension": "possession_security",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "forced_fumble_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:LB": {
+      "sport": "nfl",
+      "role": "LB",
+      "label": "Off-ball linebacker",
+      "min_opportunity": 150,
+      "opportunity_unit": "defensive snaps / charted plays",
+      "domains": [
+        {
+          "name": "stops",
+          "dimension": "defensive_disruption",
+          "weight": 0.4,
+          "metrics": [
+            {
+              "column": "negative_play_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "tackle_rate",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "coverage",
+          "dimension": "recovery_rebounding",
+          "weight": 0.35,
+          "metrics": [
+            {
+              "column": "interception_rate",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "pass_defended_rate",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "turnovers",
+          "dimension": "possession_security",
+          "weight": 0.25,
+          "metrics": [
+            {
+              "column": "forced_fumble_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:CB": {
+      "sport": "nfl",
+      "role": "CB",
+      "label": "Cornerback",
+      "min_opportunity": 150,
+      "opportunity_unit": "defensive snaps / charted plays",
+      "domains": [
+        {
+          "name": "coverage",
+          "dimension": "defensive_disruption",
+          "weight": 0.68,
+          "metrics": [
+            {
+              "column": "interception_rate",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "pass_defended_rate",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "stops",
+          "dimension": "recovery_rebounding",
+          "weight": 0.17,
+          "metrics": [
+            {
+              "column": "negative_play_rate",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "tackle_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "turnovers",
+          "dimension": "possession_security",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "forced_fumble_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:S": {
+      "sport": "nfl",
+      "role": "S",
+      "label": "Safety",
+      "min_opportunity": 150,
+      "opportunity_unit": "defensive snaps / charted plays",
+      "domains": [
+        {
+          "name": "coverage",
+          "dimension": "defensive_disruption",
+          "weight": 0.52,
+          "metrics": [
+            {
+              "column": "interception_rate",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "pass_defended_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "stops",
+          "dimension": "recovery_rebounding",
+          "weight": 0.28,
+          "metrics": [
+            {
+              "column": "negative_play_rate",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "tackle_rate",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "turnovers",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "forced_fumble_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:K": {
+      "sport": "nfl",
+      "role": "K",
+      "label": "Placekicker",
+      "min_opportunity": 12,
+      "opportunity_unit": "field-goal attempts",
+      "domains": [
+        {
+          "name": "field_goals",
+          "dimension": "scoring_finishing",
+          "weight": 0.7,
+          "metrics": [
+            {
+              "column": "field_goal_pct",
+              "weight": 0.7,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "long_field_goal_rate",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "extra_points",
+          "dimension": "discipline_efficiency",
+          "weight": 0.3,
+          "metrics": [
+            {
+              "column": "extra_point_pct",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:P": {
+      "sport": "nfl",
+      "role": "P",
+      "label": "Punter",
+      "min_opportunity": 25,
+      "opportunity_unit": "punts",
+      "domains": [
+        {
+          "name": "field_position",
+          "dimension": "progression_territory",
+          "weight": 0.65,
+          "metrics": [
+            {
+              "column": "net_yards_per_punt",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "inside_20_rate",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "error_avoidance",
+          "dimension": "possession_security",
+          "weight": 0.35,
+          "metrics": [
+            {
+              "column": "touchback_rate",
+              "weight": 0.55,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "punt_block_rate",
+              "weight": 0.45,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nfl:LS": {
+      "sport": "nfl",
+      "role": "LS",
+      "label": "Long snapper",
+      "min_opportunity": 0,
+      "opportunity_unit": "special-team snaps",
+      "domains": [],
+      "evidence_status": "abstain_no_public_label",
+      "limitation": "The public sources identify long snappers but do not provide a credible individual performance label."
+    },
+    "nba:guard": {
+      "sport": "nba",
+      "role": "guard",
+      "label": "Guard",
+      "min_opportunity": 500,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.32,
+          "metrics": [
+            {
+              "column": "points_per_36",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "true_shooting_pct",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "effective_fg_pct",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.3,
+          "metrics": [
+            {
+              "column": "assists_per_36",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ball_security",
+          "dimension": "possession_security",
+          "weight": 0.13,
+          "metrics": [
+            {
+              "column": "turnovers_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "steals_per_36",
+              "weight": 0.75,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_36",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "recovery",
+          "dimension": "recovery_rebounding",
+          "weight": 0.1,
+          "metrics": [
+            {
+              "column": "defensive_rebounds_per_36",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nba:forward": {
+      "sport": "nba",
+      "role": "forward",
+      "label": "Forward / wing",
+      "min_opportunity": 500,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.3,
+          "metrics": [
+            {
+              "column": "points_per_36",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "true_shooting_pct",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "effective_fg_pct",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "assists_per_36",
+              "weight": 0.7,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ball_security",
+          "dimension": "possession_security",
+          "weight": 0.13,
+          "metrics": [
+            {
+              "column": "turnovers_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.18,
+          "metrics": [
+            {
+              "column": "steals_per_36",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_36",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "recovery",
+          "dimension": "recovery_rebounding",
+          "weight": 0.19,
+          "metrics": [
+            {
+              "column": "defensive_rebounds_per_36",
+              "weight": 0.7,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "offensive_rebounds_per_36",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nba:center": {
+      "sport": "nba",
+      "role": "center",
+      "label": "Center / interior big",
+      "min_opportunity": 400,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "finishing",
+          "dimension": "scoring_finishing",
+          "weight": 0.26,
+          "metrics": [
+            {
+              "column": "points_per_36",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "true_shooting_pct",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.12,
+          "metrics": [
+            {
+              "column": "assists_per_36",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ball_security",
+          "dimension": "possession_security",
+          "weight": 0.13,
+          "metrics": [
+            {
+              "column": "turnovers_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "assist_turnover_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "rim_disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.24,
+          "metrics": [
+            {
+              "column": "blocks_per_36",
+              "weight": 0.75,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "steals_per_36",
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "recovery",
+          "dimension": "recovery_rebounding",
+          "weight": 0.25,
+          "metrics": [
+            {
+              "column": "defensive_rebounds_per_36",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "offensive_rebounds_per_36",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nhl:center": {
+      "sport": "nhl",
+      "role": "center",
+      "label": "Center",
+      "min_opportunity": 400,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.27,
+          "metrics": [
+            {
+              "column": "goals_per_60",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.23,
+          "metrics": [
+            {
+              "column": "primary_assists_per_60",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "secondary_assists_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "puck_security",
+          "dimension": "possession_security",
+          "weight": 0.16,
+          "metrics": [
+            {
+              "column": "giveaways_per_60",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "takeaway_giveaway_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.16,
+          "metrics": [
+            {
+              "column": "takeaways_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "hits_per_60",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "territory",
+          "dimension": "progression_territory",
+          "weight": 0.18,
+          "metrics": [
+            {
+              "column": "on_ice_xgoal_pct",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_xgoal_pct",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nhl:left_wing": {
+      "sport": "nhl",
+      "role": "left_wing",
+      "label": "Left wing",
+      "min_opportunity": 400,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.34,
+          "metrics": [
+            {
+              "column": "goals_per_60",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.24,
+          "metrics": [
+            {
+              "column": "primary_assists_per_60",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "secondary_assists_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "puck_security",
+          "dimension": "possession_security",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "giveaways_per_60",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "takeaway_giveaway_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.17,
+          "metrics": [
+            {
+              "column": "takeaways_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "hits_per_60",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "territory",
+          "dimension": "progression_territory",
+          "weight": 0.1,
+          "metrics": [
+            {
+              "column": "on_ice_xgoal_pct",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_xgoal_pct",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nhl:right_wing": {
+      "sport": "nhl",
+      "role": "right_wing",
+      "label": "Right wing",
+      "min_opportunity": 400,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.34,
+          "metrics": [
+            {
+              "column": "goals_per_60",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.24,
+          "metrics": [
+            {
+              "column": "primary_assists_per_60",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "secondary_assists_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "puck_security",
+          "dimension": "possession_security",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "giveaways_per_60",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "takeaway_giveaway_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.17,
+          "metrics": [
+            {
+              "column": "takeaways_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "hits_per_60",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "territory",
+          "dimension": "progression_territory",
+          "weight": 0.1,
+          "metrics": [
+            {
+              "column": "on_ice_xgoal_pct",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_xgoal_pct",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nhl:defense": {
+      "sport": "nhl",
+      "role": "defense",
+      "label": "Defense",
+      "min_opportunity": 400,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.16,
+          "metrics": [
+            {
+              "column": "goals_per_60",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.25,
+          "metrics": [
+            {
+              "column": "primary_assists_per_60",
+              "weight": 0.65,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "secondary_assists_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "puck_security",
+          "dimension": "possession_security",
+          "weight": 0.14,
+          "metrics": [
+            {
+              "column": "giveaways_per_60",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "takeaway_giveaway_ratio",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disruption",
+          "dimension": "defensive_disruption",
+          "weight": 0.28,
+          "metrics": [
+            {
+              "column": "takeaways_per_60",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "blocks_per_60",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "hits_per_60",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "territory",
+          "dimension": "progression_territory",
+          "weight": 0.17,
+          "metrics": [
+            {
+              "column": "on_ice_xgoal_pct",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_xgoal_pct",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "nhl:goalie": {
+      "sport": "nhl",
+      "role": "goalie",
+      "label": "Goalie",
+      "min_opportunity": 900,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "shot_prevention",
+          "dimension": "defensive_disruption",
+          "weight": 0.62,
+          "metrics": [
+            {
+              "column": "goals_saved_above_expected_per_60",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "save_pct",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "danger_control",
+          "dimension": "recovery_rebounding",
+          "weight": 0.28,
+          "metrics": [
+            {
+              "column": "high_danger_save_pct",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "rebound_control",
+          "dimension": "possession_security",
+          "weight": 0.1,
+          "metrics": [
+            {
+              "column": "rebound_rate",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    },
+    "epl:GK": {
+      "sport": "epl",
+      "role": "GK",
+      "label": "Goalkeeper",
+      "min_opportunity": 900,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "shot_stopping",
+          "dimension": "defensive_disruption",
+          "weight": 0.48,
+          "metrics": [
+            {
+              "column": "saves_per_90",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "goals_conceded_per_90",
+              "weight": 0.45,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "clean_sheets",
+          "dimension": "recovery_rebounding",
+          "weight": 0.32,
+          "metrics": [
+            {
+              "column": "clean_sheet_rate",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "penalties",
+          "dimension": "possession_security",
+          "weight": 0.2,
+          "metrics": [
+            {
+              "column": "penalties_saved_per_90",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality."
+    },
+    "epl:DEF": {
+      "sport": "epl",
+      "role": "DEF",
+      "label": "Defender",
+      "min_opportunity": 900,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "defensive_outcome",
+          "dimension": "defensive_disruption",
+          "weight": 0.4,
+          "metrics": [
+            {
+              "column": "clean_sheet_rate",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "goals_conceded_per_90",
+              "weight": 0.45,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "attacking_output",
+          "dimension": "creation_distribution",
+          "weight": 0.28,
+          "metrics": [
+            {
+              "column": "assists_per_90",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "creativity_per_90",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "finishing",
+          "dimension": "scoring_finishing",
+          "weight": 0.17,
+          "metrics": [
+            {
+              "column": "goals_per_90",
+              "weight": 1.0,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "cards_per_90",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "limited_team_context_proxy",
+      "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks."
+    },
+    "epl:MID": {
+      "sport": "epl",
+      "role": "MID",
+      "label": "Midfielder",
+      "min_opportunity": 900,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.45,
+          "metrics": [
+            {
+              "column": "assists_per_90",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "creativity_per_90",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "scoring",
+          "dimension": "scoring_finishing",
+          "weight": 0.4,
+          "metrics": [
+            {
+              "column": "goals_per_90",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "threat_per_90",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.15,
+          "metrics": [
+            {
+              "column": "cards_per_90",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles."
+    },
+    "epl:FWD": {
+      "sport": "epl",
+      "role": "FWD",
+      "label": "Forward",
+      "min_opportunity": 700,
+      "opportunity_unit": "minutes",
+      "domains": [
+        {
+          "name": "finishing",
+          "dimension": "scoring_finishing",
+          "weight": 0.55,
+          "metrics": [
+            {
+              "column": "goals_per_90",
+              "weight": 0.6,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "threat_per_90",
+              "weight": 0.4,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "creation",
+          "dimension": "creation_distribution",
+          "weight": 0.35,
+          "metrics": [
+            {
+              "column": "assists_per_90",
+              "weight": 0.55,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "creativity_per_90",
+              "weight": 0.45,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.1,
+          "metrics": [
+            {
+              "column": "cards_per_90",
+              "weight": 1.0,
+              "higher_is_better": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "evidence_status": "research_proxy",
+      "limitation": "Observed public-stat composite; not a complete measure of player quality."
+    }
+  },
+  "score_contract": {
+    "observed_role_percentile": "Retrospective role-season peer comparison.",
+    "native_forecast_percentile": "Next-season estimate using only information available before that season.",
+    "cross_sport_physical_estimate": "Target-role model using build only.",
+    "cross_sport_transfer_guesstimate": "Unvalidated target-role analogy using build plus a fixed intersection of sport-relative performance dimensions."
+  }
+}

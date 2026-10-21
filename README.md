@@ -1,178 +1,184 @@
-# Possession Lab
+# Athlete Translation Lab
 
-Research repository for physical archetypes, possession creation, and defensive disruption in the NFL, NBA, NHL, and Premier League.
+Athlete Translation Lab is a four-sport research project for describing how elite athletes perform within their current role and exploring which roles their build and demonstrated performance profile resemble in another sport. It covers the NFL, NBA, NHL, and Premier League across the 2021–2025 project seasons.
 
-The initial collection window is NFL 2021–2025 and 2021–22 through 2025–26 for the other leagues. NFL is the reference implementation. Each sport retains its own definitions, opportunities, roles, source attribution, and missing-data indicators.
+This repository is the independent **all-role** expansion. It preserves the earlier possession-winning work for reference, but the current workflow registers broad position groups represented by the available sources across all four sports. Registration or a fitted model head does not by itself establish predictive support.
 
-The working release downloads, cleans, audits, explores, and models all four leagues. It includes 219 cached public source files (300.5 MiB), 38 processed tables, saved model artifacts, automated tests, and a unified physical-profile efficacy ensemble.
+The project deliberately returns four different quantities instead of hiding them inside one “efficacy” number:
 
-| League | Seasons | Player-seasons | Distinct athletes | Current model coverage |
-|---|---|---:|---:|---|
-| NFL | 2021–2025 | 7,279 defenders | 2,754 | Availability, opportunity, six disruption outcomes, physical role/association models |
-| NBA | 2021–22 to 2025–26 | 2,932 | 1,057 | Steals, blocks, defensive rebounds, availability, opportunity, physical models |
-| NHL | 2021–22 to 2025–26 | 4,738 skaters | 1,480 | Takeaways, blocks, hits, faceoffs, availability, opportunity, physical models |
-| Premier League | 2021–22 to 2025–26 | 4,025 | 1,797 | Five-year availability/minutes; 2025–26 possession association models |
+| Output | Question answered | Interpretation |
+|---|---|---|
+| Observed role percentile | How did this player perform among same-role peers in this season? | Retrospective, opportunity-adjusted role-season comparison |
+| Native forecast percentile | What does the model estimate for this player in the same role next season? | Research next-season backtest using lagged performance and listed physical profiles, shown with its evidence status |
+| Cross-sport physical estimate | How strongly is this build associated with performance in a target role? | Physical association only; not a talent grade or causal effect |
+| Cross-sport transfer guesstimate | How does the athlete's build plus source-sport performance profile resemble successful target-role athletes? | Exploratory analogy; not a sport-switch probability or validated outcome forecast |
 
-NFL also preserves 15,518 player-seasons across all listed positions before building the defensive modeling panel. NHL coverage is skaters who appeared; zero-game roster players are not reconstructed. Each sport's QA and source notes describe the exact universe.
+A percentile is relative to one sport, role, season, and reference cohort. An 80 for an NBA guard and an 80 for an NFL wide receiver do not represent equal units of sporting value.
 
-## Run
+The full scientific contract is in the [all-role methodology guide](docs/all_roles_design.md). Source provenance, coverage, and release restrictions are in the [source-governance guide](docs/all_roles_data_sources.md).
 
-Use Python 3.12 and uv:
+## Current snapshot
 
-~~~bash
-uv sync --locked --extra dev --python 3.12
-uv run possession-lab run --sport nfl
-uv run possession-lab run --sport nba
-uv run possession-lab run --sport nhl
-uv run possession-lab run --sport epl
-uv run possession-lab manifest
-~~~
+The current local snapshot contains 27,652 player-seasons:
 
-The default start years are 2021 through 2025. For NBA/NHL/EPL, 2025 means 2025–26. Downloads are cached with SHA-256 verification and provenance sidecars. Reruns reuse the exact local snapshot. A fresh download that differs from the tracked manifest fails clearly; use --accept-source-updates only when creating and evaluating a new data version. The public source may no longer serve the original snapshot, so preserve local raw files for exact reproduction. To process all sports in order:
+| League | Project seasons | Player-seasons | Broad role coverage |
+|---|---|---:|---|
+| NFL | 2021–2025 | 15,518 | QB, RB/FB, WR, TE, EDGE, IDL, LB, CB, S, K, P; OT, IOL, and LS retained as explicit abstentions |
+| NBA | 2021–22 to 2025–26 | 2,866 | Guard, forward, center |
+| NHL | 2021–22 to 2025–26 | 5,263 | Center, left wing, right wing, defense, goalie |
+| Premier League | 2021–22 to 2025–26 | 4,005 | GK, DEF, MID, FWD |
 
-~~~bash
-uv run possession-lab run --sport all
-~~~
+These are derived snapshot counts, not promises about a changing upstream source. NFL includes all rostered player-seasons and unresolved generic position listings; NBA and NHL are appearance-based. Premier League roles remain broad because the current five-season public cache does not provide defensible longitudinal deployment labels for center-back, fullback, defensive midfield, wing, striker, and similar sub-roles.
 
-Rebuild only EDA and models from existing processed data:
+## Quick start
+
+Python 3.12 is recommended. From this repository:
 
 ~~~bash
-uv run possession-lab analyze --sport all
+uv sync --extra dev --python 3.12
+uv run athlete-translation-lab run-all-roles
 ~~~
 
-Inspect a candidate's physical role compatibility:
+`run-all-roles` rebuilds the four all-role panels from the existing raw cache and prerequisite sport-specific processed panels, constructs role-season targets, trains the model families, updates aggregate reports, and rebuilds EDA. It does not acquire sources or rebuild those prerequisite base pipelines. Raw and processed player data and fitted model binaries remain local and are ignored by Git.
+
+Useful narrower commands are:
 
 ~~~bash
-uv run possession-lab score --sport all --height-cm 188 --weight-kg 95 --age 25
+# Rebuild aggregate EDA from existing all-role outputs
+uv run athlete-translation-lab analyze-all-roles
+
+# Retrain from the existing observed-score panel
+uv run athlete-translation-lab train-all-roles
+
+# Inspect the command surface
+uv run athlete-translation-lab --help
 ~~~
 
-This returns role-label probabilities, physical rate associations where supported, reference sample sizes, and out-of-distribution flags. It does not estimate the probability of entering or succeeding in a different sport. An example output is in [reports/example_physical_profile.json](reports/example_physical_profile.json).
+The `possession-lab` command remains an alias for compatibility.
 
-## Unified efficacy ensemble
+## Score a known player
 
-After processing the four sports, train the common model and score an athlete:
+Use the player's source sport and stable source ID. The latest available season is used unless `--season` is supplied.
 
 ~~~bash
-uv run possession-lab train-ensemble
-uv run possession-lab efficacy --profile examples/athlete.json
-uv run possession-lab efficacy --height-cm 188 --weight-kg 95 --age 25 --output work/athlete_rating.json
+# LeBron James (ESPN athlete ID 1966), translated to NFL roles
+uv run athlete-translation-lab all-roles-score \
+  --sport nba --player-id 1966 --season 2025 --target-sport nfl
+
+# Stephen Curry (ESPN athlete ID 3975), translated to NHL roles
+uv run athlete-translation-lab all-roles-score \
+  --sport nba --player-id 3975 --target-sport nhl
 ~~~
 
-`efficacy` returns each sport's best provisionally supported role, all role estimates,
-separate physical-fit percentiles, prediction intervals, model evidence, and unused
-measurements. Metric and imperial JSON profiles are supported. A rating of 70
-means an estimated 70th-percentile possession/disruption activity composite among
-eligible elite peers in that role. It is not an entry probability or evidence of
-successful sport switching. Ratings are ordinal within roles, not equal units of
-sporting value. Unsupported, out-of-domain, and no-evidence roles have a null
-primary rating; explicitly labeled experimental estimates remain auditable.
+Known-player scoring can return all four outputs because the processed row contains the native observed score and the fixed, season-relative performance dimensions needed by the bridge. Low-sample or abstention rows remain visible, but are not silently promoted to supervised labels.
 
-The ensemble combines four sport-role experts, a shared role-standardized expert,
-and a neutral-50 baseline using nonnegative weights learned from athlete-heldout
-predictions. Height and weight are the only common learned inputs in this release.
-Age/BMI are retained for reporting; submitted limb lengths, wingspan, speed, and
-mental attributes do not silently influence predictions without training coverage.
-The ensemble uses sport × role × season target scales to limit provider/year drift.
+## Score a custom athlete
 
-This evaluation holds out athlete identities, with a frozen 2025 test and
-separate calibration athletes. Training identities include 2025 contemporaneous
-reference players; this is descriptive association, not a preseason forecast. EPL
-possession evidence is 2025 only. See the [ensemble report](reports/ensemble/findings.md),
-[design](docs/ensemble_design.md), and [example score](reports/ensemble/example_athlete.json).
-Model binaries stay local; a fresh clone must process the source data and train.
-
-Current result: five heads pass exploratory point checks, but every bootstrap 95%
-improvement interval includes zero. Height/weight alone have not established
-reliable efficacy prediction. Intervals are wide, and EPL defenders show marked
-undercoverage. Treat all scores as research estimates, not validated player ratings.
-
-## Player explorer
-
-A small static web portal presents the current research snapshot. Select a player,
-compare their body measurements against sport-specific roles, and inspect the
-estimate, interval, closest reference archetype, and supporting evidence.
+A height/weight profile can receive physical-only target-role estimates:
 
 ~~~bash
-uv run possession-lab build-portal
-uv run possession-lab portal
+uv run athlete-translation-lab all-roles-score \
+  --height-cm 198 --weight-kg 102 --age 25 --target-sport nba
 ~~~
 
-Open `http://127.0.0.1:8765`. These commands use the existing local processed
-tables and verified unified model; they do not download data or retrain models.
-The server binds only to this computer and serves only the `portal/` directory.
-Use `--port 8989` if needed. Rebuild explicitly after changing data or models;
-the server otherwise reuses the existing frozen export.
+To request the transfer analogy for an athlete outside the repository, supply source sport, source role, eligibility, and already-normalized source-role performance dimensions. See [examples/all_roles_athlete.json](examples/all_roles_athlete.json):
 
-Player-level exports remain ignored by Git. The page makes no third-party
-analytics, font, image, or model API requests. A rating is a provisional predicted
-activity percentile within a role, not a success probability. Body fit is a
-separate centrality diagnostic, not efficacy. The portal additionally withholds
-all EPL defender ratings pending block-coverage review; this display safeguard
-does not modify the saved model. See [portal operation and interpretation](docs/portal.md).
+~~~bash
+uv run athlete-translation-lab all-roles-score \
+  --profile examples/all_roles_athlete.json --target-sport nfl \
+  --output work/example_all_roles_score.json
+~~~
 
-## Reports and evidence
+The dimension inputs are 0–100 source-role percentiles, not raw box-score values. Omitting them correctly withholds the performance-transfer guesstimate rather than inventing “mental” or game-awareness measurements.
 
-- [NFL report](reports/nfl/report.md) · [HTML with charts](reports/nfl/report.html)
-- [NBA report](reports/nba/report.md) · [HTML with charts](reports/nba/report.html)
-- [NHL report](reports/nhl/report.md) · [HTML with charts](reports/nhl/report.html)
-- [Premier League report](reports/epl/report.md) · [2025–26 possession association evaluation](reports/epl/recent_2025_association.md)
-- [Research findings](reports/findings.md)
-- [Data inventory](metadata/data_inventory.md) · [schemas](metadata/dataset_catalog.json) · [download manifest](metadata/download_manifest.json)
-- [Model card and limitations](docs/model_card.md)
-- [Unified ensemble evaluation](reports/ensemble/findings.md) · [per-role metrics](reports/ensemble/evaluation.csv)
+## All-role player explorer
 
-Each sport report includes seasonal coverage, missingness, size/opportunity distributions, within-role physical correlations, role event rates, baseline comparisons, model selection, and temporal split details.
+Build the static export and serve it locally:
 
-Returning-player model selection uses 2024; evaluation uses 2025. Baselines are retained when they win validation. Physical role models and physical effectiveness associations are evaluated separately from forecasts using prior performance. Source physical listings are frequently undated/current and are excluded from strict lagged-performance forecasts.
+~~~bash
+uv run athlete-translation-lab build-all-roles-portal
+uv run athlete-translation-lab all-roles-portal
+~~~
 
-These are retrospective research evaluations with final corrected source snapshots. The 2025 results were inspected during pipeline development and QA; a future frozen evaluation is needed for confirmatory deployment claims.
+Open `http://127.0.0.1:8766`. The export is rebuilt from the local processed tables and fitted all-role artifact. The server binds only to this computer and serves the `portal-all-roles/` directory. Use `--port 8989` to choose another port.
 
-## Physical measurements
+The explorer separates observed native performance, native forecast, physical estimate, and transfer guesstimate; it also displays withholding reasons, evidence status, out-of-domain checks, and model contributions. Generated player-level JSON under `portal-all-roles/data/` is intentionally ignored by Git.
 
-The default models use height and weight where available, with age derived from date of birth. NFL optional measurement tables preserve arm length, hand size, wingspan, 40-yard and 10-yard tests, jumps, agility drills, and bench results. Test year/protocol and years since measurement remain explicit.
+## What the pipeline currently learns
 
-For 2025 NFL roster players, the optional inventory contains arm/hand measurements for 1,991 players, wingspan for 293, 40-yard times for 1,611, and 10-yard splits for 1,199. These conditional-source measurements are collected and cleaned but excluded from default training pending source-use review. Leg length remains unobserved.
+- Observed targets use same-sport, same-role, same-season peers and shrink low-exposure rate statistics toward the cohort prior.
+- Availability, per-opportunity quality, and total impact remain separate.
+- Supervised models train only on `target_status == "eligible"` labels.
+- Native forecast pairs require the player to remain in the same broad role and be eligible in both seasons.
+- Fitted cohorts must have the same required inputs that the scorer requires at inference time: height and weight, plus the declared performance dimensions where applicable.
+- NFL roles use the modal specific weekly depth-chart role for that season. Generic `DB`, `DL`, and `OL` listings are not guessed into narrower roles.
+- OT, IOL, and LS stay in the NFL panel for roster coverage but abstain from performance scoring because no release-safe individual label is available in the current source set.
+- Cross-sport bridges use only a predeclared intersection of broadly analogous performance dimensions. A bridge's evidence gate measures reconstruction among target-role athletes only; it is not evidence that performance transfers between sports.
 
-## Soccer boundary
+The current learned physical inputs are height, weight, derived BMI, and age. Age may be imputed; height and weight are required. Arm length, wingspan, speed, jumps, agility tests, and other measurements are retained or inventoried where available, but are not silently used without adequate coverage and source-use clearance. Repeated current-profile measurements are not treated as annual measurements.
 
-The historical FPL archive does not contain comparable five-year tackle/interception/recovery/block labels. These fields remain null for 2021–24. The enhanced 2025–26 source covers 380 matches and supplies genuine events, supporting a separately evaluated model on 400 players with 450+ minutes and a 100-player holdout.
+## Reports and artifacts
 
-The detailed model beats the role mean for blocks in this initial holdout, but not for every event. That distinction is retained in the reports.
+Start with these files:
+
+- [Methodology and current state](docs/all_roles_design.md)
+- [Sources, coverage, and release gates](docs/all_roles_data_sources.md)
+- [Machine-readable metric registry](metadata/all_roles_metric_registry.json)
+- [Machine-readable source matrix](metadata/all_roles_source_matrix.json)
+- [Data-build summary](reports/all_roles/data_build.json)
+- [Observed-target audit and frozen sanity checks](reports/all_roles/observed_targets.json)
+- [Model evaluation](reports/all_roles/model_evaluation.json)
+- [Role-level EDA summary](reports/all_roles/role_summary.csv)
+- [Model evidence summary](reports/all_roles/model_evidence_summary.csv)
+- [EDA summary](reports/all_roles/eda_summary.json)
+
+Model counts and evidence outcomes are generated results. Read them from the current reports after rerunning the pipeline rather than copying old counts into downstream presentations.
 
 ## Repository layout
 
 ~~~text
-src/possession_lab/       shared IO, EDA, models, inference, and sport adapters
-tests/                   scoring, identity, scope, temporal and pipeline tests
-data/raw/                cached original files plus provenance (local, ignored)
-data/processed/          canonical Parquet tables and quarantine (local, ignored)
-models/                  fitted joblib artifacts (local, ignored)
-portal/                  static player explorer; generated data/ stays local/ignored
-reports/                 tracked EDA, charts, QA, and aggregate evaluation
-metadata/                tracked source hashes, dataset inventory, and schemas
-docs/                    source/method notes and model card
-outputs/                 original research plans and source audit
+src/possession_lab/all_roles_*.py   all-role adapters, targets, models, scoring, EDA, portal export
+tests/test_all_roles_*.py           all-role unit and integration tests
+data/raw/                           cached source snapshots and provenance sidecars (local, ignored)
+data/processed/all_roles/           canonical and scored player-season tables (local, ignored)
+models/all_roles/                   fitted all-role artifact (local, ignored)
+portal-all-roles/                   static all-role explorer; generated data are local/ignored
+reports/all_roles/                  aggregate QA, evaluation, EDA, and figures
+metadata/                           metric registry, source matrix, and download manifest
+docs/                               methodology, source governance, and legacy technical notes
 ~~~
 
 ## Verify
 
 ~~~bash
 uv run ruff check src tests
-uv run pytest -q
+uv run pytest -q -p no:cacheprovider
 ~~~
 
-Unit tests use small synthetic fixtures and do not redownload league data. Real-data QA is performed by each adapter and saved beside its panels. GitHub Actions runs the unit suite and lint checks.
+The suite uses synthetic fixtures and does not redownload league data. Real-data QA and frozen evaluation summaries are written to `reports/all_roles/` by the pipeline.
 
-## Data sources and use
+## Source and release boundary
 
-Source adapters use [nflverse](https://github.com/nflverse/nflverse-data), [SportsDataverse](https://github.com/sportsdataverse/sportsdataverse-data), [MoneyPuck designated downloads](https://www.moneypuck.com/data.htm), [Vaastav's FPL archives](https://github.com/vaastav/Fantasy-Premier-League), [FPL-Core-Insights](https://github.com/olbauday/FPL-Core-Insights), and documented profile enrichments.
+Public accessibility does not imply permission to redistribute or commercialize the data. The current project combines sources with green, amber, and red governance postures. In particular, MoneyPuck requires attribution and restricts broader use, several ESPN/FPL-derived sources have unresolved upstream rights, and conditional NFL enrichments are excluded from release training.
 
-Data retain the original source terms. NFL participation includes separate NGS/FTN attribution; MoneyPuck permits noncommercial use with attribution. PFR and community enrichments remain separately governed. This private research repository versions code and aggregate reports without redistributing raw source tables.
+Keep raw source tables, row-level derived exports, and model binaries outside Git. Preserve source sidecars and regenerate [the download manifest](metadata/download_manifest.json) after acquisition. Before publishing a portal, model, or dataset, follow the sport-specific go/no-go decisions in [the source-governance guide](docs/all_roles_data_sources.md).
 
-## Research plans
+## Legacy possession-only project
 
-- [NFL plan](outputs/nfl-possession-archetype-plan.md)
-- [Multi-season design](outputs/multi-season-project-roadmap.md)
-- [Source audit](outputs/2025-26-sports-data-source-audit.md)
+The earlier possession/disruption pipeline remains in this repository solely for comparison and reproducibility. It is separate from the all-role artifact and portal.
 
-Raw data, derived player tables, and fitted model binaries stay outside Git. Source code, source metadata, QA summaries, EDA, and model evaluation reports are versioned. Data retains the terms of each original source; the repository does not relicense it.
+~~~bash
+# Legacy sport-specific pipelines
+uv run possession-lab run --sport all
+uv run possession-lab analyze --sport all
+
+# Legacy unified possession efficacy model
+uv run possession-lab train-ensemble
+uv run possession-lab efficacy --profile examples/athlete.json
+
+# Legacy player explorer at port 8765
+uv run possession-lab build-portal
+uv run possession-lab portal
+~~~
+
+Legacy documentation and results include the [ensemble design](docs/ensemble_design.md), [legacy model card](docs/model_card.md), [legacy player explorer guide](docs/portal.md), [sport reports](reports/findings.md), and [ensemble findings](reports/ensemble/findings.md). Do not interpret a legacy possession-only score as one of the four all-role outputs.

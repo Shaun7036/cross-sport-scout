@@ -1,0 +1,5393 @@
+{
+  "target_audit": {
+    "cohorts": {
+      "epl:DEF:2021": {
+        "sport": "epl",
+        "role": "DEF",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1019.75,
+        "reference_athletes": 130,
+        "evidence_status": "limited_team_context_proxy",
+        "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+        "metrics": {
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 0.2687074257655431
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 1.392139043507895
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 0.0746336476201295
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 9.006849937521299
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 0.04702942178802681
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 0.17721231398386914
+          }
+        }
+      },
+      "epl:DEF:2022": {
+        "sport": "epl",
+        "role": "DEF",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 978.5,
+        "reference_athletes": 129,
+        "evidence_status": "limited_team_context_proxy",
+        "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+        "metrics": {
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.24742968420787428
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 1.4170447835410387
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.058387978991204896
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 8.61519874444479
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.033564347204524975
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.17970910899089412
+          }
+        }
+      },
+      "epl:DEF:2023": {
+        "sport": "epl",
+        "role": "DEF",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 925.75,
+        "reference_athletes": 128,
+        "evidence_status": "limited_team_context_proxy",
+        "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+        "metrics": {
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.18587463273378146
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 1.631274056218654
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.07697989969285797
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 9.574724932934178
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.05283620388009797
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.1969985614867229
+          }
+        }
+      },
+      "epl:DEF:2024": {
+        "sport": "epl",
+        "role": "DEF",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1040.5,
+        "reference_athletes": 117,
+        "evidence_status": "limited_team_context_proxy",
+        "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+        "metrics": {
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.2054859458466332
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 1.4850092001298842
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.0645813038929177
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 9.531911823068874
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.04149078183064545
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.1944654904931991
+          }
+        }
+      },
+      "epl:DEF:2025": {
+        "sport": "epl",
+        "role": "DEF",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 981.5,
+        "reference_athletes": 128,
+        "evidence_status": "limited_team_context_proxy",
+        "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+        "metrics": {
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.2298656710206883
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 1.3762427459624815
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.07658914031220478
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 9.392494039318008
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.044536416393000135
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.19703990282963696
+          }
+        }
+      },
+      "epl:FWD:2021": {
+        "sport": "epl",
+        "role": "FWD",
+        "minimum_opportunity": 700,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 851.75,
+        "reference_athletes": 46,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.30727801687865164
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 34.0148108965882
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.16986848116178982
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 14.557187853141304
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.182852059339761
+          }
+        }
+      },
+      "epl:FWD:2022": {
+        "sport": "epl",
+        "role": "FWD",
+        "minimum_opportunity": 700,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 666.75,
+        "reference_athletes": 46,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.40834620476610767
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 34.87822705207414
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.1898996028243601
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 13.766231796116505
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.16631729920564872
+          }
+        }
+      },
+      "epl:FWD:2023": {
+        "sport": "epl",
+        "role": "FWD",
+        "minimum_opportunity": 700,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 846.0,
+        "reference_athletes": 41,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.4312764413532496
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 33.80591191007544
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.1922260710031627
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 14.9474253481017
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.17374279494516628
+          }
+        }
+      },
+      "epl:FWD:2024": {
+        "sport": "epl",
+        "role": "FWD",
+        "minimum_opportunity": 700,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 999.0,
+        "reference_athletes": 33,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.43375543375543374
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 31.994424494424493
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.15025515025515027
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 13.367321867321868
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.15876015876015875
+          }
+        }
+      },
+      "epl:FWD:2025": {
+        "sport": "epl",
+        "role": "FWD",
+        "minimum_opportunity": 700,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 893.5,
+        "reference_athletes": 39,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.40703517587939697
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 29.757501794687723
+          },
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.12275664034458005
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 11.450093323761665
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.13697056712132089
+          }
+        }
+      },
+      "epl:GK:2021": {
+        "sport": "epl",
+        "role": "GK",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1575.0,
+        "reference_athletes": 23,
+        "evidence_status": "research_proxy",
+        "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+        "metrics": {
+          "saves_per_90": {
+            "status": "fit",
+            "reference_n": 23,
+            "prior": 2.9590676520750425
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 23,
+            "prior": 1.362990335417851
+          },
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 23,
+            "prior": 0.28939082779856545
+          },
+          "penalties_saved_per_90": {
+            "status": "fit",
+            "reference_n": 23,
+            "prior": 0.012791358726549176
+          }
+        }
+      },
+      "epl:GK:2022": {
+        "sport": "epl",
+        "role": "GK",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1440.0,
+        "reference_athletes": 25,
+        "evidence_status": "research_proxy",
+        "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+        "metrics": {
+          "saves_per_90": {
+            "status": "fit",
+            "reference_n": 25,
+            "prior": 2.909002600820982
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 25,
+            "prior": 1.4044433303042647
+          },
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 25,
+            "prior": 0.2769572338294198
+          },
+          "penalties_saved_per_90": {
+            "status": "fit",
+            "reference_n": 25,
+            "prior": 0.02397142230439006
+          }
+        }
+      },
+      "epl:GK:2023": {
+        "sport": "epl",
+        "role": "GK",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1260.0,
+        "reference_athletes": 27,
+        "evidence_status": "research_proxy",
+        "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+        "metrics": {
+          "saves_per_90": {
+            "status": "fit",
+            "reference_n": 27,
+            "prior": 3.288703322921408
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 27,
+            "prior": 1.6062094837464094
+          },
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 27,
+            "prior": 0.2067910608746601
+          },
+          "penalties_saved_per_90": {
+            "status": "fit",
+            "reference_n": 27,
+            "prior": 0.009888712740743067
+          }
+        }
+      },
+      "epl:GK:2024": {
+        "sport": "epl",
+        "role": "GK",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1282.5,
+        "reference_athletes": 26,
+        "evidence_status": "research_proxy",
+        "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+        "metrics": {
+          "saves_per_90": {
+            "status": "fit",
+            "reference_n": 26,
+            "prior": 3.0391547545059043
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 26,
+            "prior": 1.4170292106898694
+          },
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 26,
+            "prior": 0.23798232456261809
+          },
+          "penalties_saved_per_90": {
+            "status": "fit",
+            "reference_n": 26,
+            "prior": 0.020079361285079124
+          }
+        }
+      },
+      "epl:GK:2025": {
+        "sport": "epl",
+        "role": "GK",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1428.75,
+        "reference_athletes": 24,
+        "evidence_status": "research_proxy",
+        "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+        "metrics": {
+          "saves_per_90": {
+            "status": "fit",
+            "reference_n": 24,
+            "prior": 2.8004000571510215
+          },
+          "goals_conceded_per_90": {
+            "status": "fit",
+            "reference_n": 24,
+            "prior": 1.3673381911701672
+          },
+          "clean_sheet_rate": {
+            "status": "fit",
+            "reference_n": 24,
+            "prior": 0.26026019662919464
+          },
+          "penalties_saved_per_90": {
+            "status": "fit",
+            "reference_n": 24,
+            "prior": 0.014287755393627661
+          }
+        }
+      },
+      "epl:MID:2021": {
+        "sport": "epl",
+        "role": "MID",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 945.25,
+        "reference_athletes": 144,
+        "evidence_status": "research_proxy",
+        "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+        "metrics": {
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.15656358613314322
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 19.098992959629268
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.17902147758666787
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 19.747223955084216
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.1684341859014348
+          }
+        }
+      },
+      "epl:MID:2022": {
+        "sport": "epl",
+        "role": "MID",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1070.25,
+        "reference_athletes": 136,
+        "evidence_status": "research_proxy",
+        "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+        "metrics": {
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.16588672276666735
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 18.95915262417896
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.17123790737204372
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 16.767779573164333
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.18225505214781862
+          }
+        }
+      },
+      "epl:MID:2023": {
+        "sport": "epl",
+        "role": "MID",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 986.0,
+        "reference_athletes": 147,
+        "evidence_status": "research_proxy",
+        "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+        "metrics": {
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.18927019952622018
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 22.098430172729344
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.19268887308088098
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 17.710904532677684
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.2253216661026431
+          }
+        }
+      },
+      "epl:MID:2024": {
+        "sport": "epl",
+        "role": "MID",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 989.5,
+        "reference_athletes": 148,
+        "evidence_status": "research_proxy",
+        "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+        "metrics": {
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.18040289980957472
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 21.05283800487756
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.16927805432131762
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 16.76935155179902
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.21828750876958541
+          }
+        }
+      },
+      "epl:MID:2025": {
+        "sport": "epl",
+        "role": "MID",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 899.0,
+        "reference_athletes": 153,
+        "evidence_status": "research_proxy",
+        "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+        "metrics": {
+          "assists_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.16673931996512642
+          },
+          "creativity_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 20.313722618788145
+          },
+          "goals_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.15355955754141237
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 14.783708860069748
+          },
+          "cards_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.19463137532693983
+          }
+        }
+      },
+      "nba:center:2021": {
+        "sport": "nba",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 614.75,
+        "reference_athletes": 58,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 17.32305809760606
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 0.6252052611366333
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 2.776188182611073
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 1.3330586523496146
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 2.1243182025280203
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 1.549304208594228
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 0.970072508103464
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 8.070815813796067
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 3.629102175243104
+          }
+        }
+      },
+      "nba:center:2022": {
+        "sport": "nba",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 695.5,
+        "reference_athletes": 55,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 17.166031415269774
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 0.639435462077121
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 2.657874259789246
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 1.325033988518221
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 2.0748321749337273
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 1.5506640465294173
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 0.8774118671115625
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 7.77563536130198
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 3.3933239254579743
+          }
+        }
+      },
+      "nba:center:2023": {
+        "sport": "nba",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 702.5,
+        "reference_athletes": 53,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 17.195533406177546
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 0.6271917286227038
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 2.9511499613570344
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 1.479083513447105
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 2.0210004530554593
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 1.6650587639581056
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 0.9517362684220345
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 7.760200410414946
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 3.3728113423766755
+          }
+        }
+      },
+      "nba:center:2024": {
+        "sport": "nba",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 628.0,
+        "reference_athletes": 57,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 16.630565090424714
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 0.613043094311869
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 3.1266458322659973
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 1.5990157330684176
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 1.981761360725447
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 1.5220554331676828
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 0.9996413750704441
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 7.810850965725703
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 3.4558635175982375
+          }
+        }
+      },
+      "nba:center:2025": {
+        "sport": "nba",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 647.5,
+        "reference_athletes": 59,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 17.040766262743308
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 0.6223690797414153
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 3.0940446986600265
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 1.5573220230053737
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 1.9805968861330605
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 1.530158651890386
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 1.0184785690511704
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 7.417364184366564
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 3.6039496554529653
+          }
+        }
+      },
+      "nba:forward:2021": {
+        "sport": "nba",
+        "role": "forward",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 730.5,
+        "reference_athletes": 143,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 16.129894222030675
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.5718338172525651
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.5398702197384491
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 2.865955234088801
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.7008827330913194
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.7267574227277411
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.0982170462743481
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.7799836976380313
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 5.479954653200041
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.6334966692588047
+          }
+        }
+      },
+      "nba:forward:2022": {
+        "sport": "nba",
+        "role": "forward",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 727.5,
+        "reference_athletes": 155,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 16.506885119671466
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 0.5819736459527782
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 0.5495634527686752
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 2.976373708639018
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 1.6933546516065807
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 1.8001155006095866
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 1.0236434025624024
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 0.7455179346779885
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 5.289619917438453
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 1.6964729536072551
+          }
+        }
+      },
+      "nba:forward:2023": {
+        "sport": "nba",
+        "role": "forward",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 765.0,
+        "reference_athletes": 148,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 17.125127143909367
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.5827882031414819
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.5513701983291515
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 3.3151415243239453
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 1.8253102715615888
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 1.8349759741854021
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 1.071060292518677
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.7924836028199642
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 5.29595594682754
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 1.6932412051488899
+          }
+        }
+      },
+      "nba:forward:2024": {
+        "sport": "nba",
+        "role": "forward",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 674.5,
+        "reference_athletes": 143,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 16.843884202739535
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.5774627382537119
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.5479267261267339
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 3.2015926839803197
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.7574324115402238
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.8707681919958694
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.1463750055853164
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.787306189523436
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 5.408730966483137
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 1.8500354977882147
+          }
+        }
+      },
+      "nba:forward:2025": {
+        "sport": "nba",
+        "role": "forward",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 694.5,
+        "reference_athletes": 137,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 17.563797588800373
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 0.5856302753846412
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 0.5533858588617175
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 3.3010355403941736
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 1.7165773971645701
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 1.980949295974248
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 1.1909018210529512
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 0.79806456184393
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 5.297290184129812
+          },
+          "offensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 1.755924242577615
+          }
+        }
+      },
+      "nba:guard:2021": {
+        "sport": "nba",
+        "role": "guard",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 729.0,
+        "reference_athletes": 177,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 17.065678178782957
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 0.5527484216849989
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 0.5190834999456138
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 4.703933254759948
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 2.3028598381936165
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 2.1018058245929736
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 1.2229637533787174
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 0.3987314240248659
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 3.9622847752293064
+          }
+        }
+      },
+      "nba:guard:2022": {
+        "sport": "nba",
+        "role": "guard",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 784.0,
+        "reference_athletes": 162,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 17.969469925075273
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.5682358927313409
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.5322207086011674
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 4.88131083257475
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.3016516428188574
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.171416567467264
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 1.199075694979343
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.3863875078775996
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 3.7549191233106924
+          }
+        }
+      },
+      "nba:guard:2023": {
+        "sport": "nba",
+        "role": "guard",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 787.0,
+        "reference_athletes": 162,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 17.550697412295122
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.5704298737215413
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.5383064625977771
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 4.992485793453247
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.563381656475293
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.020523176630818
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 1.1974357770159207
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.4753674916639271
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 3.770112243460292
+          }
+        }
+      },
+      "nba:guard:2024": {
+        "sport": "nba",
+        "role": "guard",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 797.25,
+        "reference_athletes": 180,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 17.631136987869077
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 0.5694718683231631
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 0.536075885804591
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 4.85199702449073
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 2.339974583411277
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 2.15009155413138
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 1.3294518196383611
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 0.4544804303044175
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 3.7869935912108033
+          }
+        }
+      },
+      "nba:guard:2025": {
+        "sport": "nba",
+        "role": "guard",
+        "minimum_opportunity": 500,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 699.5,
+        "reference_athletes": 189,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "points_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 17.56611307382396
+          },
+          "true_shooting_pct": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 0.5703648859824921
+          },
+          "effective_fg_pct": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 0.535339716310762
+          },
+          "assists_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 4.80749560635847
+          },
+          "assist_turnover_ratio": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 2.2885090516234654
+          },
+          "turnovers_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 2.1592780411367043
+          },
+          "steals_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 1.3582659761431555
+          },
+          "blocks_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 0.44300844944886303
+          },
+          "defensive_rebounds_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 3.7953299813472396
+          }
+        }
+      },
+      "nfl:CB:2021": {
+        "sport": "nfl",
+        "role": "CB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 284.5,
+        "reference_athletes": 153,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.002194172739135958
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.011617567239846176
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.0023904934579007543
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.06961301721848186
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.0007968311526335847
+          }
+        }
+      },
+      "nfl:CB:2022": {
+        "sport": "nfl",
+        "role": "CB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 267.0,
+        "reference_athletes": 146,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 146,
+            "prior": 0.0019046232606664969
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 146,
+            "prior": 0.011694629447659255
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 146,
+            "prior": 0.002583979328165375
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 146,
+            "prior": 0.07044679792796399
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 146,
+            "prior": 0.000740012859239849
+          }
+        }
+      },
+      "nfl:CB:2023": {
+        "sport": "nfl",
+        "role": "CB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 289.5,
+        "reference_athletes": 145,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 145,
+            "prior": 0.0018938733777173597
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 145,
+            "prior": 0.012002277295595292
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 145,
+            "prior": 0.0029279514796611943
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 145,
+            "prior": 0.06975960588843576
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 145,
+            "prior": 0.0008133198554614429
+          }
+        }
+      },
+      "nfl:CB:2024": {
+        "sport": "nfl",
+        "role": "CB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 302.5,
+        "reference_athletes": 144,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.0017562933846282513
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.011816150730594152
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.0031780546959939786
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.07529361163215809
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 144,
+            "prior": 0.0007646447388857693
+          }
+        }
+      },
+      "nfl:CB:2025": {
+        "sport": "nfl",
+        "role": "CB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 278.25,
+        "reference_athletes": 138,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 138,
+            "prior": 0.0018706157443491816
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 138,
+            "prior": 0.012730579371265264
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 138,
+            "prior": 0.003156664068589244
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 138,
+            "prior": 0.07565601454923357
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 138,
+            "prior": 0.0006105481943361912
+          }
+        }
+      },
+      "nfl:EDGE:2021": {
+        "sport": "nfl",
+        "role": "EDGE",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 211.0,
+        "reference_athletes": 217,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 217,
+            "prior": 0.007753959735582952
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 217,
+            "prior": 0.01754421161388691
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 217,
+            "prior": 0.010512483574244415
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 217,
+            "prior": 0.0017353622694124846
+          }
+        }
+      },
+      "nfl:EDGE:2022": {
+        "sport": "nfl",
+        "role": "EDGE",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 223.75,
+        "reference_athletes": 198,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 198,
+            "prior": 0.008018927845528455
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 198,
+            "prior": 0.018536161924119242
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 198,
+            "prior": 0.011655233739837399
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 198,
+            "prior": 0.001609078590785908
+          }
+        }
+      },
+      "nfl:EDGE:2023": {
+        "sport": "nfl",
+        "role": "EDGE",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 231.0,
+        "reference_athletes": 185,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 185,
+            "prior": 0.009171616946275867
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 185,
+            "prior": 0.019757599495180276
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 185,
+            "prior": 0.012620493069608546
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 185,
+            "prior": 0.001653719781534913
+          }
+        }
+      },
+      "nfl:EDGE:2024": {
+        "sport": "nfl",
+        "role": "EDGE",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 224.0,
+        "reference_athletes": 181,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 181,
+            "prior": 0.008682617130092293
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 181,
+            "prior": 0.019563811651284464
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 181,
+            "prior": 0.013062136264769856
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 181,
+            "prior": 0.0018458644406560462
+          }
+        }
+      },
+      "nfl:EDGE:2025": {
+        "sport": "nfl",
+        "role": "EDGE",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 228.25,
+        "reference_athletes": 182,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 182,
+            "prior": 0.00840298119225071
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 182,
+            "prior": 0.020425012157745333
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 182,
+            "prior": 0.012621436084188146
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 182,
+            "prior": 0.0015041675620045011
+          }
+        }
+      },
+      "nfl:IDL:2021": {
+        "sport": "nfl",
+        "role": "IDL",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 216.0,
+        "reference_athletes": 120,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 120,
+            "prior": 0.00788637706855792
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 120,
+            "prior": 0.004654255319148936
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 120,
+            "prior": 0.013260933806146572
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 120,
+            "prior": 0.0008126477541371158
+          }
+        }
+      },
+      "nfl:IDL:2022": {
+        "sport": "nfl",
+        "role": "IDL",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 199.25,
+        "reference_athletes": 126,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.008821085753681344
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.004914352383814457
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.013364210079725644
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.0007247785889798299
+          }
+        }
+      },
+      "nfl:IDL:2023": {
+        "sport": "nfl",
+        "role": "IDL",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 222.5,
+        "reference_athletes": 117,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.009007129854368932
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.005271541262135923
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.014089047330097087
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.0007395327669902913
+          }
+        }
+      },
+      "nfl:IDL:2024": {
+        "sport": "nfl",
+        "role": "IDL",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 213.75,
+        "reference_athletes": 126,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.009317286894792302
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.005324163939881316
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.013181003087275617
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 126,
+            "prior": 0.0007209805335255948
+          }
+        }
+      },
+      "nfl:IDL:2025": {
+        "sport": "nfl",
+        "role": "IDL",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 219.0,
+        "reference_athletes": 124,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 124,
+            "prior": 0.009145723083731308
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 124,
+            "prior": 0.004840226430402154
+          },
+          "qb_hit_rate": {
+            "status": "fit",
+            "reference_n": 124,
+            "prior": 0.011930005716076927
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 124,
+            "prior": 0.0006453635240536205
+          }
+        }
+      },
+      "nfl:K:2021": {
+        "sport": "nfl",
+        "role": "K",
+        "minimum_opportunity": 12,
+        "opportunity_unit": "field-goal attempts",
+        "prior_exposure": 15.25,
+        "reference_athletes": 34,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "field_goal_pct": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.8584710743801653
+          },
+          "long_field_goal_rate": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.11983471074380166
+          },
+          "extra_point_pct": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.9421206529769909
+          }
+        }
+      },
+      "nfl:K:2022": {
+        "sport": "nfl",
+        "role": "K",
+        "minimum_opportunity": 12,
+        "opportunity_unit": "field-goal attempts",
+        "prior_exposure": 16.0,
+        "reference_athletes": 32,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "field_goal_pct": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.8491508491508492
+          },
+          "long_field_goal_rate": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.15284715284715283
+          },
+          "extra_point_pct": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.9521832088637694
+          }
+        }
+      },
+      "nfl:K:2023": {
+        "sport": "nfl",
+        "role": "K",
+        "minimum_opportunity": 12,
+        "opportunity_unit": "field-goal attempts",
+        "prior_exposure": 15.5,
+        "reference_athletes": 33,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "field_goal_pct": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.8621359223300971
+          },
+          "long_field_goal_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.15145631067961166
+          },
+          "extra_point_pct": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.9580410078637809
+          }
+        }
+      },
+      "nfl:K:2024": {
+        "sport": "nfl",
+        "role": "K",
+        "minimum_opportunity": 12,
+        "opportunity_unit": "field-goal attempts",
+        "prior_exposure": 15.0,
+        "reference_athletes": 37,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "field_goal_pct": {
+            "status": "fit",
+            "reference_n": 37,
+            "prior": 0.841225626740947
+          },
+          "long_field_goal_rate": {
+            "status": "fit",
+            "reference_n": 37,
+            "prior": 0.17734447539461468
+          },
+          "extra_point_pct": {
+            "status": "fit",
+            "reference_n": 37,
+            "prior": 0.9560787755436595
+          }
+        }
+      },
+      "nfl:K:2025": {
+        "sport": "nfl",
+        "role": "K",
+        "minimum_opportunity": 12,
+        "opportunity_unit": "field-goal attempts",
+        "prior_exposure": 14.75,
+        "reference_athletes": 36,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "field_goal_pct": {
+            "status": "fit",
+            "reference_n": 36,
+            "prior": 0.8542857142857143
+          },
+          "long_field_goal_rate": {
+            "status": "fit",
+            "reference_n": 36,
+            "prior": 0.17238095238095238
+          },
+          "extra_point_pct": {
+            "status": "fit",
+            "reference_n": 36,
+            "prior": 0.9659961777305831
+          }
+        }
+      },
+      "nfl:LB:2021": {
+        "sport": "nfl",
+        "role": "LB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 301.0,
+        "reference_athletes": 73,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 73,
+            "prior": 0.006593807752857697
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 73,
+            "prior": 0.12430126172169112
+          },
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 73,
+            "prior": 0.0010267174701681534
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 73,
+            "prior": 0.00479134819411805
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 73,
+            "prior": 0.0010267174701681534
+          }
+        }
+      },
+      "nfl:LB:2022": {
+        "sport": "nfl",
+        "role": "LB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 323.25,
+        "reference_athletes": 74,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 74,
+            "prior": 0.007621168008220586
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 74,
+            "prior": 0.12258092139064908
+          },
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 74,
+            "prior": 0.0009633498886795685
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 74,
+            "prior": 0.005116458297653708
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 74,
+            "prior": 0.0008349032368556259
+          }
+        }
+      },
+      "nfl:LB:2023": {
+        "sport": "nfl",
+        "role": "LB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 336.5,
+        "reference_athletes": 81,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 81,
+            "prior": 0.008285962038732055
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 81,
+            "prior": 0.12334521630214856
+          },
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 81,
+            "prior": 0.0010020233163117835
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 81,
+            "prior": 0.005395510164755757
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 81,
+            "prior": 0.0010405626746314673
+          }
+        }
+      },
+      "nfl:LB:2024": {
+        "sport": "nfl",
+        "role": "LB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 284.0,
+        "reference_athletes": 93,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.00766290599553151
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.1235851321158853
+          },
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.0008309175175877542
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.004967040271802352
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.0010709603560019943
+          }
+        }
+      },
+      "nfl:LB:2025": {
+        "sport": "nfl",
+        "role": "LB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 322.0,
+        "reference_athletes": 79,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 79,
+            "prior": 0.00732156220294076
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 79,
+            "prior": 0.1324151042614728
+          },
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 79,
+            "prior": 0.0010719414275023765
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 79,
+            "prior": 0.005359707137511882
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 79,
+            "prior": 0.0009708148777380014
+          }
+        }
+      },
+      "nfl:P:2021": {
+        "sport": "nfl",
+        "role": "P",
+        "minimum_opportunity": 25,
+        "opportunity_unit": "punts",
+        "prior_exposure": 29.5,
+        "reference_athletes": 33,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "net_yards_per_punt": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 40.92875318066158
+          },
+          "inside_20_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.36743002544529263
+          },
+          "touchback_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.06513994910941476
+          },
+          "punt_block_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.0055979643765903305
+          }
+        }
+      },
+      "nfl:P:2022": {
+        "sport": "nfl",
+        "role": "P",
+        "minimum_opportunity": 25,
+        "opportunity_unit": "punts",
+        "prior_exposure": 33.0,
+        "reference_athletes": 34,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "net_yards_per_punt": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 41.69637115296279
+          },
+          "inside_20_rate": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.3729903536977492
+          },
+          "touchback_rate": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.07211759301791457
+          },
+          "punt_block_rate": {
+            "status": "fit",
+            "reference_n": 34,
+            "prior": 0.005512172714745062
+          }
+        }
+      },
+      "nfl:P:2023": {
+        "sport": "nfl",
+        "role": "P",
+        "minimum_opportunity": 25,
+        "opportunity_unit": "punts",
+        "prior_exposure": 33.0,
+        "reference_athletes": 33,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "net_yards_per_punt": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 41.81252816584047
+          },
+          "inside_20_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.3704371338440739
+          },
+          "touchback_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.07345651194231635
+          },
+          "punt_block_rate": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.0027039206849932404
+          }
+        }
+      },
+      "nfl:P:2024": {
+        "sport": "nfl",
+        "role": "P",
+        "minimum_opportunity": 25,
+        "opportunity_unit": "punts",
+        "prior_exposure": 31.0,
+        "reference_athletes": 31,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "net_yards_per_punt": {
+            "status": "fit",
+            "reference_n": 31,
+            "prior": 41.932221063607926
+          },
+          "inside_20_rate": {
+            "status": "fit",
+            "reference_n": 31,
+            "prior": 0.42127215849843586
+          },
+          "touchback_rate": {
+            "status": "fit",
+            "reference_n": 31,
+            "prior": 0.07820646506777894
+          },
+          "punt_block_rate": {
+            "status": "fit",
+            "reference_n": 31,
+            "prior": 0.005213764337851929
+          }
+        }
+      },
+      "nfl:P:2025": {
+        "sport": "nfl",
+        "role": "P",
+        "minimum_opportunity": 25,
+        "opportunity_unit": "punts",
+        "prior_exposure": 29.0,
+        "reference_athletes": 32,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "net_yards_per_punt": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 41.44130202774813
+          },
+          "inside_20_rate": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.39647812166488794
+          },
+          "touchback_rate": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.07790821771611527
+          },
+          "punt_block_rate": {
+            "status": "fit",
+            "reference_n": 32,
+            "prior": 0.004268943436499467
+          }
+        }
+      },
+      "nfl:QB:2021": {
+        "sport": "nfl",
+        "role": "QB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "dropbacks",
+        "prior_exposure": 245.5,
+        "reference_athletes": 38,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "passing_epa_per_play": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.04453173520126375
+          },
+          "passing_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 7.137647293384564
+          },
+          "completion_over_expected": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.3996521714918886
+          },
+          "passing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.34618406683795927
+          },
+          "passing_air_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 7.819570043511653
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.045596322646566954
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.025675077467906152
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.06208499335989376
+          }
+        }
+      },
+      "nfl:QB:2022": {
+        "sport": "nfl",
+        "role": "QB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "dropbacks",
+        "prior_exposure": 207.25,
+        "reference_athletes": 40,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "passing_epa_per_play": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.03853429719270514
+          },
+          "passing_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 7.113640356605512
+          },
+          "completion_over_expected": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.11385101422683419
+          },
+          "passing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.34113837968828986
+          },
+          "passing_air_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 7.730857305826379
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.0432595490442732
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.023809523809523808
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.06516906516906516
+          }
+        }
+      },
+      "nfl:QB:2023": {
+        "sport": "nfl",
+        "role": "QB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "dropbacks",
+        "prior_exposure": 209.5,
+        "reference_athletes": 43,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "passing_epa_per_play": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.007429619507224884
+          },
+          "passing_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 7.088717501458699
+          },
+          "completion_over_expected": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.7297799272292799
+          },
+          "passing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.3314344877074306
+          },
+          "passing_air_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 7.75479139877066
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.041815559659881235
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.025447848652268543
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.07059545733578883
+          }
+        }
+      },
+      "nfl:QB:2024": {
+        "sport": "nfl",
+        "role": "QB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "dropbacks",
+        "prior_exposure": 199.5,
+        "reference_athletes": 43,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "passing_epa_per_play": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.049048031685260056
+          },
+          "passing_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 7.178785347597053
+          },
+          "completion_over_expected": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 1.1625461638649004
+          },
+          "passing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.3448563959083796
+          },
+          "passing_air_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 7.658391412196372
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.0462335462460513
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.02390706549189068
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.06768056568831023
+          }
+        }
+      },
+      "nfl:QB:2025": {
+        "sport": "nfl",
+        "role": "QB",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "dropbacks",
+        "prior_exposure": 212.0,
+        "reference_athletes": 42,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "passing_epa_per_play": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.04986955261789936
+          },
+          "passing_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 7.095750301057341
+          },
+          "completion_over_expected": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.656321067796762
+          },
+          "passing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.3399160998445402
+          },
+          "passing_air_yards_per_attempt": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 7.748267963660419
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.047756166441994825
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.023148418775939674
+          },
+          "sack_rate": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.0674577658268545
+          }
+        }
+      },
+      "nfl:RB_FB:2021": {
+        "sport": "nfl",
+        "role": "RB_FB",
+        "minimum_opportunity": 60,
+        "opportunity_unit": "touches",
+        "prior_exposure": 80.5,
+        "reference_athletes": 78,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "rushing_epa_per_carry": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": -0.05708954584424154
+          },
+          "rushing_yards_per_carry": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 4.28939336286722
+          },
+          "rushing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.22845100247787709
+          },
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.05931217044882949
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 5.981297481345881
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.033423597678916825
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.004410058027079304
+          }
+        }
+      },
+      "nfl:RB_FB:2022": {
+        "sport": "nfl",
+        "role": "RB_FB",
+        "minimum_opportunity": 60,
+        "opportunity_unit": "touches",
+        "prior_exposure": 82.5,
+        "reference_athletes": 71,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "rushing_epa_per_carry": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": -0.048544576838738966
+          },
+          "rushing_yards_per_carry": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 4.444340976214807
+          },
+          "rushing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 0.22374574666696265
+          },
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": -0.029165225763400377
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 5.476947330056973
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 0.031517263224580296
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 0.004830535318340197
+          }
+        }
+      },
+      "nfl:RB_FB:2023": {
+        "sport": "nfl",
+        "role": "RB_FB",
+        "minimum_opportunity": 60,
+        "opportunity_unit": "touches",
+        "prior_exposure": 101.0,
+        "reference_athletes": 66,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "rushing_epa_per_carry": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": -0.07894585069229743
+          },
+          "rushing_yards_per_carry": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 4.189144579488601
+          },
+          "rushing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 0.21797879996290823
+          },
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": -0.021275410384420154
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 5.671233519275218
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 0.03087355404866374
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 0.004228161148783407
+          }
+        }
+      },
+      "nfl:RB_FB:2024": {
+        "sport": "nfl",
+        "role": "RB_FB",
+        "minimum_opportunity": 60,
+        "opportunity_unit": "touches",
+        "prior_exposure": 80.5,
+        "reference_athletes": 70,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "rushing_epa_per_carry": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": -0.05624411132245
+          },
+          "rushing_yards_per_carry": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 4.358572048554928
+          },
+          "rushing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.22545257833645815
+          },
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.028554031712845252
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 5.967801660160439
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.03395747381783561
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.004839733417962551
+          }
+        }
+      },
+      "nfl:RB_FB:2025": {
+        "sport": "nfl",
+        "role": "RB_FB",
+        "minimum_opportunity": 60,
+        "opportunity_unit": "touches",
+        "prior_exposure": 86.0,
+        "reference_athletes": 67,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "rushing_epa_per_carry": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": -0.04284206736408836
+          },
+          "rushing_yards_per_carry": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 4.380869876996576
+          },
+          "rushing_first_down_rate": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.23380722682091065
+          },
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.012725270432387194
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 5.854027041061723
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.03586664559962079
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.004108073945331016
+          }
+        }
+      },
+      "nfl:S:2021": {
+        "sport": "nfl",
+        "role": "S",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 328.25,
+        "reference_athletes": 114,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 114,
+            "prior": 0.0021232306411323896
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 114,
+            "prior": 0.006855398279211768
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 114,
+            "prior": 0.0030530113794060504
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 114,
+            "prior": 0.08799611434915348
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 114,
+            "prior": 0.0006522342492367471
+          }
+        }
+      },
+      "nfl:S:2022": {
+        "sport": "nfl",
+        "role": "S",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 356.5,
+        "reference_athletes": 109,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 109,
+            "prior": 0.0023630006009943724
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 109,
+            "prior": 0.006802163579741026
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 109,
+            "prior": 0.0029503360104900836
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 109,
+            "prior": 0.08662514341911162
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 109,
+            "prior": 0.0009014915587608589
+          }
+        }
+      },
+      "nfl:S:2023": {
+        "sport": "nfl",
+        "role": "S",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 308.75,
+        "reference_athletes": 116,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.0022439318063651043
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.007429603480830802
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.003352215198533235
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.08810168842185918
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.0009851407930383384
+          }
+        }
+      },
+      "nfl:S:2024": {
+        "sport": "nfl",
+        "role": "S",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 337.0,
+        "reference_athletes": 111,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 111,
+            "prior": 0.0020199504697076607
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 111,
+            "prior": 0.007028320812407477
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 111,
+            "prior": 0.0035556662377730737
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 111,
+            "prior": 0.09300073326969106
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 111,
+            "prior": 0.0007471049682480389
+          }
+        }
+      },
+      "nfl:S:2025": {
+        "sport": "nfl",
+        "role": "S",
+        "minimum_opportunity": 150,
+        "opportunity_unit": "defensive snaps / charted plays",
+        "prior_exposure": 349.0,
+        "reference_athletes": 108,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "interception_rate": {
+            "status": "fit",
+            "reference_n": 108,
+            "prior": 0.0018369003374770388
+          },
+          "pass_defended_rate": {
+            "status": "fit",
+            "reference_n": 108,
+            "prior": 0.007005852449912427
+          },
+          "negative_play_rate": {
+            "status": "fit",
+            "reference_n": 108,
+            "prior": 0.0033178122374585275
+          },
+          "tackle_rate": {
+            "status": "fit",
+            "reference_n": 108,
+            "prior": 0.0966722200862916
+          },
+          "forced_fumble_rate": {
+            "status": "fit",
+            "reference_n": 108,
+            "prior": 0.0006834977999914563
+          }
+        }
+      },
+      "nfl:TE:2021": {
+        "sport": "nfl",
+        "role": "TE",
+        "minimum_opportunity": 30,
+        "opportunity_unit": "targets",
+        "prior_exposure": 30.5,
+        "reference_athletes": 45,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.1860746091640429
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 7.417725752508361
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.3705685618729097
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.682943143812709
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 4.890956199046682
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.050501672240802674
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.0046822742474916385
+          }
+        }
+      },
+      "nfl:TE:2022": {
+        "sport": "nfl",
+        "role": "TE",
+        "minimum_opportunity": 30,
+        "opportunity_unit": "targets",
+        "prior_exposure": 30.0,
+        "reference_athletes": 44,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.18364011309210201
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 7.338203848895224
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.37205987170349253
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.6885245901639344
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 4.911402390213166
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.05131860299358518
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.0024946543121881683
+          }
+        }
+      },
+      "nfl:TE:2023": {
+        "sport": "nfl",
+        "role": "TE",
+        "minimum_opportunity": 30,
+        "opportunity_unit": "targets",
+        "prior_exposure": 30.5,
+        "reference_athletes": 44,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.20257483302103343
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 7.356150457472044
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.367671975601491
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.7126397831243646
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 4.741348813394766
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.04439173161640122
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.003727549983056591
+          }
+        }
+      },
+      "nfl:TE:2024": {
+        "sport": "nfl",
+        "role": "TE",
+        "minimum_opportunity": 30,
+        "opportunity_unit": "targets",
+        "prior_exposure": 32.0,
+        "reference_athletes": 45,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.2537383896580096
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 7.575238722423444
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.3862364175172868
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.7276918011195258
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 4.929068192063058
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.046427395456042145
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.004939084622983207
+          }
+        }
+      },
+      "nfl:TE:2025": {
+        "sport": "nfl",
+        "role": "TE",
+        "minimum_opportunity": 30,
+        "opportunity_unit": "targets",
+        "prior_exposure": 28.0,
+        "reference_athletes": 49,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.26842724421762276
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 7.54300062774639
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.3788449466415568
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.729127432517263
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 4.915391479748645
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.0583804143126177
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.004080351537978657
+          }
+        }
+      },
+      "nfl:WR:2021": {
+        "sport": "nfl",
+        "role": "WR",
+        "minimum_opportunity": 40,
+        "opportunity_unit": "targets",
+        "prior_exposure": 35.75,
+        "reference_athletes": 104,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.25089825409866356
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 8.039514692787177
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.3861308993766696
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.6410284951024042
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 4.322880377581707
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.04908726625111309
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.0033392698130008903
+          }
+        }
+      },
+      "nfl:WR:2022": {
+        "sport": "nfl",
+        "role": "WR",
+        "minimum_opportunity": 40,
+        "opportunity_unit": "targets",
+        "prior_exposure": 40.5,
+        "reference_athletes": 100,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.22628829304149506
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 8.034490661166494
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.38822046522287157
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.64019708949238
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 4.055824295791993
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.04537641801306291
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.004927237309499255
+          }
+        }
+      },
+      "nfl:WR:2023": {
+        "sport": "nfl",
+        "role": "WR",
+        "minimum_opportunity": 40,
+        "opportunity_unit": "targets",
+        "prior_exposure": 42.5,
+        "reference_athletes": 94,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.24500802568174665
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 8.221000935453695
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.38260056127221703
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.6358746492048644
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 4.313813726146802
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.04735734331150608
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.0038587464920486437
+          }
+        }
+      },
+      "nfl:WR:2024": {
+        "sport": "nfl",
+        "role": "WR",
+        "minimum_opportunity": 40,
+        "opportunity_unit": "targets",
+        "prior_exposure": 37.75,
+        "reference_athletes": 106,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.2653330715691163
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 8.143242332322211
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.3874845522974947
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.641051567239636
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 4.407180046365995
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.05527468823727671
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.002583979328165375
+          }
+        }
+      },
+      "nfl:WR:2025": {
+        "sport": "nfl",
+        "role": "WR",
+        "minimum_opportunity": 40,
+        "opportunity_unit": "targets",
+        "prior_exposure": 39.25,
+        "reference_athletes": 90,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "receiving_epa_per_target": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.2381526880354793
+          },
+          "receiving_yards_per_target": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 8.001307702366942
+          },
+          "receiving_first_down_rate": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.3856414280109847
+          },
+          "catch_rate": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.6310971622858638
+          },
+          "yards_after_catch_per_reception": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 4.132231419875792
+          },
+          "touchdown_rate": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.05021577089054531
+          },
+          "turnover_rate": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.002746174970576697
+          }
+        }
+      },
+      "nhl:center:2021": {
+        "sport": "nhl",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 513.1541666666667,
+        "reference_athletes": 214,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.8625752678782892
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.8429257763625968
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.7024403897542386
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.4970909578069267
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.6131906881942168
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.2663127095678175
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.7692885525840478
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.8704830301884898
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 4.192035061613801
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.506588303993713
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.014048099822491004
+          }
+        }
+      },
+      "nhl:center:2022": {
+        "sport": "nhl",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 549.6791666666667,
+        "reference_athletes": 212,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.8614733919541758
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.8973438984914485
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.738998861531775
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.5199977944205326
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 1.625901287344839
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 1.3044420423941816
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 1.8140242419131456
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 2.0773963783087748
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 4.2411995757503025
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.5098244301081779
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.017802439904266314
+          }
+        }
+      },
+      "nhl:center:2023": {
+        "sport": "nhl",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 563.2958333333333,
+        "reference_athletes": 206,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.8757032464678931
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.8900501539663488
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.7344438162025706
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.49927448536979907
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 1.4941407149106738
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 1.2940107752979635
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 1.7232598280598281
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 2.174921730788988
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 4.3674680087432955
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.5158963675165273
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.025598625928339412
+          }
+        }
+      },
+      "nhl:center:2024": {
+        "sport": "nhl",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 584.0166666666667,
+        "reference_athletes": 205,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.8307262395722318
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.8608174560570839
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.7012283656849858
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.48181597612299215
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 2.743310223137711
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.3775579118686498
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.9885353895319932
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 2.296883342105363
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 4.463744527433248
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.507618276763695
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.017717689537731035
+          }
+        }
+      },
+      "nhl:center:2025": {
+        "sport": "nhl",
+        "role": "center",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 544.9375,
+        "reference_athletes": 214,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.8263839324499539
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.8650980797548915
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.7055011981599255
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.5038540169424982
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 2.902769239567101
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.3673301899158386
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.0074440977839265
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 2.090637856574923
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 4.371309705920197
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.5083606708815795
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.019712984886359013
+          }
+        }
+      },
+      "nhl:defense:2021": {
+        "sport": "nhl",
+        "role": "defense",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 648.3333333333334,
+        "reference_athletes": 235,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.23251461368004225
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.2206901700662872
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.4084882287911932
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.45642516236047065
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 1.8254957907514155
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.6052927858748981
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 1.013640800430704
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 4.211894676001471
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 4.31698718421104
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.4807815990688945
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": -0.02467005772291941
+          }
+        }
+      },
+      "nhl:defense:2022": {
+        "sport": "nhl",
+        "role": "defense",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 690.0458333333333,
+        "reference_athletes": 222,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.24150400221660345
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.22804020582910373
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.4124399969303262
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.4472066399229478
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 1.721362716741823
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.6807800375030525
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 1.0887339808582268
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 4.585885766169608
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 4.253533214704428
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.4800082335090541
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": -0.028284834115458263
+          }
+        }
+      },
+      "nhl:defense:2023": {
+        "sport": "nhl",
+        "role": "defense",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 648.5083333333334,
+        "reference_athletes": 236,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.23054627336939018
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.21272115991205692
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.3967919091529663
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.4639413091634683
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 1.534465531755138
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.6990485678882796
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.9765150625769669
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 4.880743965611821
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 4.145966743072661
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.478149038658554
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": -0.02941394456771812
+          }
+        }
+      },
+      "nhl:defense:2024": {
+        "sport": "nhl",
+        "role": "defense",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 663.3583333333333,
+        "reference_athletes": 233,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.22634023752244214
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.2159285865964098
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.38498231391204574
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.4333090132749456
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 3.268271465774507
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.31800482276479597
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 1.0107824841430142
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 4.525377379581585
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 3.327405401703794
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.4795670920099688
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": -0.02806471393646965
+          }
+        }
+      },
+      "nhl:defense:2025": {
+        "sport": "nhl",
+        "role": "defense",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 680.0291666666667,
+        "reference_athletes": 226,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.2444262074893281
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.2287706577644468
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.4023316737502162
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.44589885550354413
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 3.1176102548555136
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.2854811823504094
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.8695027682319111
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 4.201062657425364
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 2.9973402883252
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.47870322124423964
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": -0.028493689690304844
+          }
+        }
+      },
+      "nhl:goalie:2021": {
+        "sport": "nhl",
+        "role": "goalie",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1072.475,
+        "reference_athletes": 65,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_saved_above_expected_per_60": {
+            "status": "fit",
+            "reference_n": 65,
+            "prior": -0.0026608251699278924
+          },
+          "save_pct": {
+            "status": "fit",
+            "reference_n": 65,
+            "prior": 0.9087699994068696
+          },
+          "high_danger_save_pct": {
+            "status": "fit",
+            "reference_n": 65,
+            "prior": 0.6938168244146863
+          },
+          "rebound_rate": {
+            "status": "fit",
+            "reference_n": 65,
+            "prior": 0.08378202052632115
+          }
+        }
+      },
+      "nhl:goalie:2022": {
+        "sport": "nhl",
+        "role": "goalie",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1013.1916666666667,
+        "reference_athletes": 69,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_saved_above_expected_per_60": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.07639138812854879
+          },
+          "save_pct": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.904752397138482
+          },
+          "high_danger_save_pct": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.7262939487992786
+          },
+          "rebound_rate": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.10388963329865897
+          }
+        }
+      },
+      "nhl:goalie:2023": {
+        "sport": "nhl",
+        "role": "goalie",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1025.15,
+        "reference_athletes": 70,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_saved_above_expected_per_60": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.05934504851498624
+          },
+          "save_pct": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.9040720702778721
+          },
+          "high_danger_save_pct": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.7586438150885366
+          },
+          "rebound_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.12016641967992535
+          }
+        }
+      },
+      "nhl:goalie:2024": {
+        "sport": "nhl",
+        "role": "goalie",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1101.425,
+        "reference_athletes": 63,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_saved_above_expected_per_60": {
+            "status": "fit",
+            "reference_n": 63,
+            "prior": 0.10915841660223725
+          },
+          "save_pct": {
+            "status": "fit",
+            "reference_n": 63,
+            "prior": 0.9008268512873446
+          },
+          "high_danger_save_pct": {
+            "status": "fit",
+            "reference_n": 63,
+            "prior": 0.7758165376426989
+          },
+          "rebound_rate": {
+            "status": "fit",
+            "reference_n": 63,
+            "prior": 0.1256489652127583
+          }
+        }
+      },
+      "nhl:goalie:2025": {
+        "sport": "nhl",
+        "role": "goalie",
+        "minimum_opportunity": 900,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 1050.9333333333334,
+        "reference_athletes": 69,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_saved_above_expected_per_60": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.04332867004669769
+          },
+          "save_pct": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.8958653691112476
+          },
+          "high_danger_save_pct": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.7670489625694638
+          },
+          "rebound_rate": {
+            "status": "fit",
+            "reference_n": 69,
+            "prior": 0.13991429987579265
+          }
+        }
+      },
+      "nhl:left_wing:2021": {
+        "sport": "nhl",
+        "role": "left_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 553.8833333333333,
+        "reference_athletes": 116,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 1.007010503553
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.9489247625585844
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.7362779499662049
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.5113837123306131
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 1.6754859445080499
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 1.0986631176523207
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 1.6177105671112206
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 1.6406297250868223
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 5.061791535403202
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.5310177578378744
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.04570403727334173
+          }
+        }
+      },
+      "nhl:left_wing:2022": {
+        "sport": "nhl",
+        "role": "left_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 519.075,
+        "reference_athletes": 115,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.931728726049445
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.9804417194230493
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.7215457597166349
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.5098791489155933
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 1.6290416261182972
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 1.1963567738744914
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 1.680474634350326
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 1.7042129458420316
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 5.315898129673824
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.5340982889732796
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.04835379480537607
+          }
+        }
+      },
+      "nhl:left_wing:2023": {
+        "sport": "nhl",
+        "role": "left_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 561.275,
+        "reference_athletes": 112,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.9281670306385522
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.9799689906936879
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.7025884786810668
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.45724012104640854
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 1.4492788315650578
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 1.3211724240776008
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 1.6261932464710407
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 1.8573478974656774
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 5.290197231973747
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.5334973940889689
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.054551265542143984
+          }
+        }
+      },
+      "nhl:left_wing:2024": {
+        "sport": "nhl",
+        "role": "left_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 555.6916666666667,
+        "reference_athletes": 107,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.9182904244761673
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.9638944635507256
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.6904281013826541
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.4567771280488901
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 2.7953918251102583
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.3366342121895443
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.9119755333049845
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 1.9497226491026933
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 5.286090151210946
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.5306688332200696
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.04644036893582243
+          }
+        }
+      },
+      "nhl:left_wing:2025": {
+        "sport": "nhl",
+        "role": "left_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 510.79999999999995,
+        "reference_athletes": 110,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.9215314653636129
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.9465642703313025
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.6730166141718052
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.4735647808118566
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 2.922449323028124
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.31316773315646323
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.8868673766780603
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 1.8430629307272257
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 5.4257298197971044
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.5266886418224895
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.044454926463246704
+          }
+        }
+      },
+      "nhl:right_wing:2021": {
+        "sport": "nhl",
+        "role": "right_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 521.1416666666667,
+        "reference_athletes": 88,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.9137400574174497
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.9255614881745075
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.7857124675801541
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.5043117244352353
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 1.6669582128561582
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 1.0768069215151042
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 1.6344639007147126
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 1.5779237975885974
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 4.891693749773217
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.5354785049222566
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.05722589016814183
+          }
+        }
+      },
+      "nhl:right_wing:2022": {
+        "sport": "nhl",
+        "role": "right_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 484.98333333333335,
+        "reference_athletes": 97,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.9890452050640743
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.9558450333039606
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.7222472083893827
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.4975752111896423
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 1.6038405887057552
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 1.1948048988165936
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 1.7045766744067257
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 1.818744238201159
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 4.6179863772250975
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.5291788465752106
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.05053567176723656
+          }
+        }
+      },
+      "nhl:right_wing:2023": {
+        "sport": "nhl",
+        "role": "right_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 526.2916666666666,
+        "reference_athletes": 95,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.927245015448316
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.9159673905323386
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.721981563532054
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.48586926913126727
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 1.4012493451624581
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 1.4495353238083792
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 1.7643164913264822
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 1.9416973356125002
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 4.553763748292561
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.5312388479868905
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.05499595356128629
+          }
+        }
+      },
+      "nhl:right_wing:2024": {
+        "sport": "nhl",
+        "role": "right_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 585.8166666666667,
+        "reference_athletes": 93,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.9304651197762371
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.9225702642144995
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.7308380577151535
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.5069625107144468
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 2.8624490593843515
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.3403554010764272
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.945126994390893
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 1.9342396126257535
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 4.551948149596234
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.5370549384827842
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.056436743096387396
+          }
+        }
+      },
+      "nhl:right_wing:2025": {
+        "sport": "nhl",
+        "role": "right_wing",
+        "minimum_opportunity": 400,
+        "opportunity_unit": "minutes",
+        "prior_exposure": 563.25,
+        "reference_athletes": 102,
+        "evidence_status": "research_proxy",
+        "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+        "metrics": {
+          "goals_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.9684949243992343
+          },
+          "expected_goals_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.9392021437991749
+          },
+          "primary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.7895045168190297
+          },
+          "secondary_assists_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.5110149098588925
+          },
+          "giveaways_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 3.063385676561509
+          },
+          "takeaway_giveaway_ratio": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.3483151175328799
+          },
+          "takeaways_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 1.0128369589055086
+          },
+          "blocks_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 1.8277570320878906
+          },
+          "hits_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 4.1746403218102115
+          },
+          "on_ice_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.5400870002132983
+          },
+          "relative_xgoal_pct": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.055125925670012337
+          }
+        }
+      }
+    },
+    "skipped": [
+      {
+        "key": "nfl:<NA>",
+        "season": 2021,
+        "reason": "unregistered_role"
+      },
+      {
+        "key": "nfl:<NA>",
+        "season": 2022,
+        "reason": "unregistered_role"
+      },
+      {
+        "key": "nfl:<NA>",
+        "season": 2023,
+        "reason": "unregistered_role"
+      },
+      {
+        "key": "nfl:<NA>",
+        "season": 2024,
+        "reason": "unregistered_role"
+      },
+      {
+        "key": "nfl:<NA>",
+        "season": 2025,
+        "reason": "unregistered_role"
+      },
+      {
+        "key": "nfl:IOL",
+        "season": 2021,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:IOL",
+        "season": 2022,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:IOL",
+        "season": 2023,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:IOL",
+        "season": 2024,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:IOL",
+        "season": 2025,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:LS",
+        "season": 2021,
+        "reason": "abstain_no_public_label"
+      },
+      {
+        "key": "nfl:LS",
+        "season": 2022,
+        "reason": "abstain_no_public_label"
+      },
+      {
+        "key": "nfl:LS",
+        "season": 2023,
+        "reason": "abstain_no_public_label"
+      },
+      {
+        "key": "nfl:LS",
+        "season": 2024,
+        "reason": "abstain_no_public_label"
+      },
+      {
+        "key": "nfl:LS",
+        "season": 2025,
+        "reason": "abstain_no_public_label"
+      },
+      {
+        "key": "nfl:OT",
+        "season": 2021,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:OT",
+        "season": 2022,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:OT",
+        "season": 2023,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:OT",
+        "season": 2024,
+        "reason": "abstain_source_rights_and_label_limit"
+      },
+      {
+        "key": "nfl:OT",
+        "season": 2025,
+        "reason": "abstain_source_rights_and_label_limit"
+      }
+    ],
+    "rows": 27652,
+    "scored_rows": 19197
+  },
+  "frozen_nba_sanity_checks": {
+    "stephen_curry": {
+      "player_id": "3975",
+      "metric": "domain_scoring_percentile",
+      "minimum": 90.0,
+      "season": 2025,
+      "value": 95.15873015873062,
+      "status": "pass",
+      "interpretation": "Face-validity check for observed target construction; not cross-sport validation."
+    },
+    "lebron_james": {
+      "player_id": "1966",
+      "metric": "domain_creation_percentile",
+      "minimum": 90.0,
+      "season": 2025,
+      "value": 97.37226277372253,
+      "status": "pass",
+      "interpretation": "Face-validity check for observed target construction; not cross-sport validation."
+    },
+    "identity_guard": {
+      "stephen_id": "3975",
+      "seth_id": "2326307",
+      "seth_names": [
+        "Seth Curry"
+      ],
+      "status": "pass"
+    }
+  }
+}

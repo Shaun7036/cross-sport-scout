@@ -11,9 +11,11 @@ data/raw/
 data/processed/
 models/
 portal/data/
+portal-all-roles/data/
 work/
 *.log
 .env
+.DS_Store
 reports/**/predictions*.csv
 reports/**/predictions*.parquet
 reports/**/player_archetypes*.csv
