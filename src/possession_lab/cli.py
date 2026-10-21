@@ -13,7 +13,18 @@ from possession_lab.io import collect_manifest, write_json
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "command", choices=["run", "analyze", "manifest", "status", "score", "train-ensemble", "efficacy"]
+        "command",
+        choices=[
+            "run",
+            "analyze",
+            "manifest",
+            "status",
+            "score",
+            "train-ensemble",
+            "efficacy",
+            "build-portal",
+            "portal",
+        ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
     parser.add_argument("--seasons", nargs="+", type=int, default=list(range(2021, 2026)))
@@ -22,6 +33,7 @@ def main() -> None:
     parser.add_argument("--weight-kg", type=float)
     parser.add_argument("--age", type=float)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--port", type=int, default=8765, help="Local portal port (default: 8765)")
     parser.add_argument(
         "--profile", type=Path, help="JSON athlete profile with explicitly named measurement units"
     )
@@ -37,11 +49,31 @@ def main() -> None:
     )
     args = parser.parse_args()
     if args.sport is None:
-        args.sport = "all" if args.command in {"efficacy", "train-ensemble"} else "nfl"
+        args.sport = (
+            "all" if args.command in {"efficacy", "train-ensemble", "build-portal", "portal"} else "nfl"
+        )
     root = args.root.resolve()
     os.environ.setdefault("MPLCONFIGDIR", str(root / ".matplotlib"))
     if args.accept_source_updates:
         os.environ["POSSESSION_LAB_ACCEPT_SOURCE_UPDATES"] = "1"
+    if args.command in {"build-portal", "portal"}:
+        from possession_lab.portal import build_portal
+        from possession_lab.portal_server import serve_portal
+
+        if args.sport != "all":
+            parser.error("The portal includes all four sports; omit --sport")
+        if not 1 <= args.port <= 65535:
+            parser.error("--port must be between 1 and 65535")
+        directory = (args.output or root / "portal").resolve()
+        try:
+            if args.command == "build-portal" or not (directory / "data" / "manifest.json").exists():
+                manifest = build_portal(root, output_dir=directory)
+                print(f"Exported {len(manifest['players']):,} players to {directory / 'data'}")
+            if args.command == "portal":
+                serve_portal(directory, port=args.port)
+        except (ValueError, TypeError, OSError) as error:
+            parser.error(str(error))
+        return
     if args.command == "train-ensemble":
         from possession_lab.ensemble import train_ensemble
 

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3ee">
+    <meta name="description" content="A research explorer of physical build and possession-winning roles across four elite sports.">
+    <title>Possession Lab · Player explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to player explorer</a>
+    <header class="site-header wrap">
+      <a class="brand" href="#" aria-label="Possession Lab home">
+        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 16h26M16 3v26" stroke="currentColor" stroke-width="1.1"/><circle cx="16" cy="16" r="5" fill="#f5f3ee" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="16" r="1.8" fill="currentColor"/></svg>
+        <span>Possession<span class="brand-light">Lab</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-active" href="#explorer">Player explorer</a>
+        <a href="#research">The research</a>
+        <a href="#model-notes">Model notes</a>
+      </nav>
+      <span class="header-label"><span class="status-dot"></span> Research prototype</span>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Four sports. One question.</p>
+          <h1 id="page-title">Built to win<br><em>possession?</em></h1>
+        </div>
+        <div class="hero-context">
+          <p>Explore how an athlete’s physical build compares with possession-winning roles in the NFL, NBA, NHL and Premier League.</p>
+          <p class="muted small">A height-and-weight research model. Not a measure of overall ability, and not a prediction of a successful switch between sports.</p>
+          <a class="text-link" href="#model-notes">Understand the model <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section id="explorer" class="explorer-section" aria-label="Player explorer">
+        <div class="section-heading"><h2>Player explorer</h2><span id="snapshot-label" class="eyebrow">Loading research snapshot</span></div>
+        <div id="app-error" class="notice error-notice" role="alert" hidden></div>
+        <div class="explorer-layout" id="explorer-layout" aria-busy="true">
+          <aside class="player-picker panel" aria-label="Choose a source player">
+            <div class="picker-top">
+              <div class="picker-title"><h3>Choose an athlete</h3><span id="player-count" class="count-label">—</span></div>
+              <label class="search-field" for="player-search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                <input id="player-search" type="search" placeholder="Search name or team" aria-label="Search players by name or team" autocomplete="off" spellcheck="false" aria-controls="player-list">
+              </label>
+              <label class="field-label" for="source-league">Source league</label>
+              <select id="source-league" aria-controls="player-list"><option value="all">All leagues</option></select>
+            </div>
+            <div id="player-list" class="player-list" role="group" aria-label="Players"><p class="list-message">Loading athletes…</p></div>
+            <p class="picker-foot">Select a player, then explore a target sport.</p>
+          </aside>
+
+          <article id="player-panel" class="player-panel panel" aria-label="Selected athlete and prediction" aria-busy="true">
+            <div class="loading-state"><span class="loading-dot"></span><p>Preparing the player explorer…</p></div>
+          </article>
+        </div>
+        <p id="app-announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="research" class="research-section" aria-labelledby="research-title">
+        <div class="research-intro"><p class="eyebrow">The research</p><h2 id="research-title">A starting point.<br>Not a scouting verdict.</h2><p>Can physical build tell us anything useful about winning possession? This project compares athletes within sport-specific roles, then applies those models to the same height and weight across sports.</p></div>
+        <div class="research-content">
+          <div class="research-facts" aria-label="Model evidence summary">
+            <div><strong id="fit-heads">—</strong><span>fitted role models</span></div>
+            <div><strong id="point-checks">—</strong><span>pass exploratory point checks</span></div>
+            <div><strong id="confirmed-heads">—</strong><span>statistically established improvements</span></div>
+          </div>
+          <div class="research-copy"><p>The current models learn from <strong>height and weight only</strong>. Age and season performance are shown for context, not used as prediction inputs.</p><p>Each sport has its own possession and disruption target. The resulting 0–100 estimate is role-relative: it describes expected target activity among eligible elite peers, not how likely a player is to make a team.</p><p class="muted small">Exploratory checks are not statistical confirmation. Held-out test samples are small, intervals can be wide, and a familiar body shape does not establish skill.</p></div>
+        </div>
+      </section>
+
+      <section id="model-notes" class="model-notes" aria-labelledby="notes-title">
+        <div class="section-heading"><h2 id="notes-title">Read the fine print</h2><span class="eyebrow">Model notes</span></div>
+        <div class="notes-grid">
+          <div><span class="note-number">01 / What a score means</span><h3>A relative activity estimate</h3><p>“Efficacy” is shorthand for the model’s role-relative possession/disruption target. It is not defensive quality, talent, a success probability or a cross-sport transfer forecast.</p></div>
+          <div><span class="note-number">02 / What is missing</span><h3>The athlete beyond the build</h3><p>Speed, reach, limb length, technique, decision-making and spatial awareness are not learned features in this version. Listed measurements may also lag an athlete’s current physique.</p></div>
+          <div><span class="note-number">03 / When we abstain</span><h3>No evidence is a result</h3><p>Ratings are withheld for unsupported roles, missing measurements, out-of-domain builds, failed evidence checks and data under review. No displayed score should be read as a zero.</p></div>
+        </div>
+        <div id="model-sources"></div>
+        <p class="model-provenance" id="model-provenance">Model and snapshot details will appear when the local export is loaded.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap"><a class="brand footer-brand" href="#">Possession<span class="brand-light">Lab</span></a><p>Physical archetypes, with the uncertainty left in.</p><a href="#explorer">Back to explorer <span aria-hidden="true">↑</span></a></footer>
+    <noscript><p class="notice">This explorer needs JavaScript to read the locally exported player results.</p></noscript>
+  </body>
+</html>

@@ -86,6 +86,30 @@ improvement interval includes zero. Height/weight alone have not established
 reliable efficacy prediction. Intervals are wide, and EPL defenders show marked
 undercoverage. Treat all scores as research estimates, not validated player ratings.
 
+## Player explorer
+
+A small static web portal presents the current research snapshot. Select a player,
+compare their body measurements against sport-specific roles, and inspect the
+estimate, interval, closest reference archetype, and supporting evidence.
+
+~~~bash
+uv run possession-lab build-portal
+uv run possession-lab portal
+~~~
+
+Open `http://127.0.0.1:8765`. These commands use the existing local processed
+tables and verified unified model; they do not download data or retrain models.
+The server binds only to this computer and serves only the `portal/` directory.
+Use `--port 8989` if needed. Rebuild explicitly after changing data or models;
+the server otherwise reuses the existing frozen export.
+
+Player-level exports remain ignored by Git. The page makes no third-party
+analytics, font, image, or model API requests. A rating is a provisional predicted
+activity percentile within a role, not a success probability. Body fit is a
+separate centrality diagnostic, not efficacy. The portal additionally withholds
+all EPL defender ratings pending block-coverage review; this display safeguard
+does not modify the saved model. See [portal operation and interpretation](docs/portal.md).
+
 ## Reports and evidence
 
 - [NFL report](reports/nfl/report.md) · [HTML with charts](reports/nfl/report.html)
@@ -123,6 +147,7 @@ tests/                   scoring, identity, scope, temporal and pipeline tests
 data/raw/                cached original files plus provenance (local, ignored)
 data/processed/          canonical Parquet tables and quarantine (local, ignored)
 models/                  fitted joblib artifacts (local, ignored)
+portal/                  static player explorer; generated data/ stays local/ignored
 reports/                 tracked EDA, charts, QA, and aggregate evaluation
 metadata/                tracked source hashes, dataset inventory, and schemas
 docs/                    source/method notes and model card
