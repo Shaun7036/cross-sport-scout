@@ -53,7 +53,7 @@ The Python launcher is shared by Windows and macOS. Replace `friendly` with any 
 | `stories` | Guided examples and interesting cases | [127.0.0.1:8769/stories/](http://127.0.0.1:8769/stories/) |
 | `compact` | Compact research view | [127.0.0.1:8767/compact/](http://127.0.0.1:8767/compact/) |
 | `detailed` | Full evidence and diagnostics | [127.0.0.1:8766/](http://127.0.0.1:8766/) |
-| `report` | Four-page project report and visual evidence | [127.0.0.1:8770/report/](http://127.0.0.1:8770/report/) |
+| `report` | Six-page project report, feature guide, validation evidence, and visuals | [127.0.0.1:8770/report/](http://127.0.0.1:8770/report/) |
 | `legacy` | Earlier possession-only project | [127.0.0.1:8765/](http://127.0.0.1:8765/) |
 
 Add `--port` if a port is already in use:
@@ -71,7 +71,7 @@ uv sync --extra dev --reinstall-package possession-lab
 uv run python scripts/run_portal.py check
 ```
 
-The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launcher also adds this repository's `src` folder explicitly, so running through it does not depend on an old editable-install path.
+The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launchers add this repository's `src` folder explicitly, so running through them does not depend on an old editable-install path. If an environment was physically copied from another folder and still behaves strangely, rename that old `.venv`, run `uv sync --extra dev`, and select the newly created interpreter.
 
 If the command cannot find `uv`, install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/) and restart the terminal.
 
@@ -92,6 +92,8 @@ Read the visual project report for the research journey, data coverage, findings
 
 - [Research process](portal-all-roles/report/index.html)
 - [Findings and models](portal-all-roles/report/findings.html)
+- [Engineered features and role definitions](portal-all-roles/report/features.html)
+- [Training and validation](portal-all-roles/report/validation.html)
 - [EDA and model graphs](portal-all-roles/report/visuals.html)
 - [Features, uses, and limitations](portal-all-roles/report/guide.html)
 
@@ -108,7 +110,7 @@ The portals use plain HTML, CSS, and JavaScript—there is no frontend build ste
 | Stories | `portal-all-roles/stories/index.html` | `portal-all-roles/stories/styles.css` | `portal-all-roles/stories/app.js` |
 | Compact | `portal-all-roles/compact/index.html` | `portal-all-roles/compact/styles.css` | `portal-all-roles/compact/app.js` |
 | Detailed | `portal-all-roles/index.html` | `portal-all-roles/styles.css` | `portal-all-roles/app.js` |
-| Report | `portal-all-roles/report/*.html` | `portal-all-roles/report/styles.css` | No JavaScript needed |
+| Report | `portal-all-roles/report/*.html` | `portal-all-roles/report/styles.css` | `features.js` and `validation.js` power the two generated evidence pages |
 
 See [Editing the web portals](docs/editing_the_web_portals.md) for the full source map, how the generated player JSON reaches each page, and the safe edit-and-check workflow.
 
@@ -126,7 +128,7 @@ Percentiles are relative to a particular sport, role, season, and comparison gro
 Most users can skip this section. To rebuild from the cached source data and retrain the models:
 
 ```text
-uv run athlete-translation-lab run-all-roles --root .
+uv run python scripts/run_lab.py run-all-roles --root .
 ```
 
 This is slower than opening the portal. Raw data, processed player tables, generated player JSON, and fitted model files remain local and are intentionally not stored in Git.

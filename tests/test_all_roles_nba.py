@@ -21,6 +21,7 @@ def test_derive_rates_uses_standard_shooting_formulas() -> None:
             "field_goals_attempted": [20.0],
             "three_point_field_goals_made": [4.0],
             "three_point_field_goals_attempted": [10.0],
+            "free_throws_made": [8.0],
             "free_throws_attempted": [10.0],
             "assists": [8.0],
             "turnovers": [4.0],
@@ -28,6 +29,7 @@ def test_derive_rates_uses_standard_shooting_formulas() -> None:
             "defensive_rebounds": [6.0],
             "steals": [2.0],
             "blocks": [1.0],
+            "fouls": [3.0],
             "plus_minus": [6.0],
         }
     )
@@ -36,6 +38,9 @@ def test_derive_rates_uses_standard_shooting_formulas() -> None:
     assert result.true_shooting_pct == pytest.approx(30.0 / (2.0 * (20.0 + 0.44 * 10.0)))
     assert result.effective_fg_pct == pytest.approx((10.0 + 0.5 * 4.0) / 20.0)
     assert result.three_point_pct == pytest.approx(0.4)
+    assert result.three_point_attempt_rate == pytest.approx(0.5)
+    assert result.free_throw_pct == pytest.approx(0.8)
+    assert result.free_throw_attempt_rate == pytest.approx(0.5)
     assert result.assists_per_36 == pytest.approx(9.6)
     assert result.assist_turnover_ratio == pytest.approx(2.0)
     assert result.turnovers_per_36 == pytest.approx(4.8)
@@ -43,6 +48,7 @@ def test_derive_rates_uses_standard_shooting_formulas() -> None:
     assert result.defensive_rebounds_per_36 == pytest.approx(7.2)
     assert result.steals_per_36 == pytest.approx(2.4)
     assert result.blocks_per_36 == pytest.approx(1.2)
+    assert result.fouls_per_36 == pytest.approx(3.6)
     assert result.plus_minus_per_36 == pytest.approx(7.2)
     assert result.availability_minutes == 30.0
 
@@ -56,6 +62,7 @@ def test_derive_rates_leaves_zero_denominators_missing() -> None:
             "field_goals_attempted": [0.0],
             "three_point_field_goals_made": [0.0],
             "three_point_field_goals_attempted": [0.0],
+            "free_throws_made": [0.0],
             "free_throws_attempted": [0.0],
             "assists": [2.0],
             "turnovers": [0.0],
@@ -63,6 +70,7 @@ def test_derive_rates_leaves_zero_denominators_missing() -> None:
             "defensive_rebounds": [0.0],
             "steals": [0.0],
             "blocks": [0.0],
+            "fouls": [0.0],
             "plus_minus": [0.0],
         }
     )

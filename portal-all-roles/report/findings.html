@@ -19,10 +19,12 @@
       <nav class="site-nav" aria-label="Report navigation">
         <a href="index.html">Journey</a>
         <a href="findings.html" aria-current="page">Findings</a>
+        <a href="features.html">Features</a>
+        <a href="validation.html">Validation</a>
         <a href="visuals.html">Visuals</a>
-        <a href="guide.html">How to read it</a>
+        <a href="guide.html">Guide</a>
         <a href="../stories/">Examples</a>
-        <a class="portal-link" href="../friendly/">Open explorer</a>
+        <a class="portal-link" href="../profile/">Player profile</a>
       </nav>
     </div>
   </header>
@@ -31,7 +33,7 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">Data and model findings · snapshot dated 21 October 2026</p>
+          <p class="eyebrow">Data and model findings · snapshot dated 22 October 2026</p>
           <h1>Four leagues, four very different evidence bases.</h1>
           <p class="hero-lead">The project has enough data to describe broad roles and surface useful comparisons. It does not have equally complete measurements—or equally strong models—in every sport.</p>
           <div class="actions">
@@ -72,7 +74,7 @@
               <div class="meter" aria-hidden="true"><span style="width: 98.8%;"></span></div>
               <strong>98.8%</strong>
             </div>
-            <p class="snapshot-note">Observed scores: 8,308 rows (53.5%); 4,874 are eligible model labels.</p>
+            <p class="snapshot-note">Observed scores: 8,308 rows (53.5%); 4,874 are full-strength evaluation labels.</p>
             <div class="finding-list">
               <div class="finding">
                 <span class="finding-mark" aria-hidden="true">+</span>
@@ -100,7 +102,7 @@
               <div class="meter" aria-hidden="true"><span style="width: 100%;"></span></div>
               <strong>100%</strong>
             </div>
-            <p class="snapshot-note">Observed scores: all 2,866 rows; 1,878 are eligible model labels.</p>
+            <p class="snapshot-note">Observed scores: all 2,866 rows; 1,878 are full-strength evaluation labels.</p>
             <div class="finding-list">
               <div class="finding">
                 <span class="finding-mark" aria-hidden="true">+</span>
@@ -128,7 +130,7 @@
               <div class="meter" aria-hidden="true"><span style="width: 99.89%;"></span></div>
               <strong>99.9%</strong>
             </div>
-            <p class="snapshot-note">Observed scores: all 5,263 rows; 3,574 are eligible model labels.</p>
+            <p class="snapshot-note">Observed scores: all 5,263 rows; 3,574 are full-strength evaluation labels.</p>
             <div class="finding-list">
               <div class="finding">
                 <span class="finding-mark" aria-hidden="true">+</span>
@@ -156,7 +158,7 @@
               <div class="meter" aria-hidden="true"><span style="width: 34.91%;"></span></div>
               <strong>34.9%</strong>
             </div>
-            <p class="snapshot-note">Observed scores: 2,760 rows (68.9%); 1,690 are eligible model labels.</p>
+            <p class="snapshot-note">Observed scores: 2,760 rows (68.9%); 1,690 are full-strength evaluation labels.</p>
             <div class="finding-list">
               <div class="finding">
                 <span class="finding-mark" aria-hidden="true">+</span>
@@ -184,12 +186,12 @@
 
         <div class="snapshot" aria-label="Observed score coverage">
           <div class="stat"><strong>69.4%</strong><span>of all rows have an observed descriptive score</span></div>
-          <div class="stat"><strong>12,016</strong><span>rows are eligible as supervised model labels</span></div>
+          <div class="stat"><strong>12,016</strong><span>rows qualify for full-strength evaluation</span></div>
           <div class="stat"><strong>115</strong><span>role-and-season cohorts were scored</span></div>
           <div class="stat"><strong>20</strong><span>cohorts were intentionally skipped</span></div>
         </div>
         <div class="note" style="margin-bottom: 1rem;">
-          <strong>Where every row went:</strong> 12,016 eligible labels + 7,181 low-sample descriptive rows = 19,197 scored rows. The remainder are 5,311 not observed, 2,681 source/label abstentions, 249 unregistered generic NFL rows and 214 long-snapper rows with no public performance label. The 20 skipped cohorts are five seasons each for NFL offensive tackle, interior line, long snapper and unresolved generic roles.
+          <strong>Where every row went:</strong> 12,016 full-strength evaluation labels + 7,181 low-sample rows = 19,197 scored rows. Those low-sample rows can contribute to training at reduced weight, but they do not judge the frozen test. The remainder are 5,311 not observed, 2,681 source/label abstentions, 249 unregistered generic NFL rows and 214 long-snapper rows with no public performance label. The 20 skipped cohorts are five seasons each for NFL offensive tackle, interior line, long snapper and unresolved generic roles.
         </div>
 
         <div class="three-col">
@@ -316,11 +318,15 @@
             <span>physical heads cleared the current full evidence gate: NFL edge, NBA guard, NBA forward and EPL midfielder</span>
           </div>
           <div class="evidence-stat">
-            <strong>22/26</strong>
+            <strong>23/26</strong>
             <span>native same-role forecast heads could be fitted</span>
           </div>
           <div class="evidence-stat">
-            <strong>272</strong>
+            <strong>23/26</strong>
+            <span>native build-plus-profile heads could be fitted; 10 improved on build alone</span>
+          </div>
+          <div class="evidence-stat">
+            <strong>286</strong>
             <span>cross-sport bridge heads were fitted; none is direct evidence of real transfer success</span>
           </div>
         </div>
@@ -328,18 +334,18 @@
         <div class="two-col" style="margin-top: 1rem;">
           <article class="card">
             <h3>What passed</h3>
-            <p>Twelve native forecast heads cleared the project’s internal evidence gate. Only four physical heads passed the strict 90% bootstrap gate:</p>
+            <p>Eleven native forecast heads cleared the neutral evidence gate, although none cleared the full neutral-plus-history deployment rule. Only four physical heads passed the strict 90% bootstrap gate:</p>
             <ul class="plain-list">
-              <li>NFL edge: error 23.73 vs 25.00 neutral (182 tests)</li>
-              <li>NBA guard: 23.94 vs 25.00 (189)</li>
-              <li>NBA forward: 22.31 vs 25.00 (137)</li>
-              <li>Premier League midfielder: 23.34 vs 25.29 (123)</li>
+              <li>NFL edge: error 23.79 vs 25.00 neutral (182 tests)</li>
+              <li>NBA guard: 23.54 vs 25.00 (189)</li>
+              <li>NBA forward: 22.09 vs 25.00 (137)</li>
+              <li>Premier League midfielder: 23.55 vs 25.52 (123)</li>
             </ul>
             <p style="margin-top: 0.8rem;">No NHL physical head passed. The practical lesson is that build alone is weak evidence.</p>
           </article>
           <article class="card">
             <h3>What remains experimental</h3>
-            <p>All deployed native forecasts are still labeled experimental under the stricter full-deployment standard. Bridge models reconstruct target-role percentiles; they do not validate what happens when a real athlete changes sports.</p>
+            <p>All deployed native forecasts are still labeled experimental under the stricter full-deployment standard. Ten build-plus-profile heads did improve next-season prediction over build alone: NFL edge and kicker, every NBA role, four NHL skater roles, and Premier League midfielder. Bridge models apply those ideas as analogies; they do not validate what happens when a real athlete changes sports.</p>
           </article>
         </div>
 
@@ -353,23 +359,23 @@
         <div class="four-col">
           <article class="card">
             <span class="league-label">NFL edge</span>
-            <h3 style="margin-top: 0.9rem;">20.83 error</h3>
-            <p>Versus 25.91 neutral; rank correlation 0.523 across 113 test rows.</p>
+            <h3 style="margin-top: 0.9rem;">20.67 error</h3>
+            <p>Versus 25.91 neutral; rank correlation 0.525 across 113 test rows.</p>
           </article>
           <article class="card">
             <span class="league-label">NBA guard</span>
-            <h3 style="margin-top: 0.9rem;">16.36 error</h3>
-            <p>Versus 25.48 neutral; rank correlation 0.738 across 132 test rows.</p>
+            <h3 style="margin-top: 0.9rem;">15.71 error</h3>
+            <p>Versus 25.26 neutral; rank correlation 0.764 across 132 test rows.</p>
           </article>
           <article class="card">
             <span class="league-label">NHL center</span>
-            <h3 style="margin-top: 0.9rem;">14.83 error</h3>
-            <p>Versus 26.57 neutral; rank correlation 0.780 across 177 test rows.</p>
+            <h3 style="margin-top: 0.9rem;">14.74 error</h3>
+            <p>Versus 26.57 neutral; rank correlation 0.784 across 177 test rows.</p>
           </article>
           <article class="card">
             <span class="league-label">Premier League midfielder</span>
-            <h3 style="margin-top: 0.9rem;">15.59 error</h3>
-            <p>Versus 26.04 neutral; rank correlation 0.727 across 79 test rows.</p>
+            <h3 style="margin-top: 0.9rem;">14.86 error</h3>
+            <p>Versus 26.34 neutral; rank correlation 0.769 across 79 test rows.</p>
           </article>
         </div>
         <div class="warning" style="margin-top: 1rem;">
@@ -426,7 +432,7 @@
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <p>All figures on this page describe the frozen repository snapshot dated 21 October 2026. Rounded percentages may differ slightly from stored values.</p>
+      <p>All figures on this page describe the frozen repository snapshot dated 22 October 2026. Rounded percentages may differ slightly from stored values.</p>
       <nav class="footer-links" aria-label="Other project views">
         <a href="visuals.html">Visual evidence</a>
         <a href="../friendly/">Friendly explorer</a>

@@ -1,0 +1,2655 @@
+{
+  "boundaries": [
+    "Metric and domain weights are declared research choices; they are not learned truths.",
+    "Mental labels such as awareness, reaction speed and game IQ are not inferred from box scores.",
+    "A shared dimension means the ideas are comparable enough to form a hypothesis, not identical across sports."
+  ],
+  "dimensions": [
+    {
+      "description": "Turning chances or possessions into points and goals.",
+      "id": "scoring_finishing",
+      "label": "Scoring and finishing"
+    },
+    {
+      "description": "Creating useful chances or moving possession to teammates.",
+      "id": "creation_distribution",
+      "label": "Creation and distribution"
+    },
+    {
+      "description": "Avoiding costly losses and protecting possession or field position.",
+      "id": "possession_security",
+      "label": "Possession security"
+    },
+    {
+      "description": "Interrupting an opponent through pressure, stops, takeaways or prevention.",
+      "id": "defensive_disruption",
+      "label": "Defensive disruption"
+    },
+    {
+      "description": "Regaining control after a contest, shot or loose-ball event.",
+      "id": "recovery_rebounding",
+      "label": "Recovery and rebounding"
+    },
+    {
+      "description": "Moving play toward a valuable area or improving field position.",
+      "id": "progression_territory",
+      "label": "Progression and territory"
+    },
+    {
+      "description": "Producing useful outcomes while limiting avoidable errors or penalties.",
+      "id": "discipline_efficiency",
+      "label": "Discipline and efficiency"
+    }
+  ],
+  "registry": {
+    "bridge_version": "lagged-ordered-pair-dimension-intersection-v3",
+    "frozen_test_season": 2025,
+    "role_taxonomy_version": "all-roles-broad-v2",
+    "schema_version": "2.2.0",
+    "target_version": "role-season-reliability-weighted-percentiles-v2"
+  },
+  "reliability_weighting": {
+    "fields": [
+      {
+        "description": "How much evidence the player's playing time supplies, from 0 to 1. It rises as opportunity grows.",
+        "formula": "opportunity / (opportunity + prior exposure)",
+        "id": "opportunity_reliability",
+        "label": "Opportunity reliability"
+      },
+      {
+        "description": "The declared share of the role score whose source statistics are actually present for this player-season.",
+        "formula": "available weighted metrics / declared weighted metrics",
+        "id": "component_coverage_fraction",
+        "label": "Statistic coverage"
+      },
+      {
+        "description": "The declared share of broad role areas with at least one usable source statistic.",
+        "formula": "available weighted role areas / declared weighted role areas",
+        "id": "domain_coverage_fraction",
+        "label": "Role-area coverage"
+      },
+      {
+        "description": "The influence a positive-opportunity player-season receives during training; weaker opportunity or coverage reduces that influence.",
+        "formula": "opportunity reliability x statistic coverage, limited to 0.05-1.00",
+        "id": "training_sample_weight",
+        "label": "Season training weight"
+      }
+    ],
+    "next_season_pair": "For next-season models, the pair weight is the geometric mean of the prior- and next-season training weights. Frozen evaluation still uses eligible rows only.",
+    "status": "saved_in_current_artifact",
+    "training_cohort_claim": "Eligible and positive-opportunity low-sample labels may train with empirical opportunity/coverage weights. Frozen evaluation remains eligible-only, and rows must satisfy the deployed build and fixed-dimension requirements."
+  },
+  "role_count": 26,
+  "schema_version": "plain-language-features-v2",
+  "score_contract": {
+    "cross_sport_physical_estimate": "Target-role model using build only.",
+    "cross_sport_transfer_guesstimate": "Unvalidated target-role analogy using build plus a fixed intersection of sport-relative performance dimensions.",
+    "native_build_profile_forecast_percentile": "Next-season benchmark using only build and canonical playing-profile dimensions; checked against build alone.",
+    "native_forecast_percentile": "Next-season estimate using only information available before that season.",
+    "observed_role_percentile": "Retrospective role-season peer comparison."
+  },
+  "sports": [
+    {
+      "id": "nfl",
+      "label": "NFL",
+      "roles": [
+        {
+          "domains": [
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "passing_value",
+              "label": "Passing Value",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "passing_epa_per_play",
+                  "label": "Passing Epa Per Play",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "passing_yards_per_attempt",
+                  "label": "Passing Yards Per Attempt",
+                  "weight": 0.2
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "completion_over_expected",
+                  "label": "Completion Over Expected",
+                  "weight": 0.2
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "explosive_pass_rate",
+                  "label": "Explosive Pass Rate",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.38
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "passing_first_down_rate",
+                  "label": "Passing First Down Rate",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "passing_air_yards_per_attempt",
+                  "label": "Passing Air Yards Per Attempt",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.22
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "touchdown_rate",
+                  "label": "Touchdown Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "security",
+              "label": "Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnover_rate",
+                  "label": "Turnover Rate",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "sack_rate",
+                  "label": "Sack Rate",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:QB",
+          "label": "Quarterback",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "dropbacks",
+          "role": "QB"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "ground_value",
+              "label": "Ground Value",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "rushing_epa_per_carry",
+                  "label": "Rushing Epa Per Carry",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "rushing_yards_per_carry",
+                  "label": "Rushing Yards Per Carry",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "rushing_first_down_rate",
+                  "label": "Rushing First Down Rate",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "explosive_run_rate",
+                  "label": "Explosive Run Rate",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.34
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "receiving",
+              "label": "Receiving",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_epa_per_target",
+                  "label": "Receiving Epa Per Target",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_yards_per_target",
+                  "label": "Receiving Yards Per Target",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "explosive_target_rate",
+                  "label": "Explosive Target Rate",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.23
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "touchdown_rate",
+                  "label": "Touchdown Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.23
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "security",
+              "label": "Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnover_rate",
+                  "label": "Turnover Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:RB_FB",
+          "label": "Running back / fullback",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 60,
+          "opportunity_unit": "touches",
+          "role": "RB_FB"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "receiving_value",
+              "label": "Receiving Value",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_epa_per_target",
+                  "label": "Receiving Epa Per Target",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_yards_per_target",
+                  "label": "Receiving Yards Per Target",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_first_down_rate",
+                  "label": "Receiving First Down Rate",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "explosive_target_rate",
+                  "label": "Explosive Target Rate",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.36
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "conversion",
+              "label": "Conversion",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "catch_rate",
+                  "label": "Catch Rate",
+                  "weight": 0.6
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "yards_after_catch_per_reception",
+                  "label": "Yards After Catch Per Reception",
+                  "weight": 0.4
+                }
+              ],
+              "weight": 0.2
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "touchdown_rate",
+                  "label": "Touchdown Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.24
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "security",
+              "label": "Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnover_rate",
+                  "label": "Turnover Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:WR",
+          "label": "Wide receiver",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 40,
+          "opportunity_unit": "targets",
+          "role": "WR"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "receiving_value",
+              "label": "Receiving Value",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_epa_per_target",
+                  "label": "Receiving Epa Per Target",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_yards_per_target",
+                  "label": "Receiving Yards Per Target",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "receiving_first_down_rate",
+                  "label": "Receiving First Down Rate",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "explosive_target_rate",
+                  "label": "Explosive Target Rate",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.36
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "conversion",
+              "label": "Conversion",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "catch_rate",
+                  "label": "Catch Rate",
+                  "weight": 0.6
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "yards_after_catch_per_reception",
+                  "label": "Yards After Catch Per Reception",
+                  "weight": 0.4
+                }
+              ],
+              "weight": 0.2
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "touchdown_rate",
+                  "label": "Touchdown Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.24
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "security",
+              "label": "Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnover_rate",
+                  "label": "Turnover Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:TE",
+          "label": "Tight end",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 30,
+          "opportunity_unit": "targets",
+          "role": "TE"
+        },
+        {
+          "domains": [],
+          "evidence_status": "abstain_source_rights_and_label_limit",
+          "key": "nfl:OT",
+          "label": "Offensive tackle",
+          "limitation": "Roster rows are retained, but no numeric target is released: the available exposure is derived from a red-posture PFR source and charged penalties are not a credible proxy for blocking quality.",
+          "minimum_opportunity": 0,
+          "opportunity_unit": "offensive snaps",
+          "role": "OT"
+        },
+        {
+          "domains": [],
+          "evidence_status": "abstain_source_rights_and_label_limit",
+          "key": "nfl:IOL",
+          "label": "Interior offensive line",
+          "limitation": "Roster rows are retained, but no numeric target is released: the available exposure is derived from a red-posture PFR source and charged penalties are not a credible proxy for blocking quality.",
+          "minimum_opportunity": 0,
+          "opportunity_unit": "offensive snaps",
+          "role": "IOL"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "pass_rush",
+              "label": "Pass Rush",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "sack_rate",
+                  "label": "Sack Rate",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "qb_hit_rate",
+                  "label": "Qb Hit Rate",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.5
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "backfield_stops",
+              "label": "Backfield Stops",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "negative_play_rate",
+                  "label": "Negative Play Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.3
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "turnovers",
+              "label": "Turnovers",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "forced_fumble_rate",
+                  "label": "Forced Fumble Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:EDGE",
+          "label": "Edge defender",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "defensive snaps / charted plays",
+          "role": "EDGE"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "backfield_stops",
+              "label": "Backfield Stops",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "negative_play_rate",
+                  "label": "Negative Play Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.45
+            },
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "pass_rush",
+              "label": "Pass Rush",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "sack_rate",
+                  "label": "Sack Rate",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "qb_hit_rate",
+                  "label": "Qb Hit Rate",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.4
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "turnovers",
+              "label": "Turnovers",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "forced_fumble_rate",
+                  "label": "Forced Fumble Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.15
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:IDL",
+          "label": "Interior defensive line",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "defensive snaps / charted plays",
+          "role": "IDL"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "stops",
+              "label": "Stops",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "negative_play_rate",
+                  "label": "Negative Play Rate",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "tackle_rate",
+                  "label": "Tackle Rate",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.4
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "coverage",
+              "label": "Coverage",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "interception_rate",
+                  "label": "Interception Rate",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "pass_defended_rate",
+                  "label": "Pass Defended Rate",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.35
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "turnovers",
+              "label": "Turnovers",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "forced_fumble_rate",
+                  "label": "Forced Fumble Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.25
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:LB",
+          "label": "Off-ball linebacker",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "defensive snaps / charted plays",
+          "role": "LB"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "coverage",
+              "label": "Coverage",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "interception_rate",
+                  "label": "Interception Rate",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "pass_defended_rate",
+                  "label": "Pass Defended Rate",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.68
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "stops",
+              "label": "Stops",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "negative_play_rate",
+                  "label": "Negative Play Rate",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "tackle_rate",
+                  "label": "Tackle Rate",
+                  "weight": 0.55
+                }
+              ],
+              "weight": 0.17
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "turnovers",
+              "label": "Turnovers",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "forced_fumble_rate",
+                  "label": "Forced Fumble Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.15
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:CB",
+          "label": "Cornerback",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "defensive snaps / charted plays",
+          "role": "CB"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "coverage",
+              "label": "Coverage",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "interception_rate",
+                  "label": "Interception Rate",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "pass_defended_rate",
+                  "label": "Pass Defended Rate",
+                  "weight": 0.55
+                }
+              ],
+              "weight": 0.52
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "stops",
+              "label": "Stops",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "negative_play_rate",
+                  "label": "Negative Play Rate",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "tackle_rate",
+                  "label": "Tackle Rate",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.28
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "turnovers",
+              "label": "Turnovers",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "forced_fumble_rate",
+                  "label": "Forced Fumble Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:S",
+          "label": "Safety",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 150,
+          "opportunity_unit": "defensive snaps / charted plays",
+          "role": "S"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "field_goals",
+              "label": "Field Goals",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "field_goal_pct",
+                  "label": "Field Goal Pct",
+                  "weight": 0.7
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "long_field_goal_rate",
+                  "label": "Long Field Goal Rate",
+                  "weight": 0.3
+                }
+              ],
+              "weight": 0.7
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "extra_points",
+              "label": "Extra Points",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "extra_point_pct",
+                  "label": "Extra Point Pct",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.3
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:K",
+          "label": "Placekicker",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 12,
+          "opportunity_unit": "field-goal attempts",
+          "role": "K"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "field_position",
+              "label": "Field Position",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "net_yards_per_punt",
+                  "label": "Net Yards Per Punt",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "inside_20_rate",
+                  "label": "Inside 20 Rate",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.65
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "error_avoidance",
+              "label": "Error Avoidance",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "touchback_rate",
+                  "label": "Touchback Rate",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "punt_block_rate",
+                  "label": "Punt Block Rate",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.35
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nfl:P",
+          "label": "Punter",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 25,
+          "opportunity_unit": "punts",
+          "role": "P"
+        },
+        {
+          "domains": [],
+          "evidence_status": "abstain_no_public_label",
+          "key": "nfl:LS",
+          "label": "Long snapper",
+          "limitation": "The public sources identify long snappers but do not provide a credible individual performance label.",
+          "minimum_opportunity": 0,
+          "opportunity_unit": "special-team snaps",
+          "role": "LS"
+        }
+      ],
+      "source_scope": "Core nflverse data; optional PFR/community enrichment remains conditional."
+    },
+    {
+      "id": "nba",
+      "label": "NBA",
+      "roles": [
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "points_per_36",
+                  "label": "Points Per 36",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "true_shooting_pct",
+                  "label": "True Shooting Pct",
+                  "weight": 0.32
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "effective_fg_pct",
+                  "label": "Effective Fg Pct",
+                  "weight": 0.18
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "free_throw_attempt_rate",
+                  "label": "Free Throw Attempt Rate",
+                  "weight": 0.1
+                }
+              ],
+              "weight": 0.3
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_36",
+                  "label": "Assists Per 36",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.28
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "ball_security",
+              "label": "Ball Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnovers_per_36",
+                  "label": "Turnovers Per 36",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.13
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "steals_per_36",
+                  "label": "Steals Per 36",
+                  "weight": 0.75
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_36",
+                  "label": "Blocks Per 36",
+                  "weight": 0.25
+                }
+              ],
+              "weight": 0.15
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "recovery",
+              "label": "Recovery",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "defensive_rebounds_per_36",
+                  "label": "Defensive Rebounds Per 36",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.09
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "fouls_per_36",
+                  "label": "Fouls Per 36",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nba:guard",
+          "label": "Guard",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 500,
+          "opportunity_unit": "minutes",
+          "role": "guard"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "points_per_36",
+                  "label": "Points Per 36",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "true_shooting_pct",
+                  "label": "True Shooting Pct",
+                  "weight": 0.32
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "effective_fg_pct",
+                  "label": "Effective Fg Pct",
+                  "weight": 0.18
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "free_throw_attempt_rate",
+                  "label": "Free Throw Attempt Rate",
+                  "weight": 0.1
+                }
+              ],
+              "weight": 0.28
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_36",
+                  "label": "Assists Per 36",
+                  "weight": 0.7
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.3
+                }
+              ],
+              "weight": 0.19
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "ball_security",
+              "label": "Ball Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnovers_per_36",
+                  "label": "Turnovers Per 36",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.13
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "steals_per_36",
+                  "label": "Steals Per 36",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_36",
+                  "label": "Blocks Per 36",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.17
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "recovery",
+              "label": "Recovery",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "defensive_rebounds_per_36",
+                  "label": "Defensive Rebounds Per 36",
+                  "weight": 0.7
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "offensive_rebounds_per_36",
+                  "label": "Offensive Rebounds Per 36",
+                  "weight": 0.3
+                }
+              ],
+              "weight": 0.18
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "fouls_per_36",
+                  "label": "Fouls Per 36",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nba:forward",
+          "label": "Forward / wing",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 500,
+          "opportunity_unit": "minutes",
+          "role": "forward"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "finishing",
+              "label": "Finishing",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "points_per_36",
+                  "label": "Points Per 36",
+                  "weight": 0.32
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "true_shooting_pct",
+                  "label": "True Shooting Pct",
+                  "weight": 0.58
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "free_throw_attempt_rate",
+                  "label": "Free Throw Attempt Rate",
+                  "weight": 0.1
+                }
+              ],
+              "weight": 0.25
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_36",
+                  "label": "Assists Per 36",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.11
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "ball_security",
+              "label": "Ball Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "turnovers_per_36",
+                  "label": "Turnovers Per 36",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assist_turnover_ratio",
+                  "label": "Assist Turnover Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.13
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "rim_disruption",
+              "label": "Rim Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_36",
+                  "label": "Blocks Per 36",
+                  "weight": 0.75
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "steals_per_36",
+                  "label": "Steals Per 36",
+                  "weight": 0.25
+                }
+              ],
+              "weight": 0.23
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "recovery",
+              "label": "Recovery",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "defensive_rebounds_per_36",
+                  "label": "Defensive Rebounds Per 36",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "offensive_rebounds_per_36",
+                  "label": "Offensive Rebounds Per 36",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.23
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "fouls_per_36",
+                  "label": "Fouls Per 36",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nba:center",
+          "label": "Center / interior big",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 400,
+          "opportunity_unit": "minutes",
+          "role": "center"
+        }
+      ],
+      "source_scope": "SportsDataverse research snapshot; preserve upstream attribution and review redistribution rights."
+    },
+    {
+      "id": "nhl",
+      "label": "NHL",
+      "roles": [
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_60",
+                  "label": "Goals Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_60",
+                  "label": "Expected Goals Per 60",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "shots_on_goal_per_60",
+                  "label": "Shots On Goal Per 60",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "high_danger_shots_per_60",
+                  "label": "High Danger Shots Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.2565
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "primary_assists_per_60",
+                  "label": "Primary Assists Per 60",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "secondary_assists_per_60",
+                  "label": "Secondary Assists Per 60",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.2185
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "puck_security",
+              "label": "Puck Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "giveaways_per_60",
+                  "label": "Giveaways Per 60",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaway_giveaway_ratio",
+                  "label": "Takeaway Giveaway Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.152
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaways_per_60",
+                  "label": "Takeaways Per 60",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_60",
+                  "label": "Blocks Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "hits_per_60",
+                  "label": "Hits Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.152
+            },
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "territory",
+              "label": "Territory",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_xgoal_pct",
+                  "label": "On Ice Xgoal Pct",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_xgoal_pct",
+                  "label": "Relative Xgoal Pct",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_corsi_pct",
+                  "label": "On Ice Corsi Pct",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_corsi_pct",
+                  "label": "Relative Corsi Pct",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.17099999999999999
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "penalty_differential_per_60",
+                  "label": "Penalty Differential Per 60",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nhl:center",
+          "label": "Center",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 400,
+          "opportunity_unit": "minutes",
+          "role": "center"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_60",
+                  "label": "Goals Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_60",
+                  "label": "Expected Goals Per 60",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "shots_on_goal_per_60",
+                  "label": "Shots On Goal Per 60",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "high_danger_shots_per_60",
+                  "label": "High Danger Shots Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.323
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "primary_assists_per_60",
+                  "label": "Primary Assists Per 60",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "secondary_assists_per_60",
+                  "label": "Secondary Assists Per 60",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.22799999999999998
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "puck_security",
+              "label": "Puck Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "giveaways_per_60",
+                  "label": "Giveaways Per 60",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaway_giveaway_ratio",
+                  "label": "Takeaway Giveaway Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.1425
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaways_per_60",
+                  "label": "Takeaways Per 60",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_60",
+                  "label": "Blocks Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "hits_per_60",
+                  "label": "Hits Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.1615
+            },
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "territory",
+              "label": "Territory",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_xgoal_pct",
+                  "label": "On Ice Xgoal Pct",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_xgoal_pct",
+                  "label": "Relative Xgoal Pct",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_corsi_pct",
+                  "label": "On Ice Corsi Pct",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_corsi_pct",
+                  "label": "Relative Corsi Pct",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.095
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "penalty_differential_per_60",
+                  "label": "Penalty Differential Per 60",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nhl:left_wing",
+          "label": "Left wing",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 400,
+          "opportunity_unit": "minutes",
+          "role": "left_wing"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_60",
+                  "label": "Goals Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_60",
+                  "label": "Expected Goals Per 60",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "shots_on_goal_per_60",
+                  "label": "Shots On Goal Per 60",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "high_danger_shots_per_60",
+                  "label": "High Danger Shots Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.323
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "primary_assists_per_60",
+                  "label": "Primary Assists Per 60",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "secondary_assists_per_60",
+                  "label": "Secondary Assists Per 60",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.22799999999999998
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "puck_security",
+              "label": "Puck Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "giveaways_per_60",
+                  "label": "Giveaways Per 60",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaway_giveaway_ratio",
+                  "label": "Takeaway Giveaway Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.1425
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaways_per_60",
+                  "label": "Takeaways Per 60",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_60",
+                  "label": "Blocks Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "hits_per_60",
+                  "label": "Hits Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.1615
+            },
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "territory",
+              "label": "Territory",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_xgoal_pct",
+                  "label": "On Ice Xgoal Pct",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_xgoal_pct",
+                  "label": "Relative Xgoal Pct",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_corsi_pct",
+                  "label": "On Ice Corsi Pct",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_corsi_pct",
+                  "label": "Relative Corsi Pct",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.095
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "penalty_differential_per_60",
+                  "label": "Penalty Differential Per 60",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nhl:right_wing",
+          "label": "Right wing",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 400,
+          "opportunity_unit": "minutes",
+          "role": "right_wing"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_60",
+                  "label": "Goals Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_60",
+                  "label": "Expected Goals Per 60",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "shots_on_goal_per_60",
+                  "label": "Shots On Goal Per 60",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "high_danger_shots_per_60",
+                  "label": "High Danger Shots Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.152
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "primary_assists_per_60",
+                  "label": "Primary Assists Per 60",
+                  "weight": 0.65
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "secondary_assists_per_60",
+                  "label": "Secondary Assists Per 60",
+                  "weight": 0.35
+                }
+              ],
+              "weight": 0.2375
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "puck_security",
+              "label": "Puck Security",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "giveaways_per_60",
+                  "label": "Giveaways Per 60",
+                  "weight": 1.0
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaway_giveaway_ratio",
+                  "label": "Takeaway Giveaway Ratio",
+                  "weight": 0.6
+                }
+              ],
+              "weight": 0.133
+            },
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "disruption",
+              "label": "Disruption",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "takeaways_per_60",
+                  "label": "Takeaways Per 60",
+                  "weight": 0.45
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "blocks_per_60",
+                  "label": "Blocks Per 60",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "hits_per_60",
+                  "label": "Hits Per 60",
+                  "weight": 0.2
+                }
+              ],
+              "weight": 0.266
+            },
+            {
+              "dimension": "progression_territory",
+              "dimension_label": "Progression and territory",
+              "id": "territory",
+              "label": "Territory",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_xgoal_pct",
+                  "label": "On Ice Xgoal Pct",
+                  "weight": 0.4
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_xgoal_pct",
+                  "label": "Relative Xgoal Pct",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "on_ice_corsi_pct",
+                  "label": "On Ice Corsi Pct",
+                  "weight": 0.15
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "relative_corsi_pct",
+                  "label": "Relative Corsi Pct",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.1615
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "penalty_differential_per_60",
+                  "label": "Penalty Differential Per 60",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.05
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nhl:defense",
+          "label": "Defense",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 400,
+          "opportunity_unit": "minutes",
+          "role": "defense"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "shot_prevention",
+              "label": "Shot Prevention",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_saved_above_expected_per_60",
+                  "label": "Goals Saved Above Expected Per 60",
+                  "weight": 0.6
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "save_pct",
+                  "label": "Save Pct",
+                  "weight": 0.4
+                }
+              ],
+              "weight": 0.62
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "danger_control",
+              "label": "Danger Control",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "high_danger_save_pct",
+                  "label": "High Danger Save Pct",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.28
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "rebound_control",
+              "label": "Rebound Control",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "rebound_rate",
+                  "label": "Rebound Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.1
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "nhl:goalie",
+          "label": "Goalie",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 900,
+          "opportunity_unit": "minutes",
+          "role": "goalie"
+        }
+      ],
+      "source_scope": "MoneyPuck designated downloads; non-commercial use with clear attribution."
+    },
+    {
+      "id": "epl",
+      "label": "Premier League",
+      "roles": [
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "shot_stopping",
+              "label": "Shot Stopping",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "saves_per_90",
+                  "label": "Saves Per 90",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "goals_conceded_per_90",
+                  "label": "Goals Conceded Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goal_prevention_over_expected_per_90",
+                  "label": "Goal Prevention Over Expected Per 90",
+                  "weight": 0.4
+                }
+              ],
+              "weight": 0.48
+            },
+            {
+              "dimension": "recovery_rebounding",
+              "dimension_label": "Recovery and rebounding",
+              "id": "clean_sheets",
+              "label": "Clean Sheets",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "clean_sheet_rate",
+                  "label": "Clean Sheet Rate",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.32
+            },
+            {
+              "dimension": "possession_security",
+              "dimension_label": "Possession security",
+              "id": "penalties",
+              "label": "Penalties",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "penalties_saved_per_90",
+                  "label": "Penalties Saved Per 90",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.2
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "epl:GK",
+          "label": "Goalkeeper",
+          "limitation": "Goals conceded and clean sheets are team-dependent; historical public data do not isolate post-shot shot-stopping quality.",
+          "minimum_opportunity": 900,
+          "opportunity_unit": "minutes",
+          "role": "GK"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "defensive_disruption",
+              "dimension_label": "Defensive disruption",
+              "id": "defensive_outcome",
+              "label": "Defensive Outcome",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "clean_sheet_rate",
+                  "label": "Clean Sheet Rate",
+                  "weight": 0.55
+                },
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "goals_conceded_per_90",
+                  "label": "Goals Conceded Per 90",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.4
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "attacking_output",
+              "label": "Attacking Output",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_90",
+                  "label": "Assists Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "creativity_per_90",
+                  "label": "Creativity Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_assists_per_90",
+                  "label": "Expected Assists Per 90",
+                  "weight": 0.45
+                }
+              ],
+              "weight": 0.28
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "finishing",
+              "label": "Finishing",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_90",
+                  "label": "Goals Per 90",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "threat_per_90",
+                  "label": "Threat Per 90",
+                  "weight": 0.2
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_90",
+                  "label": "Expected Goals Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "finishing_over_expected_per_90",
+                  "label": "Finishing Over Expected Per 90",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.17
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "cards_per_90",
+                  "label": "Cards Per 90",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.15
+            }
+          ],
+          "evidence_status": "limited_team_context_proxy",
+          "key": "epl:DEF",
+          "label": "Defender",
+          "limitation": "Broad FPL defender role; clean sheets and goals conceded contain substantial team context and do not separate center-backs from fullbacks.",
+          "minimum_opportunity": 900,
+          "opportunity_unit": "minutes",
+          "role": "DEF"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_90",
+                  "label": "Assists Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "creativity_per_90",
+                  "label": "Creativity Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_assists_per_90",
+                  "label": "Expected Assists Per 90",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goal_involvements_per_90",
+                  "label": "Expected Goal Involvements Per 90",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.45
+            },
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "scoring",
+              "label": "Scoring",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_90",
+                  "label": "Goals Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "threat_per_90",
+                  "label": "Threat Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_90",
+                  "label": "Expected Goals Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "finishing_over_expected_per_90",
+                  "label": "Finishing Over Expected Per 90",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.4
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "cards_per_90",
+                  "label": "Cards Per 90",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.15
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "epl:MID",
+          "label": "Midfielder",
+          "limitation": "Broad FPL midfielder role combines defensive, central, attacking and wide midfield roles.",
+          "minimum_opportunity": 900,
+          "opportunity_unit": "minutes",
+          "role": "MID"
+        },
+        {
+          "domains": [
+            {
+              "dimension": "scoring_finishing",
+              "dimension_label": "Scoring and finishing",
+              "id": "finishing",
+              "label": "Finishing",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "goals_per_90",
+                  "label": "Goals Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "threat_per_90",
+                  "label": "Threat Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goals_per_90",
+                  "label": "Expected Goals Per 90",
+                  "weight": 0.3
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "finishing_over_expected_per_90",
+                  "label": "Finishing Over Expected Per 90",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.55
+            },
+            {
+              "dimension": "creation_distribution",
+              "dimension_label": "Creation and distribution",
+              "id": "creation",
+              "label": "Creation",
+              "metrics": [
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "assists_per_90",
+                  "label": "Assists Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "creativity_per_90",
+                  "label": "Creativity Per 90",
+                  "weight": 0.25
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_assists_per_90",
+                  "label": "Expected Assists Per 90",
+                  "weight": 0.35
+                },
+                {
+                  "direction": "Higher values support this domain.",
+                  "higher_is_better": true,
+                  "id": "expected_goal_involvements_per_90",
+                  "label": "Expected Goal Involvements Per 90",
+                  "weight": 0.15
+                }
+              ],
+              "weight": 0.35
+            },
+            {
+              "dimension": "discipline_efficiency",
+              "dimension_label": "Discipline and efficiency",
+              "id": "discipline",
+              "label": "Discipline",
+              "metrics": [
+                {
+                  "direction": "Lower values support this domain.",
+                  "higher_is_better": false,
+                  "id": "cards_per_90",
+                  "label": "Cards Per 90",
+                  "weight": 1.0
+                }
+              ],
+              "weight": 0.1
+            }
+          ],
+          "evidence_status": "research_proxy",
+          "key": "epl:FWD",
+          "label": "Forward",
+          "limitation": "Observed public-stat composite; not a complete measure of player quality.",
+          "minimum_opportunity": 700,
+          "opportunity_unit": "minutes",
+          "role": "FWD"
+        }
+      ],
+      "source_scope": "Broad-role local research prototype; do not redistribute cached FPL/community raw data without rights review."
+    }
+  ]
+}

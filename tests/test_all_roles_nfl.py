@@ -64,6 +64,7 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
                 "passing_cpoe": 5.0,
                 "passing_first_downs": 40.0,
                 "passing_air_yards": 1_000.0,
+                "passing_20": 15.0,
                 "passing_tds": 10.0,
                 "passing_interceptions": 4.0,
                 "sack_fumbles_lost": 2.0,
@@ -76,8 +77,10 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
                 "rushing_epa": 8.0,
                 "rushing_yards": 400.0,
                 "rushing_first_downs": 20.0,
+                "rushing_10": 12.0,
                 "receiving_epa": 5.0,
                 "receiving_yards": 150.0,
+                "receiving_20": 3.0,
                 "rushing_tds": 6.0,
                 "receiving_tds": 2.0,
                 "rushing_fumbles_lost": 1.0,
@@ -90,6 +93,7 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
                 "receiving_epa": 3.0,
                 "receiving_yards": 100.0,
                 "receiving_first_downs": 5.0,
+                "receiving_20": 2.0,
                 "receiving_yards_after_catch": 42.0,
                 "receiving_tds": 2.0,
                 "receiving_fumbles_lost": 1.0,
@@ -139,6 +143,7 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
     assert qb.passing_yards_per_attempt == pytest.approx(8.0)
     assert qb.passing_first_down_rate == pytest.approx(0.4)
     assert qb.passing_air_yards_per_attempt == pytest.approx(10.0)
+    assert qb.explosive_pass_rate == pytest.approx(0.15)
     assert qb.touchdown_rate == pytest.approx(0.1)
     assert qb.turnover_rate == pytest.approx(6.0 / 120.0)
     assert qb.sack_rate == pytest.approx(20.0 / 120.0)
@@ -147,6 +152,8 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
     assert rb.touches == 100.0
     assert rb.opportunity == 100.0
     assert rb.rushing_epa_per_carry == pytest.approx(0.1)
+    assert rb.explosive_run_rate == pytest.approx(0.15)
+    assert rb.explosive_target_rate == pytest.approx(0.12)
     assert rb.receiving_epa_per_target == pytest.approx(0.2)
     assert rb.touchdown_rate == pytest.approx(0.08)
     assert rb.turnover_rate == pytest.approx(0.02)
@@ -154,6 +161,7 @@ def test_derive_rates_uses_role_aligned_denominators() -> None:
     receiver = result.loc["WR"]
     assert receiver.opportunity == 10.0
     assert receiver.receiving_yards_per_target == pytest.approx(10.0)
+    assert receiver.explosive_target_rate == pytest.approx(0.2)
     assert receiver.catch_rate == pytest.approx(0.6)
     assert receiver.yards_after_catch_per_reception == pytest.approx(7.0)
     assert receiver.turnover_rate == pytest.approx(0.1)

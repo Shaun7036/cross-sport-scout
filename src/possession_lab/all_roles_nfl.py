@@ -87,12 +87,14 @@ WEEKLY_TOTAL_COLUMNS = (
     "sack_fumbles_lost",
     "passing_air_yards",
     "passing_first_downs",
+    "passing_20",
     "passing_epa",
     "carries",
     "rushing_yards",
     "rushing_tds",
     "rushing_fumbles_lost",
     "rushing_first_downs",
+    "rushing_10",
     "rushing_epa",
     "receptions",
     "targets",
@@ -101,6 +103,7 @@ WEEKLY_TOTAL_COLUMNS = (
     "receiving_fumbles_lost",
     "receiving_yards_after_catch",
     "receiving_first_downs",
+    "receiving_20",
     "receiving_epa",
     "fg_made",
     "fg_att",
@@ -132,12 +135,15 @@ RATE_COLUMNS = (
     "completion_over_expected",
     "passing_first_down_rate",
     "passing_air_yards_per_attempt",
+    "explosive_pass_rate",
     "rushing_epa_per_carry",
     "rushing_yards_per_carry",
     "rushing_first_down_rate",
+    "explosive_run_rate",
     "receiving_epa_per_target",
     "receiving_yards_per_target",
     "receiving_first_down_rate",
+    "explosive_target_rate",
     "catch_rate",
     "yards_after_catch_per_reception",
     "touchdown_rate",
@@ -724,6 +730,9 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result.loc[qb, "passing_air_yards_per_attempt"] = _safe_ratio(
         _numeric(result, "passing_air_yards"), _numeric(result, "attempts")
     ).loc[qb]
+    result.loc[qb, "explosive_pass_rate"] = _safe_ratio(
+        _numeric(result, "passing_20"), _numeric(result, "attempts")
+    ).loc[qb]
     result.loc[qb, "touchdown_rate"] = _safe_ratio(
         _numeric(result, "passing_tds"), _numeric(result, "attempts")
     ).loc[qb]
@@ -743,6 +752,9 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result.loc[rb, "rushing_first_down_rate"] = _safe_ratio(
         _numeric(result, "rushing_first_downs"), _numeric(result, "carries")
     ).loc[rb]
+    result.loc[rb, "explosive_run_rate"] = _safe_ratio(
+        _numeric(result, "rushing_10"), _numeric(result, "carries")
+    ).loc[rb]
 
     receiving = rb | role.isin(RECEIVING_ROLES)
     result.loc[receiving, "receiving_epa_per_target"] = _safe_ratio(
@@ -756,6 +768,9 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result.loc[receiver, "receiving_first_down_rate"] = _safe_ratio(
         _numeric(result, "receiving_first_downs"), _numeric(result, "targets")
     ).loc[receiver]
+    result.loc[receiving, "explosive_target_rate"] = _safe_ratio(
+        _numeric(result, "receiving_20"), _numeric(result, "targets")
+    ).loc[receiving]
     result.loc[receiver, "catch_rate"] = _safe_ratio(
         _numeric(result, "receptions"), _numeric(result, "targets")
     ).loc[receiver]

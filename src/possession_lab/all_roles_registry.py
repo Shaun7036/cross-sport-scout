@@ -11,10 +11,10 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 
-SCHEMA_VERSION = "2.1.0"
+SCHEMA_VERSION = "2.2.0"
 ROLE_TAXONOMY_VERSION = "all-roles-broad-v2"
-TARGET_VERSION = "role-season-shrunk-percentiles-v1"
-BRIDGE_VERSION = "ordered-pair-dimension-intersection-v2"
+TARGET_VERSION = "role-season-reliability-weighted-percentiles-v2"
+BRIDGE_VERSION = "lagged-ordered-pair-dimension-intersection-v3"
 FROZEN_TEST_SEASON = 2025
 
 
@@ -86,9 +86,10 @@ def _nfl_specs() -> list[RoleSpec]:
                     "passing_value",
                     "progression_territory",
                     0.38,
-                    metric("passing_epa_per_play", 0.55),
+                    metric("passing_epa_per_play", 0.45),
                     metric("passing_yards_per_attempt", 0.20),
-                    metric("completion_over_expected", 0.25),
+                    metric("completion_over_expected", 0.20),
+                    metric("explosive_pass_rate", 0.15),
                 ),
                 domain(
                     "creation",
@@ -123,16 +124,18 @@ def _nfl_specs() -> list[RoleSpec]:
                     "ground_value",
                     "progression_territory",
                     0.34,
-                    metric("rushing_epa_per_carry", 0.45),
-                    metric("rushing_yards_per_carry", 0.30),
+                    metric("rushing_epa_per_carry", 0.35),
+                    metric("rushing_yards_per_carry", 0.25),
                     metric("rushing_first_down_rate", 0.25),
+                    metric("explosive_run_rate", 0.15),
                 ),
                 domain(
                     "receiving",
                     "creation_distribution",
                     0.23,
-                    metric("receiving_epa_per_target", 0.55),
-                    metric("receiving_yards_per_target", 0.45),
+                    metric("receiving_epa_per_target", 0.45),
+                    metric("receiving_yards_per_target", 0.35),
+                    metric("explosive_target_rate", 0.20),
                 ),
                 domain(
                     "scoring",
@@ -160,9 +163,10 @@ def _nfl_specs() -> list[RoleSpec]:
                         "receiving_value",
                         "progression_territory",
                         0.36,
-                        metric("receiving_epa_per_target", 0.45),
-                        metric("receiving_yards_per_target", 0.30),
+                        metric("receiving_epa_per_target", 0.35),
+                        metric("receiving_yards_per_target", 0.25),
                         metric("receiving_first_down_rate", 0.25),
+                        metric("explosive_target_rate", 0.15),
                     ),
                     domain(
                         "conversion",
@@ -305,6 +309,12 @@ def _nba_specs() -> list[RoleSpec]:
         metric("turnovers_per_36", higher_is_better=False),
         metric("assist_turnover_ratio", 0.6),
     )
+    discipline = domain(
+        "discipline",
+        "discipline_efficiency",
+        0.05,
+        metric("fouls_per_36", higher_is_better=False),
+    )
     return [
         RoleSpec(
             "nba",
@@ -313,11 +323,12 @@ def _nba_specs() -> list[RoleSpec]:
             500,
             "minutes",
             (
-                domain("scoring", "scoring_finishing", 0.32, metric("points_per_36", 0.45), metric("true_shooting_pct", 0.35), metric("effective_fg_pct", 0.20)),
-                domain("creation", "creation_distribution", 0.30, metric("assists_per_36", 0.65), metric("assist_turnover_ratio", 0.35)),
+                domain("scoring", "scoring_finishing", 0.30, metric("points_per_36", 0.40), metric("true_shooting_pct", 0.32), metric("effective_fg_pct", 0.18), metric("free_throw_attempt_rate", 0.10)),
+                domain("creation", "creation_distribution", 0.28, metric("assists_per_36", 0.65), metric("assist_turnover_ratio", 0.35)),
                 shared_security,
                 domain("disruption", "defensive_disruption", 0.15, metric("steals_per_36", 0.75), metric("blocks_per_36", 0.25)),
-                domain("recovery", "recovery_rebounding", 0.10, metric("defensive_rebounds_per_36")),
+                domain("recovery", "recovery_rebounding", 0.09, metric("defensive_rebounds_per_36")),
+                discipline,
             ),
         ),
         RoleSpec(
@@ -327,11 +338,12 @@ def _nba_specs() -> list[RoleSpec]:
             500,
             "minutes",
             (
-                domain("scoring", "scoring_finishing", 0.30, metric("points_per_36", 0.45), metric("true_shooting_pct", 0.35), metric("effective_fg_pct", 0.20)),
-                domain("creation", "creation_distribution", 0.20, metric("assists_per_36", 0.70), metric("assist_turnover_ratio", 0.30)),
+                domain("scoring", "scoring_finishing", 0.28, metric("points_per_36", 0.40), metric("true_shooting_pct", 0.32), metric("effective_fg_pct", 0.18), metric("free_throw_attempt_rate", 0.10)),
+                domain("creation", "creation_distribution", 0.19, metric("assists_per_36", 0.70), metric("assist_turnover_ratio", 0.30)),
                 shared_security,
-                domain("disruption", "defensive_disruption", 0.18, metric("steals_per_36", 0.55), metric("blocks_per_36", 0.45)),
-                domain("recovery", "recovery_rebounding", 0.19, metric("defensive_rebounds_per_36", 0.70), metric("offensive_rebounds_per_36", 0.30)),
+                domain("disruption", "defensive_disruption", 0.17, metric("steals_per_36", 0.55), metric("blocks_per_36", 0.45)),
+                domain("recovery", "recovery_rebounding", 0.18, metric("defensive_rebounds_per_36", 0.70), metric("offensive_rebounds_per_36", 0.30)),
+                discipline,
             ),
         ),
         RoleSpec(
@@ -341,11 +353,12 @@ def _nba_specs() -> list[RoleSpec]:
             400,
             "minutes",
             (
-                domain("finishing", "scoring_finishing", 0.26, metric("points_per_36", 0.35), metric("true_shooting_pct", 0.65)),
-                domain("creation", "creation_distribution", 0.12, metric("assists_per_36", 0.65), metric("assist_turnover_ratio", 0.35)),
+                domain("finishing", "scoring_finishing", 0.25, metric("points_per_36", 0.32), metric("true_shooting_pct", 0.58), metric("free_throw_attempt_rate", 0.10)),
+                domain("creation", "creation_distribution", 0.11, metric("assists_per_36", 0.65), metric("assist_turnover_ratio", 0.35)),
                 shared_security,
-                domain("rim_disruption", "defensive_disruption", 0.24, metric("blocks_per_36", 0.75), metric("steals_per_36", 0.25)),
-                domain("recovery", "recovery_rebounding", 0.25, metric("defensive_rebounds_per_36", 0.65), metric("offensive_rebounds_per_36", 0.35)),
+                domain("rim_disruption", "defensive_disruption", 0.23, metric("blocks_per_36", 0.75), metric("steals_per_36", 0.25)),
+                domain("recovery", "recovery_rebounding", 0.23, metric("defensive_rebounds_per_36", 0.65), metric("offensive_rebounds_per_36", 0.35)),
+                discipline,
             ),
         ),
     ]
@@ -359,7 +372,7 @@ def _nhl_specs() -> list[RoleSpec]:
         ("right_wing", "Right wing", (0.34, 0.24, 0.15, 0.17, 0.10)),
         ("defense", "Defense", (0.16, 0.25, 0.14, 0.28, 0.17)),
     ]:
-        scoring, creation, security, disruption, territory = weights
+        scoring, creation, security, disruption, territory = (value * 0.95 for value in weights)
         specs.append(
             RoleSpec(
                 "nhl",
@@ -368,11 +381,12 @@ def _nhl_specs() -> list[RoleSpec]:
                 400,
                 "minutes",
                 (
-                    domain("scoring", "scoring_finishing", scoring, metric("goals_per_60", 0.55), metric("expected_goals_per_60", 0.45)),
+                    domain("scoring", "scoring_finishing", scoring, metric("goals_per_60", 0.35), metric("expected_goals_per_60", 0.30), metric("shots_on_goal_per_60", 0.15), metric("high_danger_shots_per_60", 0.20)),
                     domain("creation", "creation_distribution", creation, metric("primary_assists_per_60", 0.65), metric("secondary_assists_per_60", 0.35)),
                     domain("puck_security", "possession_security", security, metric("giveaways_per_60", higher_is_better=False), metric("takeaway_giveaway_ratio", 0.6)),
                     domain("disruption", "defensive_disruption", disruption, metric("takeaways_per_60", 0.45), metric("blocks_per_60", 0.35), metric("hits_per_60", 0.20)),
-                    domain("territory", "progression_territory", territory, metric("on_ice_xgoal_pct", 0.60), metric("relative_xgoal_pct", 0.40)),
+                    domain("territory", "progression_territory", territory, metric("on_ice_xgoal_pct", 0.40), metric("relative_xgoal_pct", 0.30), metric("on_ice_corsi_pct", 0.15), metric("relative_corsi_pct", 0.15)),
+                    domain("discipline", "discipline_efficiency", 0.05, metric("penalty_differential_per_60")),
                 ),
             )
         )
@@ -402,7 +416,7 @@ def _epl_specs() -> list[RoleSpec]:
             900,
             "minutes",
             (
-                domain("shot_stopping", "defensive_disruption", 0.48, metric("saves_per_90", 0.55), metric("goals_conceded_per_90", 0.45, higher_is_better=False)),
+                domain("shot_stopping", "defensive_disruption", 0.48, metric("saves_per_90", 0.35), metric("goals_conceded_per_90", 0.25, higher_is_better=False), metric("goal_prevention_over_expected_per_90", 0.40)),
                 domain("clean_sheets", "recovery_rebounding", 0.32, metric("clean_sheet_rate")),
                 domain("penalties", "possession_security", 0.20, metric("penalties_saved_per_90")),
             ),
@@ -417,8 +431,8 @@ def _epl_specs() -> list[RoleSpec]:
             "minutes",
             (
                 domain("defensive_outcome", "defensive_disruption", 0.40, metric("clean_sheet_rate", 0.55), metric("goals_conceded_per_90", 0.45, higher_is_better=False)),
-                domain("attacking_output", "creation_distribution", 0.28, metric("assists_per_90", 0.60), metric("creativity_per_90", 0.40)),
-                domain("finishing", "scoring_finishing", 0.17, metric("goals_per_90")),
+                domain("attacking_output", "creation_distribution", 0.28, metric("assists_per_90", 0.30), metric("creativity_per_90", 0.25), metric("expected_assists_per_90", 0.45)),
+                domain("finishing", "scoring_finishing", 0.17, metric("goals_per_90", 0.35), metric("threat_per_90", 0.20), metric("expected_goals_per_90", 0.30), metric("finishing_over_expected_per_90", 0.15)),
                 domain("discipline", "discipline_efficiency", 0.15, metric("cards_per_90", higher_is_better=False)),
             ),
             "limited_team_context_proxy",
@@ -431,8 +445,8 @@ def _epl_specs() -> list[RoleSpec]:
             900,
             "minutes",
             (
-                domain("creation", "creation_distribution", 0.45, metric("assists_per_90", 0.55), metric("creativity_per_90", 0.45)),
-                domain("scoring", "scoring_finishing", 0.40, metric("goals_per_90", 0.55), metric("threat_per_90", 0.45)),
+                domain("creation", "creation_distribution", 0.45, metric("assists_per_90", 0.25), metric("creativity_per_90", 0.25), metric("expected_assists_per_90", 0.35), metric("expected_goal_involvements_per_90", 0.15)),
+                domain("scoring", "scoring_finishing", 0.40, metric("goals_per_90", 0.30), metric("threat_per_90", 0.25), metric("expected_goals_per_90", 0.30), metric("finishing_over_expected_per_90", 0.15)),
                 domain("discipline", "discipline_efficiency", 0.15, metric("cards_per_90", higher_is_better=False)),
             ),
             "research_proxy",
@@ -445,8 +459,8 @@ def _epl_specs() -> list[RoleSpec]:
             700,
             "minutes",
             (
-                domain("finishing", "scoring_finishing", 0.55, metric("goals_per_90", 0.60), metric("threat_per_90", 0.40)),
-                domain("creation", "creation_distribution", 0.35, metric("assists_per_90", 0.55), metric("creativity_per_90", 0.45)),
+                domain("finishing", "scoring_finishing", 0.55, metric("goals_per_90", 0.30), metric("threat_per_90", 0.25), metric("expected_goals_per_90", 0.30), metric("finishing_over_expected_per_90", 0.15)),
+                domain("creation", "creation_distribution", 0.35, metric("assists_per_90", 0.25), metric("creativity_per_90", 0.25), metric("expected_assists_per_90", 0.35), metric("expected_goal_involvements_per_90", 0.15)),
                 domain("discipline", "discipline_efficiency", 0.10, metric("cards_per_90", higher_is_better=False)),
             ),
         ),
@@ -472,6 +486,7 @@ def registry_payload() -> dict:
         "score_contract": {
             "observed_role_percentile": "Retrospective role-season peer comparison.",
             "native_forecast_percentile": "Next-season estimate using only information available before that season.",
+            "native_build_profile_forecast_percentile": "Next-season benchmark using only build and canonical playing-profile dimensions; checked against build alone.",
             "cross_sport_physical_estimate": "Target-role model using build only.",
             "cross_sport_transfer_guesstimate": "Unvalidated target-role analogy using build plus a fixed intersection of sport-relative performance dimensions.",
         },

@@ -99,17 +99,30 @@ class LinearPercentileModel:
     intercept: float | None = None
     alpha: float | None = None
     training_rows: int = 0
+    training_weight_sum: float = 0.0
 
     def _matrix(self, frame: pd.DataFrame) -> np.ndarray:
         values = frame.reindex(columns=self.features).apply(pd.to_numeric, errors="coerce")
         return values.to_numpy(float)
 
-    def fit(self, frame: pd.DataFrame, target: str) -> "LinearPercentileModel":
+    def fit(
+        self,
+        frame: pd.DataFrame,
+        target: str,
+        sample_weight: pd.Series | np.ndarray | None = None,
+    ) -> "LinearPercentileModel":
         matrix = self._matrix(frame)
         y = pd.to_numeric(frame[target], errors="coerce").to_numpy(float)
-        valid_y = np.isfinite(y)
+        if sample_weight is None:
+            weights = np.ones(len(frame), dtype=float)
+        else:
+            weights = pd.to_numeric(
+                pd.Series(np.asarray(sample_weight), index=frame.index), errors="coerce"
+            ).to_numpy(float)
+        valid_y = np.isfinite(y) & np.isfinite(weights) & (weights > 0)
         matrix = matrix[valid_y]
         y = y[valid_y]
+        weights = weights[valid_y]
         if len(y) < max(12, len(self.features) * 3):
             raise ValueError(
                 f"Model with {len(self.features)} features needs at least "
@@ -119,18 +132,22 @@ class LinearPercentileModel:
         if np.any(finite_counts == 0):
             missing = [self.features[index] for index in np.flatnonzero(finite_counts == 0)]
             raise ValueError(f"Training features have no observations: {missing}")
-        self.medians = np.nanmedian(matrix, axis=0)
+        self.medians = np.asarray(
+            [_weighted_median(matrix[:, index], weights) for index in range(matrix.shape[1])]
+        )
         imputed = np.where(np.isfinite(matrix), matrix, self.medians)
-        self.means = imputed.mean(axis=0)
-        self.scales = imputed.std(axis=0)
+        self.means = np.average(imputed, axis=0, weights=weights)
+        variance = np.average((imputed - self.means) ** 2, axis=0, weights=weights)
+        self.scales = np.sqrt(variance)
         self.scales[self.scales < 1e-9] = 1.0
         standardized = (imputed - self.means) / self.scales
         estimator = RidgeCV(alphas=np.asarray([0.1, 1.0, 10.0, 100.0, 1000.0]))
-        estimator.fit(standardized, y)
+        estimator.fit(standardized, y, sample_weight=weights)
         self.coefficients = np.asarray(estimator.coef_, dtype=float)
         self.intercept = float(estimator.intercept_)
         self.alpha = float(estimator.alpha_)
         self.training_rows = int(len(y))
+        self.training_weight_sum = float(weights.sum())
         return self
 
     def _standardized(self, frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
@@ -172,12 +189,33 @@ class LinearPercentileModel:
             "features": list(self.features),
             "alpha": self.alpha,
             "training_rows": self.training_rows,
+            "training_weight_sum": self.training_weight_sum,
             "coefficients": {
                 feature: float(value)
                 for feature, value in zip(self.features, coefficients)
             },
             "missing_values": "median imputation learned from the training rows; never filled with a neutral percentile",
         }
+
+
+def _weighted_median(values: np.ndarray, weights: np.ndarray) -> float:
+    valid = np.isfinite(values) & np.isfinite(weights) & (weights > 0)
+    if not valid.any():
+        return float("nan")
+    ordered = np.argsort(values[valid], kind="stable")
+    observed = values[valid][ordered]
+    observed_weights = weights[valid][ordered]
+    cutoff = observed_weights.sum() / 2.0
+    return float(observed[np.searchsorted(np.cumsum(observed_weights), cutoff, side="left")])
+
+
+def _training_weights(frame: pd.DataFrame, column: str | None) -> np.ndarray | None:
+    if column is None:
+        return None
+    if column not in frame:
+        return np.ones(len(frame), dtype=float)
+    weights = pd.to_numeric(frame[column], errors="coerce").to_numpy(float)
+    return np.where(np.isfinite(weights) & (weights > 0), weights, np.nan)
 
 
 def _regression_metrics(actual, predicted) -> dict:
@@ -337,11 +375,22 @@ def _fit_with_evaluation(
     target: str,
     time_column: str = "season",
     frozen_season: int = FROZEN_TEST_SEASON,
+    sample_weight_column: str | None = None,
+    evaluation_eligible_column: str | None = None,
 ) -> dict:
     source = _with_bmi(frame)
     source = source.loc[_finite_target(source, target)].copy()
     train = source.loc[pd.to_numeric(source[time_column], errors="coerce") < frozen_season]
-    test = source.loc[pd.to_numeric(source[time_column], errors="coerce") == frozen_season]
+    evaluation_source = source
+    if evaluation_eligible_column is not None:
+        eligible = evaluation_source.get(
+            evaluation_eligible_column,
+            pd.Series(False, index=evaluation_source.index),
+        )
+        evaluation_source = evaluation_source.loc[eligible.fillna(False).astype(bool)]
+    test = evaluation_source.loc[
+        pd.to_numeric(evaluation_source[time_column], errors="coerce") == frozen_season
+    ]
     if train.empty:
         raise ValueError("No pre-freeze rows available")
 
@@ -351,12 +400,16 @@ def _fit_with_evaluation(
         if season >= frozen_season:
             continue
         fold_train = source.loc[source[time_column] < season]
-        fold_test = source.loc[source[time_column] == season]
+        fold_test = evaluation_source.loc[evaluation_source[time_column] == season]
         minimum = max(12, len(features) * 3)
         if len(fold_train) < minimum or len(fold_test) < 5:
             continue
         try:
-            model = LinearPercentileModel(features).fit(fold_train, target)
+            model = LinearPercentileModel(features).fit(
+                fold_train,
+                target,
+                sample_weight=_training_weights(fold_train, sample_weight_column),
+            )
         except ValueError:
             continue
         rolling.append(
@@ -366,7 +419,11 @@ def _fit_with_evaluation(
             }
         )
 
-    evaluation_model = LinearPercentileModel(features).fit(train, target)
+    evaluation_model = LinearPercentileModel(features).fit(
+        train,
+        target,
+        sample_weight=_training_weights(train, sample_weight_column),
+    )
     frozen_prediction = evaluation_model.predict(test) if len(test) else np.asarray([])
     frozen = _regression_metrics(test[target], frozen_prediction) if len(test) else {
         "n": 0,
@@ -399,7 +456,11 @@ def _fit_with_evaluation(
             test.loc[unseen_history_mask, target],
             frozen_prediction[unseen_history_mask.to_numpy()],
         )
-    final = LinearPercentileModel(features).fit(source, target)
+    final = LinearPercentileModel(features).fit(
+        source,
+        target,
+        sample_weight=_training_weights(source, sample_weight_column),
+    )
     status = "insufficient_frozen_evidence"
     if frozen["n"] >= 20 and frozen["mae"] is not None and baseline["mae"] is not None:
         status = (
@@ -431,11 +492,90 @@ def _fit_with_evaluation(
         "evidence_gate": evidence_gate,
         "frozen_residual_mae": residual_mae,
         "reference": _reference_summary(source, features),
+        "training_weight_policy": (
+            sample_weight_column if sample_weight_column is not None else "uniform"
+        ),
+        "evaluation_policy": (
+            f"{evaluation_eligible_column} == True"
+            if evaluation_eligible_column is not None
+            else "all finite-target rows"
+        ),
     }
 
 
 def _dimensions(spec: RoleSpec) -> tuple[str, ...]:
     return spec.dimensions
+
+
+def _weighted_training_rows(
+    frame: pd.DataFrame,
+    *,
+    status_column: str = "target_status",
+    weight_column: str = "training_sample_weight",
+) -> pd.DataFrame:
+    """Keep positive-evidence labels and attach a conservative fallback weight.
+
+    Real scored panels provide empirical opportunity/coverage weights.  The
+    status fallback keeps synthetic and older cached panels compatible while
+    ensuring a low-sample row never receives the same influence as an eligible
+    row.
+    """
+    result = frame.loc[frame[status_column].isin(["eligible", "low_sample"])].copy()
+    fallback = result[status_column].map({"eligible": 1.0, "low_sample": 0.25}).astype(float)
+    if weight_column in result:
+        observed = pd.to_numeric(result[weight_column], errors="coerce")
+        result[weight_column] = observed.where(observed.gt(0), fallback)
+    else:
+        result[weight_column] = fallback
+    return result
+
+
+def _frozen_feature_advantage(
+    frame: pd.DataFrame,
+    *,
+    full_features: tuple[str, ...],
+    baseline_features: tuple[str, ...],
+    target: str,
+    time_column: str,
+    sample_weight_column: str,
+    evaluation_eligible_column: str,
+    frozen_season: int = FROZEN_TEST_SEASON,
+) -> tuple[dict, dict]:
+    """Compare two feature contracts on the same future eligible athletes."""
+    source = _with_bmi(frame)
+    source = source.loc[_finite_target(source, target)].copy()
+    seasons = pd.to_numeric(source[time_column], errors="coerce")
+    train = source.loc[seasons < frozen_season]
+    test = source.loc[
+        seasons.eq(frozen_season)
+        & source[evaluation_eligible_column].fillna(False).astype(bool)
+    ]
+    minimum = max(12, len(full_features) * 3, len(baseline_features) * 3)
+    if len(train) < minimum or test.empty:
+        empty = {
+            "estimate": None,
+            "ci90": [None, None],
+            "clusters": 0,
+            "iterations": 0,
+            "comparator": "build_only",
+        }
+        return empty, _regression_metrics([], [])
+    weights = _training_weights(train, sample_weight_column)
+    full = LinearPercentileModel(full_features).fit(train, target, sample_weight=weights)
+    baseline = LinearPercentileModel(baseline_features).fit(
+        train, target, sample_weight=weights
+    )
+    actual = test[target]
+    full_prediction = full.predict(test)
+    baseline_prediction = baseline.predict(test)
+    advantage = _cluster_bootstrap_advantage(
+        actual,
+        full_prediction,
+        baseline_prediction,
+        test["player_id"],
+    )
+    advantage["comparator"] = "build_only"
+    return advantage, _regression_metrics(actual, baseline_prediction)
 
 
 def train_physical_models(
@@ -457,21 +597,37 @@ def train_physical_models(
             candidates["target_status"].eq("eligible")
             & _finite_target(candidates, "observed_role_percentile")
         ].copy()
+        trainable = _weighted_training_rows(candidates)
+        trainable = trainable.loc[
+            _finite_target(trainable, "observed_role_percentile")
+        ].copy()
+        trainable["evaluation_eligible"] = trainable["target_status"].eq("eligible")
         required_inputs = ("height_cm", "weight_kg")
-        role_frame = eligible.loc[
+        eligible_usable = eligible.loc[
             _complete_numeric_inputs(eligible, required_inputs)
+        ].copy()
+        role_frame = trainable.loc[
+            _complete_numeric_inputs(trainable, required_inputs)
         ].copy()
         coverage = _coverage_summary(
             candidates,
             eligible,
-            role_frame,
+            eligible_usable,
             required_inputs=required_inputs,
+            extra={
+                "training_usable_rows": int(len(role_frame)),
+                "weighted_low_sample_rows": int(
+                    role_frame["target_status"].eq("low_sample").sum()
+                ),
+            },
         )
         try:
             head = _fit_with_evaluation(
                 role_frame,
                 features=PHYSICAL_FEATURES,
                 target="observed_role_percentile",
+                sample_weight_column="training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
             )
         except ValueError as error:
             heads[key] = {
@@ -481,13 +637,25 @@ def train_physical_models(
             }
             continue
         head["usable_coverage"] = coverage
-        head["training_label_policy"] = "target_status == 'eligible' only"
+        head["training_label_policy"] = (
+            "eligible labels receive full empirical reliability weight; positive-opportunity "
+            "low-sample labels receive reduced opportunity/coverage weight; frozen evaluation "
+            "remains eligible-only"
+        )
         heads[key] = head
     return heads
 
 
 def build_native_forecast_pairs(scored: pd.DataFrame) -> pd.DataFrame:
     source = _with_bmi(scored)
+    if "training_sample_weight" not in source:
+        source["training_sample_weight"] = source["target_status"].map(
+            {"eligible": 1.0, "low_sample": 0.25}
+        )
+    if "opportunity_reliability" not in source:
+        source["opportunity_reliability"] = source["target_status"].map(
+            {"eligible": 1.0, "low_sample": 0.25}
+        )
     prior = source.copy()
     prior["target_season"] = prior["season"] + 1
     target = source[
@@ -498,6 +666,8 @@ def build_native_forecast_pairs(scored: pd.DataFrame) -> pd.DataFrame:
             "observed_role_percentile",
             "role",
             "target_status",
+            "training_sample_weight",
+            "opportunity_reliability",
         ]
     ].rename(
         columns={
@@ -505,6 +675,8 @@ def build_native_forecast_pairs(scored: pd.DataFrame) -> pd.DataFrame:
             "observed_role_percentile": "target_observed_role_percentile",
             "role": "realized_target_role",
             "target_status": "realized_target_status",
+            "training_sample_weight": "realized_training_sample_weight",
+            "opportunity_reliability": "realized_opportunity_reliability",
         }
     )
     pairs = prior.merge(
@@ -516,6 +688,11 @@ def build_native_forecast_pairs(scored: pd.DataFrame) -> pd.DataFrame:
     pairs = pairs.rename(columns={"role": "prior_role", "season": "feature_season"})
     pairs["same_role_target"] = pairs["realized_target_role"].eq(pairs["prior_role"])
     pairs["target_eligible"] = pairs["realized_target_status"].eq("eligible")
+    prior_weight = pd.to_numeric(pairs["training_sample_weight"], errors="coerce")
+    realized_weight = pd.to_numeric(
+        pairs["realized_training_sample_weight"], errors="coerce"
+    )
+    pairs["pair_training_sample_weight"] = np.sqrt(prior_weight * realized_weight)
     return pairs
 
 
@@ -548,15 +725,28 @@ def train_native_forecast_models(
             & same_role["target_eligible"]
             & _finite_target(same_role, "target_observed_role_percentile")
         ].copy()
+        trainable = same_role.loc[
+            same_role["target_status"].isin(["eligible", "low_sample"])
+            & same_role["realized_target_status"].isin(["eligible", "low_sample"])
+            & _finite_target(same_role, "target_observed_role_percentile")
+        ].copy()
+        trainable["evaluation_eligible"] = (
+            trainable["target_status"].eq("eligible")
+            & trainable["realized_target_status"].eq("eligible")
+        )
         required_inputs = ("height_cm", "weight_kg", *dimensions)
-        role_pairs = eligible.loc[
+        eligible_usable = eligible.loc[
             _complete_numeric_inputs(eligible, required_inputs)
+        ].copy()
+        eligible_usable["season"] = eligible_usable["target_season"]
+        role_pairs = trainable.loc[
+            _complete_numeric_inputs(trainable, required_inputs)
         ].copy()
         role_pairs["season"] = role_pairs["target_season"]
         coverage = _coverage_summary(
             candidates,
             eligible,
-            role_pairs,
+            eligible_usable,
             required_inputs=required_inputs,
             extra={
                 "same_role_rows": int(len(same_role)),
@@ -567,6 +757,10 @@ def train_native_forecast_models(
                 "realized_target_eligible_same_role_rows": int(
                     same_role["target_eligible"].sum()
                 ),
+                "training_usable_rows": int(len(role_pairs)),
+                "weighted_low_sample_rows": int(
+                    (~role_pairs["evaluation_eligible"]).sum()
+                ),
             },
         )
         try:
@@ -574,6 +768,8 @@ def train_native_forecast_models(
                 role_pairs,
                 features=tuple(features),
                 target="target_observed_role_percentile",
+                sample_weight_column="pair_training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
             )
         except ValueError as error:
             heads[key] = {
@@ -584,11 +780,14 @@ def train_native_forecast_models(
             continue
         head["usable_coverage"] = coverage
         head["training_label_policy"] = (
-            "prior target_status == 'eligible', realized_target_status == 'eligible', and "
-            "realized_target_role == prior_role"
+            "same-role consecutive seasons with positive observed labels; low-sample pairs are "
+            "reliability-weighted for training and frozen evaluation remains eligible-only"
         )
 
-        frozen = role_pairs.loc[role_pairs["target_season"].eq(FROZEN_TEST_SEASON)]
+        frozen = role_pairs.loc[
+            role_pairs["target_season"].eq(FROZEN_TEST_SEASON)
+            & role_pairs["evaluation_eligible"]
+        ]
         y = frozen["target_observed_role_percentile"]
         prior_baseline = _regression_metrics(y, frozen["observed_role_percentile"])
         sustained_baseline = _regression_metrics(y, frozen["sustained_3y_percentile"])
@@ -605,7 +804,9 @@ def train_native_forecast_models(
             comparator_name = min(candidates, key=lambda name: candidates[name][0]["mae"])
             prefreeze = role_pairs.loc[role_pairs["target_season"] < FROZEN_TEST_SEASON]
             evaluation_model = LinearPercentileModel(tuple(features)).fit(
-                prefreeze, "target_observed_role_percentile"
+                prefreeze,
+                "target_observed_role_percentile",
+                sample_weight=_training_weights(prefreeze, "pair_training_sample_weight"),
             )
             model_prediction = evaluation_model.predict(frozen)
             advantage = _cluster_bootstrap_advantage(
@@ -640,6 +841,151 @@ def train_native_forecast_models(
     return heads, pairs
 
 
+def train_native_profile_models(
+    scored: pd.DataFrame,
+    *,
+    specs: dict[str, RoleSpec] | None = None,
+    pairs: pd.DataFrame | None = None,
+) -> dict[str, dict]:
+    """Backtest the build-plus-canonical-profile contract one season forward.
+
+    Unlike the history-rich native forecast, this family deliberately uses
+    only inputs that have a declared cross-sport meaning.  Its build-only and
+    profile-only ablations show whether the canonical playing profile adds
+    future signal inside the athlete's own sport before it is used as an
+    analogy elsewhere.
+    """
+    available = role_specs() if specs is None else specs
+    forecast_pairs = build_native_forecast_pairs(scored) if pairs is None else pairs
+    heads: dict[str, dict] = {}
+    for key, spec in available.items():
+        if not spec.domains:
+            heads[key] = {"status": spec.evidence_status}
+            continue
+        dimensions = tuple(f"dimension_{name}_percentile" for name in _dimensions(spec))
+        combined_features = (*PHYSICAL_FEATURES, *dimensions)
+        candidates = forecast_pairs.loc[
+            forecast_pairs["sport"].eq(spec.sport)
+            & forecast_pairs["prior_role"].eq(spec.role)
+        ].copy()
+        same_role = candidates.loc[candidates["same_role_target"]].copy()
+        eligible = same_role.loc[
+            same_role["target_status"].eq("eligible")
+            & same_role["realized_target_status"].eq("eligible")
+            & _finite_target(same_role, "target_observed_role_percentile")
+        ].copy()
+        trainable = same_role.loc[
+            same_role["target_status"].isin(["eligible", "low_sample"])
+            & same_role["realized_target_status"].isin(["eligible", "low_sample"])
+            & _finite_target(same_role, "target_observed_role_percentile")
+        ].copy()
+        trainable["evaluation_eligible"] = (
+            trainable["target_status"].eq("eligible")
+            & trainable["realized_target_status"].eq("eligible")
+        )
+        required_inputs = ("height_cm", "weight_kg", *dimensions)
+        eligible_usable = eligible.loc[
+            _complete_numeric_inputs(eligible, required_inputs)
+        ].copy()
+        eligible_usable["season"] = eligible_usable["target_season"]
+        role_pairs = trainable.loc[
+            _complete_numeric_inputs(trainable, required_inputs)
+        ].copy()
+        role_pairs["season"] = role_pairs["target_season"]
+        coverage = _coverage_summary(
+            candidates,
+            eligible,
+            eligible_usable,
+            required_inputs=required_inputs,
+            extra={
+                "same_role_rows": int(len(same_role)),
+                "excluded_role_transition_rows": int(len(candidates) - len(same_role)),
+                "training_usable_rows": int(len(role_pairs)),
+                "weighted_low_sample_rows": int(
+                    (~role_pairs["evaluation_eligible"]).sum()
+                ),
+            },
+        )
+        try:
+            head = _fit_with_evaluation(
+                role_pairs,
+                features=tuple(combined_features),
+                target="target_observed_role_percentile",
+                sample_weight_column="pair_training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
+            )
+            build_only = _fit_with_evaluation(
+                role_pairs,
+                features=PHYSICAL_FEATURES,
+                target="target_observed_role_percentile",
+                sample_weight_column="pair_training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
+            )
+            profile_only = _fit_with_evaluation(
+                role_pairs,
+                features=dimensions,
+                target="target_observed_role_percentile",
+                sample_weight_column="pair_training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
+            )
+        except ValueError as error:
+            heads[key] = {
+                "status": "not_fit",
+                "reason": str(error),
+                "usable_coverage": coverage,
+            }
+            continue
+
+        advantage, build_metrics = _frozen_feature_advantage(
+            role_pairs,
+            full_features=tuple(combined_features),
+            baseline_features=PHYSICAL_FEATURES,
+            target="target_observed_role_percentile",
+            time_column="target_season",
+            sample_weight_column="pair_training_sample_weight",
+            evaluation_eligible_column="evaluation_eligible",
+        )
+        ci_low = advantage["ci90"][0]
+        increment_gate = (
+            "supported"
+            if head["evidence_gate"] == "supported" and ci_low is not None and ci_low > 0
+            else "not_supported"
+            if head["evaluation"]["frozen"]["n"] >= 20
+            else "insufficient_frozen_evidence"
+        )
+        head["profile_increment_gate"] = increment_gate
+        head["deployment_support"] = (
+            "supported_profile_increment"
+            if increment_gate == "supported"
+            else "experimental_unsupported"
+        )
+        head["evaluation"]["mae_advantage_vs_build_only"] = advantage
+        head["evaluation"]["build_only"] = build_metrics
+        head["ablations"] = {
+            "build_only": {
+                "features": build_only["features"],
+                "status": build_only["status"],
+                "evidence_gate": build_only["evidence_gate"],
+                "evaluation": build_only["evaluation"],
+            },
+            "canonical_profile_only": {
+                "features": profile_only["features"],
+                "status": profile_only["status"],
+                "evidence_gate": profile_only["evidence_gate"],
+                "evaluation": profile_only["evaluation"],
+            },
+        }
+        head["usable_coverage"] = coverage
+        head["dimensions"] = list(_dimensions(spec))
+        head["evidence_class"] = "native_forward_transferable_profile_benchmark"
+        head["training_label_policy"] = (
+            "same-role consecutive seasons; low-sample pairs are reliability-weighted for "
+            "training and frozen evaluation remains eligible-only"
+        )
+        heads[key] = head
+    return heads
+
+
 def train_bridge_models(
     scored: pd.DataFrame,
     *,
@@ -648,11 +994,13 @@ def train_bridge_models(
     """Fit fixed source-role -> target-role analogy heads.
 
     Each bridge uses only the predeclared performance-dimension intersection.
-    Target-sport contemporaneous dimensions are used to fit a reconstruction
-    proxy; applying source-sport percentiles is an unvalidated analogy.
+    The exact feature contract is tested by asking whether a target athlete's
+    prior-season build plus canonical profile predicts their next target-role
+    season better than build alone.  Applying source-sport percentiles remains
+    an unvalidated cross-sport analogy.
     """
     available = role_specs() if specs is None else specs
-    source = _with_bmi(scored)
+    pairs = build_native_forecast_pairs(scored)
     bridges: dict[str, dict] = {}
     for source_key, source_spec in available.items():
         if not source_spec.domains:
@@ -670,33 +1018,59 @@ def train_bridge_models(
                 }
                 continue
             features = (*PHYSICAL_FEATURES, *(f"dimension_{name}_percentile" for name in shared))
-            candidates = source.loc[
-                source["sport"].eq(target_spec.sport)
-                & source["role"].eq(target_spec.role)
+            candidates = pairs.loc[
+                pairs["sport"].eq(target_spec.sport)
+                & pairs["prior_role"].eq(target_spec.role)
             ].copy()
-            eligible = candidates.loc[
-                candidates["target_status"].eq("eligible")
-                & _finite_target(candidates, "observed_role_percentile")
+            same_role = candidates.loc[candidates["same_role_target"]].copy()
+            eligible = same_role.loc[
+                same_role["target_status"].eq("eligible")
+                & same_role["realized_target_status"].eq("eligible")
+                & _finite_target(same_role, "target_observed_role_percentile")
             ].copy()
+            trainable = same_role.loc[
+                same_role["target_status"].isin(["eligible", "low_sample"])
+                & same_role["realized_target_status"].isin(["eligible", "low_sample"])
+                & _finite_target(same_role, "target_observed_role_percentile")
+            ].copy()
+            trainable["evaluation_eligible"] = (
+                trainable["target_status"].eq("eligible")
+                & trainable["realized_target_status"].eq("eligible")
+            )
             required_inputs = (
                 "height_cm",
                 "weight_kg",
                 *(f"dimension_{name}_percentile" for name in shared),
             )
-            target_frame = eligible.loc[
+            eligible_usable = eligible.loc[
                 _complete_numeric_inputs(eligible, required_inputs)
             ].copy()
+            eligible_usable["season"] = eligible_usable["target_season"]
+            target_frame = trainable.loc[
+                _complete_numeric_inputs(trainable, required_inputs)
+            ].copy()
+            target_frame["season"] = target_frame["target_season"]
             coverage = _coverage_summary(
                 candidates,
                 eligible,
-                target_frame,
+                eligible_usable,
                 required_inputs=required_inputs,
+                extra={
+                    "same_role_rows": int(len(same_role)),
+                    "excluded_role_transition_rows": int(len(candidates) - len(same_role)),
+                    "training_usable_rows": int(len(target_frame)),
+                    "weighted_low_sample_rows": int(
+                        (~target_frame["evaluation_eligible"]).sum()
+                    ),
+                },
             )
             try:
                 head = _fit_with_evaluation(
                     target_frame,
                     features=tuple(features),
-                    target="observed_role_percentile",
+                    target="target_observed_role_percentile",
+                    sample_weight_column="pair_training_sample_weight",
+                    evaluation_eligible_column="evaluation_eligible",
                 )
             except ValueError as error:
                 bridges[bridge_key] = {
@@ -706,8 +1080,31 @@ def train_bridge_models(
                     "usable_coverage": coverage,
                 }
                 continue
-            head["target_proxy_reconstruction_gate"] = head.pop("evidence_gate")
+            advantage, build_metrics = _frozen_feature_advantage(
+                target_frame,
+                full_features=tuple(features),
+                baseline_features=PHYSICAL_FEATURES,
+                target="target_observed_role_percentile",
+                time_column="target_season",
+                sample_weight_column="pair_training_sample_weight",
+                evaluation_eligible_column="evaluation_eligible",
+            )
+            ci_low = advantage["ci90"][0]
+            forward_gate = (
+                "supported"
+                if head["evidence_gate"] == "supported" and ci_low is not None and ci_low > 0
+                else "not_supported"
+                if head["evaluation"]["frozen"]["n"] >= 20
+                else "insufficient_frozen_evidence"
+            )
+            head["evaluation"]["mae_advantage_vs_build_only"] = advantage
+            head["evaluation"]["build_only"] = build_metrics
+            head["target_role_forward_profile_gate"] = forward_gate
+            # Compatibility aliases retained for the existing scorer.  Their
+            # values now represent the stricter forward, incremental gate.
+            head["target_proxy_reconstruction_gate"] = forward_gate
             head["target_proxy_reconstruction_status"] = head.pop("status")
+            head.pop("evidence_gate", None)
             head["target_proxy_residual_mae"] = head.pop("frozen_residual_mae")
             head["dimensions"] = list(shared)
             head["source_role"] = source_key
@@ -715,11 +1112,15 @@ def train_bridge_models(
             head["semantic_bridge_grade"] = "moderate" if len(shared) >= 3 else "limited"
             head["evidence_class"] = "unvalidated_cross_sport_analogy"
             head["evaluation_scope"] = (
-                "Within-target-role proxy reconstruction only; the gate is not cross-sport "
-                "validation."
+                "Forward validation inside the target role: prior-season build plus the exact "
+                "shared canonical profile must improve on build alone. This is still not "
+                "cross-sport validation."
             )
             head["usable_coverage"] = coverage
-            head["training_label_policy"] = "target_status == 'eligible' only"
+            head["training_label_policy"] = (
+                "same-role consecutive target-sport seasons; low-sample pairs are reliability-"
+                "weighted for training and frozen evaluation remains eligible-only"
+            )
             bridges[bridge_key] = head
     return bridges
 
@@ -732,6 +1133,7 @@ def train_all_role_models(
     available = role_specs() if specs is None else specs
     physical = train_physical_models(scored, specs=available)
     native, pairs = train_native_forecast_models(scored, specs=available)
+    native_profile = train_native_profile_models(scored, specs=available, pairs=pairs)
     bridges = train_bridge_models(scored, specs=available)
     artifact = {
         "schema_version": SCHEMA_VERSION,
@@ -741,19 +1143,25 @@ def train_all_role_models(
         "frozen_test_season": FROZEN_TEST_SEASON,
         "physical_models": physical,
         "native_forecast_models": native,
+        "native_profile_models": native_profile,
         "bridge_models": bridges,
         "claims": {
             "observed": "descriptive role-season percentile",
             "native_forecast": "next-season estimate from prior information",
+            "native_profile": (
+                "next-season benchmark using only build and canonical cross-sport dimensions; "
+                "promotion requires incremental evidence over build alone"
+            ),
             "physical": "performance association from build; not causal",
             "bridge": "exploratory analogy; not a sport-switch probability or validated outcome forecast",
             "bridge_target_proxy_reconstruction_gate": (
-                "Measures only within-target-role reconstruction evidence; it is explicitly "
-                "not cross-sport validation."
+                "Compatibility name for a forward target-role test: prior build plus shared "
+                "canonical dimensions must improve on build alone; it is not cross-sport validation."
             ),
             "training_cohort": (
-                "Supervised labels are eligible role-seasons only. Fitted/evaluated rows must "
-                "also satisfy the same build and fixed-dimension requirements used at inference."
+                "Eligible and positive-opportunity low-sample labels may train with empirical "
+                "opportunity/coverage weights. Frozen evaluation remains eligible-only, and rows "
+                "must satisfy the deployed build and fixed-dimension requirements."
             ),
         },
     }

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A plain-language guide to the engineered features, role statistics and cross-sport dimensions used by the Athlete Translation Lab.">
+  <title>Engineered features | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="features.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to the feature guide</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html">Journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="features.html" aria-current="page">Features</a>
+        <a href="validation.html">Validation</a>
+        <a href="visuals.html">Visuals</a>
+        <a href="guide.html">Guide</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../profile/">Player profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero report-hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Engineered data dictionary</p>
+          <h1>How four sports become comparable—without pretending they are identical.</h1>
+          <p class="hero-lead">Each sport keeps its own statistics. The project first compares players with peers in the same role and season, then translates a few defensible themes into a shared language.</p>
+        </div>
+        <aside class="hero-aside" aria-label="Feature boundary">
+          <strong>These features describe recorded play.</strong>
+          <p>They do not directly measure awareness, reaction speed, learning ability or “game IQ.” Those ideas need their own repeatable tests or coaching rubrics.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="feature-snapshot-title">
+      <h2 id="feature-snapshot-title" class="eyebrow">Saved feature contract</h2>
+      <div class="snapshot">
+        <div class="stat"><strong id="role-count">—</strong><span>registered roles</span></div>
+        <div class="stat"><strong id="dimension-count">—</strong><span>shared comparison themes</span></div>
+        <div class="stat"><strong>4</strong><span>sports with separate source statistics</span></div>
+        <div class="stat"><strong id="feature-test-season">—</strong><span>frozen evaluation season</span></div>
+      </div>
+      <p id="feature-version" class="snapshot-note">Loading the saved feature registry…</p>
+      <div id="feature-error" class="warning" role="alert" hidden></div>
+    </section>
+
+    <section class="section" aria-labelledby="pipeline-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">The translation path</p>
+            <h2 id="pipeline-heading">The raw number is never compared across sports.</h2>
+          </div>
+          <p>A basketball steal and a hockey takeaway remain different events. Comparability is introduced only after each statistic has been adjusted and ranked inside its own role-season setting.</p>
+        </div>
+        <ol class="feature-flow" aria-label="Feature engineering stages">
+          <li><strong>Record the event</strong><span>Use the sport’s own points, assists, tackles, pressures, saves or other public statistics.</span></li>
+          <li><strong>Account for opportunity</strong><span>Turn counts into role-appropriate rates, such as per 36 minutes, per 60 minutes or per target.</span></li>
+          <li><strong>Reduce small-sample extremes</strong><span>Pull short appearances toward the eligible role-season average according to how much opportunity the player had.</span></li>
+          <li><strong>Rank comparable peers</strong><span>Convert the adjusted value into a percentile among athletes in the same sport, role and season.</span></li>
+          <li><strong>Build a role domain</strong><span>Combine related percentiles with declared, reviewable weights.</span></li>
+          <li><strong>Map a shared theme</strong><span>Use only named themes shared by both source and target roles in a cross-sport analogy.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="dimension-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Shared dimensions</p>
+            <h2 id="dimension-heading">Seven broad questions the sports can sometimes share.</h2>
+          </div>
+          <p>A role uses only the dimensions supported by its own statistics. The bridge requires at least two shared dimensions; otherwise it withholds the playing-profile score.</p>
+        </div>
+        <div id="dimension-grid" class="dimension-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="role-dictionary-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Role-by-role dictionary</p>
+            <h2 id="role-dictionary-heading">See exactly which statistics build each role.</h2>
+          </div>
+          <p>Weights are parts of the declared role score. They express the current research definition; they are not discovered laws about how the sport must be played.</p>
+        </div>
+        <div id="feature-sport-tabs" class="report-tabs" role="tablist" aria-label="Choose a sport"></div>
+        <div id="role-summary" class="note" aria-live="polite"></div>
+        <div id="role-list" class="role-dictionary" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section dark" aria-labelledby="opportunity-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Small samples</p>
+            <h2 id="opportunity-heading">Less playing time means less certainty in the observed rate.</h2>
+          </div>
+          <p>The project can keep useful low-opportunity rows for training, but it gives them reduced weight and keeps the frozen evaluation restricted to fully eligible rows.</p>
+        </div>
+        <p id="weighting-status" class="note">Loading the saved training rule…</p>
+        <div id="weighting-fields" class="dimension-grid" aria-live="polite"></div>
+        <div class="two-col">
+          <article class="card">
+            <h3>Reliability shrinkage</h3>
+            <p>The adjusted rate blends the player’s observed rate with an opportunity-weighted role-season average. More opportunity gives the player’s own rate more influence.</p>
+            <p class="plain-formula"><span>reliability</span> = opportunity ÷ (opportunity + prior exposure)</p>
+          </article>
+          <article class="card">
+            <h3>Next-season pairs</h3>
+            <p id="pair-weighting">The report export will explain how two player-seasons are weighted together.</p>
+            <p>“Low sample” means weaker evidence, not poor performance. Availability remains separate from the quality percentile.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="boundary-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Interpretation boundary</p>
+            <h2 id="boundary-heading">An engineered feature is a documented choice, not a hidden fact.</h2>
+          </div>
+        </div>
+        <div id="feature-boundaries" class="three-col"></div>
+        <div class="warning" style="margin-top: 1rem;">
+          <strong>Cross-sport boundary:</strong> a shared label such as “creation” says two role profiles have a useful conceptual overlap. The sports are not identical, and neither are the movements, decisions, techniques or difficulty.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>This dictionary is generated from the saved role registry. If a role, metric or weight changes, the report export should be regenerated with the model artifacts.</p>
+      <nav class="footer-links" aria-label="Next report pages">
+        <a href="validation.html">How the models were tested</a>
+        <a href="guide.html">How to read a score</a>
+        <a href="../profile/">Player profile</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

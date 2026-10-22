@@ -115,7 +115,7 @@
         "metric": "domain_scoring_percentile",
         "minimum": 90.0,
         "season": 2025,
-        "value": 95.15873015873062,
+        "value": 92.85714285714332,
         "status": "pass",
         "interpretation": "Face-validity check for observed target construction; not cross-sport validation."
       },
@@ -142,8 +142,9 @@
   "models": {
     "registered_roles": 26,
     "physical_heads_fit": 23,
-    "native_heads_fit": 22,
-    "bridge_heads_fit": 272,
+    "native_heads_fit": 23,
+    "native_profile_heads_fit": 23,
+    "bridge_heads_fit": 286,
     "forecast_pairs": 16916
   },
   "source_files": 224

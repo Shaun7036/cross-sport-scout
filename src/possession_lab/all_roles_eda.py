@@ -8,6 +8,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.patches import Patch
 
 from possession_lab.io import write_json
 
@@ -116,11 +117,16 @@ def _save_physical_map(scored: pd.DataFrame, path: Path) -> None:
 
 def _model_evidence_rows(report: dict) -> pd.DataFrame:
     rows = []
-    for family in ["physical_models", "native_forecast_models"]:
+    for family in [
+        "physical_models",
+        "native_forecast_models",
+        "native_profile_models",
+    ]:
         for key, head in report.get(family, {}).items():
             evaluation = head.get("evaluation", {})
             frozen = evaluation.get("frozen", {})
             neutral = evaluation.get("neutral_50", {})
+            build_only = evaluation.get("build_only", {})
             unseen_history = evaluation.get(
                 "unseen_history_slice",
                 evaluation.get("frozen_newcomers", {}),
@@ -131,11 +137,13 @@ def _model_evidence_rows(report: dict) -> pd.DataFrame:
                     "role_key": key,
                     "status": head.get("status"),
                     "evidence_gate": head.get("evidence_gate"),
+                    "profile_increment_gate": head.get("profile_increment_gate"),
                     "forecast_support": head.get("forecast_support"),
                     "deployment_support": head.get("deployment_support"),
                     "test_n": frozen.get("n"),
                     "model_mae": frozen.get("mae"),
                     "neutral_mae": neutral.get("mae"),
+                    "build_only_mae": build_only.get("mae"),
                     "unseen_history_n": unseen_history.get("n"),
                     "usable_rows": head.get("usable_coverage", {}).get("usable_rows"),
                     "usable_fraction_of_eligible_labels": head.get(
@@ -144,6 +152,40 @@ def _model_evidence_rows(report: dict) -> pd.DataFrame:
                 }
             )
     return pd.DataFrame(rows)
+
+
+def _save_profile_increment_chart(model_rows: pd.DataFrame, path: Path) -> None:
+    profile = model_rows.loc[
+        model_rows["family"].eq("native_profile_models")
+        & pd.to_numeric(model_rows["model_mae"], errors="coerce").notna()
+        & pd.to_numeric(model_rows["build_only_mae"], errors="coerce").notna()
+    ].copy()
+    if profile.empty:
+        return
+    profile["mae_improvement"] = (
+        pd.to_numeric(profile["build_only_mae"], errors="coerce")
+        - pd.to_numeric(profile["model_mae"], errors="coerce")
+    )
+    profile = profile.sort_values("mae_improvement")
+    supported = profile["profile_increment_gate"].eq("supported")
+    colors = np.where(supported, "#2f765d", "#9b7b50")
+    figure, axis = plt.subplots(figsize=(10, max(6, len(profile) * 0.30)))
+    axis.barh(profile["role_key"], profile["mae_improvement"], color=colors)
+    axis.axvline(0, color="#263238", linewidth=1)
+    axis.set_xlabel("Held-out MAE improvement over build alone (percentile points)")
+    axis.set_title("Does the prior playing profile add next-season signal?")
+    axis.legend(
+        handles=[
+            Patch(color="#2f765d", label="Passed the profile-over-build evidence gate"),
+            Patch(color="#9b7b50", label="Did not pass or lacked enough evidence"),
+        ],
+        frameon=False,
+        loc="lower right",
+    )
+    axis.spines[["top", "right"]].set_visible(False)
+    figure.tight_layout()
+    figure.savefig(path, dpi=160)
+    plt.close(figure)
 
 
 def build_all_roles_eda(root: Path | str) -> dict:
@@ -167,6 +209,10 @@ def build_all_roles_eda(root: Path | str) -> dict:
     if evaluation_path.exists():
         model_rows = _model_evidence_rows(json.loads(evaluation_path.read_text()))
         model_rows.to_csv(report_dir / "model_evidence_summary.csv", index=False)
+        _save_profile_increment_chart(
+            model_rows,
+            figure_dir / "profile_increment_vs_build.png",
+        )
 
     result = {
         "rows": int(len(scored)),

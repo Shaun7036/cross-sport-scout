@@ -5,6 +5,7 @@ from subprocess import run
 ROOT = Path(__file__).parents[1]
 LAUNCHER = ROOT / "scripts" / "run_portal.sh"
 PYTHON_LAUNCHER = ROOT / "scripts" / "run_portal.py"
+RESEARCH_LAUNCHER = ROOT / "scripts" / "run_lab.py"
 
 
 def test_local_launcher_can_import_src_project_from_another_directory(tmp_path):
@@ -45,6 +46,19 @@ def test_local_launcher_rejects_unknown_view():
 
     assert result.returncode == 2
     assert "Unknown view" in result.stderr
+
+
+def test_research_launcher_can_import_moved_src_project_from_another_directory(tmp_path):
+    result = run(
+        [sys.executable, str(RESEARCH_LAUNCHER), "--help"],
+        cwd=tmp_path,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "run-all-roles" in result.stdout
 
 
 def test_platform_wrappers_use_the_same_uv_launcher():

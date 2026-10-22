@@ -1,8 +1,8 @@
 {
-  "schema_version": "2.1.0",
+  "schema_version": "2.2.0",
   "role_taxonomy_version": "all-roles-broad-v2",
-  "target_version": "role-season-shrunk-percentiles-v1",
-  "bridge_version": "ordered-pair-dimension-intersection-v2",
+  "target_version": "role-season-reliability-weighted-percentiles-v2",
+  "bridge_version": "lagged-ordered-pair-dimension-intersection-v3",
   "frozen_test_season": 2025,
   "roles": {
     "nfl:QB": {
@@ -19,7 +19,7 @@
           "metrics": [
             {
               "column": "passing_epa_per_play",
-              "weight": 0.55,
+              "weight": 0.45,
               "higher_is_better": true,
               "description": ""
             },
@@ -31,7 +31,13 @@
             },
             {
               "column": "completion_over_expected",
-              "weight": 0.25,
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "explosive_pass_rate",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -106,19 +112,25 @@
           "metrics": [
             {
               "column": "rushing_epa_per_carry",
-              "weight": 0.45,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "rushing_yards_per_carry",
-              "weight": 0.3,
+              "weight": 0.25,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "rushing_first_down_rate",
               "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "explosive_run_rate",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -131,13 +143,19 @@
           "metrics": [
             {
               "column": "receiving_epa_per_target",
-              "weight": 0.55,
+              "weight": 0.45,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "receiving_yards_per_target",
-              "weight": 0.45,
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "explosive_target_rate",
+              "weight": 0.2,
               "higher_is_better": true,
               "description": ""
             }
@@ -187,19 +205,25 @@
           "metrics": [
             {
               "column": "receiving_epa_per_target",
-              "weight": 0.45,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "receiving_yards_per_target",
-              "weight": 0.3,
+              "weight": 0.25,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "receiving_first_down_rate",
               "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "explosive_target_rate",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -268,19 +292,25 @@
           "metrics": [
             {
               "column": "receiving_epa_per_target",
-              "weight": 0.45,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "receiving_yards_per_target",
-              "weight": 0.3,
+              "weight": 0.25,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "receiving_first_down_rate",
               "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "explosive_target_rate",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -765,23 +795,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.32,
+          "weight": 0.3,
           "metrics": [
             {
               "column": "points_per_36",
-              "weight": 0.45,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "true_shooting_pct",
-              "weight": 0.35,
+              "weight": 0.32,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "effective_fg_pct",
-              "weight": 0.2,
+              "weight": 0.18,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "free_throw_attempt_rate",
+              "weight": 0.1,
               "higher_is_better": true,
               "description": ""
             }
@@ -790,7 +826,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.3,
+          "weight": 0.28,
           "metrics": [
             {
               "column": "assists_per_36",
@@ -847,12 +883,25 @@
         {
           "name": "recovery",
           "dimension": "recovery_rebounding",
-          "weight": 0.1,
+          "weight": 0.09,
           "metrics": [
             {
               "column": "defensive_rebounds_per_36",
               "weight": 1.0,
               "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "fouls_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
               "description": ""
             }
           ]
@@ -871,23 +920,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.3,
+          "weight": 0.28,
           "metrics": [
             {
               "column": "points_per_36",
-              "weight": 0.45,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "true_shooting_pct",
-              "weight": 0.35,
+              "weight": 0.32,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "effective_fg_pct",
-              "weight": 0.2,
+              "weight": 0.18,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "free_throw_attempt_rate",
+              "weight": 0.1,
               "higher_is_better": true,
               "description": ""
             }
@@ -896,7 +951,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.2,
+          "weight": 0.19,
           "metrics": [
             {
               "column": "assists_per_36",
@@ -934,7 +989,7 @@
         {
           "name": "disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.18,
+          "weight": 0.17,
           "metrics": [
             {
               "column": "steals_per_36",
@@ -953,7 +1008,7 @@
         {
           "name": "recovery",
           "dimension": "recovery_rebounding",
-          "weight": 0.19,
+          "weight": 0.18,
           "metrics": [
             {
               "column": "defensive_rebounds_per_36",
@@ -965,6 +1020,19 @@
               "column": "offensive_rebounds_per_36",
               "weight": 0.3,
               "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "fouls_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
               "description": ""
             }
           ]
@@ -983,17 +1051,23 @@
         {
           "name": "finishing",
           "dimension": "scoring_finishing",
-          "weight": 0.26,
+          "weight": 0.25,
           "metrics": [
             {
               "column": "points_per_36",
-              "weight": 0.35,
+              "weight": 0.32,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "true_shooting_pct",
-              "weight": 0.65,
+              "weight": 0.58,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "free_throw_attempt_rate",
+              "weight": 0.1,
               "higher_is_better": true,
               "description": ""
             }
@@ -1002,7 +1076,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.12,
+          "weight": 0.11,
           "metrics": [
             {
               "column": "assists_per_36",
@@ -1040,7 +1114,7 @@
         {
           "name": "rim_disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.24,
+          "weight": 0.23,
           "metrics": [
             {
               "column": "blocks_per_36",
@@ -1059,7 +1133,7 @@
         {
           "name": "recovery",
           "dimension": "recovery_rebounding",
-          "weight": 0.25,
+          "weight": 0.23,
           "metrics": [
             {
               "column": "defensive_rebounds_per_36",
@@ -1071,6 +1145,19 @@
               "column": "offensive_rebounds_per_36",
               "weight": 0.35,
               "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "fouls_per_36",
+              "weight": 1.0,
+              "higher_is_better": false,
               "description": ""
             }
           ]
@@ -1089,17 +1176,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.27,
+          "weight": 0.2565,
           "metrics": [
             {
               "column": "goals_per_60",
-              "weight": 0.55,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "expected_goals_per_60",
-              "weight": 0.45,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "shots_on_goal_per_60",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "high_danger_shots_per_60",
+              "weight": 0.2,
               "higher_is_better": true,
               "description": ""
             }
@@ -1108,7 +1207,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.23,
+          "weight": 0.2185,
           "metrics": [
             {
               "column": "primary_assists_per_60",
@@ -1127,7 +1226,7 @@
         {
           "name": "puck_security",
           "dimension": "possession_security",
-          "weight": 0.16,
+          "weight": 0.152,
           "metrics": [
             {
               "column": "giveaways_per_60",
@@ -1146,7 +1245,7 @@
         {
           "name": "disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.16,
+          "weight": 0.152,
           "metrics": [
             {
               "column": "takeaways_per_60",
@@ -1171,17 +1270,42 @@
         {
           "name": "territory",
           "dimension": "progression_territory",
-          "weight": 0.18,
+          "weight": 0.17099999999999999,
           "metrics": [
             {
               "column": "on_ice_xgoal_pct",
-              "weight": 0.6,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "relative_xgoal_pct",
-              "weight": 0.4,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "on_ice_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "penalty_differential_per_60",
+              "weight": 1.0,
               "higher_is_better": true,
               "description": ""
             }
@@ -1201,17 +1325,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.34,
+          "weight": 0.323,
           "metrics": [
             {
               "column": "goals_per_60",
-              "weight": 0.55,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "expected_goals_per_60",
-              "weight": 0.45,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "shots_on_goal_per_60",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "high_danger_shots_per_60",
+              "weight": 0.2,
               "higher_is_better": true,
               "description": ""
             }
@@ -1220,7 +1356,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.24,
+          "weight": 0.22799999999999998,
           "metrics": [
             {
               "column": "primary_assists_per_60",
@@ -1239,7 +1375,7 @@
         {
           "name": "puck_security",
           "dimension": "possession_security",
-          "weight": 0.15,
+          "weight": 0.1425,
           "metrics": [
             {
               "column": "giveaways_per_60",
@@ -1258,7 +1394,7 @@
         {
           "name": "disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.17,
+          "weight": 0.1615,
           "metrics": [
             {
               "column": "takeaways_per_60",
@@ -1283,17 +1419,42 @@
         {
           "name": "territory",
           "dimension": "progression_territory",
-          "weight": 0.1,
+          "weight": 0.095,
           "metrics": [
             {
               "column": "on_ice_xgoal_pct",
-              "weight": 0.6,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "relative_xgoal_pct",
-              "weight": 0.4,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "on_ice_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "penalty_differential_per_60",
+              "weight": 1.0,
               "higher_is_better": true,
               "description": ""
             }
@@ -1313,17 +1474,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.34,
+          "weight": 0.323,
           "metrics": [
             {
               "column": "goals_per_60",
-              "weight": 0.55,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "expected_goals_per_60",
-              "weight": 0.45,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "shots_on_goal_per_60",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "high_danger_shots_per_60",
+              "weight": 0.2,
               "higher_is_better": true,
               "description": ""
             }
@@ -1332,7 +1505,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.24,
+          "weight": 0.22799999999999998,
           "metrics": [
             {
               "column": "primary_assists_per_60",
@@ -1351,7 +1524,7 @@
         {
           "name": "puck_security",
           "dimension": "possession_security",
-          "weight": 0.15,
+          "weight": 0.1425,
           "metrics": [
             {
               "column": "giveaways_per_60",
@@ -1370,7 +1543,7 @@
         {
           "name": "disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.17,
+          "weight": 0.1615,
           "metrics": [
             {
               "column": "takeaways_per_60",
@@ -1395,17 +1568,42 @@
         {
           "name": "territory",
           "dimension": "progression_territory",
-          "weight": 0.1,
+          "weight": 0.095,
           "metrics": [
             {
               "column": "on_ice_xgoal_pct",
-              "weight": 0.6,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "relative_xgoal_pct",
-              "weight": 0.4,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "on_ice_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "penalty_differential_per_60",
+              "weight": 1.0,
               "higher_is_better": true,
               "description": ""
             }
@@ -1425,17 +1623,29 @@
         {
           "name": "scoring",
           "dimension": "scoring_finishing",
-          "weight": 0.16,
+          "weight": 0.152,
           "metrics": [
             {
               "column": "goals_per_60",
-              "weight": 0.55,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "expected_goals_per_60",
-              "weight": 0.45,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "shots_on_goal_per_60",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "high_danger_shots_per_60",
+              "weight": 0.2,
               "higher_is_better": true,
               "description": ""
             }
@@ -1444,7 +1654,7 @@
         {
           "name": "creation",
           "dimension": "creation_distribution",
-          "weight": 0.25,
+          "weight": 0.2375,
           "metrics": [
             {
               "column": "primary_assists_per_60",
@@ -1463,7 +1673,7 @@
         {
           "name": "puck_security",
           "dimension": "possession_security",
-          "weight": 0.14,
+          "weight": 0.133,
           "metrics": [
             {
               "column": "giveaways_per_60",
@@ -1482,7 +1692,7 @@
         {
           "name": "disruption",
           "dimension": "defensive_disruption",
-          "weight": 0.28,
+          "weight": 0.266,
           "metrics": [
             {
               "column": "takeaways_per_60",
@@ -1507,17 +1717,42 @@
         {
           "name": "territory",
           "dimension": "progression_territory",
-          "weight": 0.17,
+          "weight": 0.1615,
           "metrics": [
             {
               "column": "on_ice_xgoal_pct",
-              "weight": 0.6,
+              "weight": 0.4,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "relative_xgoal_pct",
-              "weight": 0.4,
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "on_ice_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "relative_corsi_pct",
+              "weight": 0.15,
+              "higher_is_better": true,
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "discipline",
+          "dimension": "discipline_efficiency",
+          "weight": 0.05,
+          "metrics": [
+            {
+              "column": "penalty_differential_per_60",
+              "weight": 1.0,
               "higher_is_better": true,
               "description": ""
             }
@@ -1597,14 +1832,20 @@
           "metrics": [
             {
               "column": "saves_per_90",
-              "weight": 0.55,
+              "weight": 0.35,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "goals_conceded_per_90",
-              "weight": 0.45,
+              "weight": 0.25,
               "higher_is_better": false,
+              "description": ""
+            },
+            {
+              "column": "goal_prevention_over_expected_per_90",
+              "weight": 0.4,
+              "higher_is_better": true,
               "description": ""
             }
           ]
@@ -1672,13 +1913,19 @@
           "metrics": [
             {
               "column": "assists_per_90",
-              "weight": 0.6,
+              "weight": 0.3,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "creativity_per_90",
-              "weight": 0.4,
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_assists_per_90",
+              "weight": 0.45,
               "higher_is_better": true,
               "description": ""
             }
@@ -1691,7 +1938,25 @@
           "metrics": [
             {
               "column": "goals_per_90",
-              "weight": 1.0,
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "threat_per_90",
+              "weight": 0.2,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_90",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "finishing_over_expected_per_90",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -1728,13 +1993,25 @@
           "metrics": [
             {
               "column": "assists_per_90",
-              "weight": 0.55,
+              "weight": 0.25,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "creativity_per_90",
-              "weight": 0.45,
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_assists_per_90",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goal_involvements_per_90",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -1747,13 +2024,25 @@
           "metrics": [
             {
               "column": "goals_per_90",
-              "weight": 0.55,
+              "weight": 0.3,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "threat_per_90",
-              "weight": 0.45,
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_90",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "finishing_over_expected_per_90",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -1790,13 +2079,25 @@
           "metrics": [
             {
               "column": "goals_per_90",
-              "weight": 0.6,
+              "weight": 0.3,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "threat_per_90",
-              "weight": 0.4,
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goals_per_90",
+              "weight": 0.3,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "finishing_over_expected_per_90",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -1809,13 +2110,25 @@
           "metrics": [
             {
               "column": "assists_per_90",
-              "weight": 0.55,
+              "weight": 0.25,
               "higher_is_better": true,
               "description": ""
             },
             {
               "column": "creativity_per_90",
-              "weight": 0.45,
+              "weight": 0.25,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_assists_per_90",
+              "weight": 0.35,
+              "higher_is_better": true,
+              "description": ""
+            },
+            {
+              "column": "expected_goal_involvements_per_90",
+              "weight": 0.15,
               "higher_is_better": true,
               "description": ""
             }
@@ -1842,6 +2155,7 @@
   "score_contract": {
     "observed_role_percentile": "Retrospective role-season peer comparison.",
     "native_forecast_percentile": "Next-season estimate using only information available before that season.",
+    "native_build_profile_forecast_percentile": "Next-season benchmark using only build and canonical playing-profile dimensions; checked against build alone.",
     "cross_sport_physical_estimate": "Target-role model using build only.",
     "cross_sport_transfer_guesstimate": "Unvalidated target-role analogy using build plus a fixed intersection of sport-relative performance dimensions."
   }

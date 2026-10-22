@@ -29,6 +29,7 @@
     withheld_missing_required_dimensions: "Withheld · missing mapped performance",
     withheld_proxy_model_failed_baseline_gate: "Withheld · proxy model failed its evidence gate",
     withheld_target_proxy_reconstruction_failed_gate: "Withheld · target proxy failed its reconstruction gate",
+    withheld_target_role_forward_profile_failed_gate: "Withheld · playing profile did not improve the forward test",
     withheld_source_performance_not_eligible: "Withheld · source season is not eligible",
     withheld_out_of_domain: "Withheld · outside the reference domain",
     unknown: "Evidence unavailable",
@@ -234,6 +235,7 @@
         supported_over_neutral_and_history_baselines: "Supported vs neutral + history",
         experimental_unsupported: "Experimental · unsupported",
         experimental_target_proxy_passed_not_cross_sport_validated: "Exploratory proxy only",
+        experimental_forward_profile_passed_not_cross_sport_validated: "Exploratory profile analogy only",
       };
       return support[score?.support_status] || statusText[score.status] || "Available";
     }
@@ -276,7 +278,8 @@
     if (outside.length) items.push(`Reference-range flags: ${outside.join(", ")}`);
     if (score?.forecast_support) items.push(`Forecast support: ${words(score.forecast_support)}`);
     if (score?.support_status) items.push(`Support: ${words(score.support_status)}`);
-    if (score?.target_proxy_reconstruction_gate) items.push(`Target-proxy reconstruction gate: ${words(score.target_proxy_reconstruction_gate)}`);
+    if (score?.target_role_forward_profile_gate) items.push(`Forward target-role profile gate: ${words(score.target_role_forward_profile_gate)}`);
+    else if (score?.target_proxy_reconstruction_gate) items.push(`Legacy target-proxy gate: ${words(score.target_proxy_reconstruction_gate)}`);
     if (score?.semantic_bridge_grade) items.push(`Semantic bridge: ${words(score.semantic_bridge_grade)}`);
     if (Array.isArray(score?.dimensions) && score.dimensions.length) items.push(`Mapped dimensions: ${score.dimensions.map(words).join(", ")}`);
     items.forEach((item) => notes.append(element("span", "", item)));
@@ -524,7 +527,7 @@
       ["Fitted physical role heads", model.evidence?.physical_models_fit ?? "Unavailable"],
       ["Supported physical-association heads", model.evidence?.physical_models_supported ?? "Unavailable"],
       ["Deployment-supported native forecasts", model.evidence?.native_models_deployment_supported ?? "Unavailable"],
-      ["Target-proxy heads passing reconstruction gate", model.evidence?.bridge_target_proxy_heads_passing_gate ?? "Unavailable"],
+      ["Bridge heads passing forward profile-over-build gate", model.evidence?.bridge_target_role_forward_profile_heads_passing_gate ?? model.evidence?.bridge_target_proxy_heads_passing_gate ?? "Unavailable"],
     ];
     entries.forEach(([label, value]) => append(facts, append(element("div"), element("dt", "", label), element("dd", "", value))));
     record.append(facts);

@@ -38,7 +38,7 @@ Python 3.12 is recommended. From this repository:
 
 ~~~bash
 uv sync --extra dev --python 3.12
-uv run athlete-translation-lab run-all-roles
+uv run python scripts/run_lab.py run-all-roles
 ~~~
 
 `run-all-roles` rebuilds the four all-role panels from the existing raw cache and prerequisite sport-specific processed panels, constructs role-season targets, trains the model families, updates aggregate reports, and rebuilds EDA. It does not acquire sources or rebuild those prerequisite base pipelines. Raw and processed player data and fitted model binaries remain local and are ignored by Git.
@@ -47,13 +47,13 @@ Useful narrower commands are:
 
 ~~~bash
 # Rebuild aggregate EDA from existing all-role outputs
-uv run athlete-translation-lab analyze-all-roles
+uv run python scripts/run_lab.py analyze-all-roles
 
 # Retrain from the existing observed-score panel
-uv run athlete-translation-lab train-all-roles
+uv run python scripts/run_lab.py train-all-roles
 
 # Inspect the command surface
-uv run athlete-translation-lab --help
+uv run python scripts/run_lab.py --help
 ~~~
 
 The `possession-lab` command remains an alias for compatibility.
@@ -64,11 +64,11 @@ Use the player's source sport and stable source ID. The latest available season 
 
 ~~~bash
 # LeBron James (ESPN athlete ID 1966), translated to NFL roles
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --sport nba --player-id 1966 --season 2025 --target-sport nfl
 
 # Stephen Curry (ESPN athlete ID 3975), translated to NHL roles
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --sport nba --player-id 3975 --target-sport nhl
 ~~~
 
@@ -79,14 +79,14 @@ Known-player scoring can return all four outputs because the processed row conta
 A height/weight profile can receive physical-only target-role estimates:
 
 ~~~bash
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --height-cm 198 --weight-kg 102 --age 25 --target-sport nba
 ~~~
 
 To request the transfer analogy for an athlete outside the repository, supply source sport, source role, eligibility, and already-normalized source-role performance dimensions. See [examples/all_roles_athlete.json](examples/all_roles_athlete.json):
 
 ~~~bash
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --profile examples/all_roles_athlete.json --target-sport nfl \
   --output work/example_all_roles_score.json
 ~~~
@@ -98,8 +98,8 @@ The dimension inputs are 0–100 source-role percentiles, not raw box-score valu
 Build the static export and serve it locally:
 
 ~~~bash
-uv run athlete-translation-lab build-all-roles-portal
-uv run athlete-translation-lab all-roles-portal
+uv run python scripts/run_lab.py build-all-roles-portal
+uv run python scripts/run_lab.py all-roles-portal
 ~~~
 
 Open `http://127.0.0.1:8766`. The export is rebuilt from the local processed tables and fitted all-role artifact. The server binds only to this computer and serves the `portal-all-roles/` directory. Use `--port 8989` to choose another port.
@@ -111,8 +111,8 @@ The explorer separates observed native performance, native forecast, physical es
 The detailed portal remains available unchanged. A second, single-role-at-a-time view uses the same model and the same player JSON export:
 
 ~~~bash
-uv run athlete-translation-lab build-all-roles-compact-portal
-uv run athlete-translation-lab all-roles-compact-portal
+uv run python scripts/run_lab.py build-all-roles-compact-portal
+uv run python scripts/run_lab.py all-roles-compact-portal
 ~~~
 
 Open `http://127.0.0.1:8767/compact/`. If the detailed server is already running on port 8766, the same compact page is also available at `http://127.0.0.1:8766/compact/`—no second data copy is created.
@@ -124,10 +124,10 @@ The compact view adds target-sport tabs, one target-role dropdown, a switch betw
 Two additional pages use the same player files and model results without replacing the detailed or compact explorers:
 
 ~~~bash
-uv run athlete-translation-lab all-roles-friendly-portal
+uv run python scripts/run_lab.py all-roles-friendly-portal
 # http://127.0.0.1:8768/friendly/
 
-uv run athlete-translation-lab all-roles-stories-portal
+uv run python scripts/run_lab.py all-roles-stories-portal
 # http://127.0.0.1:8769/stories/
 ~~~
 

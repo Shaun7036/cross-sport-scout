@@ -58,6 +58,8 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     physical_head = _head(physical_features, training)
     native_head = _head(native_features, training)
     native_head["forecast_support"] = "supported_over_history_baselines"
+    native_profile_head = _head(bridge_features, training)
+    native_profile_head["profile_increment_gate"] = "supported"
     bridge_head = _head(bridge_features, training)
     bridge_head["target_proxy_reconstruction_gate"] = bridge_head.pop("evidence_gate")
     bridge_head["target_proxy_residual_mae"] = bridge_head.pop("frozen_residual_mae")
@@ -66,6 +68,7 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
         "claims": {},
         "physical_models": {"nba:guard": physical_head},
         "native_forecast_models": {"nfl:QB": native_head},
+        "native_profile_models": {"nfl:QB": native_profile_head},
         "bridge_models": {"nfl:QB->nba:guard": bridge_head},
     }
     profile = training.iloc[10].to_dict()
@@ -85,6 +88,14 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     result = score_all_roles_profile(artifact, profile, target_sport="nba")
     assert result["native"]["observed"]["kind"] == "observed_role_percentile"
     assert result["native"]["forecast"]["kind"] == "native_forecast_percentile"
+    assert (
+        result["native"]["build_profile_forecast"]["kind"]
+        == "native_build_profile_forecast_percentile"
+    )
+    assert (
+        result["native"]["build_profile_forecast"]["support_status"]
+        == "supported_profile_increment"
+    )
     guard = result["targets"]["nba"]["roles"]["guard"]
     assert guard["physical_only"]["kind"] == "cross_sport_physical_estimate"
     assert guard["transfer_guesstimate"]["kind"] == "cross_sport_transfer_guesstimate"
@@ -94,13 +105,14 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     assert "analogy_sensitivity_range" in guard["transfer_guesstimate"]
     assert (
         guard["transfer_guesstimate"]["sensitivity_basis"]
-        == "target_proxy_frozen_test_mae"
+        == "target_role_forward_profile_frozen_test_mae"
     )
-    assert "target-proxy frozen-test MAE" in guard["transfer_guesstimate"]["range_warning"]
+    assert "forward-profile frozen-test MAE" in guard["transfer_guesstimate"]["range_warning"]
     assert (
         guard["transfer_guesstimate"]["support_status"]
-        == "experimental_target_proxy_passed_not_cross_sport_validated"
+        == "experimental_forward_profile_passed_not_cross_sport_validated"
     )
+    assert guard["transfer_guesstimate"]["target_role_forward_profile_gate"] == "supported"
     assert "evidence_gate" not in guard["transfer_guesstimate"]
 
 
@@ -142,6 +154,8 @@ def _fixture_artifact(
     native = _head(native_features, training)
     native["evidence_gate"] = native_gate
     native["forecast_support"] = forecast_support
+    native_profile = _head(bridge_features, training)
+    native_profile["profile_increment_gate"] = "supported"
     bridge = _head(bridge_features, training)
     bridge["target_proxy_reconstruction_gate"] = bridge.pop("evidence_gate")
     bridge["target_proxy_residual_mae"] = bridge.pop("frozen_residual_mae")
@@ -150,6 +164,7 @@ def _fixture_artifact(
         "claims": {},
         "physical_models": {"nba:guard": physical},
         "native_forecast_models": {"nfl:QB": native},
+        "native_profile_models": {"nfl:QB": native_profile},
         "bridge_models": {"nfl:QB->nba:guard": bridge},
     }
     profile = training.iloc[10].to_dict()
@@ -211,11 +226,29 @@ def test_low_sample_source_keeps_observed_but_withholds_forecasts_and_transfer()
     assert result["native"]["observed"]["status"] == "low_sample"
     assert result["native"]["observed"]["value"] is not None
     assert result["native"]["forecast"]["status"] == "withheld_source_performance_not_eligible"
+    assert (
+        result["native"]["build_profile_forecast"]["status"]
+        == "withheld_source_performance_not_eligible"
+    )
     assert guard["transfer_guesstimate"]["status"] == "withheld_source_performance_not_eligible"
     assert guard["physical_only"]["value"] is not None
 
 
-def test_failed_target_proxy_gate_is_named_and_withheld():
+def test_native_build_profile_forecast_requires_increment_over_build_only():
+    artifact, profile = _fixture_artifact()
+    profile_head = artifact["native_profile_models"]["nfl:QB"]
+    profile_head["profile_increment_gate"] = "not_supported"
+
+    result = score_all_roles_profile(artifact, profile, target_sport="nba")
+    forecast = result["native"]["build_profile_forecast"]
+
+    assert forecast["value"] is not None
+    assert forecast["support_status"] == "experimental_unsupported"
+    assert forecast["profile_increment_gate"] == "not_supported"
+    assert "build-only" in forecast["evidence_warning"]
+
+
+def test_failed_target_role_forward_profile_gate_is_named_and_withheld():
     artifact, profile = _fixture_artifact()
     bridge = artifact["bridge_models"]["nfl:QB->nba:guard"]
     bridge["target_proxy_reconstruction_gate"] = "not_supported"
@@ -224,7 +257,8 @@ def test_failed_target_proxy_gate_is_named_and_withheld():
     transfer = result["targets"]["nba"]["roles"]["guard"]["transfer_guesstimate"]
 
     assert transfer["value"] is None
-    assert transfer["status"] == "withheld_target_proxy_reconstruction_failed_gate"
+    assert transfer["status"] == "withheld_target_role_forward_profile_failed_gate"
+    assert transfer["target_role_forward_profile_gate"] == "not_supported"
     assert transfer["target_proxy_reconstruction_gate"] == "not_supported"
     assert "evidence_gate" not in transfer
 

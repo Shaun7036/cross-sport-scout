@@ -30,6 +30,7 @@
     withheld_missing_required_dimensions: "The source sport does not provide enough comparable playing-style data.",
     withheld_proxy_model_failed_baseline_gate: "This estimate was too unreliable in testing.",
     withheld_target_proxy_reconstruction_failed_gate: "This estimate was too unreliable in testing.",
+    withheld_target_role_forward_profile_failed_gate: "This estimate was too unreliable in forward testing.",
     withheld_source_performance_not_eligible: "The player did not have enough playing time for a reliable source profile.",
     withheld_out_of_domain: "This athlete is too different from the players used to build this comparison.",
     withheld_insufficient_reference: "Too few players in this role have usable measurements.",

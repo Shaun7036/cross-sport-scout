@@ -19,10 +19,12 @@
       <nav class="site-nav" aria-label="Report navigation">
         <a href="index.html">Journey</a>
         <a href="findings.html">Findings</a>
+        <a href="features.html">Features</a>
+        <a href="validation.html">Validation</a>
         <a href="visuals.html" aria-current="page">Visuals</a>
-        <a href="guide.html">How to read it</a>
+        <a href="guide.html">Guide</a>
         <a href="../stories/">Examples</a>
-        <a class="portal-link" href="../friendly/">Open explorer</a>
+        <a class="portal-link" href="../profile/">Player profile</a>
       </nav>
     </div>
   </header>
@@ -31,7 +33,7 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">EDA and model charts · snapshot dated 21 October 2026</p>
+          <p class="eyebrow">EDA and model charts · snapshot dated 22 October 2026</p>
           <h1>See the evidence behind the ratings.</h1>
           <p class="hero-lead">These charts show where the dataset is deep, where information is missing, and why recent performance is more useful than body measurements alone.</p>
           <div class="actions">
@@ -130,14 +132,14 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">From roster row to model label</p>
-            <h2 id="scoring-heading">Not every recorded season should train a model.</h2>
+            <h2 id="scoring-heading">Not every recorded season should count equally.</h2>
           </div>
-          <p>“Scored” rows have enough information for a descriptive result. “Eligible” rows also clear the stricter opportunity threshold needed for supervised training.</p>
+          <p>“Scored” rows have enough information for a descriptive result. “Eligible” rows clear the stricter opportunity threshold used for full-strength evaluation; useful low-opportunity rows can still train the model at reduced weight.</p>
         </div>
 
         <div class="chart-legend" aria-label="Legend">
           <span><i class="legend-key scored-key" aria-hidden="true"></i>Scored descriptively</span>
-          <span><i class="legend-key eligible-key" aria-hidden="true"></i>Eligible model label</span>
+          <span><i class="legend-key eligible-key" aria-hidden="true"></i>Full-strength evaluation label</span>
         </div>
         <figure class="chart-block" role="img" aria-label="Scored and eligible shares of all rows. NFL 53.5 and 31.4 percent. NBA 100 and 65.5 percent. NHL 100 and 67.9 percent. Premier League 68.9 and 42.2 percent.">
           <figcaption>Share of each league panel</figcaption>
@@ -175,7 +177,7 @@
               <div class="paired-values"><span>68.9%</span><span>42.2%</span></div>
             </div>
           </div>
-          <p class="chart-takeaway"><strong>What it means:</strong> descriptive coverage is wider than training coverage. The gap is deliberate: low-opportunity seasons can be shown cautiously without being promoted to strong learning examples.</p>
+          <p class="chart-takeaway"><strong>What it means:</strong> descriptive coverage is wider than full-strength evaluation coverage. The gap is deliberate: low-opportunity seasons can contribute at reduced reliability weight, while only eligible seasons judge the frozen test.</p>
         </figure>
       </div>
     </section>
@@ -190,7 +192,7 @@
           <p>Each family starts with 26 registered target roles. “Passed” means it cleared that family’s internal evidence gate; it does not make a cross-sport claim deployment-ready.</p>
         </div>
 
-        <figure class="evidence-flow" role="img" aria-label="Physical models: 23 of 26 roles fitted and 4 passed the strict evidence gate. Native forecasts: 22 fitted and 12 passed the internal evidence gate, but zero are deployment ready.">
+        <figure class="evidence-flow" role="img" aria-label="Physical models: 23 of 26 roles fitted and 4 passed the strict evidence gate. Native forecasts: 23 fitted and 11 passed the neutral evidence gate, but zero cleared the full deployment rule. Native build-plus-profile models: 23 fitted and 10 improved on build alone.">
           <figcaption>Role heads reaching each checkpoint</figcaption>
           <div class="evidence-lanes">
             <div class="evidence-lane">
@@ -208,11 +210,21 @@
               <div class="checkpoint-row">
                 <div class="checkpoint"><strong>26</strong><span>registered roles</span></div>
                 <span class="flow-arrow" aria-hidden="true">→</span>
-                <div class="checkpoint"><strong>22</strong><span>fitted</span></div>
+                <div class="checkpoint"><strong>23</strong><span>fitted</span></div>
                 <span class="flow-arrow" aria-hidden="true">→</span>
-                <div class="checkpoint supported"><strong>12</strong><span>passed internal gate</span></div>
+                <div class="checkpoint supported"><strong>11</strong><span>passed neutral gate</span></div>
                 <span class="flow-arrow" aria-hidden="true">→</span>
                 <div class="checkpoint warning-state"><strong>0</strong><span>deployment-ready</span></div>
+              </div>
+            </div>
+            <div class="evidence-lane">
+              <h3>Build + canonical profile</h3>
+              <div class="checkpoint-row">
+                <div class="checkpoint"><strong>26</strong><span>registered roles</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint"><strong>23</strong><span>fitted</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint supported"><strong>10</strong><span>beat build alone</span></div>
               </div>
             </div>
           </div>
@@ -235,40 +247,40 @@
           <span><i class="legend-key model-key" aria-hidden="true"></i>Next-season model</span>
           <span><i class="legend-key neutral-key" aria-hidden="true"></i>Neutral baseline</span>
         </div>
-        <figure class="chart-block" role="img" aria-label="Mean absolute error comparisons, lower is better. NFL edge model 20.83 versus neutral 25.91. NBA guard 16.36 versus 25.48. NHL center 14.83 versus 26.57. Premier League midfielder 15.59 versus 26.04.">
+        <figure class="chart-block" role="img" aria-label="Mean absolute error comparisons, lower is better. NFL edge model 20.67 versus neutral 25.91. NBA guard 15.71 versus 25.26. NHL center 14.74 versus 26.57. Premier League midfielder 14.86 versus 26.34.">
           <figcaption>Mean absolute error on the held-out 2025 season</figcaption>
           <div class="paired-chart error-chart">
             <div class="paired-row">
               <div class="paired-title"><strong>NFL edge</strong><span>113 test rows</span></div>
               <div class="paired-bars" aria-hidden="true">
-                <div class="bar-track"><span class="bar-fill model-fill" style="width: 69.4%;"></span></div>
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 68.9%;"></span></div>
                 <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 86.4%;"></span></div>
               </div>
-              <div class="paired-values"><span>20.83</span><span>25.91</span></div>
+              <div class="paired-values"><span>20.67</span><span>25.91</span></div>
             </div>
             <div class="paired-row">
               <div class="paired-title"><strong>NBA guard</strong><span>132 test rows</span></div>
               <div class="paired-bars" aria-hidden="true">
-                <div class="bar-track"><span class="bar-fill model-fill" style="width: 54.5%;"></span></div>
-                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 84.9%;"></span></div>
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 52.4%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 84.2%;"></span></div>
               </div>
-              <div class="paired-values"><span>16.36</span><span>25.48</span></div>
+              <div class="paired-values"><span>15.71</span><span>25.26</span></div>
             </div>
             <div class="paired-row">
               <div class="paired-title"><strong>NHL center</strong><span>177 test rows</span></div>
               <div class="paired-bars" aria-hidden="true">
-                <div class="bar-track"><span class="bar-fill model-fill" style="width: 49.4%;"></span></div>
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 49.1%;"></span></div>
                 <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 88.6%;"></span></div>
               </div>
-              <div class="paired-values"><span>14.83</span><span>26.57</span></div>
+              <div class="paired-values"><span>14.74</span><span>26.57</span></div>
             </div>
             <div class="paired-row">
               <div class="paired-title"><strong>Premier League midfielder</strong><span>79 test rows</span></div>
               <div class="paired-bars" aria-hidden="true">
-                <div class="bar-track"><span class="bar-fill model-fill" style="width: 52%;"></span></div>
-                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 86.8%;"></span></div>
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 49.5%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 87.8%;"></span></div>
               </div>
-              <div class="paired-values"><span>15.59</span><span>26.04</span></div>
+              <div class="paired-values"><span>14.86</span><span>26.34</span></div>
             </div>
           </div>
           <p class="chart-takeaway"><strong>What it means:</strong> in these four roles, previous performance gives a much better same-sport estimate than starting every player near the middle. The models still need stronger history-baseline and external validation.</p>
@@ -283,15 +295,15 @@
             <p class="section-kicker">Cross-sport bridge</p>
             <h2 id="bridge-heading">The transfer layer is an analogy, not a success forecast.</h2>
           </div>
-          <p>The bridge asks whether shared performance themes can reconstruct a target role’s patterns. It has no large ground-truth sample of athletes who actually switched between these sports.</p>
+          <p>The bridge asks whether prior-season build plus the exact shared performance themes improves a target role’s next-season prediction over build alone. It has no large ground-truth sample of athletes who actually switched between these sports.</p>
         </div>
 
-        <figure class="bridge-figure" role="img" aria-label="Of 272 cross-sport bridge heads fitted, 243 passed an internal target reconstruction test, and zero have direct validation against real sport-switch outcomes.">
+        <figure class="bridge-figure" role="img" aria-label="Of 286 cross-sport bridge heads fitted, 125 passed a forward target-role profile test against build alone, and zero have direct validation against real sport-switch outcomes.">
           <figcaption>What the bridge evidence does—and does not—show</figcaption>
           <div class="bridge-steps">
-            <div><strong>272</strong><span>bridge heads fitted</span></div>
+            <div><strong>286</strong><span>bridge heads fitted</span></div>
             <span aria-hidden="true">→</span>
-            <div><strong>243</strong><span>passed target reconstruction</span></div>
+            <div><strong>125</strong><span>passed forward profile gate</span></div>
             <span aria-hidden="true">→</span>
             <div class="bridge-stop"><strong>0</strong><span>validated sport-switch outcomes</span></div>
           </div>
@@ -322,7 +334,7 @@
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <p>All figures describe the frozen repository snapshot dated 21 October 2026. Rounded percentages may differ slightly from stored values.</p>
+      <p>All figures describe the frozen repository snapshot dated 22 October 2026. Rounded percentages may differ slightly from stored values.</p>
       <nav class="footer-links" aria-label="Other project views">
         <a href="index.html">Research journey</a>
         <a href="findings.html">Findings</a>

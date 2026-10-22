@@ -187,6 +187,8 @@ class ObservedRoleTarget:
         result = self._component_scores(frame)
         domain_columns: list[str] = []
         domain_weights: list[float] = []
+        component_coverage_numerator = np.zeros(len(frame), dtype=float)
+        component_coverage_denominator = 0.0
         for domain in self.spec.domains:
             columns = [f"metric_{metric.column}_percentile" for metric in domain.metrics]
             weights = [metric.weight for metric in domain.metrics]
@@ -195,6 +197,18 @@ class ObservedRoleTarget:
             domain_columns.append(column)
             domain_weights.append(domain.weight)
 
+            # Metric weights are meaningful within a domain, while domain
+            # weights are meaningful across domains.  Normalising each level
+            # keeps a domain with several metrics from counting as more
+            # complete merely because it has more columns.
+            metric_weights = np.asarray(weights, dtype=float)
+            metric_total = float(metric_weights.sum())
+            if metric_total > 0:
+                available = np.isfinite(result.reindex(columns=columns).to_numpy(float))
+                within_domain = (available * metric_weights).sum(axis=1) / metric_total
+                component_coverage_numerator += domain.weight * within_domain
+                component_coverage_denominator += domain.weight
+
         raw_composite = _combine_available(result, domain_columns, domain_weights)
         quality = self.quality_cdf_.transform(raw_composite)
         availability = self.availability_cdf_.transform(opportunity)
@@ -202,6 +216,33 @@ class ObservedRoleTarget:
         total_impact = self.impact_cdf_.transform(impact_raw)
 
         positive = np.isfinite(opportunity) & (opportunity > 0)
+        reliability = np.divide(
+            opportunity,
+            opportunity + self.prior_exposure_,
+            out=np.zeros(len(frame), dtype=float),
+            where=positive,
+        )
+        component_coverage = np.divide(
+            component_coverage_numerator,
+            component_coverage_denominator,
+            out=np.zeros(len(frame), dtype=float),
+            where=component_coverage_denominator > 0,
+        )
+        domain_matrix = result.reindex(columns=domain_columns).to_numpy(float)
+        declared_domain_weights = np.asarray(domain_weights, dtype=float)
+        domain_weight_total = float(declared_domain_weights.sum())
+        domain_coverage = np.divide(
+            (np.isfinite(domain_matrix) * declared_domain_weights).sum(axis=1),
+            domain_weight_total,
+            out=np.zeros(len(frame), dtype=float),
+            where=domain_weight_total > 0,
+        )
+        training_weight = reliability * component_coverage
+        training_weight = np.where(
+            positive & np.isfinite(quality),
+            np.clip(training_weight, 0.05, 1.0),
+            np.nan,
+        )
         quality[~positive] = np.nan
         availability[~positive] = np.nan
         total_impact[~positive] = np.nan
@@ -209,6 +250,10 @@ class ObservedRoleTarget:
         result["observed_role_percentile"] = quality
         result["availability_percentile"] = availability
         result["total_impact_percentile"] = total_impact
+        result["opportunity_reliability"] = reliability
+        result["component_coverage_fraction"] = component_coverage
+        result["domain_coverage_fraction"] = domain_coverage
+        result["training_sample_weight"] = training_weight
         result["target_status"] = np.select(
             [~positive, opportunity < self.spec.min_opportunity],
             ["not_observed", "low_sample"],
@@ -278,6 +323,10 @@ def score_observed_panel(
         output["availability_percentile"] = np.nan
         output["total_impact_percentile"] = np.nan
         output["reference_athletes"] = 0
+        output["opportunity_reliability"] = np.nan
+        output["component_coverage_fraction"] = np.nan
+        output["domain_coverage_fraction"] = np.nan
+        output["training_sample_weight"] = np.nan
         return output
 
     for (key, season), part in source.groupby(["role_key", "season"], sort=True):

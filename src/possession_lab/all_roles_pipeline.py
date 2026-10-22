@@ -192,6 +192,9 @@ def _model_report(artifact: dict) -> dict:
         "native_forecast_models": {
             key: summarize(head) for key, head in artifact["native_forecast_models"].items()
         },
+        "native_profile_models": {
+            key: summarize(head) for key, head in artifact["native_profile_models"].items()
+        },
         "bridge_models": {
             key: summarize(head) for key, head in artifact["bridge_models"].items()
         },
@@ -223,6 +226,9 @@ def train_all_roles(
         "physical_heads_fit": sum("model" in head for head in artifact["physical_models"].values()),
         "native_heads_fit": sum(
             "model" in head for head in artifact["native_forecast_models"].values()
+        ),
+        "native_profile_heads_fit": sum(
+            "model" in head for head in artifact["native_profile_models"].values()
         ),
         "bridge_heads_fit": sum("model" in head for head in artifact["bridge_models"].values()),
         "forecast_pairs": int(len(pairs)),

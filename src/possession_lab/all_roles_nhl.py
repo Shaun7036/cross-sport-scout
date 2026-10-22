@@ -39,6 +39,16 @@ SKATER_SOURCE_COLUMNS = {
     "hits": "I_F_hits",
 }
 
+SKATER_OPTIONAL_SOURCE_COLUMNS = {
+    "shots_on_goal": "I_F_shotsOnGoal",
+    "shot_attempts": "I_F_shotAttempts",
+    "high_danger_shots": "I_F_highDangerShots",
+    "faceoffs_won": "faceoffsWon",
+    "faceoffs_lost": "faceoffsLost",
+    "penalties_taken": "penalties",
+    "penalties_drawn": "penaltiesDrawn",
+}
+
 SKATER_RATE_COLUMNS = {
     "goals": "goals_per_60",
     "expected_goals": "expected_goals_per_60",
@@ -48,6 +58,11 @@ SKATER_RATE_COLUMNS = {
     "takeaways": "takeaways_per_60",
     "blocks": "blocks_per_60",
     "hits": "hits_per_60",
+    "shots_on_goal": "shots_on_goal_per_60",
+    "shot_attempts": "shot_attempts_per_60",
+    "high_danger_shots": "high_danger_shots_per_60",
+    "penalties_taken": "penalties_taken_per_60",
+    "penalties_drawn": "penalties_drawn_per_60",
 }
 
 GOALIE_SOURCE_COLUMNS = {
@@ -85,10 +100,15 @@ OUTPUT_COLUMNS = (
     "nationality",
     "shoots_catches",
     *SKATER_SOURCE_COLUMNS,
+    *SKATER_OPTIONAL_SOURCE_COLUMNS,
     *SKATER_RATE_COLUMNS.values(),
     "takeaway_giveaway_ratio",
+    "faceoff_win_pct",
+    "penalty_differential_per_60",
     "on_ice_xgoal_pct",
     "relative_xgoal_pct",
+    "on_ice_corsi_pct",
+    "relative_corsi_pct",
     *GOALIE_SOURCE_COLUMNS,
     "save_pct",
     "high_danger_save_pct",
@@ -293,6 +313,22 @@ def _normalise_skater_source(raw: pd.DataFrame, season: int) -> pd.DataFrame:
     )
     for canonical, source in SKATER_SOURCE_COLUMNS.items():
         normalised[canonical] = pd.to_numeric(selected[source], errors="coerce")
+    for canonical, source in SKATER_OPTIONAL_SOURCE_COLUMNS.items():
+        normalised[canonical] = (
+            pd.to_numeric(selected[source], errors="coerce")
+            if source in selected
+            else np.nan
+        )
+    normalised["on_ice_corsi_pct"] = (
+        pd.to_numeric(selected["onIce_corsiPercentage"], errors="coerce")
+        if "onIce_corsiPercentage" in selected
+        else np.nan
+    )
+    normalised["off_ice_corsi_pct"] = (
+        pd.to_numeric(selected["offIce_corsiPercentage"], errors="coerce")
+        if "offIce_corsiPercentage" in selected
+        else np.nan
+    )
     return normalised.loc[normalised["player_id"].notna()].copy()
 
 
@@ -304,9 +340,21 @@ def _derive_skater_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result["takeaway_giveaway_ratio"] = _safe_ratio(
         result["takeaways"], result["giveaways"]
     )
+    result["faceoff_win_pct"] = _safe_ratio(
+        result["faceoffs_won"], result["faceoffs_won"] + result["faceoffs_lost"]
+    )
+    result["penalty_differential_per_60"] = _safe_ratio(
+        result["penalties_drawn"] - result["penalties_taken"],
+        result["opportunity"],
+        scale=60.0,
+    )
     result["relative_xgoal_pct"] = (
         pd.to_numeric(result["on_ice_xgoal_pct"], errors="coerce")
         - pd.to_numeric(result["off_ice_xgoal_pct"], errors="coerce")
+    )
+    result["relative_corsi_pct"] = (
+        pd.to_numeric(result["on_ice_corsi_pct"], errors="coerce")
+        - pd.to_numeric(result["off_ice_corsi_pct"], errors="coerce")
     )
     result["availability_minutes"] = result["opportunity"]
     return result
@@ -316,8 +364,18 @@ def _build_skater_season(raw: pd.DataFrame, season: int) -> pd.DataFrame:
     normalised = _normalise_skater_source(raw, season)
     panel = _aggregate_player_seasons(
         normalised,
-        total_columns=("games", "icetime", *SKATER_SOURCE_COLUMNS),
-        weighted_columns=("on_ice_xgoal_pct", "off_ice_xgoal_pct"),
+        total_columns=(
+            "games",
+            "icetime",
+            *SKATER_SOURCE_COLUMNS,
+            *SKATER_OPTIONAL_SOURCE_COLUMNS,
+        ),
+        weighted_columns=(
+            "on_ice_xgoal_pct",
+            "off_ice_xgoal_pct",
+            "on_ice_corsi_pct",
+            "off_ice_corsi_pct",
+        ),
     )
     if panel.empty:
         return panel

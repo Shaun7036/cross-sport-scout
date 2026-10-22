@@ -66,6 +66,23 @@ def test_observed_target_respects_metric_direction_and_status():
     assert result.loc[6, "target_status"] == "not_observed"
     assert np.isnan(result.loc[6, "observed_role_percentile"])
     assert result.loc[4, "dimension_scoring_finishing_percentile"] > 50
+    assert result.loc[4, "opportunity_reliability"] > result.loc[5, "opportunity_reliability"]
+    assert result.loc[5, "training_sample_weight"] < result.loc[4, "training_sample_weight"]
+    assert result.loc[6, "opportunity_reliability"] == 0
+    assert np.isnan(result.loc[6, "training_sample_weight"])
+    assert result.loc[4, "component_coverage_fraction"] == pytest.approx(1.0)
+    assert result.loc[4, "domain_coverage_fraction"] == pytest.approx(1.0)
+
+
+def test_observed_target_reports_partial_component_and_domain_coverage():
+    frame = fixture_frame()
+    frame.loc[0, "bad_rate"] = np.nan
+
+    result = ObservedRoleTarget(fixture_spec()).fit(frame).transform(frame)
+
+    assert result.loc[0, "component_coverage_fraction"] == pytest.approx(0.7)
+    assert result.loc[0, "domain_coverage_fraction"] == pytest.approx(0.7)
+    assert result.loc[0, "training_sample_weight"] < result.loc[1, "training_sample_weight"]
 
 
 def test_score_panel_keeps_abstaining_role_visible():
@@ -92,11 +109,12 @@ def test_sustained_index_uses_current_and_prior_two_seasons_only():
     )
 
 
-def test_registry_exposes_four_distinct_score_kinds():
+def test_registry_exposes_five_distinct_score_kinds():
     contract = registry_payload()["score_contract"]
     assert set(contract) == {
         "observed_role_percentile",
         "native_forecast_percentile",
+        "native_build_profile_forecast_percentile",
         "cross_sport_physical_estimate",
         "cross_sport_transfer_guesstimate",
     }

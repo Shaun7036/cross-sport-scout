@@ -31,10 +31,27 @@
             "reference_n": 130,
             "prior": 9.006849937521299
           },
+          "expected_assists_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 130,
             "prior": 0.04702942178802681
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 130,
+            "prior": 8.017834829035555
+          },
+          "expected_goals_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
+          "finishing_over_expected_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
           },
           "cards_per_90": {
             "status": "fit",
@@ -73,10 +90,30 @@
             "reference_n": 129,
             "prior": 8.61519874444479
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.03638738501103273
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 129,
             "prior": 0.033564347204524975
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 6.0562668987164745
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": 0.034343879168350064
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 129,
+            "prior": -0.0007795319638250924
           },
           "cards_per_90": {
             "status": "fit",
@@ -115,10 +152,30 @@
             "reference_n": 128,
             "prior": 9.574724932934178
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.057790910151238294
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 128,
             "prior": 0.05283620388009797
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 6.553438824306986
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.05569495742778274
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": -0.0028587535476847716
           },
           "cards_per_90": {
             "status": "fit",
@@ -157,10 +214,30 @@
             "reference_n": 117,
             "prior": 9.531911823068874
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.05637334487859437
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 117,
             "prior": 0.04149078183064545
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 6.330410939134827
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": 0.04915755673413428
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 117,
+            "prior": -0.007666774903488833
           },
           "cards_per_90": {
             "status": "fit",
@@ -199,10 +276,30 @@
             "reference_n": 128,
             "prior": 9.392494039318008
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.058710468307166315
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 128,
             "prior": 0.044536416393000135
+          },
+          "threat_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 7.1254892257861355
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": 0.058099779567231995
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 128,
+            "prior": -0.01356336317423186
           },
           "cards_per_90": {
             "status": "fit",
@@ -231,6 +328,14 @@
             "reference_n": 46,
             "prior": 34.0148108965882
           },
+          "expected_goals_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
+          "finishing_over_expected_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
           "assists_per_90": {
             "status": "fit",
             "reference_n": 46,
@@ -240,6 +345,14 @@
             "status": "fit",
             "reference_n": 46,
             "prior": 14.557187853141304
+          },
+          "expected_assists_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
           },
           "cards_per_90": {
             "status": "fit",
@@ -268,6 +381,16 @@
             "reference_n": 46,
             "prior": 34.87822705207414
           },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.2838045840688437
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.1245416206972639
+          },
           "assists_per_90": {
             "status": "fit",
             "reference_n": 46,
@@ -277,6 +400,16 @@
             "status": "fit",
             "reference_n": 46,
             "prior": 13.766231796116505
+          },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.055204298598852605
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 46,
+            "prior": 0.31355240649823474
           },
           "cards_per_90": {
             "status": "fit",
@@ -305,6 +438,16 @@
             "reference_n": 41,
             "prior": 33.80591191007544
           },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.44521283150097896
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": -0.013936390147729292
+          },
           "assists_per_90": {
             "status": "fit",
             "reference_n": 41,
@@ -314,6 +457,16 @@
             "status": "fit",
             "reference_n": 41,
             "prior": 14.9474253481017
+          },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.09149221648708225
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 41,
+            "prior": 0.5366557592519066
           },
           "cards_per_90": {
             "status": "fit",
@@ -342,6 +495,16 @@
             "reference_n": 33,
             "prior": 31.994424494424493
           },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.42023247023247023
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.013522963522963519
+          },
           "assists_per_90": {
             "status": "fit",
             "reference_n": 33,
@@ -351,6 +514,16 @@
             "status": "fit",
             "reference_n": 33,
             "prior": 13.367321867321868
+          },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.07305802305802306
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 33,
+            "prior": 0.4932621432621433
           },
           "cards_per_90": {
             "status": "fit",
@@ -379,6 +552,16 @@
             "reference_n": 39,
             "prior": 29.757501794687723
           },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.4047609475951185
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.002274228284278535
+          },
           "assists_per_90": {
             "status": "fit",
             "reference_n": 39,
@@ -388,6 +571,16 @@
             "status": "fit",
             "reference_n": 39,
             "prior": 11.450093323761665
+          },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.059220387652548466
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 39,
+            "prior": 0.46391672648959087
           },
           "cards_per_90": {
             "status": "fit",
@@ -415,6 +608,10 @@
             "status": "fit",
             "reference_n": 23,
             "prior": 1.362990335417851
+          },
+          "goal_prevention_over_expected_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
           },
           "clean_sheet_rate": {
             "status": "fit",
@@ -448,6 +645,11 @@
             "reference_n": 25,
             "prior": 1.4044433303042647
           },
+          "goal_prevention_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 25,
+            "prior": -0.47504886723278916
+          },
           "clean_sheet_rate": {
             "status": "fit",
             "reference_n": 25,
@@ -479,6 +681,11 @@
             "status": "fit",
             "reference_n": 27,
             "prior": 1.6062094837464094
+          },
+          "goal_prevention_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 27,
+            "prior": -0.048864367671757544
           },
           "clean_sheet_rate": {
             "status": "fit",
@@ -512,6 +719,11 @@
             "reference_n": 26,
             "prior": 1.4170292106898694
           },
+          "goal_prevention_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 26,
+            "prior": -0.020351866902519476
+          },
           "clean_sheet_rate": {
             "status": "fit",
             "reference_n": 26,
@@ -543,6 +755,11 @@
             "status": "fit",
             "reference_n": 24,
             "prior": 1.3673381911701672
+          },
+          "goal_prevention_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 24,
+            "prior": 0.030847263894842127
           },
           "clean_sheet_rate": {
             "status": "fit",
@@ -576,6 +793,14 @@
             "reference_n": 144,
             "prior": 19.098992959629268
           },
+          "expected_assists_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 144,
@@ -585,6 +810,14 @@
             "status": "fit",
             "reference_n": 144,
             "prior": 19.747223955084216
+          },
+          "expected_goals_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
+          },
+          "finishing_over_expected_per_90": {
+            "status": "insufficient_metric_coverage",
+            "reference_n": 0
           },
           "cards_per_90": {
             "status": "fit",
@@ -613,6 +846,16 @@
             "reference_n": 136,
             "prior": 18.95915262417896
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.07959792982603403
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.17414782175309004
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 136,
@@ -622,6 +865,16 @@
             "status": "fit",
             "reference_n": 136,
             "prior": 16.767779573164333
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.10666560342475816
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 136,
+            "prior": 0.06457230394728558
           },
           "cards_per_90": {
             "status": "fit",
@@ -650,6 +903,16 @@
             "reference_n": 147,
             "prior": 22.098430172729344
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.14042978597031625
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.32205769615934476
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 147,
@@ -659,6 +922,16 @@
             "status": "fit",
             "reference_n": 147,
             "prior": 17.710904532677684
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.18166831269467446
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 147,
+            "prior": 0.011020560386206515
           },
           "cards_per_90": {
             "status": "fit",
@@ -687,6 +960,16 @@
             "reference_n": 148,
             "prior": 21.05283800487756
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.13042528313232885
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.29881635652958277
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 148,
@@ -696,6 +979,16 @@
             "status": "fit",
             "reference_n": 148,
             "prior": 16.76935155179902
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.16841212040223166
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.0008659339190859579
           },
           "cards_per_90": {
             "status": "fit",
@@ -724,6 +1017,16 @@
             "reference_n": 153,
             "prior": 20.313722618788145
           },
+          "expected_assists_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.12764753160418482
+          },
+          "expected_goal_involvements_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.2801557732127288
+          },
           "goals_per_90": {
             "status": "fit",
             "reference_n": 153,
@@ -733,6 +1036,16 @@
             "status": "fit",
             "reference_n": 153,
             "prior": 14.783708860069748
+          },
+          "expected_goals_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.15254502234088926
+          },
+          "finishing_over_expected_per_90": {
+            "status": "fit",
+            "reference_n": 153,
+            "prior": 0.0010145352005231025
           },
           "cards_per_90": {
             "status": "fit",
@@ -760,6 +1073,11 @@
             "status": "fit",
             "reference_n": 58,
             "prior": 0.6252052611366333
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 0.37818625715876264
           },
           "assists_per_36": {
             "status": "fit",
@@ -795,6 +1113,11 @@
             "status": "fit",
             "reference_n": 58,
             "prior": 3.629102175243104
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 58,
+            "prior": 3.7903122925317954
           }
         }
       },
@@ -817,6 +1140,11 @@
             "status": "fit",
             "reference_n": 55,
             "prior": 0.639435462077121
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 0.36185359032520825
           },
           "assists_per_36": {
             "status": "fit",
@@ -852,6 +1180,11 @@
             "status": "fit",
             "reference_n": 55,
             "prior": 3.3933239254579743
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 55,
+            "prior": 3.7161811059968612
           }
         }
       },
@@ -874,6 +1207,11 @@
             "status": "fit",
             "reference_n": 53,
             "prior": 0.6271917286227038
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 0.3323676080418214
           },
           "assists_per_36": {
             "status": "fit",
@@ -909,6 +1247,11 @@
             "status": "fit",
             "reference_n": 53,
             "prior": 3.3728113423766755
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 53,
+            "prior": 3.4298963302507794
           }
         }
       },
@@ -931,6 +1274,11 @@
             "status": "fit",
             "reference_n": 57,
             "prior": 0.613043094311869
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 0.3104602593488602
           },
           "assists_per_36": {
             "status": "fit",
@@ -966,6 +1314,11 @@
             "status": "fit",
             "reference_n": 57,
             "prior": 3.4558635175982375
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 57,
+            "prior": 3.245145755417798
           }
         }
       },
@@ -988,6 +1341,11 @@
             "status": "fit",
             "reference_n": 59,
             "prior": 0.6223690797414153
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 0.3440852199272514
           },
           "assists_per_36": {
             "status": "fit",
@@ -1023,6 +1381,11 @@
             "status": "fit",
             "reference_n": 59,
             "prior": 3.6039496554529653
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 59,
+            "prior": 3.4486261264037674
           }
         }
       },
@@ -1050,6 +1413,11 @@
             "status": "fit",
             "reference_n": 143,
             "prior": 0.5398702197384491
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.2498887289746319
           },
           "assists_per_36": {
             "status": "fit",
@@ -1085,6 +1453,11 @@
             "status": "fit",
             "reference_n": 143,
             "prior": 1.6334966692588047
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 2.9529761179766334
           }
         }
       },
@@ -1112,6 +1485,11 @@
             "status": "fit",
             "reference_n": 155,
             "prior": 0.5495634527686752
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 0.2621302007303928
           },
           "assists_per_36": {
             "status": "fit",
@@ -1147,6 +1525,11 @@
             "status": "fit",
             "reference_n": 155,
             "prior": 1.6964729536072551
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 155,
+            "prior": 3.05476012234509
           }
         }
       },
@@ -1174,6 +1557,11 @@
             "status": "fit",
             "reference_n": 148,
             "prior": 0.5513701983291515
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 0.2524047235133671
           },
           "assists_per_36": {
             "status": "fit",
@@ -1209,6 +1597,11 @@
             "status": "fit",
             "reference_n": 148,
             "prior": 1.6932412051488899
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 148,
+            "prior": 2.819543334151731
           }
         }
       },
@@ -1236,6 +1629,11 @@
             "status": "fit",
             "reference_n": 143,
             "prior": 0.5479267261267339
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 0.24327771540845813
           },
           "assists_per_36": {
             "status": "fit",
@@ -1271,6 +1669,11 @@
             "status": "fit",
             "reference_n": 143,
             "prior": 1.8500354977882147
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 143,
+            "prior": 2.841272757061081
           }
         }
       },
@@ -1298,6 +1701,11 @@
             "status": "fit",
             "reference_n": 137,
             "prior": 0.5533858588617175
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 0.2686956752033825
           },
           "assists_per_36": {
             "status": "fit",
@@ -1333,6 +1741,11 @@
             "status": "fit",
             "reference_n": 137,
             "prior": 1.755924242577615
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 137,
+            "prior": 2.9845428134711356
           }
         }
       },
@@ -1360,6 +1773,11 @@
             "status": "fit",
             "reference_n": 177,
             "prior": 0.5190834999456138
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 0.21094924752405816
           },
           "assists_per_36": {
             "status": "fit",
@@ -1390,6 +1808,11 @@
             "status": "fit",
             "reference_n": 177,
             "prior": 3.9622847752293064
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 177,
+            "prior": 2.561571665991233
           }
         }
       },
@@ -1417,6 +1840,11 @@
             "status": "fit",
             "reference_n": 162,
             "prior": 0.5322207086011674
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.23355099168192828
           },
           "assists_per_36": {
             "status": "fit",
@@ -1447,6 +1875,11 @@
             "status": "fit",
             "reference_n": 162,
             "prior": 3.7549191233106924
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.5876339191933337
           }
         }
       },
@@ -1474,6 +1907,11 @@
             "status": "fit",
             "reference_n": 162,
             "prior": 0.5383064625977771
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 0.2048353467529663
           },
           "assists_per_36": {
             "status": "fit",
@@ -1504,6 +1942,11 @@
             "status": "fit",
             "reference_n": 162,
             "prior": 3.770112243460292
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 162,
+            "prior": 2.5029352369323252
           }
         }
       },
@@ -1531,6 +1974,11 @@
             "status": "fit",
             "reference_n": 180,
             "prior": 0.536075885804591
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 0.21643974054650553
           },
           "assists_per_36": {
             "status": "fit",
@@ -1561,6 +2009,11 @@
             "status": "fit",
             "reference_n": 180,
             "prior": 3.7869935912108033
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 180,
+            "prior": 2.528224422064546
           }
         }
       },
@@ -1588,6 +2041,11 @@
             "status": "fit",
             "reference_n": 189,
             "prior": 0.535339716310762
+          },
+          "free_throw_attempt_rate": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 0.2319251744455944
           },
           "assists_per_36": {
             "status": "fit",
@@ -1618,6 +2076,11 @@
             "status": "fit",
             "reference_n": 189,
             "prior": 3.7953299813472396
+          },
+          "fouls_per_36": {
+            "status": "fit",
+            "reference_n": 189,
+            "prior": 2.736456981846803
           }
         }
       },
@@ -2631,6 +3094,11 @@
             "reference_n": 38,
             "prior": 0.3996521714918886
           },
+          "explosive_pass_rate": {
+            "status": "fit",
+            "reference_n": 38,
+            "prior": 0.08831869331026905
+          },
           "passing_first_down_rate": {
             "status": "fit",
             "reference_n": 38,
@@ -2682,6 +3150,11 @@
             "status": "fit",
             "reference_n": 40,
             "prior": 0.11385101422683419
+          },
+          "explosive_pass_rate": {
+            "status": "fit",
+            "reference_n": 40,
+            "prior": 0.08851196788613429
           },
           "passing_first_down_rate": {
             "status": "fit",
@@ -2735,6 +3208,11 @@
             "reference_n": 43,
             "prior": 0.7297799272292799
           },
+          "explosive_pass_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.09221359362440762
+          },
           "passing_first_down_rate": {
             "status": "fit",
             "reference_n": 43,
@@ -2786,6 +3264,11 @@
             "status": "fit",
             "reference_n": 43,
             "prior": 1.1625461638649004
+          },
+          "explosive_pass_rate": {
+            "status": "fit",
+            "reference_n": 43,
+            "prior": 0.08925555610972213
           },
           "passing_first_down_rate": {
             "status": "fit",
@@ -2839,6 +3322,11 @@
             "reference_n": 41,
             "prior": 0.656321067796762
           },
+          "explosive_pass_rate": {
+            "status": "fit",
+            "reference_n": 42,
+            "prior": 0.09029102012273375
+          },
           "passing_first_down_rate": {
             "status": "fit",
             "reference_n": 42,
@@ -2891,6 +3379,11 @@
             "reference_n": 78,
             "prior": 0.22845100247787709
           },
+          "explosive_run_rate": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.10267719567914699
+          },
           "receiving_epa_per_target": {
             "status": "fit",
             "reference_n": 78,
@@ -2900,6 +3393,11 @@
             "status": "fit",
             "reference_n": 78,
             "prior": 5.981297481345881
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 78,
+            "prior": 0.04478289205622627
           },
           "touchdown_rate": {
             "status": "fit",
@@ -2938,6 +3436,11 @@
             "reference_n": 71,
             "prior": 0.22374574666696265
           },
+          "explosive_run_rate": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 0.10609977765464479
+          },
           "receiving_epa_per_target": {
             "status": "fit",
             "reference_n": 71,
@@ -2947,6 +3450,11 @@
             "status": "fit",
             "reference_n": 71,
             "prior": 5.476947330056973
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 71,
+            "prior": 0.044444746169325325
           },
           "touchdown_rate": {
             "status": "fit",
@@ -2985,6 +3493,11 @@
             "reference_n": 66,
             "prior": 0.21797879996290823
           },
+          "explosive_run_rate": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 0.09862203321007072
+          },
           "receiving_epa_per_target": {
             "status": "fit",
             "reference_n": 66,
@@ -2994,6 +3507,11 @@
             "status": "fit",
             "reference_n": 66,
             "prior": 5.671233519275218
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 66,
+            "prior": 0.05112626670524226
           },
           "touchdown_rate": {
             "status": "fit",
@@ -3032,6 +3550,11 @@
             "reference_n": 70,
             "prior": 0.22545257833645815
           },
+          "explosive_run_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.10478872411813549
+          },
           "receiving_epa_per_target": {
             "status": "fit",
             "reference_n": 70,
@@ -3041,6 +3564,11 @@
             "status": "fit",
             "reference_n": 70,
             "prior": 5.967801660160439
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 70,
+            "prior": 0.050994930970110305
           },
           "touchdown_rate": {
             "status": "fit",
@@ -3079,6 +3607,11 @@
             "reference_n": 67,
             "prior": 0.23380722682091065
           },
+          "explosive_run_rate": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.1019496457970819
+          },
           "receiving_epa_per_target": {
             "status": "fit",
             "reference_n": 67,
@@ -3088,6 +3621,11 @@
             "status": "fit",
             "reference_n": 67,
             "prior": 5.854027041061723
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 67,
+            "prior": 0.05375569688558268
           },
           "touchdown_rate": {
             "status": "fit",
@@ -3311,6 +3849,11 @@
             "reference_n": 45,
             "prior": 0.3705685618729097
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.08963210702341137
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 45,
@@ -3357,6 +3900,11 @@
             "status": "fit",
             "reference_n": 44,
             "prior": 0.37205987170349253
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.08374910905203137
           },
           "catch_rate": {
             "status": "fit",
@@ -3405,6 +3953,11 @@
             "reference_n": 44,
             "prior": 0.367671975601491
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 44,
+            "prior": 0.08166723144696712
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 44,
@@ -3451,6 +4004,11 @@
             "status": "fit",
             "reference_n": 45,
             "prior": 0.3862364175172868
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 45,
+            "prior": 0.08659861705630556
           },
           "catch_rate": {
             "status": "fit",
@@ -3499,6 +4057,11 @@
             "reference_n": 49,
             "prior": 0.3788449466415568
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 49,
+            "prior": 0.0856873822975518
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 49,
@@ -3545,6 +4108,11 @@
             "status": "fit",
             "reference_n": 104,
             "prior": 0.3861308993766696
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 104,
+            "prior": 0.11119768477292966
           },
           "catch_rate": {
             "status": "fit",
@@ -3593,6 +4161,11 @@
             "reference_n": 100,
             "prior": 0.38822046522287157
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 100,
+            "prior": 0.11034719834994844
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 100,
@@ -3639,6 +4212,11 @@
             "status": "fit",
             "reference_n": 94,
             "prior": 0.38260056127221703
+          },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 94,
+            "prior": 0.12067352666043031
           },
           "catch_rate": {
             "status": "fit",
@@ -3687,6 +4265,11 @@
             "reference_n": 106,
             "prior": 0.3874845522974947
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 106,
+            "prior": 0.11470621278508032
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 106,
@@ -3734,6 +4317,11 @@
             "reference_n": 90,
             "prior": 0.3856414280109847
           },
+          "explosive_target_rate": {
+            "status": "fit",
+            "reference_n": 90,
+            "prior": 0.11429318687066824
+          },
           "catch_rate": {
             "status": "fit",
             "reference_n": 90,
@@ -3775,6 +4363,16 @@
             "status": "fit",
             "reference_n": 214,
             "prior": 0.8429257763625968
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 7.181578298928009
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.8937948407562554
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -3820,6 +4418,21 @@
             "status": "fit",
             "reference_n": 214,
             "prior": 0.014048099822491004
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.5106766984464376
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.01650200759197813
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.08181681168018717
           }
         }
       },
@@ -3842,6 +4455,16 @@
             "status": "fit",
             "reference_n": 212,
             "prior": 0.8973438984914485
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 7.207314739433491
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 1.0143070750448413
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -3887,6 +4510,21 @@
             "status": "fit",
             "reference_n": 212,
             "prior": 0.017802439904266314
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.5132460428408584
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.02045481571338423
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 212,
+            "prior": 0.10482989468358044
           }
         }
       },
@@ -3909,6 +4547,16 @@
             "status": "fit",
             "reference_n": 206,
             "prior": 0.8900501539663488
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 7.094800919340806
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 1.080095382997047
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -3954,6 +4602,21 @@
             "status": "fit",
             "reference_n": 206,
             "prior": 0.025598625928339412
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.5179677282265599
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.025833673962537454
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 206,
+            "prior": 0.094172953510215
           }
         }
       },
@@ -3976,6 +4639,16 @@
             "status": "fit",
             "reference_n": 205,
             "prior": 0.8608174560570839
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 6.4211546981135434
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 1.0435850930063284
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4021,6 +4694,21 @@
             "status": "fit",
             "reference_n": 205,
             "prior": 0.017717689537731035
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.5130939280468336
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.02053234373966909
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 205,
+            "prior": 0.07497245330314241
           }
         }
       },
@@ -4043,6 +4731,16 @@
             "status": "fit",
             "reference_n": 214,
             "prior": 0.8650980797548915
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 6.339217275497602
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 1.0222245194438426
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4088,6 +4786,21 @@
             "status": "fit",
             "reference_n": 214,
             "prior": 0.019712984886359013
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.5114535569605265
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.0214720200239522
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 214,
+            "prior": 0.09501699638517515
           }
         }
       },
@@ -4110,6 +4823,16 @@
             "status": "fit",
             "reference_n": 235,
             "prior": 0.2206901700662872
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 4.63636188264909
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.1184083230899246
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4155,6 +4878,21 @@
             "status": "fit",
             "reference_n": 235,
             "prior": -0.02467005772291941
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": 0.4848862724134613
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": -0.0205149504449673
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 235,
+            "prior": -0.24808387415553407
           }
         }
       },
@@ -4177,6 +4915,16 @@
             "status": "fit",
             "reference_n": 222,
             "prior": 0.22804020582910373
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 4.492139996671646
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.13782490614932125
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4222,6 +4970,21 @@
             "status": "fit",
             "reference_n": 222,
             "prior": -0.028284834115458263
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": 0.4829386556725588
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": -0.024264694985653302
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 222,
+            "prior": -0.2793748097621377
           }
         }
       },
@@ -4244,6 +5007,16 @@
             "status": "fit",
             "reference_n": 236,
             "prior": 0.21272115991205692
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 4.221051981266222
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.1410137400220542
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4289,6 +5062,21 @@
             "status": "fit",
             "reference_n": 236,
             "prior": -0.02941394456771812
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": 0.48390191937064064
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": -0.02256408175202055
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 236,
+            "prior": -0.26880108307234285
           }
         }
       },
@@ -4311,6 +5099,16 @@
             "status": "fit",
             "reference_n": 233,
             "prior": 0.2159285865964098
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 4.1104202774571075
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.13192985015947756
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4356,6 +5154,21 @@
             "status": "fit",
             "reference_n": 233,
             "prior": -0.02806471393646965
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": 0.484539221177743
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": -0.022093068318897544
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 233,
+            "prior": -0.23103017037200627
           }
         }
       },
@@ -4378,6 +5191,16 @@
             "status": "fit",
             "reference_n": 226,
             "prior": 0.2287706577644468
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 3.9871130230874248
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.1390877163956009
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4423,6 +5246,21 @@
             "status": "fit",
             "reference_n": 226,
             "prior": -0.028493689690304844
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": 0.4835294473922303
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": -0.022910063882624523
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 226,
+            "prior": -0.2566986530536458
           }
         }
       },
@@ -4606,6 +5444,16 @@
             "reference_n": 116,
             "prior": 0.9489247625585844
           },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 7.978254387798519
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.9969833719386743
+          },
           "primary_assists_per_60": {
             "status": "fit",
             "reference_n": 116,
@@ -4650,6 +5498,21 @@
             "status": "fit",
             "reference_n": 116,
             "prior": 0.04570403727334173
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.5291681963789853
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.04360264891351519
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 116,
+            "prior": 0.07209985113158038
           }
         }
       },
@@ -4672,6 +5535,16 @@
             "status": "fit",
             "reference_n": 115,
             "prior": 0.9804417194230493
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 7.741162287076413
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 1.124602506919553
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4717,6 +5590,21 @@
             "status": "fit",
             "reference_n": 115,
             "prior": 0.04835379480537607
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.5317478856692583
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.04556181632151785
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 115,
+            "prior": 0.025716504116014408
           }
         }
       },
@@ -4739,6 +5627,16 @@
             "status": "fit",
             "reference_n": 112,
             "prior": 0.9799689906936879
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 7.655983978008767
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 1.2257279519847182
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4784,6 +5682,21 @@
             "status": "fit",
             "reference_n": 112,
             "prior": 0.054551265542143984
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.5304929215224609
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.04741492893501157
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 112,
+            "prior": 0.04714338276864301
           }
         }
       },
@@ -4806,6 +5719,16 @@
             "status": "fit",
             "reference_n": 107,
             "prior": 0.9638944635507256
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 7.204764585388657
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 1.1935144313535515
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4851,6 +5774,21 @@
             "status": "fit",
             "reference_n": 107,
             "prior": 0.04644036893582243
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.5303484650502203
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.04337670971658564
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 107,
+            "prior": 0.019470914444480337
           }
         }
       },
@@ -4873,6 +5811,16 @@
             "status": "fit",
             "reference_n": 110,
             "prior": 0.9465642703313025
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 7.0368100031671705
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 1.1007181391843153
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4918,6 +5866,21 @@
             "status": "fit",
             "reference_n": 110,
             "prior": 0.044454926463246704
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.5311842319282329
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.043096052708376326
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 110,
+            "prior": 0.07679428878030106
           }
         }
       },
@@ -4940,6 +5903,16 @@
             "status": "fit",
             "reference_n": 88,
             "prior": 0.9255614881745075
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 8.277601074911846
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.933236644702317
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -4985,6 +5958,21 @@
             "status": "fit",
             "reference_n": 88,
             "prior": 0.05722589016814183
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.5393518395661937
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.0578854741579054
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 88,
+            "prior": 0.13257679353709795
           }
         }
       },
@@ -5007,6 +5995,16 @@
             "status": "fit",
             "reference_n": 97,
             "prior": 0.9558450333039606
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 8.177328071992724
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 1.0336132914651097
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -5052,6 +6050,21 @@
             "status": "fit",
             "reference_n": 97,
             "prior": 0.05053567176723656
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.5336826925229403
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.05413860132184739
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 97,
+            "prior": 0.13248321574006428
           }
         }
       },
@@ -5074,6 +6087,16 @@
             "status": "fit",
             "reference_n": 95,
             "prior": 0.9159673905323386
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 8.006461118675926
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 1.063691818745253
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -5119,6 +6142,21 @@
             "status": "fit",
             "reference_n": 95,
             "prior": 0.05499595356128629
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.5313590810208925
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.04991990177148491
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 95,
+            "prior": 0.10381821989984344
           }
         }
       },
@@ -5141,6 +6179,16 @@
             "status": "fit",
             "reference_n": 93,
             "prior": 0.9225702642144995
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 7.206311373103355
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 1.086106557993353
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -5186,6 +6234,21 @@
             "status": "fit",
             "reference_n": 93,
             "prior": 0.056436743096387396
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.5305309180714496
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.04839136365459129
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 93,
+            "prior": 0.12293417946134527
           }
         }
       },
@@ -5208,6 +6271,16 @@
             "status": "fit",
             "reference_n": 102,
             "prior": 0.9392021437991749
+          },
+          "shots_on_goal_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 7.251544911330951
+          },
+          "high_danger_shots_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 1.0333857066035381
           },
           "primary_assists_per_60": {
             "status": "fit",
@@ -5253,6 +6326,21 @@
             "status": "fit",
             "reference_n": 102,
             "prior": 0.055125925670012337
+          },
+          "on_ice_corsi_pct": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.5378950692018133
+          },
+          "relative_corsi_pct": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.05330066513051759
+          },
+          "penalty_differential_per_60": {
+            "status": "fit",
+            "reference_n": 102,
+            "prior": 0.09841768634319412
           }
         }
       }
@@ -5368,7 +6456,7 @@
       "metric": "domain_scoring_percentile",
       "minimum": 90.0,
       "season": 2025,
-      "value": 95.15873015873062,
+      "value": 92.85714285714332,
       "status": "pass",
       "interpretation": "Face-validity check for observed target construction; not cross-sport validation."
     },

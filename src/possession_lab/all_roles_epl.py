@@ -11,6 +11,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 ROLE_VALUES = {"GK", "DEF", "MID", "FWD"}
@@ -25,6 +26,19 @@ COUNT_COLUMNS = [
     "penalties_saved",
 ]
 ACTIVITY_COLUMNS = ["creativity", "threat"]
+OPTIONAL_SUM_COLUMNS = [
+    "expected_goals",
+    "expected_assists",
+    "expected_goal_involvements",
+    "expected_goals_conceded",
+    "influence",
+    "ict_index",
+    "starts",
+    "clearances_blocks_interceptions",
+    "defensive_contribution",
+    "recoveries",
+    "tackles",
+]
 
 
 def _safe_divide(numerator: pd.Series, denominator: pd.Series) -> pd.Series:
@@ -54,13 +68,19 @@ def _aggregate_season(path: Path, season: int) -> pd.DataFrame:
 
     source["element"] = pd.to_numeric(source["element"], errors="coerce").astype("Int64")
     source["minutes"] = pd.to_numeric(source["minutes"], errors="coerce")
-    for column in COUNT_COLUMNS + ACTIVITY_COLUMNS:
+    present_optional = [column for column in OPTIONAL_SUM_COLUMNS if column in source]
+    for column in COUNT_COLUMNS + ACTIVITY_COLUMNS + present_optional:
         source[column] = pd.to_numeric(source[column], errors="coerce")
 
     # FPL gameweek rows enumerate a player's fixture.  A true zero is observed
     # for the common-core count fields; absent cells remain missing.
     grouped = source.groupby("element", dropna=False)
-    totals = grouped[["minutes", *COUNT_COLUMNS, *ACTIVITY_COLUMNS]].sum(min_count=1)
+    totals = grouped[
+        ["minutes", *COUNT_COLUMNS, *ACTIVITY_COLUMNS, *present_optional]
+    ].sum(min_count=1)
+    for column in OPTIONAL_SUM_COLUMNS:
+        if column not in totals:
+            totals[column] = np.nan
     totals["games"] = grouped["minutes"].apply(lambda values: int(values.fillna(0).gt(0).sum()))
     totals["name"] = grouped["name"].agg(_mode_or_join)
     totals["position"] = grouped["position"].agg(_mode_or_join)
@@ -75,6 +95,11 @@ def _aggregate_season(path: Path, season: int) -> pd.DataFrame:
 
 def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result = frame.copy()
+    # Older FPL seasons do not expose every modern expected or defensive field.
+    # Keep the historical rows usable while making the missing coverage explicit.
+    for column in OPTIONAL_SUM_COLUMNS:
+        if column not in result:
+            result[column] = np.nan
     minutes = pd.to_numeric(result["opportunity"], errors="coerce")
     per_90 = minutes.div(90.0)
     result["goals_per_90"] = _safe_divide(result["goals_scored"], per_90)
@@ -84,6 +109,38 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     result["penalties_saved_per_90"] = _safe_divide(result["penalties_saved"], per_90)
     result["creativity_per_90"] = _safe_divide(result["creativity"], per_90)
     result["threat_per_90"] = _safe_divide(result["threat"], per_90)
+    result["expected_goals_per_90"] = _safe_divide(result["expected_goals"], per_90)
+    result["expected_assists_per_90"] = _safe_divide(
+        result["expected_assists"], per_90
+    )
+    result["expected_goal_involvements_per_90"] = _safe_divide(
+        result["expected_goal_involvements"], per_90
+    )
+    result["expected_goals_conceded_per_90"] = _safe_divide(
+        result["expected_goals_conceded"], per_90
+    )
+    result["influence_per_90"] = _safe_divide(result["influence"], per_90)
+    result["ict_index_per_90"] = _safe_divide(result["ict_index"], per_90)
+    result["finishing_over_expected_per_90"] = _safe_divide(
+        pd.to_numeric(result["goals_scored"], errors="coerce")
+        - pd.to_numeric(result["expected_goals"], errors="coerce"),
+        per_90,
+    )
+    result["goal_prevention_over_expected_per_90"] = _safe_divide(
+        pd.to_numeric(result["expected_goals_conceded"], errors="coerce")
+        - pd.to_numeric(result["goals_conceded"], errors="coerce"),
+        per_90,
+    )
+    result["defensive_actions_per_90"] = _safe_divide(
+        pd.to_numeric(result["clearances_blocks_interceptions"], errors="coerce")
+        + pd.to_numeric(result["recoveries"], errors="coerce")
+        + pd.to_numeric(result["tackles"], errors="coerce"),
+        per_90,
+    )
+    result["defensive_contribution_per_90"] = _safe_divide(
+        result["defensive_contribution"], per_90
+    )
+    result["start_rate"] = _safe_divide(result["starts"], result["games"])
     result["cards_per_90"] = _safe_divide(
         pd.to_numeric(result["yellow_cards"], errors="coerce")
         + 2.0 * pd.to_numeric(result["red_cards"], errors="coerce"),
@@ -177,6 +234,7 @@ def build_epl_all_roles_panel(
         "age",
         *COUNT_COLUMNS,
         *ACTIVITY_COLUMNS,
+        *OPTIONAL_SUM_COLUMNS,
         "goals_per_90",
         "assists_per_90",
         "saves_per_90",
@@ -184,6 +242,17 @@ def build_epl_all_roles_panel(
         "penalties_saved_per_90",
         "creativity_per_90",
         "threat_per_90",
+        "expected_goals_per_90",
+        "expected_assists_per_90",
+        "expected_goal_involvements_per_90",
+        "expected_goals_conceded_per_90",
+        "influence_per_90",
+        "ict_index_per_90",
+        "finishing_over_expected_per_90",
+        "goal_prevention_over_expected_per_90",
+        "defensive_actions_per_90",
+        "defensive_contribution_per_90",
+        "start_rate",
         "cards_per_90",
         "clean_sheet_rate",
         "physical_temporality",

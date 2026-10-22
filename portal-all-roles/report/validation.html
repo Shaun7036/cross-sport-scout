@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A plain-language account of how the NFL, NBA, NHL, Premier League and separate possession ensemble models were trained and tested.">
+  <title>Model validation | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="validation.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to model validation</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html">Journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="features.html">Features</a>
+        <a href="validation.html" aria-current="page">Validation</a>
+        <a href="visuals.html">Visuals</a>
+        <a href="guide.html">Guide</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../profile/">Player profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero report-hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Training, validation and testing</p>
+          <h1>What each model was allowed to learn—and how it was challenged.</h1>
+          <p class="hero-lead">A fitted model is not automatically a useful model. This page shows the held-out season, comparison baselines, role-level results and evidence gates saved by the pipeline.</p>
+        </div>
+        <aside class="hero-aside" aria-label="Validation boundary">
+          <strong>Two studies are shown separately.</strong>
+          <p>The broad all-role system uses chronological 2025 tests. The earlier possession ensemble uses unseen-athlete partitions within the 2025 snapshot. Their scores and validation designs should not be combined.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="validation-snapshot-title">
+      <h2 id="validation-snapshot-title" class="eyebrow">Saved all-role evaluation</h2>
+      <div class="snapshot">
+        <div class="stat"><strong id="validation-season">—</strong><span>frozen test season</span></div>
+        <div class="stat"><strong id="physical-heads">—</strong><span>physical heads fitted</span></div>
+        <div class="stat"><strong id="native-heads">—</strong><span>native forecast heads fitted</span></div>
+        <div class="stat"><strong id="profile-heads">—</strong><span>build + profile heads fitted</span></div>
+        <div class="stat"><strong id="bridge-heads">—</strong><span>playing-profile bridge heads fitted</span></div>
+      </div>
+      <p id="validation-version" class="snapshot-note">Loading the saved model evidence…</p>
+      <div id="validation-error" class="warning" role="alert" hidden></div>
+    </section>
+
+    <section class="section" aria-labelledby="split-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">All-role evaluation timeline</p>
+            <h2 id="split-heading">Look backward to train, then forward to test.</h2>
+          </div>
+          <p>The frozen test is not used to choose model settings. After evaluation is recorded, the local portal artifact is refitted on the complete saved training cohort—including reduced-weight low-opportunity rows—so it can use the latest research snapshot.</p>
+        </div>
+        <ol class="validation-timeline">
+          <li><span>1</span><strong>Define targets</strong><p>Build same-role, same-season percentiles with opportunity adjustment and low-sample shrinkage.</p></li>
+          <li><span>2</span><strong>Train before 2025</strong><p>Fit regularized line models using the training-cohort rule saved with the model artifact.</p></li>
+          <li><span>3</span><strong>Choose inside training</strong><p>Select regularization strength without using the frozen season.</p></li>
+          <li><span>4</span><strong>Test on 2025</strong><p>Record error, rank agreement and performance against a simple declared baseline.</p></li>
+          <li><span>5</span><strong>Check stability</strong><p>Use earlier rolling origins, unseen-history athletes and athlete-clustered bootstrap intervals where samples allow.</p></li>
+          <li><span>6</span><strong>Refit for the portal</strong><p>Use the full saved training cohort only after the evaluation result has been frozen and labeled.</p></li>
+        </ol>
+        <p id="training-cohort-summary" class="note">Loading the saved training-cohort statement…</p>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="sport-evidence-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">League-by-league evidence</p>
+            <h2 id="sport-evidence-heading">Every role keeps its own result.</h2>
+          </div>
+          <p>Lower MAE is better. Spearman rank agreement is better when closer to 1. A supported gate requires more than a point estimate that happens to beat the baseline.</p>
+        </div>
+        <div id="validation-sport-tabs" class="report-tabs" role="tablist" aria-label="Choose a sport"></div>
+        <div id="sport-verdict" class="note" aria-live="polite"></div>
+
+        <section class="model-family" aria-labelledby="native-table-heading">
+          <div class="model-family-heading">
+            <div><p class="section-kicker">Same sport, next season</p><h3 id="native-table-heading">Native forecast</h3></div>
+            <p>Compared with the better saved history baseline: the previous season or sustained three-year form.</p>
+          </div>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Role</th><th>Test players</th><th>Model MAE</th><th>History MAE</th><th>Rank agreement</th><th>Evidence</th></tr></thead><tbody id="native-results"></tbody></table></div>
+        </section>
+
+        <section class="model-family" aria-labelledby="physical-table-heading">
+          <div class="model-family-heading">
+            <div><p class="section-kicker">Build association</p><h3 id="physical-table-heading">Physical-only model</h3></div>
+            <p>Uses height, weight, BMI and age, and is compared with always predicting the 50th percentile.</p>
+          </div>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Role</th><th>Test players</th><th>Model MAE</th><th>Neutral MAE</th><th>Rank agreement</th><th>Evidence</th></tr></thead><tbody id="physical-results"></tbody></table></div>
+        </section>
+
+        <section class="model-family" aria-labelledby="profile-table-heading">
+          <div class="model-family-heading">
+            <div><p class="section-kicker">Transferable profile check</p><h3 id="profile-table-heading">Build + canonical playing profile</h3></div>
+            <p>Uses only body measurements and shared playing themes from the prior season. It must improve on the same model using build alone.</p>
+          </div>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Role</th><th>Test players</th><th>Model MAE</th><th>Build-only MAE</th><th>Rank agreement</th><th>Profile adds evidence?</th></tr></thead><tbody id="profile-results"></tbody></table></div>
+        </section>
+
+        <section class="model-family" aria-labelledby="bridge-heading">
+          <div class="model-family-heading">
+            <div><p class="section-kicker">Cross-sport analogy gate</p><h3 id="bridge-heading">Target-role profile checks</h3></div>
+            <p id="bridge-design-note">Loading the validation design saved with these bridge heads…</p>
+          </div>
+          <div id="bridge-summary" class="bridge-summary"></div>
+          <div class="warning"><strong>This is not cross-sport validation:</strong> the repository has no representative set of athletes who actually switched among these four sports.</div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section dark" aria-labelledby="ensemble-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Separate historical study</p>
+            <h2 id="ensemble-heading">The possession and disruption ensemble</h2>
+          </div>
+          <p>This model studies a narrower possession/disruption target for selected roles. It is included for transparency, not as another name for the broad all-role bridge.</p>
+        </div>
+        <div id="ensemble-method" class="note"></div>
+        <div class="report-table-wrap dark-table"><table class="report-table"><thead><tr><th>Head</th><th>Test athletes</th><th>Selected method</th><th>MSE change</th><th>Rank agreement</th><th>Saved status</th></tr></thead><tbody id="ensemble-results"></tbody></table></div>
+        <div id="ensemble-limitations" class="two-col"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="metric-guide-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="section-kicker">How to read the table</p><h2 id="metric-guide-heading">Evidence labels answer narrower questions than confidence.</h2></div>
+        </div>
+        <div class="three-col">
+          <article class="card"><h3>MAE</h3><p>Average distance between predicted and observed percentiles. A model must be compared with its declared baseline, not judged from MAE alone.</p></article>
+          <article class="card"><h3>Rank agreement</h3><p>How well the predicted ordering follows the observed ordering. It does not show perfect calibration or causal explanation.</p></article>
+          <article class="card"><h3>Evidence gate</h3><p>A saved rule combining baseline improvement, sample support and resampling evidence. “Supported” is still research support, not deployment approval.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>This page is generated from saved aggregate evaluation artifacts. It does not load private or row-level player predictions.</p>
+      <nav class="footer-links" aria-label="Next report pages">
+        <a href="features.html">Engineered features</a>
+        <a href="visuals.html">Visual evidence</a>
+        <a href="../profile/">Player profile</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

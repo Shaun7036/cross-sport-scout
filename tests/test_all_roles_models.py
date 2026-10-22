@@ -7,6 +7,7 @@ from possession_lab.all_roles_models import (
     ood_diagnostics,
     train_bridge_models,
     train_native_forecast_models,
+    train_native_profile_models,
     train_physical_models,
 )
 from possession_lab.all_roles_registry import DomainSpec, MetricSpec, RoleSpec
@@ -79,6 +80,25 @@ def test_linear_model_handles_missing_and_explains_contributions():
     assert model.metadata()["training_rows"] == 16
 
 
+def test_linear_model_uses_sample_weights_in_preprocessing_and_fit():
+    frame = pd.DataFrame(
+        {
+            "height_cm": [180, 185, 190, 195] * 4,
+            "weight_kg": [75, 80, 90, 100] * 4,
+            "target": [20, 40, 70, 90] * 4,
+        }
+    )
+    weights = np.asarray([1.0, 1.0, 0.25, 0.25] * 4)
+
+    model = LinearPercentileModel(("height_cm", "weight_kg")).fit(
+        frame, "target", sample_weight=weights
+    )
+
+    assert model.training_rows == len(frame)
+    assert model.training_weight_sum == weights.sum()
+    assert model.metadata()["training_weight_sum"] == weights.sum()
+
+
 def test_native_pairs_never_use_same_season_target():
     panel = _scored_panel().query("sport == 'a'")
     pairs = build_native_forecast_pairs(panel)
@@ -124,20 +144,28 @@ def test_native_forecast_requires_eligible_same_role_and_deployable_inputs():
         "dimension_scoring_finishing_percentile",
         "dimension_possession_security_percentile",
     ]
-    expected = relevant.loc[
+    eligible_expected = relevant.loc[
         relevant["same_role_target"]
         & relevant["target_status"].eq("eligible")
         & relevant["target_eligible"]
         & relevant[["height_cm", "weight_kg", *dimensions]].notna().all(axis=1)
     ]
+    training_expected = relevant.loc[
+        relevant["same_role_target"]
+        & relevant["target_status"].isin(["eligible", "low_sample"])
+        & relevant["realized_target_status"].isin(["eligible", "low_sample"])
+        & relevant[["height_cm", "weight_kg", *dimensions]].notna().all(axis=1)
+    ]
     head = heads["a:role"]
 
     assert (~relevant["same_role_target"]).sum() == 1
-    assert head["model"].training_rows == len(expected)
-    assert head["usable_coverage"]["usable_rows"] == len(expected)
+    assert head["model"].training_rows == len(training_expected)
+    assert head["usable_coverage"]["usable_rows"] == len(eligible_expected)
+    assert head["usable_coverage"]["training_usable_rows"] == len(training_expected)
+    assert head["model"].training_weight_sum < head["model"].training_rows
     assert head["usable_coverage"]["excluded_role_transition_rows"] == 1
     # Missing age remains deployable and is handled by train-only median imputation.
-    assert expected["age"].isna().sum() == 1
+    assert eligible_expected["age"].isna().sum() == 1
 
 
 def test_physical_training_uses_only_eligible_labels_with_observed_build():
@@ -151,7 +179,10 @@ def test_physical_training_uses_only_eligible_labels_with_observed_build():
 
     assert head["usable_coverage"]["eligible_label_rows"] == len(panel) - 1
     assert head["usable_coverage"]["usable_rows"] == len(panel) - 2
-    assert head["model"].training_rows == len(panel) - 2
+    assert head["model"].training_rows == len(panel) - 1
+    assert head["usable_coverage"]["training_usable_rows"] == len(panel) - 1
+    assert head["usable_coverage"]["weighted_low_sample_rows"] == 1
+    assert head["model"].training_weight_sum < head["model"].training_rows
     assert head["usable_coverage"]["missing_required_input_rows"]["height_cm"] == 1
 
 
@@ -174,8 +205,10 @@ def test_bridge_uses_fixed_dimension_intersection():
     assert "dimension_possession_security_percentile" not in head["features"]
     assert "dimension_defensive_disruption_percentile" not in head["features"]
     assert "target_proxy_reconstruction_gate" in head
+    assert head["target_proxy_reconstruction_gate"] == head["target_role_forward_profile_gate"]
     assert "evidence_gate" not in head
-    assert "not cross-sport validation" in head["evaluation_scope"]
+    assert "not cross-sport validation" in head["evaluation_scope"].lower()
+    assert head["evaluation"]["mae_advantage_vs_build_only"]["comparator"] == "build_only"
 
 
 def test_bridge_uses_only_eligible_target_rows_with_deployable_inputs():
@@ -191,12 +224,59 @@ def test_bridge_uses_only_eligible_target_rows_with_deployable_inputs():
     }
 
     head = train_bridge_models(panel, specs=specs)["a:role->b:role"]
-    expected_rows = len(target_index) - 3
+    pairs = build_native_forecast_pairs(panel)
+    relevant = pairs.loc[
+        pairs["sport"].eq("b")
+        & pairs["prior_role"].eq("role")
+        & pairs["same_role_target"]
+        & pairs["target_status"].isin(["eligible", "low_sample"])
+        & pairs["realized_target_status"].isin(["eligible", "low_sample"])
+        & pairs[[
+            "height_cm",
+            "weight_kg",
+            "dimension_creation_distribution_percentile",
+            "dimension_scoring_finishing_percentile",
+        ]].notna().all(axis=1)
+    ]
+    eligible_relevant = relevant.loc[
+        relevant["target_status"].eq("eligible")
+        & relevant["realized_target_status"].eq("eligible")
+    ]
 
-    assert head["model"].training_rows == expected_rows
-    assert head["usable_coverage"]["eligible_label_rows"] == len(target_index) - 1
-    assert head["usable_coverage"]["usable_rows"] == expected_rows
+    assert head["model"].training_rows == len(relevant)
+    assert head["usable_coverage"]["usable_rows"] == len(eligible_relevant)
+    assert head["usable_coverage"]["training_usable_rows"] == len(relevant)
     assert head["usable_coverage"]["missing_required_input_rows"]["weight_kg"] == 1
+
+
+def test_native_profile_family_reports_build_and_profile_ablations():
+    panel = _scored_panel().query("sport == 'a'").copy()
+    specs = {
+        "a:role": _spec(
+            "a",
+            ("creation_distribution", "scoring_finishing", "possession_security"),
+        )
+    }
+
+    head = train_native_profile_models(panel, specs=specs)["a:role"]
+
+    assert head["evidence_class"] == "native_forward_transferable_profile_benchmark"
+    assert set(head["ablations"]) == {"build_only", "canonical_profile_only"}
+    assert head["evaluation"]["mae_advantage_vs_build_only"]["comparator"] == "build_only"
+    assert head["profile_increment_gate"] in {
+        "supported",
+        "not_supported",
+        "insufficient_frozen_evidence",
+    }
+    assert head["features"] == [
+        "height_cm",
+        "weight_kg",
+        "bmi",
+        "age",
+        "dimension_creation_distribution_percentile",
+        "dimension_scoring_finishing_percentile",
+        "dimension_possession_security_percentile",
+    ]
 
 
 def test_ood_diagnostic_flags_extreme_build():

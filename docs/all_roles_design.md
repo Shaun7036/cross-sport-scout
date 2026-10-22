@@ -13,7 +13,7 @@ This project has two related, but scientifically different, aims:
 
 The second result is intentionally called a **transfer guesstimate**. No public dataset in this repository contains enough elite athletes who changed among the NFL, NBA, NHL, and Premier League to train or validate a direct sport-switch outcome model. The system therefore cannot estimate the probability that a player would make a roster, learn the sport, avoid injury, or perform at a given level after switching.
 
-The implementation favors visible evidence states over false precision. Missing required inputs, absent model heads, failed bridge-proxy gates, and extreme out-of-domain profiles withhold values. Failed physical or native evidence gates may still return a numeric estimate, but only with an explicit experimental/unsupported label.
+The implementation favors visible evidence states over false precision. Missing required inputs, absent model heads, failed forward-profile gates, and extreme out-of-domain profiles withhold values. Failed physical or native evidence gates may still return a numeric estimate, but only with an explicit experimental/unsupported label.
 
 ## 2. End-to-end workflow
 
@@ -28,13 +28,13 @@ cached source snapshots + provenance sidecars
                     │
                     ▼
  role-season shrinkage, percentiles, dimensions, eligibility
-             ┌──────┼────────┐
-             ▼      ▼        ▼
-       physical   native   bridge proxy
-         heads   forecasts    heads
-             └──────┼────────┘
+         ┌──────────┼──────────┬──────────┐
+         ▼          ▼          ▼          ▼
+     physical     native   native build  cross-sport
+       heads    forecasts   + profile      bridges
+         └──────────┼──────────┴──────────┘
                     ▼
- structured four-score response + static player explorer
+ structured native/physical/transfer response + static player explorer
 ~~~
 
 The main orchestration is implemented in [`all_roles_pipeline.py`](../src/possession_lab/all_roles_pipeline.py). The role and metric contract is data-driven and versioned in [`all_roles_registry.py`](../src/possession_lab/all_roles_registry.py), with a generated JSON copy at [`metadata/all_roles_metric_registry.json`](../metadata/all_roles_metric_registry.json).
@@ -131,7 +131,7 @@ The output fields deliberately stay separate:
 - `total_impact_percentile`: a reranked `75% quality + 25% availability` summary; and
 - `sustained_3y_percentile`: an inclusive trailing three-season quality index with annual decay `0.70^age`.
 
-Rows below the opportunity threshold receive `target_status = low_sample`. Their shrunk descriptive percentiles are useful context, but they are excluded from supervised labels. Rows with no positive opportunity are `not_observed`. Abstention and unregistered rows remain in the panel with null performance scores.
+Rows below the opportunity threshold receive `target_status = low_sample`. Their shrunk descriptive percentiles are useful context and can contribute to model fitting at reduced weight. The exported `training_sample_weight` multiplies opportunity reliability by the fraction of declared metric evidence that is present. Fully eligible rows alone are used for frozen and rolling evaluation. Rows with no positive opportunity are `not_observed`. Abstention and unregistered rows remain in the panel with null performance scores.
 
 This season-relative design reduces unit and scoring-environment drift. It does not make percentile differences interval-scaled, erase team/tactical context, or prove that the semantic dimensions mean the same thing across sports.
 
@@ -170,7 +170,18 @@ No current dimension is labeled “awareness,” “reaction speed,” “decisi
 
 Role transitions are excluded from this model. Predicting a player's new native role is a different task and needs a transition model.
 
-### 7.3 Cross-sport physical estimate
+### 7.3 Native build + playing-profile forecast
+
+- **Target:** next season's observed role percentile.
+- **Features:** height, weight, BMI, age, and only the role's prior-season canonical performance dimensions.
+- **Pairing rule:** same athlete, consecutive seasons, and same broad role.
+- **Ablations:** the same frozen athletes are evaluated with build only and canonical profile only.
+- **Gate:** the full build-plus-profile model must beat build alone with a positive athlete-clustered 90% MAE-advantage interval.
+- **Use:** tests whether the exact portable profile contract adds forward signal inside the athlete's own sport before it is used as a cross-sport analogy.
+
+This is stricter and narrower than showing that a same-season composite can be reconstructed from its own ingredients. It still does not validate a real sport switch.
+
+### 7.4 Cross-sport physical estimate
 
 - **Target:** target-role observed percentile.
 - **Features:** height, weight, BMI, and age.
@@ -180,38 +191,38 @@ Role transitions are excluded from this model. Predicting a player's new native 
 
 Height and weight are required at scoring time. Age may be imputed from the training cohort and is reported as such in the contribution output.
 
-### 7.4 Cross-sport transfer guesstimate
+### 7.5 Cross-sport transfer guesstimate
 
-For every ordered source-role → target-role pair, the registry takes the fixed intersection of their semantic dimensions. At least two shared dimensions are required. A target-side ridge model is then trained among eligible **target-role athletes** using build plus those target athletes' own dimension percentiles.
+For every ordered source-role → target-role pair, the registry takes the fixed intersection of their semantic dimensions. At least two shared dimensions are required. A target-side ridge model is trained on target-role season `t` build and shared profile to predict the same athlete's target-role percentile in season `t+1`.
 
 At scoring time, a source athlete's source-role percentiles are inserted into the identically named fields. This produces a useful “what does this profile resemble?” calculation, but it is a distribution-shift assumption.
 
-The bridge gate tests whether the head reconstructs held-out target-role percentiles from target-role inputs. Even a passing gate provides **no observed cross-sport transfer validation**. It should be read as target-proxy reconstruction evidence only. The reported sensitivity range uses target-proxy residual error and is not a calibrated confidence interval.
+The bridge gate asks whether the exact shared profile improves the held-out target role's next-season prediction over build alone. Even a passing gate provides **no observed cross-sport transfer validation**. It should be read only as forward target-role profile evidence. The reported sensitivity range uses that forward frozen-test error and is not a calibrated confidence interval.
 
 Transfer is withheld when:
 
 - the source season is not eligible;
 - fewer than two dimensions intersect;
 - required source dimensions, height, or weight are missing;
-- the target-proxy reconstruction head fails its evidence gate; or
+- the forward target-role profile head fails its build-only comparison gate; or
 - the profile is materially out of the target head's physical or capability reference domain.
 
 ## 8. Model training and evaluation
 
-All three supervised model families use a small deterministic ridge regression implementation in [`all_roles_models.py`](../src/possession_lab/all_roles_models.py):
+All four supervised model families use a small deterministic ridge regression implementation in [`all_roles_models.py`](../src/possession_lab/all_roles_models.py):
 
-1. numeric missing values allowed by the deployment contract are imputed with medians learned from the training rows;
-2. features are standardized using training-row means and standard deviations;
-3. `RidgeCV` selects `alpha` from `0.1, 1, 10, 100, 1000`; and
+1. numeric missing values allowed by the deployment contract are imputed with weighted medians learned from the training rows;
+2. features are standardized using weighted training-row means and standard deviations;
+3. `RidgeCV` selects `alpha` from `0.1, 1, 10, 100, 1000` using the same reliability weights; and
 4. predictions are clipped to the 0–100 percentile range, with saturation warnings near the limits.
 
-### 8.1 Eligible-only, deployment-matched cohorts
+### 8.1 Reliability-weighted training and eligible-only evaluation
 
-Supervised labels always require `target_status == eligible` and a finite observed target. The fit/evaluation cohort must also contain every non-imputable field required by the deployed scorer:
+Training can use finite observed labels from fully eligible and positive-opportunity low-sample rows. Low-sample influence is reduced by the exported opportunity/coverage weight; it never receives the same default influence as an eligible row. Frozen and rolling evaluation remain fully eligible-only. Every row must also contain each non-imputable field required by the deployed scorer:
 
 - physical heads: height and weight;
 - native heads: height, weight, and all declared source-role dimensions; and
-- bridge heads: height, weight, and every fixed shared dimension.
+- native build-profile and bridge heads: height, weight, and every fixed shared dimension.
 
 This avoids evaluating on rows the live scorer would have withheld. Reports keep candidate, eligible-label, and usable-deployment counts separate so missing physical coverage cannot masquerade as model evidence. Age remains an imputable feature; BMI is deterministically derived from height and weight.
 
@@ -220,11 +231,11 @@ This avoids evaluating on rows the live scorer would have withheld. Reports keep
 - Seasons before 2025 train the frozen evaluation model.
 - Season 2025 is the frozen test.
 - Earlier seasons also produce rolling-origin diagnostics when samples permit.
-- The final local artifact is refit on all available eligible, deployment-usable rows across seasons after evaluation, so portal scores use the full research snapshot.
+- The final local artifact is refit on all available eligible and reduced-weight low-sample deployment-usable rows after evaluation, so portal scores use the full research snapshot.
 - Metrics include MAE, RMSE, and Spearman rank correlation.
 - A newcomer/unseen-history slice reports athletes absent from the pre-2025 training history.
 
-Physical and bridge proxy heads are compared with a neutral prediction of 50. Native forecasts are compared with the better frozen-test history baseline: the player's prior-season percentile or trailing-three-year percentile.
+Physical heads are compared with a neutral prediction of 50. Native forecasts are compared with the better frozen-test history baseline: the player's prior-season percentile or trailing-three-year percentile. Native build-profile and bridge heads are compared with the same target-role model using build alone.
 
 Some NBA, NHL, and EPL physical profiles are current or undated and may be repeated across historical rows. The performance split is chronological, but the full feature set is therefore not completely timestamp-clean; these outputs should not be presented as deployment-grade prospective forecasts.
 
@@ -252,7 +263,7 @@ A pass shows that selected native domain targets meet basic face validity. It do
 Known-player lookup reads the processed observed-score panel. The player ID is source-specific, so source sport is mandatory.
 
 ~~~bash
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --sport nba --player-id 1966 --season 2025 --target-sport nfl
 ~~~
 
@@ -261,7 +272,7 @@ If `--season` is omitted, the latest available player-season is used. If `--targ
 ### 10.2 Custom physical profile
 
 ~~~bash
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --height-cm 198 --weight-kg 102 --age 25 --target-sport nhl
 ~~~
 
@@ -272,7 +283,7 @@ This profile has no observed source-sport performance, so only physical estimate
 [`examples/all_roles_athlete.json`](../examples/all_roles_athlete.json) shows the complete input shape for a hypothetical eligible source athlete. Dimension values must already be 0–100 percentiles computed against the declared source role-season. Raw points, tackles, or assists are not accepted as if they were comparable dimensions.
 
 ~~~bash
-uv run athlete-translation-lab all-roles-score \
+uv run python scripts/run_lab.py all-roles-score \
   --profile examples/all_roles_athlete.json --target-sport nfl
 ~~~
 
@@ -283,8 +294,8 @@ The scorer returns model status, evidence class, features used, largest signed l
 The all-role portal is a static presentation layer over a frozen local export:
 
 ~~~bash
-uv run athlete-translation-lab build-all-roles-portal
-uv run athlete-translation-lab all-roles-portal
+uv run python scripts/run_lab.py build-all-roles-portal
+uv run python scripts/run_lab.py all-roles-portal
 ~~~
 
 Open `http://127.0.0.1:8766`. This is intentionally separate from the legacy possession portal on port 8765.
@@ -303,8 +314,8 @@ The presentation hierarchy should remain:
 The original all-role explorer above is preserved as the full evidence view. A second frontend presents one selected target role at a time while reading the same frozen export:
 
 ~~~bash
-uv run athlete-translation-lab build-all-roles-compact-portal
-uv run athlete-translation-lab all-roles-compact-portal
+uv run python scripts/run_lab.py build-all-roles-compact-portal
+uv run python scripts/run_lab.py all-roles-compact-portal
 ~~~
 
 Open `http://127.0.0.1:8767/compact/`. The compact frontend lives under `portal-all-roles/compact/`; player data remain in the single ignored `portal-all-roles/data/` directory. The existing 8766 server also exposes the compact page at `/compact/`.
@@ -316,10 +327,10 @@ The compact page keeps four distinct claims visible: observed native standing, n
 The detailed and compact pages remain the evidence-oriented views. Two additive frontends translate the same frozen results for readers with a general or semi-technical sports background:
 
 ~~~bash
-uv run athlete-translation-lab all-roles-friendly-portal
+uv run python scripts/run_lab.py all-roles-friendly-portal
 # http://127.0.0.1:8768/friendly/
 
-uv run athlete-translation-lab all-roles-stories-portal
+uv run python scripts/run_lab.py all-roles-stories-portal
 # http://127.0.0.1:8769/stories/
 ~~~
 
@@ -334,7 +345,7 @@ Both pages are also served at `/friendly/` and `/stories/` by the main port-8766
 | [`reports/all_roles/data_build.json`](../reports/all_roles/data_build.json) | Current row, athlete, role, season, and physical coverage |
 | [`reports/all_roles/observed_targets.json`](../reports/all_roles/observed_targets.json) | Role-season target priors, eligible reference counts, skipped cohorts, and NBA sanity checks |
 | [`reports/all_roles/model_evaluation.json`](../reports/all_roles/model_evaluation.json) | Full per-head fit metadata, frozen metrics, baselines, evidence gates, and usable coverage |
-| [`reports/all_roles/model_evidence_summary.csv`](../reports/all_roles/model_evidence_summary.csv) | Compact physical/native evidence table |
+| [`reports/all_roles/model_evidence_summary.csv`](../reports/all_roles/model_evidence_summary.csv) | Compact physical/native/native-profile evidence table |
 | [`reports/all_roles/role_summary.csv`](../reports/all_roles/role_summary.csv) | Aggregate role coverage and score distributions |
 | [`reports/all_roles/eda_summary.json`](../reports/all_roles/eda_summary.json) | EDA file inventory and summary metadata |
 | [`metadata/all_roles_metric_registry.json`](../metadata/all_roles_metric_registry.json) | Generated versioned role, metric, domain, and score contract |
@@ -371,7 +382,7 @@ Implemented now:
 - five-season adapters and canonical player-season panel for all four sports;
 - broad role registry, opportunity gates, shrinkage, domains, and season percentiles;
 - explicit low-sample, missing, unregistered, and abstention states;
-- physical association, same-role native forecast, and ordered bridge model families;
+- physical association, same-role native forecast, native build-profile ablations, and lagged ordered bridge model families;
 - frozen 2025 evaluation, rolling diagnostics, baselines, clustered-bootstrap evidence gates, and OOD checks;
 - NBA identity and face-validity guards;
 - aggregate EDA and a minimal static all-role player explorer; and
@@ -384,7 +395,7 @@ Highest-priority next work:
 3. acquire dated, rights-cleared physical measurements instead of treating profile listings as longitudinal measurements;
 4. add licensed tracking/lineup data before attempting finer tactical roles;
 5. validate mental or awareness constructs with explicit measurement protocols rather than box-score labels;
-6. seek actual cross-sport labels—crossover athletes, controlled tests, coach assessments, or prospective trials—to validate transfer rather than target reconstruction; and
+6. seek actual cross-sport labels—crossover athletes, controlled tests, coach assessments, or prospective trials—to validate transfer rather than target-role resemblance; and
 7. evaluate richer or hierarchical models only after the label and validation design improve. More complex algorithms cannot repair an invalid transfer target.
 
 ## 15. Reproduction checklist
@@ -396,10 +407,10 @@ uv sync --extra dev --python 3.12
 # 2. Rebuild all-role panels, targets, models, reports, and EDA.
 #    This requires the raw cache and prerequisite sport-specific processed panels;
 #    it does not acquire sources or rebuild the base sport pipelines.
-uv run athlete-translation-lab run-all-roles
+uv run python scripts/run_lab.py run-all-roles
 
 # 3. Build the static explorer export
-uv run athlete-translation-lab build-all-roles-portal
+uv run python scripts/run_lab.py build-all-roles-portal
 
 # 4. Verify code and tests
 uv run ruff check src tests

@@ -32,6 +32,7 @@
     withheld_missing_required_dimensions: "Withheld · mapped performance missing",
     withheld_proxy_model_failed_baseline_gate: "Withheld · proxy evidence gate failed",
     withheld_target_proxy_reconstruction_failed_gate: "Withheld · proxy evidence gate failed",
+    withheld_target_role_forward_profile_failed_gate: "Withheld · forward profile evidence gate failed",
     withheld_source_performance_not_eligible: "Withheld · source season ineligible",
     withheld_out_of_domain: "Withheld · outside reference domain",
     withheld_insufficient_reference: "Withheld · small body reference",
@@ -642,8 +643,10 @@
     if (finite(score?.reference_rows)) entries.push(`Model reference rows: ${format(score.reference_rows)}`);
     if (score?.ood?.status) entries.push(`Feature domain: ${words(score.ood.status)}`);
     if (score?.semantic_bridge_grade) entries.push(`Semantic bridge: ${words(score.semantic_bridge_grade)}`);
-    if (score?.target_proxy_reconstruction_gate) {
-      entries.push(`Target proxy reconstruction: ${words(score.target_proxy_reconstruction_gate)}`);
+    if (score?.target_role_forward_profile_gate) {
+      entries.push(`Forward target-role profile: ${words(score.target_role_forward_profile_gate)}`);
+    } else if (score?.target_proxy_reconstruction_gate) {
+      entries.push(`Legacy target proxy gate: ${words(score.target_proxy_reconstruction_gate)}`);
     }
     if (Array.isArray(score?.dimensions) && score.dimensions.length) {
       entries.push(`Mapped dimensions: ${score.dimensions.map(words).join(", ")}`);

@@ -13,7 +13,7 @@ All paths are relative to the repository root.
 | Compact explorer | `portal-all-roles/compact/index.html` | `portal-all-roles/compact/styles.css` | `portal-all-roles/compact/app.js` | `http://127.0.0.1:8767/compact/` |
 | Friendly explorer | `portal-all-roles/friendly/index.html` | `portal-all-roles/friendly/styles.css` | `portal-all-roles/friendly/app.js` | `http://127.0.0.1:8768/friendly/` |
 | Guided stories | `portal-all-roles/stories/index.html` | `portal-all-roles/stories/styles.css` | `portal-all-roles/stories/app.js` | `http://127.0.0.1:8769/stories/` |
-| Research report | `portal-all-roles/report/index.html`, `findings.html`, `visuals.html`, and `guide.html` | `portal-all-roles/report/styles.css` | No JavaScript is required | `http://127.0.0.1:8770/report/` |
+| Research report | `portal-all-roles/report/index.html`, `findings.html`, `features.html`, `validation.html`, `visuals.html`, and `guide.html` | `portal-all-roles/report/styles.css` | `features.js` and `validation.js` render generated aggregate evidence | `http://127.0.0.1:8770/report/` |
 
 The earlier possession-only portal is separate: `portal/index.html`, `portal/styles.css`, and `portal/app.js`.
 
@@ -104,7 +104,7 @@ Then:
 3. If you changed export or scoring Python, rebuild the shared player export first:
 
    ```text
-   uv run athlete-translation-lab build-all-roles-portal
+   uv run python scripts/run_lab.py build-all-roles-portal
    ```
 
 4. Run the checks before committing:
@@ -118,4 +118,4 @@ Do not open the HTML with a `file://` URL. The explorers fetch relative JSON fil
 
 ## GitHub and deployment note
 
-The source code itself is portable because `uv` creates the correct environment for the operating system. The tracked four-page report runs from a fresh clone without player JSON. The full player explorers are not self-contained GitHub Pages sites because their generated `data/` directory is deliberately not committed. A public deployment needs either a release-cleared static export or an approved data-hosting/API plan. Keep that distinction visible: cross-platform source code does not automatically grant permission to publish the underlying datasets.
+The source code itself is portable because `uv` creates the correct environment for the operating system. The tracked six-page report runs from a fresh clone without player JSON. The full player explorers are not self-contained GitHub Pages sites because their generated `data/` directory is deliberately not committed. A public deployment needs either a release-cleared static export or an approved data-hosting/API plan. Keep that distinction visible: cross-platform source code does not automatically grant permission to publish the underlying datasets.

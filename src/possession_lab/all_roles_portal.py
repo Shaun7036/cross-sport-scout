@@ -274,6 +274,7 @@ def _attach_body_fit(score: dict, profile: Mapping[str, Any], references: Mappin
 def _evidence_counts(artifact: Mapping[str, Any]) -> dict:
     physical = artifact.get("physical_models", {})
     native = artifact.get("native_forecast_models", {})
+    native_profile = artifact.get("native_profile_models", {})
     bridges = artifact.get("bridge_models", {})
     return {
         "physical_models_fit": sum(isinstance(head, Mapping) and "model" in head for head in physical.values()),
@@ -297,10 +298,33 @@ def _evidence_counts(artifact: Mapping[str, Any]) -> dict:
             == "supported_over_neutral_and_history_baselines"
             for head in native.values()
         ),
+        "native_profile_models_fit": sum(
+            isinstance(head, Mapping) and "model" in head
+            for head in native_profile.values()
+        ),
+        "native_profile_models_supported_over_build": sum(
+            isinstance(head, Mapping)
+            and head.get("profile_increment_gate") == "supported"
+            for head in native_profile.values()
+        ),
         "bridge_models_fit": sum(isinstance(head, Mapping) and "model" in head for head in bridges.values()),
+        "bridge_target_role_forward_profile_heads_passing_gate": sum(
+            isinstance(head, Mapping)
+            and head.get(
+                "target_role_forward_profile_gate",
+                head.get("target_proxy_reconstruction_gate"),
+            )
+            == "supported"
+            for head in bridges.values()
+        ),
+        # Compatibility alias retained for older static portal clients.
         "bridge_target_proxy_heads_passing_gate": sum(
             isinstance(head, Mapping)
-            and head.get("target_proxy_reconstruction_gate") == "supported"
+            and head.get(
+                "target_role_forward_profile_gate",
+                head.get("target_proxy_reconstruction_gate"),
+            )
+            == "supported"
             for head in bridges.values()
         ),
     }
@@ -373,8 +397,8 @@ def build_all_roles_portal(root: Path | str, output_dir: Path | str | None = Non
                 "Native forecasts use prior information and may be withheld or trail a history baseline.",
                 "Physical-only estimates are associations with build, not causal effects or talent grades.",
                 "Cross-sport transfer results are exploratory analogies, never probabilities of switching successfully.",
-                "A bridge gate tests only within-target-role proxy reconstruction; it is not evidence that performance transfers between sports.",
-                "Low-sample native scores remain descriptive but are excluded from supervised labels and cross-sport performance transfer.",
+                "A bridge gate tests whether a prior target-role profile improves the target role's next-season prediction over build alone; it is not evidence that performance transfers between sports.",
+                "Low-sample native scores remain descriptive and may train at reduced reliability weight, but eligible seasons alone determine frozen evaluation; cross-sport performance transfer remains withheld.",
                 "A percentile is relative to one target role and cohort; equal numbers in different roles do not imply equal sporting value.",
                 "Undated profile measurements and public-stat proxies limit historical and tactical interpretation.",
             ],

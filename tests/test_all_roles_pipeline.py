@@ -1,6 +1,10 @@
 import pandas as pd
 
-from possession_lab.all_roles_pipeline import _canonicalize_panel, frozen_nba_sanity_checks
+from possession_lab.all_roles_pipeline import (
+    _canonicalize_panel,
+    _model_report,
+    frozen_nba_sanity_checks,
+)
 
 
 def test_canonicalize_panel_preserves_sport_identity_and_rejects_duplicates():
@@ -52,3 +56,29 @@ def test_frozen_star_checks_use_exact_ids_not_names():
     assert checks["stephen_curry"]["value"] == 96.0
     assert checks["lebron_james"]["value"] == 95.0
     assert checks["identity_guard"]["status"] == "pass"
+
+
+def test_model_report_includes_native_transferable_profile_family():
+    artifact = {
+        "schema_version": "fixture",
+        "role_taxonomy_version": "fixture",
+        "target_version": "fixture",
+        "bridge_version": "fixture",
+        "frozen_test_season": 2025,
+        "claims": {},
+        "physical_models": {"a:role": {"status": "not_fit"}},
+        "native_forecast_models": {"a:role": {"status": "not_fit"}},
+        "native_profile_models": {
+            "a:role": {
+                "status": "not_fit",
+                "profile_increment_gate": "not_supported",
+            }
+        },
+        "bridge_models": {"a:role->b:role": {"status": "not_fit"}},
+    }
+
+    report = _model_report(artifact)
+
+    assert report["native_profile_models"]["a:role"]["profile_increment_gate"] == (
+        "not_supported"
+    )

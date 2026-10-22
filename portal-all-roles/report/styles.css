@@ -1170,6 +1170,430 @@ p {
   font-weight: 750;
 }
 
+/* Generated feature dictionary and validation report */
+.report-hero h1 {
+  max-width: 15ch;
+}
+
+.feature-flow,
+.validation-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.feature-flow li,
+.validation-timeline li {
+  min-height: 190px;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.feature-flow li::before {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--rust);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  content: "STEP " counter(list-item);
+}
+
+.feature-flow strong,
+.feature-flow span,
+.validation-timeline strong,
+.validation-timeline p {
+  display: block;
+}
+
+.feature-flow strong,
+.validation-timeline strong {
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+}
+
+.feature-flow span,
+.validation-timeline p {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.validation-timeline li > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.85rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--rust);
+  font-weight: 800;
+}
+
+.dimension-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dimension-card {
+  min-height: 190px;
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.dimension-number {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--rust);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.dimension-card h3 {
+  font-size: 1.2rem;
+}
+
+.dimension-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.report-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.report-tab {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: var(--white);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.report-tab[aria-selected="true"] {
+  border-color: var(--green);
+  color: var(--white);
+  background: var(--green);
+}
+
+.role-dictionary {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.role-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.role-card > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.role-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.role-card > summary::after {
+  color: var(--rust);
+  font-size: 1.3rem;
+  content: "+";
+}
+
+.role-card[open] > summary::after {
+  content: "−";
+}
+
+.role-title {
+  display: grid;
+}
+
+.role-title strong {
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
+
+.role-title small,
+.role-domain-count {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.role-domain-count {
+  margin-left: auto;
+}
+
+.role-card-body {
+  padding: 1.2rem;
+  border-top: 1px solid var(--line);
+  background: #faf7f0;
+}
+
+.role-domain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.domain-card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.domain-heading,
+.metric-row,
+.model-family-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.domain-heading h4 {
+  margin: 0;
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+}
+
+.domain-heading p {
+  margin: 0.2rem 0 0;
+  color: var(--rust);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.domain-weight,
+.metric-weight {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.metric-list {
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+
+.metric-row {
+  padding: 0.65rem 0;
+  border-top: 1px solid #ebe4d8;
+}
+
+.metric-row strong,
+.metric-row small {
+  display: block;
+}
+
+.metric-row strong {
+  font-size: 0.82rem;
+}
+
+.metric-row small,
+.role-limitation,
+.plain-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.role-limitation {
+  margin: 1rem 0 0;
+}
+
+.plain-note {
+  margin-bottom: 0;
+}
+
+.plain-formula {
+  padding: 0.8rem;
+  border-radius: 10px;
+  color: var(--green-dark) !important;
+  background: var(--green-soft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.plain-formula span {
+  font-weight: 800;
+}
+
+.model-family {
+  margin-top: 2rem;
+  padding: clamp(1rem, 3vw, 1.7rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.model-family-heading {
+  margin-bottom: 1rem;
+}
+
+.model-family-heading h3 {
+  margin: 0;
+}
+
+.model-family-heading p {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.report-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.8rem;
+}
+
+.report-table th,
+.report-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.report-table th {
+  color: var(--green-dark);
+  background: var(--paper-deep);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.role-cell {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.evidence-badge {
+  display: inline-flex;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.evidence-badge.supported {
+  color: var(--green-dark);
+  background: var(--green-soft);
+}
+
+.evidence-badge.caution {
+  color: #68480a;
+  background: #f7e8bd;
+}
+
+.evidence-badge.withheld {
+  color: #733a26;
+  background: var(--rust-soft);
+}
+
+.bridge-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.bridge-card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.bridge-card h4,
+.bridge-card p,
+.bridge-card small {
+  margin: 0;
+}
+
+.bridge-card h4 {
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.bridge-card strong {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--rust);
+  font: 500 2rem/1 Georgia, "Times New Roman", serif;
+}
+
+.bridge-card p,
+.bridge-card small {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.dark-table {
+  border-color: #48685f;
+}
+
+.section.dark .report-table th {
+  background: #dbe9e2;
+}
+
+.section.dark #ensemble-limitations {
+  margin-top: 1rem;
+}
+
+.section.dark #ensemble-limitations .card h3 {
+  color: var(--green-dark);
+}
+
+.section.dark #ensemble-limitations .card p {
+  color: var(--muted);
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .section-heading {
@@ -1188,7 +1612,11 @@ p {
 
   .journey,
   .three-col,
-  .evidence-lanes {
+  .evidence-lanes,
+  .feature-flow,
+  .validation-timeline,
+  .dimension-grid,
+  .bridge-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1223,8 +1651,23 @@ p {
   .three-col,
   .four-col,
   .evidence-grid,
-  .good-bad {
+  .good-bad,
+  .feature-flow,
+  .validation-timeline,
+  .dimension-grid,
+  .role-domain-grid,
+  .bridge-summary {
     grid-template-columns: 1fr;
+  }
+
+  .feature-flow li,
+  .validation-timeline li,
+  .dimension-card {
+    min-height: auto;
+  }
+
+  .model-family-heading {
+    flex-direction: column;
   }
 
   .good-bad > div + div {

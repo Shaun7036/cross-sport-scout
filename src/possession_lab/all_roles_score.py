@@ -1,4 +1,4 @@
-"""Score known or user-supplied athletes with the four-score contract."""
+"""Score known or user-supplied athletes with the native and transfer contract."""
 
 from __future__ import annotations
 
@@ -82,24 +82,29 @@ def _model_score(
                 "evidence_class": evidence_class,
                 "missing_dimensions": missing,
             }
-    proxy_gate = head.get(
-        "target_proxy_reconstruction_gate",
+    forward_profile_gate = head.get(
+        "target_role_forward_profile_gate",
         # Read compatibility for artifacts created before the semantics were renamed.
-        head.get("evidence_gate"),
+        head.get("target_proxy_reconstruction_gate", head.get("evidence_gate")),
     )
-    if enforce_target_proxy_reconstruction_gate and proxy_gate != "supported":
+    if enforce_target_proxy_reconstruction_gate and forward_profile_gate != "supported":
         return {
             "kind": kind,
-            "status": "withheld_target_proxy_reconstruction_failed_gate",
+            "status": "withheld_target_role_forward_profile_failed_gate",
             "value": None,
             "evidence_class": "unvalidated_cross_sport_analogy",
+            "target_role_forward_profile_status": head.get(
+                "target_proxy_reconstruction_status"
+            ),
+            "target_role_forward_profile_gate": forward_profile_gate,
+            # Compatibility aliases for older portal clients and saved exports.
             "target_proxy_reconstruction_status": head.get(
                 "target_proxy_reconstruction_status"
             ),
-            "target_proxy_reconstruction_gate": proxy_gate,
+            "target_proxy_reconstruction_gate": forward_profile_gate,
             "evidence_warning": (
-                "The within-target-role reconstruction did not pass its gate; this gate is "
-                "not cross-sport validation."
+                "Prior-season build plus the shared target-role profile did not pass its "
+                "forward test against build alone; this gate is not cross-sport validation."
             ),
         }
 
@@ -139,14 +144,33 @@ def _model_score(
             else "The numeric estimate is experimental because it did not clear both the "
             "neutral and declared history comparison gates."
         )
-    elif support_policy == "target_proxy_reconstruction":
-        support_status = "experimental_target_proxy_passed_not_cross_sport_validated"
+    elif support_policy == "native_profile":
+        profile_increment_gate = head.get("profile_increment_gate")
+        supported = (
+            evidence_gate == "supported" and profile_increment_gate == "supported"
+        )
+        support_status = (
+            "supported_profile_increment" if supported else "experimental_unsupported"
+        )
         resolved_evidence_class = (
-            "unvalidated_cross_sport_analogy_target_proxy_reconstruction_only"
+            "native_forward_profile_supported_over_build_only"
+            if supported
+            else "experimental_native_forward_profile"
         )
         evidence_warning = (
-            "The gate supports only within-target-role proxy reconstruction; it is not "
-            "cross-sport validation."
+            "The canonical playing profile improved next-season prediction over build alone."
+            if supported
+            else "This build-plus-profile estimate is experimental because the playing-profile "
+            "increment did not clear, or lacked evidence for, the build-only comparison gate."
+        )
+    elif support_policy == "target_role_forward_profile":
+        support_status = "experimental_forward_profile_passed_not_cross_sport_validated"
+        resolved_evidence_class = (
+            "unvalidated_cross_sport_analogy_forward_target_role_profile_only"
+        )
+        evidence_warning = (
+            "The gate supports only a within-target-role next-season profile test over "
+            "build alone; it is not cross-sport validation."
         )
     else:
         supported = evidence_gate == "supported"
@@ -177,8 +201,13 @@ def _model_score(
         "ood": diagnostic,
         "reference_rows": int(model.training_rows),
     }
-    if support_policy == "target_proxy_reconstruction":
-        output["target_proxy_reconstruction_gate"] = proxy_gate
+    if support_policy == "target_role_forward_profile":
+        output["target_role_forward_profile_gate"] = forward_profile_gate
+        output["target_role_forward_profile_status"] = head.get(
+            "target_proxy_reconstruction_status"
+        )
+        # Compatibility aliases for older portal clients and saved exports.
+        output["target_proxy_reconstruction_gate"] = forward_profile_gate
         output["target_proxy_reconstruction_status"] = head.get(
             "target_proxy_reconstruction_status"
         )
@@ -188,6 +217,9 @@ def _model_score(
     if support_policy == "native_forecast":
         output["forecast_support"] = forecast_support
         output["deployment_support"] = support_status
+    elif support_policy == "native_profile":
+        output["profile_increment_gate"] = head.get("profile_increment_gate")
+        output["deployment_support"] = support_status
     if value <= 1.0 or value >= 99.0:
         output["saturation_warning"] = (
             "Estimate is at or near the bounded 0–100 output limit and may reflect model "
@@ -195,7 +227,7 @@ def _model_score(
         )
     residual = _number(
         head.get("target_proxy_residual_mae")
-        if support_policy == "target_proxy_reconstruction"
+        if support_policy == "target_role_forward_profile"
         else head.get("frozen_residual_mae")
     )
     if residual is not None and "cross_sport" in kind:
@@ -203,11 +235,11 @@ def _model_score(
             max(0.0, value - residual),
             min(100.0, value + residual),
         ]
-        if support_policy == "target_proxy_reconstruction":
-            output["sensitivity_basis"] = "target_proxy_frozen_test_mae"
+        if support_policy == "target_role_forward_profile":
+            output["sensitivity_basis"] = "target_role_forward_profile_frozen_test_mae"
             output["range_warning"] = (
-                "Sensitivity band from target-proxy frozen-test MAE; not a calibrated "
-                "confidence interval."
+                "Sensitivity band from the target role's forward-profile frozen-test MAE; "
+                "not a calibrated confidence interval."
             )
         else:
             output["sensitivity_basis"] = "physical_model_frozen_test_mae"
@@ -247,6 +279,15 @@ def score_all_roles_profile(
             "total_impact_percentile": _number(row.iloc[0].get("total_impact_percentile")),
             "sustained_3y_percentile": _number(row.iloc[0].get("sustained_3y_percentile")),
             "reference_athletes": _number(row.iloc[0].get("reference_athletes")),
+            "opportunity_reliability": _number(
+                row.iloc[0].get("opportunity_reliability")
+            ),
+            "component_coverage_fraction": _number(
+                row.iloc[0].get("component_coverage_fraction")
+            ),
+            "domain_coverage_fraction": _number(
+                row.iloc[0].get("domain_coverage_fraction")
+            ),
             "evidence_class": "observed_native_role_season",
         }
 
@@ -273,6 +314,37 @@ def score_all_roles_profile(
             )
         native_forecast["target_season"] = int(season + 1) if season is not None else None
         native_forecast["forecast_support"] = head.get("forecast_support")
+
+    native_profile_forecast = None
+    if source_key and "native_profile_models" in artifact:
+        profile_head = artifact["native_profile_models"].get(source_key, {})
+        if source_target_status != "eligible":
+            native_profile_forecast = {
+                "kind": "native_build_profile_forecast_percentile",
+                "status": "withheld_source_performance_not_eligible",
+                "value": None,
+                "evidence_class": "native_forward_transferable_profile_benchmark",
+                "source_target_status": source_target_status,
+                "reason": (
+                    "The forward build-plus-profile benchmark requires an eligible "
+                    "prior-season row."
+                ),
+            }
+        else:
+            native_profile_forecast = _model_score(
+                profile_head,
+                row,
+                kind="native_build_profile_forecast_percentile",
+                evidence_class="native_forward_transferable_profile_benchmark",
+                require_dimensions=True,
+                support_policy="native_profile",
+            )
+        native_profile_forecast["target_season"] = (
+            int(season + 1) if season is not None else None
+        )
+        native_profile_forecast["profile_increment_gate"] = profile_head.get(
+            "profile_increment_gate"
+        )
 
     targets: dict[str, dict] = {}
     specs = role_specs()
@@ -315,7 +387,7 @@ def score_all_roles_profile(
                         kind="cross_sport_transfer_guesstimate",
                         evidence_class="unvalidated_cross_sport_analogy",
                         require_dimensions=True,
-                        support_policy="target_proxy_reconstruction",
+                        support_policy="target_role_forward_profile",
                         enforce_target_proxy_reconstruction_gate=True,
                     )
                 transfer["dimensions"] = head.get("dimensions", [])
@@ -341,7 +413,11 @@ def score_all_roles_profile(
             "weight_kg": _number(row.iloc[0].get("weight_kg")),
             "age": _number(row.iloc[0].get("age")),
         },
-        "native": {"observed": observed, "forecast": native_forecast},
+        "native": {
+            "observed": observed,
+            "forecast": native_forecast,
+            "build_profile_forecast": native_profile_forecast,
+        },
         "targets": targets,
         "claims": artifact["claims"],
     }

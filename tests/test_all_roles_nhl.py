@@ -181,6 +181,36 @@ def test_skater_builder_uses_all_situation_and_handles_team_stints(tmp_path: Pat
     assert left_wing.goals == pytest.approx(2.0)
 
 
+def test_skater_builder_engineers_shot_faceoff_penalty_and_corsi_features(
+    tmp_path: Path,
+) -> None:
+    row = _skater_row(1, "Centre", "AAA", "C")
+    row.update(
+        {
+            "I_F_shotsOnGoal": 12.0,
+            "I_F_shotAttempts": 20.0,
+            "I_F_highDangerShots": 5.0,
+            "faceoffsWon": 30.0,
+            "faceoffsLost": 20.0,
+            "penalties": 2.0,
+            "penaltiesDrawn": 5.0,
+            "onIce_corsiPercentage": 0.58,
+            "offIce_corsiPercentage": 0.50,
+        }
+    )
+    _write_skater_source(tmp_path, [row])
+    _write_season_profiles(tmp_path, ["1"])
+
+    with pytest.warns(RuntimeWarning, match="goalie summaries are not cached"):
+        player = build_nhl_all_roles_panel(tmp_path, seasons=[2021]).iloc[0]
+
+    assert player.shots_on_goal_per_60 == pytest.approx(12.0)
+    assert player.high_danger_shots_per_60 == pytest.approx(5.0)
+    assert player.faceoff_win_pct == pytest.approx(0.6)
+    assert player.penalty_differential_per_60 == pytest.approx(3.0)
+    assert player.relative_corsi_pct == pytest.approx(0.08)
+
+
 def test_goalie_builder_derives_available_moneypuck_measures(tmp_path: Path) -> None:
     _write_skater_source(tmp_path, [_skater_row(1, "Skater", "AAA", "C")])
     _write_season_profiles(tmp_path, ["1"])

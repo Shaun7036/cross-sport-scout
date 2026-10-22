@@ -50,6 +50,9 @@ RATE_COLUMNS = (
     "true_shooting_pct",
     "effective_fg_pct",
     "three_point_pct",
+    "three_point_attempt_rate",
+    "free_throw_pct",
+    "free_throw_attempt_rate",
     "assists_per_36",
     "assist_turnover_ratio",
     "turnovers_per_36",
@@ -57,6 +60,7 @@ RATE_COLUMNS = (
     "defensive_rebounds_per_36",
     "steals_per_36",
     "blocks_per_36",
+    "fouls_per_36",
     "plus_minus_per_36",
 )
 
@@ -127,6 +131,16 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
         result["three_point_field_goals_made"],
         result["three_point_field_goals_attempted"],
     )
+    result["three_point_attempt_rate"] = _safe_ratio(
+        result["three_point_field_goals_attempted"],
+        result["field_goals_attempted"],
+    )
+    result["free_throw_pct"] = _safe_ratio(
+        result["free_throws_made"], result["free_throws_attempted"]
+    )
+    result["free_throw_attempt_rate"] = _safe_ratio(
+        result["free_throws_attempted"], result["field_goals_attempted"]
+    )
     result["assists_per_36"] = _safe_ratio(result["assists"], minutes, scale=36.0)
     result["assist_turnover_ratio"] = _safe_ratio(result["assists"], result["turnovers"])
     result["turnovers_per_36"] = _safe_ratio(result["turnovers"], minutes, scale=36.0)
@@ -138,6 +152,7 @@ def _derive_rates(frame: pd.DataFrame) -> pd.DataFrame:
     )
     result["steals_per_36"] = _safe_ratio(result["steals"], minutes, scale=36.0)
     result["blocks_per_36"] = _safe_ratio(result["blocks"], minutes, scale=36.0)
+    result["fouls_per_36"] = _safe_ratio(result["fouls"], minutes, scale=36.0)
     result["plus_minus_per_36"] = _safe_ratio(result["plus_minus"], minutes, scale=36.0)
     result["availability_minutes"] = pd.to_numeric(minutes, errors="coerce")
     return result
