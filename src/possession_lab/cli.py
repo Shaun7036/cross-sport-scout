@@ -36,6 +36,7 @@ def main() -> None:
             "all-roles-friendly-portal",
             "all-roles-stories-portal",
             "all-roles-report-portal",
+            "enrich-epl-wikidata",
         ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
@@ -75,10 +76,7 @@ def main() -> None:
     )
     args = parser.parse_args()
     if args.sport is None:
-        args.sport = (
-            "all"
-            if args.command
-            in {
+        all_sport_commands = {
                 "efficacy",
                 "train-ensemble",
                 "build-portal",
@@ -95,13 +93,28 @@ def main() -> None:
                 "all-roles-friendly-portal",
                 "all-roles-stories-portal",
                 "all-roles-report-portal",
-            }
-            else "nfl"
-        )
+        }
+        if args.command in all_sport_commands:
+            args.sport = "all"
+        elif args.command == "enrich-epl-wikidata":
+            args.sport = "epl"
+        else:
+            args.sport = "nfl"
     root = args.root.resolve()
     os.environ.setdefault("MPLCONFIGDIR", str(root / ".matplotlib"))
     if args.accept_source_updates:
         os.environ["POSSESSION_LAB_ACCEPT_SOURCE_UPDATES"] = "1"
+    if args.command == "enrich-epl-wikidata":
+        import json
+
+        from possession_lab.epl_wikidata import fetch_epl_wikidata_profiles
+
+        result = fetch_epl_wikidata_profiles(
+            root,
+            force=args.accept_source_updates,
+        )
+        print(json.dumps(result, indent=2))
+        return
     if args.command in {
         "run-all-roles",
         "analyze-all-roles",

@@ -1,0 +1,18 @@
+{
+  "queryable_identities": 990,
+  "raw_bindings": 1622,
+  "accepted_identities": 692,
+  "accepted_height_identities": 692,
+  "accepted_weight_identities": 265,
+  "ambiguous_identity_matches_quarantined": 3,
+  "identity_rule": "exact English label or alias plus exact date of birth",
+  "quantity_rule": "recognized metric/imperial unit, plausible range, and no >5-unit conflict per entity",
+  "status": "complete",
+  "source": "Wikidata Query Service",
+  "source_url": "https://query.wikidata.org/sparql",
+  "license": "CC0",
+  "identity_hash": "1f32552d67cd3588fb7158aa657d0959e071d4dc57cb2002103e1178b13a8669",
+  "batches": 29,
+  "profiles_path": "data/raw/epl/wikidata/profiles.parquet",
+  "temporality": "undated profile facts; never annual measurements"
+}

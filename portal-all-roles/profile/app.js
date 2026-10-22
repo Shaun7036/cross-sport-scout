@@ -356,6 +356,20 @@
       : `${words(feature)} pulled the outlook toward the middle.`;
   }
 
+  function predictionRangeNote(score) {
+    const range = score?.prediction_range_90;
+    if (!range || !finite(range.lower) || !finite(range.upper)) return null;
+    const note = element(
+      "p",
+      "secondary-warning",
+      `90% historical prediction range: ${format(range.lower, 1)}–${format(range.upper, 1)}. This comes from earlier target-role forecast errors, not the probability of sport-switch success.`,
+    );
+    if (score.interval_calibration_warning) {
+      note.append(document.createTextNode(` ${score.interval_calibration_warning}`));
+    }
+    return note;
+  }
+
   function forecastSection() {
     const forecast = state.detail?.native?.forecast;
     const observed = state.detail?.native?.observed;
@@ -397,6 +411,8 @@
         element("p", "", relationship),
         element("p", "", forecast.evidence_warning || "This estimate is experimental and should be checked against future seasons."),
       );
+      const rangeNote = predictionRangeNote(forecast);
+      if (rangeNote) copy.append(rangeNote);
       const contributions = Array.isArray(forecast.top_contributions)
         ? forecast.top_contributions.filter((item) => item?.feature).slice(0, 3)
         : [];
@@ -608,6 +624,8 @@
       reasons.forEach((item) => list.append(element("li", "", contributionSentence(item))));
       card.append(list);
     }
+    const rangeNote = predictionRangeNote(score);
+    if (rangeNote) card.append(rangeNote);
     card.append(element(
       "p",
       "secondary-warning",

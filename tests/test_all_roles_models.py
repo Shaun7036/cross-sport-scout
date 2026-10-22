@@ -3,6 +3,9 @@ import pandas as pd
 
 from possession_lab.all_roles_models import (
     LinearPercentileModel,
+    _conformal_interval,
+    _fit_with_evaluation,
+    _percentile_diagnostics,
     build_native_forecast_pairs,
     ood_diagnostics,
     train_bridge_models,
@@ -61,6 +64,49 @@ def _scored_panel() -> pd.DataFrame:
                         "dimension_possession_security_percentile": 40 + player,
                     }
                 )
+    return pd.DataFrame(rows)
+
+
+def _context_signal_panel() -> pd.DataFrame:
+    rows = []
+    for player in range(48):
+        context_by_season = {
+            season: float((player * 37 + season * 29) % 101)
+            for season in range(2020, 2026)
+        }
+        for season in range(2021, 2026):
+            observed = context_by_season[season - 1]
+            rows.append(
+                {
+                    "sport": "a",
+                    "player_id": f"a{player}",
+                    "name": f"a {player}",
+                    "season": season,
+                    "role": "role",
+                    "height_cm": 175.0 + player % 12,
+                    "weight_kg": 72.0 + player % 15,
+                    "age": 20 + player % 10 + season - 2021,
+                    "observed_role_percentile": observed,
+                    "target_status": "eligible",
+                    "availability_percentile": 30.0 + player % 40,
+                    "sustained_3y_percentile": observed,
+                    "dimension_creation_distribution_percentile": float(
+                        (player * 11) % 101
+                    ),
+                    "dimension_scoring_finishing_percentile": float(
+                        (player * 17) % 101
+                    ),
+                    "dimension_possession_security_percentile": float(
+                        (player * 23) % 101
+                    ),
+                    "context_role_opportunity_share_percentile": context_by_season[
+                        season
+                    ],
+                    "context_team_peer_strength_percentile": context_by_season[
+                        season
+                    ],
+                }
+            )
     return pd.DataFrame(rows)
 
 
@@ -164,8 +210,40 @@ def test_native_forecast_requires_eligible_same_role_and_deployable_inputs():
     assert head["usable_coverage"]["training_usable_rows"] == len(training_expected)
     assert head["model"].training_weight_sum < head["model"].training_rows
     assert head["usable_coverage"]["excluded_role_transition_rows"] == 1
+    assert head["context_model_selected"] is False
+    assert head["context_features"] == []
+    assert head["context_increment_gate"] == "not_available"
     # Missing age remains deployable and is handled by train-only median imputation.
     assert eligible_expected["age"].isna().sum() == 1
+
+
+def test_native_context_candidate_uses_prior_season_and_needs_frozen_advantage():
+    panel = _context_signal_panel()
+    specs = {
+        "a:role": _spec(
+            "a",
+            ("creation_distribution", "scoring_finishing", "possession_security"),
+        )
+    }
+
+    head, pairs = train_native_forecast_models(panel, specs=specs)
+    selected = head["a:role"]
+
+    assert (pairs["target_season"] == pairs["feature_season"] + 1).all()
+    assert selected["context_increment_gate"] == "supported"
+    assert selected["context_model_selected"] is True
+    assert selected["selected_model_family"] == "native_forecast_with_team_context"
+    assert selected["context_features"] == [
+        "context_role_opportunity_share_percentile",
+        "context_team_peer_strength_percentile",
+    ]
+    comparison = selected["evaluation"][
+        "mae_advantage_context_vs_base_native_forecast"
+    ]
+    assert comparison["ci90"][0] > 0
+    assert selected["context_coverage"][
+        "frozen_eligible_rows_with_both_fields"
+    ] == 48
 
 
 def test_physical_training_uses_only_eligible_labels_with_observed_build():
@@ -184,6 +262,11 @@ def test_physical_training_uses_only_eligible_labels_with_observed_build():
     assert head["usable_coverage"]["weighted_low_sample_rows"] == 1
     assert head["model"].training_weight_sum < head["model"].training_rows
     assert head["usable_coverage"]["missing_required_input_rows"]["height_cm"] == 1
+    assert head["evaluation"]["athlete_disjoint"]["status"] == "available"
+    assert head["evaluation"]["athlete_disjoint"]["train_test_identity_overlap"] == 0
+    assert head["evaluation"]["top_decile"]["selection_n"] > 0
+    assert head["prediction_interval"]["status"] == "calibrated_from_rolling_origin"
+    assert head["prediction_interval"]["calibration_athletes"] > 0
 
 
 def test_bridge_uses_fixed_dimension_intersection():
@@ -286,3 +369,56 @@ def test_ood_diagnostic_flags_extreme_build():
     result = ood_diagnostics(pd.DataFrame({"height_cm": [250.0]}), reference)
     assert result["status"] == "out_of_domain"
     assert result["features"][0]["status"] == "outside_1_99_reference"
+
+
+def test_percentile_diagnostics_catch_top_decile_and_output_compression():
+    actual = np.asarray([5, 15, 25, 35, 45, 55, 65, 75, 85, 95], dtype=float)
+    predicted = np.asarray([20, 25, 30, 35, 40, 45, 50, 55, 60, 65], dtype=float)
+
+    result = _percentile_diagnostics(actual, predicted)
+
+    assert result["n"] == 10
+    assert result["weighted_mean_absolute_bin_gap"] > 0
+    assert result["top_decile"]["actual_at_or_above_90"] == 1
+    assert result["top_decile"]["predicted_at_or_above_90"] == 0
+    assert result["top_decile"]["threshold_recall"] == 0
+    assert result["top_decile"]["precision_at_10_percent"] == 1
+
+
+def test_rolling_interval_uses_latest_residual_once_per_athlete():
+    residuals = [
+        {"athlete_id": f"p{index}", "season": 2023, "absolute_residual": index + 1}
+        for index in range(10)
+    ]
+    residuals.extend(
+        {"athlete_id": f"p{index}", "season": 2024, "absolute_residual": index + 2}
+        for index in range(10)
+    )
+
+    result = _conformal_interval(residuals)
+
+    # ceil((10 + 1) * .9) = 10, using the ten latest athlete residuals.
+    assert result["status"] == "calibrated_from_rolling_origin"
+    assert result["calibration_athletes"] == 10
+    assert result["finite_sample_rank"] == 10
+    assert result["half_width"] == 11
+
+
+def test_frozen_face_check_is_descriptive_and_does_not_change_gate():
+    panel = _scored_panel().query("sport == 'a'").copy()
+    panel.loc[panel["player_id"].eq("a0"), "observed_role_percentile"] = 95.0
+    head = _fit_with_evaluation(
+        panel,
+        features=("height_cm", "weight_kg", "bmi", "age"),
+        target="observed_role_percentile",
+        diagnostic_player_ids={"a0": "declared_star"},
+    )
+
+    check = head["evaluation"]["frozen_player_face_checks"]["declared_star"]
+    assert check["actual"] == 95.0
+    assert check["status"] in {"top_decile_reproduced", "top_decile_missed"}
+    assert head["evidence_gate"] in {
+        "supported",
+        "not_supported",
+        "insufficient_frozen_evidence",
+    }

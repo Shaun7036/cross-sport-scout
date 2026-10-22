@@ -14,6 +14,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from possession_lab.epl_wikidata import load_and_attach_wikidata
+from possession_lab.io import write_json
+
 ROLE_VALUES = {"GK", "DEF", "MID", "FWD"}
 COUNT_COLUMNS = [
     "goals_scored",
@@ -57,6 +60,33 @@ def _mode_or_join(values: pd.Series) -> str | pd.NA:
         return pd.NA
     modes = clean.mode()
     return modes.iloc[0] if len(modes) else clean.iloc[-1]
+
+
+def _final_panel_wikidata_audit(
+    merged: pd.DataFrame,
+    supported_role: pd.Series,
+    audit: dict,
+) -> dict:
+    """Align enrichment coverage with the rows retained by the model panel."""
+    if audit.get("status") != "applied":
+        return audit
+    retained = merged.loc[supported_role]
+    height_before = retained["_height_present_before_wikidata"].fillna(False).astype(bool)
+    weight_before = retained["_weight_present_before_wikidata"].fillna(False).astype(bool)
+    height_after = pd.to_numeric(retained["height_cm"], errors="coerce").notna()
+    weight_after = pd.to_numeric(retained["weight_kg"], errors="coerce").notna()
+    return {
+        **audit,
+        "canonical_rows_considered": int(len(merged)),
+        "rows": int(len(retained)),
+        "rows_excluded_no_supported_role": int((~supported_role).sum()),
+        "rows_filled_height": int((~height_before & height_after).sum()),
+        "rows_filled_weight": int((~weight_before & weight_after).sum()),
+        "height_rows_before": int(height_before.sum()),
+        "height_rows_after": int(height_after.sum()),
+        "weight_rows_before": int(weight_before.sum()),
+        "weight_rows_after": int(weight_after.sum()),
+    }
 
 
 def _aggregate_season(path: Path, season: int) -> pd.DataFrame:
@@ -155,16 +185,25 @@ def build_epl_all_roles_panel(
     seasons=range(2021, 2026),
 ) -> pd.DataFrame:
     root = Path(root)
+    selected_seasons = {int(value) for value in seasons}
     canonical_path = root / "data" / "processed" / "epl" / "player_seasons.parquet"
     if not canonical_path.exists():
         raise FileNotFoundError(f"Run the base EPL pipeline first: {canonical_path}")
     canonical = pd.read_parquet(canonical_path)
+    canonical = canonical.loc[canonical["season"].isin(selected_seasons)].copy()
+    canonical["_height_present_before_wikidata"] = pd.to_numeric(
+        canonical["height_cm"], errors="coerce"
+    ).notna()
+    canonical["_weight_present_before_wikidata"] = pd.to_numeric(
+        canonical["weight_kg"], errors="coerce"
+    ).notna()
+    canonical, wikidata_audit = load_and_attach_wikidata(root, canonical)
     canonical["season_element_id"] = pd.to_numeric(
         canonical["season_element_id"], errors="coerce"
     ).astype("Int64")
 
     pieces: list[pd.DataFrame] = []
-    for season in sorted(set(int(value) for value in seasons)):
+    for season in sorted(selected_seasons):
         source_path = (
             root
             / "data"
@@ -191,9 +230,13 @@ def build_epl_all_roles_panel(
         "age",
         "physical_temporality",
         "physical_source",
+        "wikidata_qid",
+        "wikidata_match_method",
+        "wikidata_physical_used",
+        "_height_present_before_wikidata",
+        "_weight_present_before_wikidata",
     ]
-    base = canonical.loc[canonical["season"].isin(set(int(x) for x in seasons))].copy()
-    base = base.reindex(columns=identity_columns)
+    base = canonical.reindex(columns=identity_columns)
     merged = base.merge(
         aggregated,
         on=["season", "season_element_id"],
@@ -257,12 +300,22 @@ def build_epl_all_roles_panel(
         "clean_sheet_rate",
         "physical_temporality",
         "physical_source",
+        "wikidata_qid",
+        "wikidata_match_method",
+        "wikidata_physical_used",
         "source_tier",
         "rights_warning",
         "role_granularity_warning",
     ]
+    supported_role = merged["role"].isin(ROLE_VALUES)
+    wikidata_audit = _final_panel_wikidata_audit(merged, supported_role, wikidata_audit)
+    write_json(
+        root / "reports" / "epl" / "wikidata_all_roles_application.json",
+        wikidata_audit,
+    )
+
     result = merged.reindex(columns=keep)
-    result = result.loc[result["role"].isin(ROLE_VALUES)].copy()
+    result = result.loc[supported_role].copy()
     if result.duplicated(["player_id", "season"]).any():
         raise ValueError("EPL all-role panel has duplicate player-season rows")
     return result.sort_values(["season", "role", "player_id"]).reset_index(drop=True)

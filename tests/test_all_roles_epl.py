@@ -3,7 +3,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from possession_lab.all_roles_epl import _aggregate_season, _derive_rates
+from possession_lab.all_roles_epl import (
+    _aggregate_season,
+    _derive_rates,
+    _final_panel_wikidata_audit,
+)
 
 
 def test_epl_aggregate_and_rates_preserve_observed_zero(tmp_path: Path):
@@ -155,3 +159,26 @@ def test_epl_optional_fields_remain_missing_for_older_sources(tmp_path: Path):
 
     assert pd.isna(result["expected_goals_per_90"])
     assert pd.isna(result["defensive_actions_per_90"])
+
+
+def test_wikidata_application_audit_uses_only_supported_final_roles():
+    merged = pd.DataFrame(
+        {
+            "role": ["MID", "DEF", pd.NA],
+            "height_cm": [180.0, 190.0, 175.0],
+            "weight_kg": [75.0, 85.0, 70.0],
+            "_height_present_before_wikidata": [False, True, False],
+            "_weight_present_before_wikidata": [True, False, False],
+        }
+    )
+    supported = merged["role"].isin({"GK", "DEF", "MID", "FWD"})
+
+    audit = _final_panel_wikidata_audit(merged, supported, {"status": "applied"})
+
+    assert audit["canonical_rows_considered"] == 3
+    assert audit["rows"] == 2
+    assert audit["rows_excluded_no_supported_role"] == 1
+    assert audit["rows_filled_height"] == 1
+    assert audit["rows_filled_weight"] == 1
+    assert audit["height_rows_after"] == 2
+    assert audit["weight_rows_after"] == 2

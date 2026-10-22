@@ -1,0 +1,14 @@
+{
+  "status": "applied",
+  "rows": 4005,
+  "profile_identities_available": 692,
+  "rows_filled_height": 887,
+  "rows_filled_weight": 386,
+  "height_rows_before": 1439,
+  "height_rows_after": 2326,
+  "weight_rows_before": 1398,
+  "weight_rows_after": 1784,
+  "overwrites_existing_values": 0,
+  "canonical_rows_considered": 4025,
+  "rows_excluded_no_supported_role": 20
+}

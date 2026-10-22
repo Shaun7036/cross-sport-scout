@@ -217,14 +217,60 @@ def _model_score(
     if support_policy == "native_forecast":
         output["forecast_support"] = forecast_support
         output["deployment_support"] = support_status
+        output["selected_model_family"] = head.get("selected_model_family")
+        output["team_context"] = {
+            "selected": bool(head.get("context_model_selected", False)),
+            "version": head.get("context_version"),
+            "features": list(head.get("context_features", [])),
+            "increment_gate": head.get("context_increment_gate"),
+            "selection_reason": head.get("context_selection_reason"),
+            "coverage": head.get("context_coverage", {}),
+        }
     elif support_policy == "native_profile":
         output["profile_increment_gate"] = head.get("profile_increment_gate")
         output["deployment_support"] = support_status
+        pooling = head.get("partial_pooling", {})
+        output["selected_model_family"] = head.get("selected_model_family")
+        output["partial_pooling"] = {
+            "status": pooling.get("status"),
+            "family": pooling.get("family"),
+            "gate": pooling.get("gate"),
+            "selected_tau": pooling.get("selected_tau"),
+            "role_weight": pooling.get("deployment_role_weight"),
+            "family_weight": pooling.get("deployment_family_weight"),
+            "reason": pooling.get("reason"),
+        }
     if value <= 1.0 or value >= 99.0:
         output["saturation_warning"] = (
             "Estimate is at or near the bounded 0–100 output limit and may reflect model "
             "clipping; differences beyond the boundary are not measurable."
         )
+    interval = head.get("prediction_interval", {})
+    interval_radius = _number(interval.get("half_width"))
+    output["prediction_range_status"] = interval.get(
+        "status", "unavailable_in_saved_model"
+    )
+    if interval_radius is not None and interval_radius >= 0:
+        empirical_coverage = _number(interval.get("frozen_empirical_coverage"))
+        output["prediction_range_90"] = {
+            "lower": max(0.0, value - interval_radius),
+            "upper": min(100.0, value + interval_radius),
+            "half_width": interval_radius,
+            "nominal_coverage": _number(interval.get("nominal_coverage")),
+            "method": interval.get("method"),
+            "calibration_athletes": interval.get("calibration_athletes"),
+            "frozen_empirical_coverage": empirical_coverage,
+        }
+        output["uncertainty_warning"] = (
+            "This rolling-origin residual range describes target-role forecast error. It is "
+            "not a probability that an athlete will successfully change sports and may not "
+            "retain its nominal coverage under distribution shift."
+        )
+        if empirical_coverage is not None and empirical_coverage < 0.80:
+            output["interval_calibration_warning"] = (
+                "The nominal 90% range covered fewer than 80% of frozen-test outcomes; "
+                "treat it as poorly calibrated for this model head."
+            )
     residual = _number(
         head.get("target_proxy_residual_mae")
         if support_policy == "target_role_forward_profile"

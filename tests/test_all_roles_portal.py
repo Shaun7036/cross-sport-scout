@@ -318,6 +318,7 @@ def test_static_portal_names_four_scores_and_uses_local_assets_only():
     ):
         assert label in html or label in script
     assert "not a probability" in html.lower() or "not a probability" in script.lower()
+    assert "prediction_range_90" in script
     assert "https://" not in html
     assert "http://" not in html
     assert "innerHTML" not in script
@@ -338,6 +339,7 @@ def test_compact_portal_is_single_role_and_uses_shared_export_safely():
     ):
         assert label in script
     assert "not a probability" in html.lower() or "not a probability" in script.lower()
+    assert "prediction_range_90" in script
     assert 'new URL("../data/", document.baseURI)' in script
     assert "innerHTML" not in script
     assert "https://" not in html
@@ -359,6 +361,7 @@ def test_friendly_portal_explains_each_single_role_result_in_plain_language():
     plain_copy = f"{html}\n{script}".lower()
     assert "not a probability" in plain_copy or "not the probability" in plain_copy
     assert "no score shown is not zero" in html.lower() or "no score shown is not zero" in script.lower()
+    assert "prediction_range_90" in script
     assert 'new URL("../data/", document.baseURI)' in script
     assert "innerHTML" not in script
     assert "https://" not in html
@@ -389,6 +392,7 @@ def test_profile_portal_leads_with_observed_native_result_before_secondary_model
     assert "not a prediction" in script.lower()
     assert "does not re-grade" in script.lower()
     assert "not a sport-switch probability" in script.lower()
+    assert "prediction_range_90" in script
     assert 'new URL("../data/", document.baseURI)' in script
     assert "innerHTML" not in script
     assert "https://" not in html

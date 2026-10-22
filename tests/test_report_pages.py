@@ -3,7 +3,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
-from possession_lab.all_roles_report import build_feature_payload, build_validation_payload
+from possession_lab.all_roles_report import (
+    _model_row,
+    build_feature_payload,
+    build_validation_payload,
+)
 
 ROOT = Path(__file__).parents[1]
 REPORT = ROOT / "portal-all-roles" / "report"
@@ -124,6 +128,34 @@ def test_feature_dictionary_is_generated_from_the_complete_role_registry():
     assert len(exported["dimensions"]) == 7
     assert sum(len(sport["roles"]) for sport in exported["sports"]) == 26
     assert any(not role["domains"] for sport in exported["sports"] for role in sport["roles"])
+    assert len(exported["team_context"]["fields"]) == 2
+    assert "next season" in exported["team_context"]["leakage_rule"].lower()
+    assert "role-specific model" in exported["partial_pooling"]["summary"].lower()
+
+
+def test_report_model_rows_expose_optional_context_and_pooling_metadata():
+    row = _model_row(
+        "nba:guard",
+        {
+            "status": "fit",
+            "features": [
+                "height_cm",
+                "context_role_opportunity_share_percentile",
+                "context_team_peer_strength_percentile",
+            ],
+            "selected_model_family": "partially_pooled",
+            "partial_pooling": {
+                "status": "deployed",
+                "family": "nba:skill_roles",
+                "selected_tau": 25.0,
+            },
+        },
+        "native_profile",
+    )
+
+    assert row["team_context"]["status"] == "both_context_fields_used"
+    assert row["selected_model_family"] == "partially_pooled"
+    assert row["partial_pooling"]["status"] == "deployed"
 
 
 def test_validation_page_uses_saved_evidence_and_separates_the_ensemble():
@@ -138,12 +170,26 @@ def test_validation_page_uses_saved_evidence_and_separates_the_ensemble():
     assert exported["all_roles"]["counts"]["bridge_heads_fit"] == 286
     assert exported["ensemble"]["separate_study"] is True
     assert "possession" in exported["ensemble"]["title"].lower()
+    assert "athlete_disjoint_diagnostic" in exported["all_roles"]["validation_methods"]
+    assert "prediction_range" in exported["all_roles"]["validation_methods"]
+    assert "stephen_curry" in exported["all_roles"]["face_validity"][
+        "observed_target_checks"
+    ]
     assert all(
         row["training_label_policy"]
         for sport in exported["all_roles"]["sports"]
         for family in (sport["physical"], sport["native"], sport["native_profile"])
         for row in family
         if row["test_n"] is not None
+    )
+    assert all(
+        "athlete_disjoint" in row
+        and "percentile_calibration" in row
+        and "top_decile" in row
+        and "prediction_interval" in row
+        for sport in exported["all_roles"]["sports"]
+        for family in (sport["physical"], sport["native"], sport["native_profile"])
+        for row in family
     )
 
 
@@ -155,6 +201,9 @@ def test_new_report_pages_keep_the_evidence_boundaries_visible():
     assert "game iq" in features
     assert "not identical" in features
     assert "reduced weight" in features
+    assert "two extra inputs" in features
+    assert "future information" in features
+    assert "related-role" in features
     assert "not cross-sport validation" in validation
     assert "build + canonical playing profile" in validation
     assert "separate historical study" in validation

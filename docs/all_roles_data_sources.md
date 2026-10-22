@@ -18,7 +18,7 @@ The source matrix uses three deliberately conservative labels:
 
 The label applies to the named source and use case, not automatically to every downstream artifact. A model that combines a green source with a red source inherits the red release gate.
 
-For exact acquisition evidence, use each raw file's adjacent `.source.json` sidecar. It records the designated URL, retrieval time, SHA-256, byte count, source label, and source-use note. [`metadata/download_manifest.json`](../metadata/download_manifest.json) is the convenient aggregate, but it must be regenerated after every acquisition. The current manifest contains 224 files and includes all five designated MoneyPuck goalie summaries for 2021 through 2025.
+For exact acquisition evidence, use each raw file's adjacent `.source.json` sidecar. It records the designated URL, retrieval time, SHA-256, byte count, source label, and source-use note. [`metadata/download_manifest.json`](../metadata/download_manifest.json) is the convenient aggregate, but it must be regenerated after every acquisition. The current raw cache has 253 sidecars: the earlier 224-file snapshot plus 29 rate-limited Wikidata query batches. It also includes all five designated MoneyPuck goalie summaries for 2021 through 2025.
 
 ## 2. Current all-role snapshot
 
@@ -29,7 +29,7 @@ The canonical `season` is the NFL season year for football and the season-start 
 | NFL | 15,518 | 5,850 | QB, RB/FB, WR, TE, EDGE, IDL, LB, CB, S, K, P; OT, IOL, and LS are identity-only abstentions | 15,337 (98.8%) |
 | NBA | 2,866 | 1,030 | guard, forward, center | 2,866 (100.0%) |
 | NHL | 5,263 | 1,654 | center, left wing, right wing, defense, goalie | 5,257 (99.9%) |
-| EPL | 4,005 | 1,777 | **GK, DEF, MID, FWD only** | 1,398 (34.9%) |
+| EPL | 4,005 | 1,777 | **GK, DEF, MID, FWD only** | 1,784 (44.5%) |
 
 These are counts from the current derived Parquet files, not contractual source counts. They can change when a cache is refreshed or a cleaning rule changes. The NBA all-role count is smaller than the broader canonical roster/profile panel because this adapter requires a confirmed regular-season appearance. The NHL universe is appearance-based and does not represent every zero-game contract player.
 
@@ -52,7 +52,7 @@ The current source timing is:
 | NFL | Earliest archived weekly roster listing in each season | Season-attached listing; actual measurement date and protocol are unknown. Combine/pro-day tests are genuinely dated historical events but often predate the modeled season by years. |
 | NBA | SportsDataverse/ESPN `player_core` profile | Regenerated current/undated profile. Do not interpret repeated values as annual measurements. |
 | NHL | Season-filtered NHL Stats bio universe for skaters; current MoneyPuck lookup for goalies | Both are current/undated profiles. Every all-role NHL row is marked as not a confirmed season measurement. |
-| EPL | ESPN 2025 roster-profile snapshot matched to stable FPL identities | Current/undated and sparse. Propagation to earlier seasons does not make it historical. |
+| EPL | ESPN 2025 roster profiles, filled only where missing by strict Wikidata CC0 matches | Both are current/undated profiles. Propagation to earlier seasons does not make either source historical. |
 
 No sport currently has a general, rights-cleared, season-dated source for wingspan, arm length, leg length, top speed, agility, and reaction time together. NFL prospect testing supplies some of these fields for a subset, but its reuse posture is not cleared for model training. There is no general leg-length source in the repository.
 
@@ -71,6 +71,7 @@ No sport currently has a general, rights-cleared, season-dated source for wingsp
 | Vaastav FPL archive | Amber | Local research prototype | MIT covers repository software; underlying FPL/Understat data rights remain upstream. |
 | FPL-Core-Insights | Red | Source inspection only | No repository data license found and provider rights are unclear. |
 | ESPN EPL profile JSON | Amber | Dated local research enrichment | No asserted open-data license; partial and current/undated. |
+| FBref / Sports Reference | Red for this model | Source evaluation only; no data ingested | Current terms prohibit using site content to support ML methods that predict, classify, label, or score inputs; the former advanced soccer feed was deleted in January 2026. |
 | Pappalardo/Wyscout Figshare benchmark | Green | Historical research and attributed publication | Historical benchmark only; not current EPL truth. |
 | StatsBomb Open Data | Amber | Listed competitions after accepting custom terms | Custom agreement and attribution/logo conditions; recent EPL is not in the open index. |
 | Wikidata profile enrichment | Green | Automated CC0 identity and undated profile enrichment | Community-maintained values need strict entity matching, plausibility checks, and timing labels. |
@@ -85,6 +86,7 @@ No sport currently has a general, rights-cleared, season-dated source for wingsp
 - [nflverse](https://github.com/nflverse) states that most release data, including the Next Gen Stats release unless a release page says otherwise, are CC BY 4.0; FTN data are CC BY-SA 4.0. Automated release downloads are allowed with the required attribution and share-alike handling.
 - [MoneyPuck](https://moneypuck.com/data.htm) permits the files listed on its data page for noncommercial use and ad-hoc journalism with clear attribution. Automate only those designated downloads; do not scrape unlisted pages.
 - [Wikidata](https://www.wikidata.org/wiki/Help:Data_access) is CC0 and suitable for automated enrichment. Send an identifiable User-Agent, request compressed responses, avoid high parallelism, and obey `429`/`Retry-After` responses.
+- [Sports Reference terms](https://www.sports-reference.com/termsofuse.html) section 5, item 11(ii), prohibits using site content to support machine-learning methods that predict, classify, label, or score inputs. The [Sports Reference data-use page](https://www.sports-reference.com/data_use.html) repeats that restriction. FBref is therefore not an input to this repository, whether acquired manually or automatically.
 - [Fantasy Premier League terms](https://fantasy.premierleague.com/help/terms) state that the Premier League owns Game data and prohibit automated systems used to access and extract information. The cached Vaastav archive may support the existing amber local-research prototype, but the project must not add a direct FPL scraper or assume redistribution rights.
 - [NBA.com terms](https://www.nba.com/termsofuse) restrict NBA Statistics to attributed legitimate news reporting or private noncommercial use and prohibit a comprehensive regularly updated statistics database without consent. The [NBA Stats FAQ](https://www.nba.com/stats/help/faq) says those statistics are not available for download for academic or personal use. Do not automate NBA.com Stats endpoints without written permission or a licensed feed.
 - [NHL.com terms](https://www.nhl.com/info/terms-of-service) prohibit unauthorized spidering, scraping, or automated compilation and restrict copying data into a database or creating derivatives. Do not automate NHL EDGE or undocumented NHL endpoints without written permission.
@@ -336,12 +338,34 @@ The EPL profile cache uses:
 
 It supplies name, team, position, date of birth, height, and weight. The match is partial: only 1,398 of 4,005 current all-role rows have both height and weight, and fuzzy name/team matches require manual review. The snapshot was retrieved after 2025-26, so it cannot be treated as a dated physical measurement for earlier seasons. Public JSON access does not assert an open-data license.
 
+### Wikidata CC0 physical fill
+
+The rights-cleared physical fallback is now implemented through the [Wikidata Query Service](https://query.wikidata.org/sparql). It queries only canonical EPL identities with a known date of birth and accepts an entity only when an exact English label or alias and the exact birth date both match. It does not fuzzy-match names. Ambiguous entities, unrecognized units, implausible values, and entity-level height or mass conflicts greater than five metric units are quarantined.
+
+The current audit has 990 queryable identities and accepts 692 Wikidata entities: 692 have a usable height and 265 have a usable mass. The merge fills only missing values and never overwrites ESPN. Across the 4,005 all-role EPL rows, height coverage rises to 2,326 (58.1%) and weight-plus-height coverage rises to 1,784 (44.5%). All Wikidata quantities remain explicitly labeled as community-maintained, undated profile facts—not annual or season-specific measurements.
+
+Refresh the cache with an identifiable user agent, sequential batches, and `429`/`Retry-After` handling:
+
+```text
+uv run possession-lab enrich-epl-wikidata --root .
+```
+
+The raw responses and source sidecars remain ignored by Git; the aggregate audit is written to `reports/epl/wikidata_physical_enrichment.json`.
+
+### FBref evaluation — rejected for model use
+
+FBref was evaluated but no FBref data were ingested. The current [Sports Reference Terms of Use](https://www.sports-reference.com/termsofuse.html), section 5, item 11(ii), explicitly prohibits using site content to support machine-learning methods that predict, classify, label, or score model inputs. That describes this athlete-scoring project directly. A manual export would not remove the restriction.
+
+FBref also no longer supplies the advanced soccer panel originally sought. In its [20 January 2026 announcement](https://www.sports-reference.com/blog/2026/01/fbref-stathead-data-update/), Sports Reference said its advanced soccer provider terminated the feed and required deletion of that data. The surviving basic league tables largely duplicate the current FPL core, while player-page height and weight are current, undated profiles rather than a seasonal physical series. FBref remains excluded unless written permission explicitly covers model training, derived scores, persistent caching, publication, portal display, and redistribution.
+
 ### EPL go/no-go
 
 - **Go:** local broad-role research for GK/DEF/MID/FWD with clear proxy labels and source warnings.
 - **No-go:** create recent CB/FB/WB/DM/CM/AM/wing/striker models from the current cache.
 - **No-go:** train release models on FPL-Core defensive or speed fields until rights and metric-specific completeness are resolved.
-- **No-go:** describe the ESPN profile snapshot as annual physical history or as full-league physical coverage.
+- **Go:** use strict Wikidata CC0 matches to fill missing EPL height and weight while retaining QID, match evidence, provenance, and undated-profile labels.
+- **No-go:** ingest FBref content into model training or scoring without explicit written permission covering this use.
+- **No-go:** describe the ESPN or Wikidata profile snapshots as annual physical history or as full-league physical coverage.
 - **No-go:** redistribute cached community/ESPN raw files or commercialize the model before upstream rights review.
 
 ## 9. Recommended soccer benchmarks and licensed path
@@ -385,7 +409,7 @@ For recent CB/FB/WB/DM/CM/AM/wing/striker modeling, procure a licensed provider 
 ### Stage 1 — add green, reproducible enrichment
 
 1. **NFL first:** add the [nflverse Next Gen Stats release](https://github.com/nflverse/nflverse-data/releases/tag/nextgen_stats), joined on `player_gsis_id`, for transferable decision, separation, movement-efficiency, and expectation-adjusted skill features.
-2. **Cross-sport profiles:** use [Wikidata's supported access methods](https://www.wikidata.org/wiki/Help:Data_access) for CC0 height (`P2048`), mass (`P2067`), birth date (`P569`), citizenship, club, and position. Accept an entity only with normalized name plus exact birth date and compatible team/position evidence; retain the QID and match evidence, and quarantine fuzzy-only matches. Treat values as community-maintained and usually undated.
+2. **Cross-sport profiles (implemented for EPL):** use [Wikidata's supported access methods](https://www.wikidata.org/wiki/Help:Data_access) for CC0 height (`P2048`), mass (`P2067`), and birth date (`P569`). EPL now requires an exact English label or alias plus exact birth date, retains the QID and match evidence, and quarantines ambiguous or conflicting matches. Extend the same strict pattern to other sports only where it adds coverage. Treat values as community-maintained and undated.
 3. **Soccer methods:** use [SkillCorner Open Data](https://github.com/SkillCorner/opendata) to define physical/off-ball/passing feature families and the [Pappalardo/Wyscout benchmark](https://doi.org/10.6084/m9.figshare.c.4415000) to validate possession-chain and spatial-event code. Neither is a current EPL cohort.
 
 ### Stage 2 — procure the missing high-value feeds

@@ -58,8 +58,29 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     physical_head = _head(physical_features, training)
     native_head = _head(native_features, training)
     native_head["forecast_support"] = "supported_over_history_baselines"
+    native_head.update(
+        {
+            "selected_model_family": "native_forecast_without_team_context",
+            "context_model_selected": False,
+            "context_version": "team-context-v1",
+            "context_features": [],
+            "context_increment_gate": "not_supported",
+            "context_selection_reason": "fixture",
+            "context_coverage": {"frozen_eligible_rows_with_both_fields": 30},
+        }
+    )
     native_profile_head = _head(bridge_features, training)
     native_profile_head["profile_increment_gate"] = "supported"
+    native_profile_head["selected_model_family"] = "role_only"
+    native_profile_head["partial_pooling"] = {
+        "status": "role_only_retained",
+        "family": "fixture_family",
+        "gate": "not_supported",
+        "selected_tau": 25.0,
+        "deployment_role_weight": 1.0,
+        "deployment_family_weight": 0.0,
+        "reason": "fixture",
+    }
     bridge_head = _head(bridge_features, training)
     bridge_head["target_proxy_reconstruction_gate"] = bridge_head.pop("evidence_gate")
     bridge_head["target_proxy_residual_mae"] = bridge_head.pop("frozen_residual_mae")
@@ -88,6 +109,7 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     result = score_all_roles_profile(artifact, profile, target_sport="nba")
     assert result["native"]["observed"]["kind"] == "observed_role_percentile"
     assert result["native"]["forecast"]["kind"] == "native_forecast_percentile"
+    assert result["native"]["forecast"]["team_context"]["selected"] is False
     assert (
         result["native"]["build_profile_forecast"]["kind"]
         == "native_build_profile_forecast_percentile"
@@ -95,6 +117,10 @@ def test_score_contract_keeps_observed_physical_and_transfer_separate():
     assert (
         result["native"]["build_profile_forecast"]["support_status"]
         == "supported_profile_increment"
+    )
+    assert (
+        result["native"]["build_profile_forecast"]["partial_pooling"]["status"]
+        == "role_only_retained"
     )
     guard = result["targets"]["nba"]["roles"]["guard"]
     assert guard["physical_only"]["kind"] == "cross_sport_physical_estimate"
@@ -274,3 +300,31 @@ def test_saturated_model_output_has_boundary_warning():
 
     assert score["value"] == 100.0
     assert "saturation_warning" in score
+
+
+def test_native_and_transfer_outputs_include_rolling_origin_prediction_ranges():
+    artifact, profile = _fixture_artifact()
+    interval = {
+        "status": "calibrated_from_rolling_origin",
+        "method": "rolling_origin_latest_per_athlete_absolute_residual",
+        "nominal_coverage": 0.9,
+        "half_width": 12.0,
+        "calibration_athletes": 28,
+        "frozen_empirical_coverage": 0.76,
+    }
+    artifact["native_forecast_models"]["nfl:QB"]["prediction_interval"] = interval
+    artifact["native_profile_models"]["nfl:QB"]["prediction_interval"] = interval
+    artifact["bridge_models"]["nfl:QB->nba:guard"]["prediction_interval"] = interval
+
+    result = score_all_roles_profile(artifact, profile, target_sport="nba")
+    native = result["native"]["forecast"]
+    native_profile = result["native"]["build_profile_forecast"]
+    transfer = result["targets"]["nba"]["roles"]["guard"]["transfer_guesstimate"]
+
+    for score in (native, native_profile, transfer):
+        assert score["prediction_range_status"] == "calibrated_from_rolling_origin"
+        assert score["prediction_range_90"]["half_width"] == 12.0
+        assert 0 <= score["prediction_range_90"]["lower"] <= 100
+        assert 0 <= score["prediction_range_90"]["upper"] <= 100
+        assert "not a probability" in score["uncertainty_warning"]
+        assert "poorly calibrated" in score["interval_calibration_warning"]

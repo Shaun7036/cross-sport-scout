@@ -91,8 +91,8 @@
           "FWD": 486,
           "GK": 447
         },
-        "height_coverage": 0.3593008739076155,
-        "weight_coverage": 0.349063670411985
+        "height_coverage": 0.5807740324594257,
+        "weight_coverage": 0.44544319600499377
       }
     },
     "rows": 27652,
@@ -145,7 +145,17 @@
     "native_heads_fit": 23,
     "native_profile_heads_fit": 23,
     "bridge_heads_fit": 286,
-    "forecast_pairs": 16916
+    "forecast_pairs": 16916,
+    "athlete_disjoint_diagnostics_available": 355,
+    "rolling_origin_prediction_intervals_available": 355,
+    "top_decile_diagnostics_available": 355,
+    "predeclared_frozen_player_checks": 6,
+    "heads_fit_with_any_team_context": 0,
+    "heads_fit_with_complete_team_context": 0,
+    "partial_pooling_heads_reported": 23,
+    "partial_pooling_deployed_heads": 1,
+    "partial_pooling_role_only_retained_heads": 11,
+    "partial_pooling_not_applicable_heads": 11
   },
-  "source_files": 224
+  "source_files": 253
 }

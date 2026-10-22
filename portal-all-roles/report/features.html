@@ -77,6 +77,32 @@
       </div>
     </section>
 
+    <section class="section tint" aria-labelledby="context-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Playing context</p>
+            <h2 id="context-heading">Two extra inputs describe the situation around a season.</h2>
+          </div>
+          <p>These fields add workload and teammate context. They do not change the player’s observed role score, and they are not presented as measures of intelligence, effort or talent.</p>
+        </div>
+        <p id="context-status" class="note">Loading saved context coverage…</p>
+        <div id="context-fields" class="two-col" aria-live="polite"></div>
+        <div class="two-col" style="margin-top: 1rem;">
+          <article class="card">
+            <h3>How future information is kept out</h3>
+            <p id="context-leakage-rule">A completed season can describe only that season and may be used only when predicting the following one.</p>
+            <p class="plain-note">The teammate-strength input leaves the player out of their own calculation. Multi-team seasons are withheld when comparable stint-level data are unavailable.</p>
+          </article>
+          <article class="card">
+            <h3>Small-role support, only when it earns its place</h3>
+            <p id="pooling-status">Loading the saved related-role decision…</p>
+            <p class="plain-note">A role-specific model stays primary. A small, evidence-tested adjustment toward related roles can reduce unstable estimates; it does not say the positions are interchangeable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section tint" aria-labelledby="dimension-heading">
       <div class="shell">
         <div class="section-heading">

@@ -72,10 +72,11 @@
           <li><span>2</span><strong>Train before 2025</strong><p>Fit regularized line models using the training-cohort rule saved with the model artifact.</p></li>
           <li><span>3</span><strong>Choose inside training</strong><p>Select regularization strength without using the frozen season.</p></li>
           <li><span>4</span><strong>Test on 2025</strong><p>Record error, rank agreement and performance against a simple declared baseline.</p></li>
-          <li><span>5</span><strong>Check stability</strong><p>Use earlier rolling origins, unseen-history athletes and athlete-clustered bootstrap intervals where samples allow.</p></li>
+          <li><span>5</span><strong>Check stability and calibration</strong><p>Use earlier rolling origins, a separate athlete-disjoint group-fold diagnostic, top-decile checks and athlete-clustered bootstrap intervals where samples allow.</p></li>
           <li><span>6</span><strong>Refit for the portal</strong><p>Use the full saved training cohort only after the evaluation result has been frozen and labeled.</p></li>
         </ol>
         <p id="training-cohort-summary" class="note">Loading the saved training-cohort statement…</p>
+        <p class="note"><strong>The evidence gate has not changed.</strong> The athlete-disjoint result asks whether patterns generalize to identities kept out of training, while the frozen 2025 result asks whether they carry into the next season. The nominal 90% prediction range is calibrated from earlier rolling-origin errors, and its actual 2025 coverage is reported rather than assumed.</p>
       </div>
     </section>
 
@@ -151,6 +152,7 @@
           <article class="card"><h3>Rank agreement</h3><p>How well the predicted ordering follows the observed ordering. It does not show perfect calibration or causal explanation.</p></article>
           <article class="card"><h3>Evidence gate</h3><p>A saved rule combining baseline improvement, sample support and resampling evidence. “Supported” is still research support, not deployment approval.</p></article>
         </div>
+        <p class="note"><strong>Additional diagnostics:</strong> each fitted head can now report athlete-disjoint error, fixed-bin percentile calibration, top-decile recognition and a rolling-origin prediction range. These make failure modes more visible; they do not turn a cross-sport analogy into a validated transfer forecast.</p>
       </div>
     </section>
   </main>

@@ -240,7 +240,8 @@
             <h3>Evaluation design</h3>
             <ul class="plain-list">
               <li>The frozen 2025 test is chronological, but it is not athlete-disjoint: some test athletes appear in training history.</li>
-              <li>A separate unseen-history slice helps, but prospective testing on new seasons and athletes is still needed.</li>
+              <li>A separate pre-2025 athlete-disjoint group-fold diagnostic now tests unseen identities, but it is not a future-season test; prospective testing on new seasons and athletes is still needed.</li>
+              <li>Nominal 90% ranges use earlier rolling-origin errors. Their frozen-season coverage is reported, and poor coverage receives a warning.</li>
               <li>Model clipping to 0–100 can hide how far an extreme prediction sits outside the known range.</li>
             </ul>
           </article>
@@ -329,7 +330,7 @@
             <div><strong>Define mental constructs before measuring them.</strong><p>Predeclare reliable tasks for perception, decision speed or anticipation rather than inferring “awareness” from unrelated box-score statistics.</p></div>
           </li>
           <li>
-            <div><strong>Validate outside the current sample.</strong><p>Run prospective future-season and athlete-disjoint evaluations, publish uncertainty and check performance separately for each role.</p></div>
+            <div><strong>Validate outside the current sample.</strong><p>Keep the new internal athlete-disjoint diagnostic, then add prospective future-season and external-athlete evaluation, publish uncertainty and check performance separately for each role.</p></div>
           </li>
           <li>
             <div><strong>Clear release rights, then increase complexity.</strong><p>Resolve redistribution and commercial terms first. Consider hierarchical or richer models only after the labels and validation design justify them.</p></div>

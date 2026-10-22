@@ -12,7 +12,15 @@ fi
 
 cd "${PROJECT_ROOT}"
 echo "Creating the project environment with uv..."
-uv sync --extra dev
+uv sync --extra dev --reinstall-package possession-lab
+
+# A virtual environment copied in Finder can retain macOS's hidden filesystem
+# flag on every child. Python then skips editable-install .pth files even though
+# the environment otherwise looks healthy. Clearing that flag is safe and makes
+# the interpreter selected directly in DataSpell behave like `uv run`.
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  chflags -R nohidden "${PROJECT_ROOT}/.venv"
+fi
 
 echo
 uv run python scripts/run_portal.py check

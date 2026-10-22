@@ -2,7 +2,10 @@ import pandas as pd
 
 from possession_lab.all_roles_pipeline import (
     _canonicalize_panel,
+    _context_coverage_table,
+    _context_pooling_counts,
     _model_report,
+    _write_context_coverage,
     frozen_nba_sanity_checks,
 )
 
@@ -82,3 +85,65 @@ def test_model_report_includes_native_transferable_profile_family():
     assert report["native_profile_models"]["a:role"]["profile_increment_gate"] == (
         "not_supported"
     )
+
+
+def test_context_coverage_report_is_deterministic_and_field_complete(tmp_path):
+    scored = pd.DataFrame(
+        {
+            "sport": ["nba", "epl", "nba"],
+            "role": ["guard", "FWD", "guard"],
+            "context_status": ["available", "insufficient_peer_context", "available"],
+            "context_role_opportunity_share_percentile": [80.0, None, 40.0],
+            "context_team_peer_strength_percentile": [55.0, None, None],
+        }
+    )
+
+    table = _context_coverage_table(scored)
+
+    assert list(zip(table["sport"], table["role"])) == [("epl", "FWD"), ("nba", "guard")]
+    nba = table.loc[table["sport"].eq("nba")].iloc[0]
+    assert nba["total_rows"] == 2
+    assert nba["context_available_rows"] == 2
+    assert nba["context_role_opportunity_share_percentile_coverage"] == 1.0
+    assert nba["context_team_peer_strength_percentile_coverage"] == 0.5
+
+    path = _write_context_coverage(tmp_path, scored)
+    lines = path.read_text().splitlines()
+    assert lines[1].startswith("epl,FWD,1,0,")
+    assert lines[2].startswith("nba,guard,2,2,")
+
+
+def test_context_and_pooling_counts_use_only_declared_head_metadata():
+    artifact = {
+        "physical_models": {
+            "nba:guard": {"model": object(), "features": ["height_cm", "weight_kg"]}
+        },
+        "native_forecast_models": {},
+        "native_profile_models": {
+            "nba:guard": {
+                "model": object(),
+                "features": [
+                    "height_cm",
+                    "context_role_opportunity_share_percentile",
+                    "context_team_peer_strength_percentile",
+                ],
+                "partial_pooling": {"status": "deployed"},
+            },
+            "nba:center": {
+                "model": object(),
+                "features": ["height_cm"],
+                "partial_pooling": {"status": "role_only_retained"},
+            },
+            "nhl:goalie": {"partial_pooling": {"status": "not_applicable"}},
+        },
+        "bridge_models": {},
+    }
+
+    counts = _context_pooling_counts(artifact)
+
+    assert counts["heads_fit_with_any_team_context"] == 1
+    assert counts["heads_fit_with_complete_team_context"] == 1
+    assert counts["partial_pooling_heads_reported"] == 3
+    assert counts["partial_pooling_deployed_heads"] == 1
+    assert counts["partial_pooling_role_only_retained_heads"] == 1
+    assert counts["partial_pooling_not_applicable_heads"] == 1

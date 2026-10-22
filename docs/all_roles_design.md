@@ -135,6 +135,17 @@ Rows below the opportunity threshold receive `target_status = low_sample`. Their
 
 This season-relative design reduces unit and scoring-environment drift. It does not make percentile differences interval-scaled, erase team/tactical context, or prove that the semantic dimensions mean the same thing across sports.
 
+### 5.1 Completed-season team context
+
+The scored panel now carries two small, auditable context descriptors alongside the observed target:
+
+- `context_role_opportunity_share_percentile` asks what share of the team's opportunity at the same broad role belonged to the player, then ranks that share inside the same sport, role, and season. This is a workload and deployment signal, not a quality score.
+- `context_team_peer_strength_percentile` summarizes the reliability-weighted observed role percentiles of the player's **other** teammates, then ranks that value inside the same role-season cohort. The player is removed from their own team-strength calculation.
+
+These fields do not alter `observed_role_percentile`. They are parallel candidate predictors whose use is declared separately by each saved model head. The leakage rule is strict: context from completed season `t` may predict only season `t+1`; future team identity, target-season aggregates, and the player's own target are not allowed into the feature row. Team identity itself is not a learned category. Multi-team seasons and rows without positive opportunity are withheld because the four-sport panel does not have comparable stint-level opportunity everywhere.
+
+[`context_coverage.csv`](../reports/all_roles/context_coverage.csv) reports total rows, context-available rows, and field-by-field coverage for every sport and broad role. Missing context remains missing rather than being interpreted as an average situation.
+
 ## 6. Shared performance dimensions
 
 Role domains are assigned to a small vocabulary used only for explicit cross-sport analogy:
@@ -164,11 +175,12 @@ No current dimension is labeled “awareness,” “reaction speed,” “decisi
 
 - **Target:** next season's observed role percentile.
 - **Features:** height, weight, BMI, age, prior observed percentile, prior availability, trailing three-year percentile, and the role's prior-season performance dimensions.
+- **Optional context:** the two completed-season fields in section 5.1 are tested as a fixed candidate. They enter the saved head only when the candidate beats the same role/history model, the best history baseline, and neutral on frozen 2025 data, with at least 20 eligible athletes having both fields.
 - **Pairing rule:** same athlete, consecutive seasons, same broad role, and eligible in both the prior and realized target seasons.
 - **Use:** a research next-season backtest within the athlete's current sport and role, using lagged performance plus listed physical profiles.
 - **Evidence:** compared with the better of previous-season and trailing-three-year history baselines. Unsupported estimates remain explicitly experimental.
 
-Role transitions are excluded from this model. Predicting a player's new native role is a different task and needs a transition model.
+Role transitions are excluded from this model. Predicting a player's new native role is a different task and needs a transition model. Team context is never passed to the cross-sport bridges because source-team deployment does not transfer cleanly between sports.
 
 ### 7.3 Native build + playing-profile forecast
 
@@ -197,7 +209,7 @@ For every ordered source-role → target-role pair, the registry takes the fixed
 
 At scoring time, a source athlete's source-role percentiles are inserted into the identically named fields. This produces a useful “what does this profile resemble?” calculation, but it is a distribution-shift assumption.
 
-The bridge gate asks whether the exact shared profile improves the held-out target role's next-season prediction over build alone. Even a passing gate provides **no observed cross-sport transfer validation**. It should be read only as forward target-role profile evidence. The reported sensitivity range uses that forward frozen-test error and is not a calibrated confidence interval.
+The bridge gate asks whether the exact shared profile improves the held-out target role's next-season prediction over build alone. Even a passing gate provides **no observed cross-sport transfer validation**. It should be read only as forward target-role profile evidence. The scorer now distinguishes two ranges: a nominal 90% rolling-origin residual range calibrated inside the target role, and the older plus/minus-frozen-MAE sensitivity band. The latter remains a sensitivity aid and is not a calibrated confidence interval. Neither range is a probability of succeeding after a sport change.
 
 Transfer is withheld when:
 
@@ -226,7 +238,15 @@ Training can use finite observed labels from fully eligible and positive-opportu
 
 This avoids evaluating on rows the live scorer would have withheld. Reports keep candidate, eligible-label, and usable-deployment counts separate so missing physical coverage cannot masquerade as model evidence. Age remains an imputable feature; BMI is deterministically derived from height and weight.
 
-### 8.2 Time split and baselines
+### 8.2 Evidence-gated related-role shrinkage
+
+Partial pooling is limited to native build-plus-playing-profile heads. It starts with the role-specific estimate, then tests whether a small blend toward a predeclared family of related roles makes thin-sample estimates more stable. This is statistical borrowing, not a claim that a guard and center, a wide receiver and tight end, or two hockey forward positions are interchangeable.
+
+The role-only model remains the default. Candidate blend strengths are selected with pre-freeze rolling evidence, and the partially pooled version is deployed only when its held-out comparison with the role-only model passes the declared gate. Otherwise the head records `role_only_retained`. Roles without a defensible family record `not_applicable`. Each native-profile head exposes its family, effective role sample, selected shrinkage strength, role-versus-family weight, frozen comparison, decision, and deployment policy in [`model_evaluation.json`](../reports/all_roles/model_evaluation.json).
+
+This design can reduce noisy role-specific estimates, but it cannot create missing skill evidence or rescue an unsupported model family. A pooled head still faces the same chronological test, data-quality limits, and interpretation boundaries as its role-only counterpart.
+
+### 8.3 Time split and baselines
 
 - Seasons before 2025 train the frozen evaluation model.
 - Season 2025 is the frozen test.
@@ -234,14 +254,24 @@ This avoids evaluating on rows the live scorer would have withheld. Reports keep
 - The final local artifact is refit on all available eligible and reduced-weight low-sample deployment-usable rows after evaluation, so portal scores use the full research snapshot.
 - Metrics include MAE, RMSE, and Spearman rank correlation.
 - A newcomer/unseen-history slice reports athletes absent from the pre-2025 training history.
+- A separate five-fold athlete-disjoint diagnostic uses only pre-2025 rows and keeps every season for one athlete in the same fold.
+- Fixed 10-point percentile bins report average predicted-versus-observed gaps, while threshold and cohort-ranked top-decile checks show whether elite outputs are recognized.
 
 Physical heads are compared with a neutral prediction of 50. Native forecasts are compared with the better frozen-test history baseline: the player's prior-season percentile or trailing-three-year percentile. Native build-profile and bridge heads are compared with the same target-role model using build alone.
 
 Some NBA, NHL, and EPL physical profiles are current or undated and may be repeated across historical rows. The performance split is chronological, but the full feature set is therefore not completely timestamp-clean; these outputs should not be presented as deployment-grade prospective forecasts.
 
-The 90% MAE-advantage interval resamples frozen-season test athletes by `player_id`. Because the frozen test contains one row per athlete-role, this is effectively a test-athlete row bootstrap; the train/test split is chronological, not athlete-disjoint. The unseen-history slice separately reports athletes absent from pre-2025 training. “Supported” requires the declared model to beat its baseline and the lower interval bound to be positive. Insufficient or failed evidence remains visible in the report and scorer.
+The 90% MAE-advantage interval resamples frozen-season test athletes by `player_id`. Because the frozen test contains one row per athlete-role, this is effectively a test-athlete row bootstrap. “Supported” still requires the declared model to beat its baseline and the lower interval bound to be positive. The new athlete-disjoint result is an explicit, non-temporal identity-generalization diagnostic; it does **not** replace, strengthen, or weaken that chronological evidence gate. The unseen-history slice remains a narrower report of naturally new frozen-season athletes.
 
-### 8.3 Out-of-domain checks
+### 8.4 Prediction ranges and calibration diagnostics
+
+Each fitted head attempts to build a nominal 90% prediction range from absolute rolling-origin errors produced before the frozen 2025 test. To prevent long-tenured athletes from dominating the residual distribution, only the latest available rolling-origin residual for each athlete enters calibration. The half-width is the finite-sample conformal order statistic at `ceil((n + 1) * 0.90)`. When the requested order statistic is unavailable, the model reports insufficient calibration rather than borrowing error from the frozen test.
+
+Frozen 2025 outcomes are then used only to report empirical coverage and clipped average width. Coverage below 80% triggers a scorer warning. These ranges describe target-role forecast error under the historical sampling contract. They can fail under season drift, measurement changes, out-of-domain bodies or capability profiles, and especially when a source-sport profile is inserted into a target-sport bridge. They are not confidence intervals for a player's talent and not probabilities of making a team or successfully changing sports.
+
+Percentile calibration is also descriptive rather than an evidence gate. The report exports mean bias, a weighted mean absolute gap across fixed 10-point predicted-percentile bins, fixed-threshold top-decile precision/recall, and cohort precision-at-10%. The cohort check prevents a model that never emits a 90-plus prediction from escaping scrutiny merely through regression toward 50.
+
+### 8.5 Out-of-domain checks
 
 Each fitted head stores reference summaries for its features. The scorer reports feature-level robust distances and 1st–99th percentile checks. Extreme build distance or extreme capability-dimension distance withholds a score. Age can produce a warning without automatically withholding the result. These are pragmatic diagnostics, not a full multivariate uncertainty model.
 
@@ -252,9 +282,9 @@ Two frozen NBA checks protect the target construction from obvious failures:
 - Stephen Curry (`player_id = 3975`) must be at least the 90th percentile in the guard scoring domain in his latest observed season.
 - LeBron James (`player_id = 1966`) must be at least the 90th percentile in the forward creation domain in his latest observed season.
 
-An identity guard also verifies that Seth Curry (`player_id = 2326307`) is not confused with Stephen. These checks are declared in code and are not used to retune the metric weights around those names.
+An identity guard also verifies that Seth Curry (`player_id = 2326307`) is not confused with Stephen. In addition, the physical, native-history and native build-profile heads save their frozen 2025 prediction and actual percentile for Curry's guard role and LeBron's forward role. The model check reports whether an observed top-decile result was reproduced, missed, or was not top-decile in the broad role target. It does not silently redefine the target to force a pass.
 
-A pass shows that selected native domain targets meet basic face validity. It does not validate the broad overall role composite, native forecasting, or cross-sport translation. Current values and statuses are generated in [`observed_targets.json`](../reports/all_roles/observed_targets.json).
+A pass in the original domain checks shows that selected native domain targets meet basic face validity. The saved forecast examples are descriptive audits, not training criteria. None of these named cases validates cross-sport translation, and none is used to tune features, weights, gates, or uncertainty ranges. Current target values and statuses are generated in [`observed_targets.json`](../reports/all_roles/observed_targets.json); model-specific checks are exported with each applicable head in [`model_evaluation.json`](../reports/all_roles/model_evaluation.json).
 
 ## 10. Scoring interfaces
 
@@ -344,6 +374,7 @@ Both pages are also served at `/friendly/` and `/stories/` by the main port-8766
 |---|---|
 | [`reports/all_roles/data_build.json`](../reports/all_roles/data_build.json) | Current row, athlete, role, season, and physical coverage |
 | [`reports/all_roles/observed_targets.json`](../reports/all_roles/observed_targets.json) | Role-season target priors, eligible reference counts, skipped cohorts, and NBA sanity checks |
+| [`reports/all_roles/context_coverage.csv`](../reports/all_roles/context_coverage.csv) | Per-sport and role availability for the two completed-season context descriptors |
 | [`reports/all_roles/model_evaluation.json`](../reports/all_roles/model_evaluation.json) | Full per-head fit metadata, frozen metrics, baselines, evidence gates, and usable coverage |
 | [`reports/all_roles/model_evidence_summary.csv`](../reports/all_roles/model_evidence_summary.csv) | Compact physical/native/native-profile evidence table |
 | [`reports/all_roles/role_summary.csv`](../reports/all_roles/role_summary.csv) | Aggregate role coverage and score distributions |

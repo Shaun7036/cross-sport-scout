@@ -8,6 +8,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
+from possession_lab.all_roles_context import CONTEXT_FEATURES
 from possession_lab.all_roles_epl import build_epl_all_roles_panel
 from possession_lab.all_roles_models import train_all_role_models
 from possession_lab.all_roles_nba import build_nba_all_roles_panel
@@ -58,6 +59,55 @@ def _canonicalize_panel(frame: pd.DataFrame, sport: str) -> pd.DataFrame:
     if result.duplicated(["player_id", "season"]).any():
         raise ValueError(f"{sport} all-role builder returned duplicate player-season rows")
     return result
+
+
+def _context_coverage_table(scored: pd.DataFrame) -> pd.DataFrame:
+    """Summarize role-level context availability with a stable column order."""
+    required = {"sport", "role", "context_status", *CONTEXT_FEATURES}
+    missing = sorted(required.difference(scored.columns))
+    if missing:
+        raise ValueError(f"Context coverage requires columns: {missing}")
+    columns = [
+        "sport",
+        "role",
+        "total_rows",
+        "context_available_rows",
+        "context_available_fraction",
+    ]
+    for feature in CONTEXT_FEATURES:
+        columns.extend([f"{feature}_available_rows", f"{feature}_coverage"])
+
+    rows: list[dict] = []
+    grouped = scored.groupby(["sport", "role"], dropna=False, observed=True, sort=True)
+    for (sport, role), cohort in grouped:
+        total = int(len(cohort))
+        available = int(cohort["context_status"].eq("available").sum())
+        row = {
+            "sport": str(sport),
+            "role": str(role),
+            "total_rows": total,
+            "context_available_rows": available,
+            "context_available_fraction": available / total if total else 0.0,
+        }
+        for feature in CONTEXT_FEATURES:
+            values = pd.to_numeric(cohort[feature], errors="coerce")
+            present = int((values.notna() & np.isfinite(values)).sum())
+            row[f"{feature}_available_rows"] = present
+            row[f"{feature}_coverage"] = present / total if total else 0.0
+        rows.append(row)
+    return pd.DataFrame(rows, columns=columns)
+
+
+def _write_context_coverage(root: Path, scored: pd.DataFrame) -> Path:
+    path = root / "reports" / "all_roles" / "context_coverage.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _context_coverage_table(scored).to_csv(
+        path,
+        index=False,
+        lineterminator="\n",
+        float_format="%.6f",
+    )
+    return path
 
 
 def build_all_roles_data(
@@ -119,6 +169,7 @@ def build_observed_scores(
             panel = pd.read_parquet(path)
     scored, audit = score_observed_panel(panel)
     save_frame(scored, root / "data" / "processed" / "all_roles" / "observed_scores.parquet")
+    _write_context_coverage(root, scored)
     sanity = frozen_nba_sanity_checks(scored)
     report = {"target_audit": audit, "frozen_nba_sanity_checks": sanity}
     write_json(root / "reports" / "all_roles" / "observed_targets.json", report)
@@ -201,6 +252,52 @@ def _model_report(artifact: dict) -> dict:
     }
 
 
+def _declared_head_features(head: dict) -> set[str]:
+    """Return serializable feature names without assuming one estimator class."""
+    candidates = [head.get("features")]
+    model = head.get("model")
+    if model is not None:
+        candidates.append(getattr(model, "features", None))
+        if isinstance(model, dict):
+            candidates.append(model.get("features"))
+    for candidate in candidates:
+        if isinstance(candidate, (list, tuple, set)):
+            return {str(feature) for feature in candidate}
+    return set()
+
+
+def _context_pooling_counts(artifact: dict) -> dict[str, int]:
+    """Count only context and pooling states explicitly present in head metadata."""
+    families = (
+        artifact.get("physical_models", {}),
+        artifact.get("native_forecast_models", {}),
+        artifact.get("native_profile_models", {}),
+        artifact.get("bridge_models", {}),
+    )
+    heads = [head for family in families for head in family.values()]
+    fitted = [head for head in heads if "model" in head]
+    context_sets = [_declared_head_features(head) for head in fitted]
+    pooling = [
+        head["partial_pooling"]
+        for head in heads
+        if isinstance(head.get("partial_pooling"), dict)
+    ]
+    counts = {
+        "heads_fit_with_any_team_context": sum(
+            bool(features.intersection(CONTEXT_FEATURES)) for features in context_sets
+        ),
+        "heads_fit_with_complete_team_context": sum(
+            set(CONTEXT_FEATURES).issubset(features) for features in context_sets
+        ),
+        "partial_pooling_heads_reported": len(pooling),
+    }
+    for status in ("deployed", "role_only_retained", "not_applicable"):
+        counts[f"partial_pooling_{status}_heads"] = sum(
+            item.get("status") == status for item in pooling
+        )
+    return counts
+
+
 def train_all_roles(
     root: Path | str,
     scored: pd.DataFrame | None = None,
@@ -221,6 +318,17 @@ def train_all_roles(
         root / "data" / "processed" / "all_roles" / "native_forecast_pairs.parquet",
     )
     report = _model_report(artifact)
+    fitted_heads = [
+        head
+        for family in (
+            artifact["physical_models"],
+            artifact["native_forecast_models"],
+            artifact["native_profile_models"],
+            artifact["bridge_models"],
+        )
+        for head in family.values()
+        if "model" in head
+    ]
     report["counts"] = {
         "registered_roles": len(role_specs()),
         "physical_heads_fit": sum("model" in head for head in artifact["physical_models"].values()),
@@ -232,7 +340,26 @@ def train_all_roles(
         ),
         "bridge_heads_fit": sum("model" in head for head in artifact["bridge_models"].values()),
         "forecast_pairs": int(len(pairs)),
+        "athlete_disjoint_diagnostics_available": sum(
+            head.get("evaluation", {}).get("athlete_disjoint", {}).get("status")
+            == "available"
+            for head in fitted_heads
+        ),
+        "rolling_origin_prediction_intervals_available": sum(
+            head.get("prediction_interval", {}).get("status")
+            == "calibrated_from_rolling_origin"
+            for head in fitted_heads
+        ),
+        "top_decile_diagnostics_available": sum(
+            head.get("evaluation", {}).get("top_decile", {}).get("selection_n", 0) > 0
+            for head in fitted_heads
+        ),
+        "predeclared_frozen_player_checks": sum(
+            len(head.get("evaluation", {}).get("frozen_player_face_checks", {}))
+            for head in fitted_heads
+        ),
     }
+    report["counts"].update(_context_pooling_counts(artifact))
     write_json(root / "reports" / "all_roles" / "model_evaluation.json", report)
     return artifact, report
 

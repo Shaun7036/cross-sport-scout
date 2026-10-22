@@ -474,16 +474,32 @@
       track.append(fill);
       card.append(track);
     }
-    const range = score?.analogy_sensitivity_range;
-    if (Array.isArray(range) && range.length === 2 && range.every(finite)) {
+    const predictionRange = score?.prediction_range_90;
+    const calibratedRange = predictionRange
+      && finite(predictionRange.lower)
+      && finite(predictionRange.upper)
+      ? [predictionRange.lower, predictionRange.upper]
+      : null;
+    const sensitivityRange = score?.analogy_sensitivity_range;
+    const range = calibratedRange || (
+      Array.isArray(sensitivityRange)
+      && sensitivityRange.length === 2
+      && sensitivityRange.every(finite)
+        ? sensitivityRange
+        : null
+    );
+    if (range) {
       append(
         card,
         append(
           element("div", "range"),
-          element("span", "", "Model-error sensitivity"),
+          element("span", "", calibratedRange ? "90% historical prediction range" : "Model-error sensitivity"),
           element("strong", "", `${format(range[0], 1)}–${format(range[1], 1)}`),
         ),
       );
+      if (calibratedRange && score?.interval_calibration_warning) {
+        card.append(element("p", "warning", score.interval_calibration_warning));
+      }
     }
     if (!available) {
       card.append(element(
@@ -576,12 +592,18 @@
     strip.setAttribute("aria-label", "Native sport validation context");
     const observed = state.detail.native?.observed;
     const forecast = state.detail.native?.forecast;
+    const forecastRange = forecast?.prediction_range_90;
+    const forecastNote = scoreAvailable(forecast)
+      && finite(forecastRange?.lower)
+      && finite(forecastRange?.upper)
+      ? `${statusLabel(forecast)} · 90% historical range ${format(forecastRange.lower, 1)}–${format(forecastRange.upper, 1)}`
+      : statusLabel(forecast);
     const domains = (state.detail.native_profile?.domains || [])
       .filter((item) => finite(item.value))
       .sort((a, b) => b.value - a.value);
     const items = [
       ["Native observed", scoreAvailable(observed, true) ? format(observed.value, 1) : "—", statusLabel(observed, true)],
-      ["Next-season forecast", scoreAvailable(forecast) ? format(forecast.value, 1) : "—", statusLabel(forecast)],
+      ["Next-season forecast", scoreAvailable(forecast) ? format(forecast.value, 1) : "—", forecastNote],
       ["Strongest native domain", domains[0] ? format(domains[0].value, 1) : "—", domains[0] ? words(domains[0].label) : "Unavailable"],
     ];
     items.forEach(([label, value, note]) => {

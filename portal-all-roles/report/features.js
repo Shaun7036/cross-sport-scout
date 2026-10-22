@@ -14,6 +14,10 @@
   const weightingStatus = document.querySelector("#weighting-status");
   const weightingFields = document.querySelector("#weighting-fields");
   const pairWeighting = document.querySelector("#pair-weighting");
+  const contextStatus = document.querySelector("#context-status");
+  const contextFields = document.querySelector("#context-fields");
+  const contextLeakageRule = document.querySelector("#context-leakage-rule");
+  const poolingStatus = document.querySelector("#pooling-status");
   const boundaries = document.querySelector("#feature-boundaries");
 
   function element(tag, className, text) {
@@ -159,6 +163,42 @@
     pairWeighting.textContent = weighting.next_season_pair;
   }
 
+  function renderContextAndPooling() {
+    const context = state.payload.team_context;
+    const coverage = Array.isArray(context.coverage) ? context.coverage : [];
+    const totalRows = coverage.reduce((total, row) => total + Number(row.total_rows || 0), 0);
+    const availableRows = coverage.reduce(
+      (total, row) => total + Number(row.context_available_rows || 0),
+      0,
+    );
+    const coverageCopy = totalRows
+      ? `${availableRows.toLocaleString("en-US")} of ${totalRows.toLocaleString("en-US")} player-seasons have usable context in the saved coverage report.`
+      : "The context rules are defined, but the scored panel must be rebuilt before coverage can be displayed.";
+    const modelCopy = context.model_heads_using_both_fields
+      ? ` ${context.model_heads_using_both_fields} saved model heads declare both context fields.`
+      : " No saved model head currently declares both fields, so the page does not claim that they affected a prediction.";
+    contextStatus.textContent = `${coverageCopy}${modelCopy}`;
+    contextLeakageRule.textContent = context.leakage_rule;
+    contextFields.replaceChildren(
+      ...context.fields.map((field) => {
+        const card = element("article", "card");
+        return append(
+          card,
+          element("h3", "", field.label),
+          element("p", "", field.description),
+        );
+      }),
+    );
+
+    const pooling = state.payload.partial_pooling;
+    if (!pooling.reported_heads) {
+      poolingStatus.textContent = `${pooling.summary} The saved model report does not yet contain a pooling decision, so a model rebuild is required before this can be presented as active.`;
+      return;
+    }
+    const counts = pooling.status_counts;
+    poolingStatus.textContent = `${pooling.reported_heads} native profile heads report a decision: ${counts.deployed} use the supported blend, ${counts.role_only_retained} retain the role-only model, and ${counts.not_applicable} have no related-role family. ${pooling.selection_rule}`;
+  }
+
   async function initialise() {
     try {
       const response = await fetch("data/features.json", { cache: "no-store" });
@@ -171,6 +211,7 @@
       renderDimensions();
       renderTabs();
       renderWeighting();
+      renderContextAndPooling();
       renderBoundaries();
     } catch (problem) {
       error.hidden = false;

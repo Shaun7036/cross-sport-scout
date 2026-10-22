@@ -475,17 +475,38 @@
       track,
     );
 
-    if (Array.isArray(score.analogy_sensitivity_range)
-      && score.analogy_sensitivity_range.length === 2
-      && score.analogy_sensitivity_range.every(finite)) {
+    const predictionRange = score?.prediction_range_90;
+    const calibratedRange = predictionRange
+      && finite(predictionRange.lower)
+      && finite(predictionRange.upper)
+      ? [predictionRange.lower, predictionRange.upper]
+      : null;
+    const sensitivityRange = score.analogy_sensitivity_range;
+    const displayedRange = calibratedRange || (
+      Array.isArray(sensitivityRange)
+      && sensitivityRange.length === 2
+      && sensitivityRange.every(finite)
+        ? sensitivityRange
+        : null
+    );
+    if (displayedRange) {
       const range = element("div", "rough-range");
       append(
         range,
-        element("span", "", "Rough sensitivity range"),
-        element("strong", "", `${format(score.analogy_sensitivity_range[0])}–${format(score.analogy_sensitivity_range[1])}`),
-        element("small", "", "A stress test around the estimate—not a confidence interval or guarantee."),
+        element("span", "", calibratedRange ? "90% historical prediction range" : "Rough sensitivity range"),
+        element("strong", "", `${format(displayedRange[0])}–${format(displayedRange[1])}`),
+        element(
+          "small",
+          "",
+          calibratedRange
+            ? "Based on earlier target-role forecast errors—not a sport-switch probability or guarantee."
+            : "A stress test around the estimate—not a confidence interval or guarantee.",
+        ),
       );
       card.append(range);
+      if (calibratedRange && score.interval_calibration_warning) {
+        card.append(element("p", "plain-warning", score.interval_calibration_warning));
+      }
     }
     if (score.saturation_warning || score.value >= 99.5) {
       card.append(element("p", "plain-warning", "The estimate reached the model's upper limit. This does not mean perfect ability."));
@@ -569,10 +590,14 @@
     }
 
     if (scoreAvailable(forecast)) {
+      const forecastRange = forecast.prediction_range_90;
+      const rangeNote = finite(forecastRange?.lower) && finite(forecastRange?.upper)
+        ? ` Historical 90% range: ${format(forecastRange.lower)}–${format(forecastRange.upper)}; this is not a guarantee.`
+        : "";
       grid.append(nativeCard(
         "Next-season outlook",
         `${format(forecast.value, 1)} / 100`,
-        "An early model estimate for their own role. It has not yet beaten the project's comparison baselines.",
+        `An early model estimate for their own role. It has not yet beaten the project's comparison baselines.${rangeNote}`,
       ));
     } else {
       grid.append(nativeCard("Next-season outlook", "—", reasonFor(forecast, "No next-season outlook was available.")));

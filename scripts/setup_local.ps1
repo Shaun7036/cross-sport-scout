@@ -9,7 +9,7 @@ if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
 Push-Location $ProjectRoot
 try {
     Write-Host "Creating the project environment with uv..."
-    & uv sync --extra dev
+    & uv sync --extra dev --reinstall-package possession-lab
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
     Write-Host ""

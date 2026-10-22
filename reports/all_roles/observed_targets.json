@@ -6448,7 +6448,19 @@
       }
     ],
     "rows": 27652,
-    "scored_rows": 19197
+    "scored_rows": 19197,
+    "team_context": {
+      "version": "team-context-v1",
+      "rows": 27652,
+      "available_rows": 17948,
+      "multi_or_missing_team_rows": 2355,
+      "feature_coverage": {
+        "context_role_opportunity_share_percentile": 0.6490669752639954,
+        "context_team_peer_strength_percentile": 0.6490669752639954
+      },
+      "leakage_rule": "Completed-season context may predict only the next season; team strength is leave-one-player-out and future team identity is never used.",
+      "target_rule": "Observed role percentiles are unchanged; context is a parallel predictor."
+    }
   },
   "frozen_nba_sanity_checks": {
     "stephen_curry": {

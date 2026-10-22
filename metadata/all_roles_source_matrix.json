@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "role_taxonomy_version": "all-roles-broad-v2",
-  "as_of": "2026-10-21",
+  "as_of": "2026-10-22",
   "purpose": "Machine-readable source, coverage, temporality, and release-gate register for the four-sport all-role project.",
   "legal_disclaimer": "The green/amber/red labels are conservative project-governance decisions, not legal advice.",
   "posture_legend": {
@@ -27,10 +27,11 @@
     "derived_schema_catalog": "metadata/dataset_catalog.json",
     "rule": "The per-file sidecar is authoritative for the exact URL, retrieval time, SHA-256, byte count, and source note. Regenerate the central manifest after any acquisition before publishing a snapshot.",
     "central_manifest_snapshot": {
-      "file_count": 224,
+      "file_count": 253,
       "moneypuck_goalie_files": 5,
       "goalie_seasons": [2021, 2022, 2023, 2024, 2025],
-      "status": "current_manifest_includes_all_designated_goalie_files"
+      "wikidata_query_batches": 29,
+      "status": "current_raw_cache_includes_all_designated_goalie_files_and_wikidata_query_sidecars"
     }
   },
   "current_all_role_panels": {
@@ -104,10 +105,14 @@
         "MID": 1747,
         "FWD": 486
       },
-      "height_and_weight_rows": 1398,
-      "height_and_weight_pct": 34.9,
+      "height_rows": 2326,
+      "height_pct": 58.1,
+      "weight_rows": 1784,
+      "weight_pct": 44.5,
+      "height_and_weight_rows": 1784,
+      "height_and_weight_pct": 44.5,
       "age_rows": 2109,
-      "count_note": "Only broad FPL roles are retained. Current ESPN profile matches are sparse and are not historical measurements."
+      "count_note": "Only broad FPL roles are retained. ESPN values are filled only where missing by strict Wikidata CC0 entity matches. Neither source provides historical season measurements."
     }
   },
   "sports": {
@@ -762,7 +767,7 @@
             "data/raw/epl/espn_profiles/2025-26/team_{team_id}_roster.json"
           ],
           "key_fields_consumed": ["ESPN athlete ID", "name", "team", "position", "date of birth", "height", "weight"],
-          "coverage_note": "Current all-role panel: 1,398 of 4,005 rows have both height and weight. Matching is name/team based and unresolved or fuzzy cases require review.",
+          "coverage_note": "Before the Wikidata missing-only fallback, 1,398 of 4,005 all-role rows had both height and weight. Matching is name/team based and unresolved or fuzzy cases require review.",
           "measurement_status": "Profile snapshot retrieved after 2025-26. Values are current/undated and are not asserted as historical season measurements even when propagated to earlier stable identities.",
           "license_basis": "Public site JSON without an asserted open-data license.",
           "posture": "amber",
@@ -772,13 +777,82 @@
             "raw_redistribution": "red",
             "commercial_product": "red"
           },
-          "conditions": "Retain retrieval date and match confidence; review ESPN and upstream terms before release."
+          "conditions": "Retain retrieval date and match confidence; review ESPN and upstream terms before release. Existing ESPN values are never overwritten by the Wikidata fallback."
+        },
+        {
+          "id": "wikidata_epl_profiles",
+          "included_in_v1": true,
+          "v1_usage": "CC0 physical/profile enrichment that fills only missing EPL height and weight values after the ESPN merge.",
+          "designated_url_templates": [
+            "https://query.wikidata.org/sparql"
+          ],
+          "cached_paths": [
+            "data/raw/epl/wikidata/query_{batch}.json",
+            "data/raw/epl/wikidata/profiles.parquet"
+          ],
+          "key_fields_consumed": [
+            "Wikidata QID",
+            "English label and aliases",
+            "date of birth (P569)",
+            "height (P2048)",
+            "mass (P2067)"
+          ],
+          "identity_rule": "Query only canonical EPL identities with a known date of birth. Accept only an exact English label or alias match together with an exact date-of-birth match; no fuzzy name matching is allowed.",
+          "quarantine_rule": "Quarantine ambiguous entities, unrecognized units, implausible quantities, and conflicting entity-level height or mass values greater than five metric units apart.",
+          "enrichment_audit": {
+            "queryable_identities": 990,
+            "accepted_entities": 692,
+            "accepted_height_entities": 692,
+            "accepted_weight_entities": 265,
+            "all_role_rows": 4005,
+            "height_rows_after_merge": 2326,
+            "height_pct_after_merge": 58.1,
+            "weight_rows_after_merge": 1784,
+            "weight_pct_after_merge": 44.5,
+            "height_and_weight_rows_after_merge": 1784,
+            "height_and_weight_pct_after_merge": 44.5
+          },
+          "merge_rule": "Fill missing values only. Never overwrite an existing ESPN height or weight.",
+          "measurement_status": "Community-maintained, current/undated profile facts. Values propagated across a stable identity are not annual or season-specific physical measurements.",
+          "refresh_command": "uv run possession-lab enrich-epl-wikidata --root .",
+          "license_basis": "Wikidata structured data are released under CC0.",
+          "license_url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+          "posture": "green",
+          "use_case_posture": {
+            "local_research_enrichment": "green",
+            "derived_publication": "green",
+            "raw_redistribution": "green",
+            "commercial_product": "green"
+          },
+          "conditions": "Retain QID, exact-match evidence, provenance, retrieval timing, and quarantine output. Use an identifiable User-Agent, sequential batches, and Retry-After handling."
+        },
+        {
+          "id": "fbref_evaluated_rejected",
+          "included_in_v1": false,
+          "v1_usage": "None. No FBref data were ingested, cached, merged, used as features, or used as model targets.",
+          "evaluated_urls": [
+            "https://www.sports-reference.com/termsofuse.html",
+            "https://www.sports-reference.com/data_use.html",
+            "https://www.sports-reference.com/blog/2026/01/fbref-stathead-data-update/"
+          ],
+          "rights_finding": "Current Sports Reference Terms of Use section 5, item 11(ii), prohibits using site content to support machine-learning methods that predict, classify, label, or score inputs. That restriction directly covers this athlete-scoring use case.",
+          "availability_finding": "In its 20 January 2026 announcement, Sports Reference said the FBref advanced soccer provider terminated the feed and required deletion of that advanced data.",
+          "ingestion_status": "evaluated_and_rejected_no_data_ingested",
+          "posture": "red",
+          "use_case_posture": {
+            "local_source_inspection": "amber",
+            "model_training": "red",
+            "derived_publication": "red",
+            "raw_redistribution": "red",
+            "commercial_product": "red"
+          },
+          "conditions": "Reconsider only with written permission that explicitly covers model training, derived scores, persistent caching, publication, portal display, and redistribution."
         }
       ],
       "physical_coverage_and_temporality": {
         "fields": ["height_cm", "weight_kg", "birth-date-derived age"],
-        "coverage": "1,398 of 4,005 all-role rows have both height and weight; age is present for 2,109 rows.",
-        "measurement_status": "The ESPN values are a current/undated profile snapshot, not annual measurements. Vaastav birth dates provide age for additional rows but no historical body dimensions.",
+        "coverage": "After a missing-only Wikidata merge, 2,326 of 4,005 all-role rows have height (58.1%); 1,784 have weight (44.5%); and the same 1,784 have both height and weight (44.5%). Age is present for 2,109 rows.",
+        "measurement_status": "ESPN and Wikidata values are current/undated profile facts, not annual measurements. Wikidata never overwrites ESPN. Vaastav birth dates provide age for additional rows but no historical body dimensions.",
         "unaccepted_as_features": ["top_speed", "distance_covered", "sprint count from the unlicensed enhanced source"],
         "missing_fields": ["wingspan", "arm length", "leg length", "verified league-wide top speed", "agility tests", "reaction time"]
       },
@@ -796,8 +870,16 @@
           "scope": "Use the FPL-Core enhanced defensive or speed fields for release training until rights and metric-specific completeness are resolved."
         },
         {
+          "decision": "go",
+          "scope": "Use strict Wikidata CC0 matches to fill missing EPL height and weight when exact English label or alias plus exact date of birth agree and ambiguous or conflicting values are quarantined."
+        },
+        {
           "decision": "no_go",
-          "scope": "Claim annual physical change or full physical coverage from the ESPN snapshot."
+          "scope": "Ingest FBref content into model training or scoring. Current Sports Reference terms prohibit this ML scoring use, and no FBref data are present in the project."
+        },
+        {
+          "decision": "no_go",
+          "scope": "Claim annual physical change or full physical coverage from the ESPN or Wikidata profile snapshots."
         },
         {
           "decision": "no_go",

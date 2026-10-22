@@ -9,15 +9,17 @@ The cross-sport results are research comparisons—not a probability that someon
 Install [`uv`](https://docs.astral.sh/uv/), clone or download this repository, and open a terminal in the project folder. These commands are the same on Windows, macOS, and Linux:
 
 ```text
-uv sync --extra dev
+uv sync --extra dev --reinstall-package possession-lab
 uv run python scripts/run_portal.py friendly
 ```
 
 Open [http://127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) in a browser. Press `Ctrl+C` in the terminal when you want to stop the server.
 
-`uv sync` creates the project's `.venv` and installs the locked dependencies. Run it after the first clone, after pulling dependency changes, or after moving the repository. The project uses Python 3.12 by default.
+`uv sync` creates the project's `.venv` and installs the locked dependencies. The explicit reinstall also refreshes the editable package path after moving the repository. Run it after the first clone, after pulling dependency changes, or after a move. The project uses Python 3.12 by default.
 
-Optional operating-system wrappers do the same thing:
+Optional operating-system wrappers do the same thing. On macOS, the setup wrapper also repairs
+hidden filesystem flags that can follow a copied `.venv` and prevent DataSpell from loading the
+editable package:
 
 ```bash
 # macOS or Linux
@@ -71,7 +73,10 @@ uv sync --extra dev --reinstall-package possession-lab
 uv run python scripts/run_portal.py check
 ```
 
-The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launchers add this repository's `src` folder explicitly, so running through them does not depend on an old editable-install path. If an environment was physically copied from another folder and still behaves strangely, rename that old `.venv`, run `uv sync --extra dev`, and select the newly created interpreter.
+The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launchers add this repository's `src` folder explicitly, so running through them does not depend on an old editable-install path. If an environment was physically copied from another folder and still behaves strangely, rename that old `.venv`, run `uv sync --extra dev --reinstall-package possession-lab`, and select the newly created interpreter.
+
+On macOS, you can instead run `./scripts/setup_local.sh`; it also clears copied Finder flags before
+checking the environment.
 
 If the command cannot find `uv`, install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/) and restart the terminal.
 
@@ -128,10 +133,11 @@ Percentiles are relative to a particular sport, role, season, and comparison gro
 Most users can skip this section. To rebuild from the cached source data and retrain the models:
 
 ```text
+uv run possession-lab enrich-epl-wikidata --root .
 uv run python scripts/run_lab.py run-all-roles --root .
 ```
 
-This is slower than opening the portal. Raw data, processed player tables, generated player JSON, and fitted model files remain local and are intentionally not stored in Git.
+The first command refreshes the rights-cleared EPL height/weight fallback; it reuses validated cached batches unless the input identities change. The full rebuild is slower than opening the portal. Raw data, processed player tables, generated player JSON, and fitted model files remain local and are intentionally not stored in Git.
 
 ## Check the code
 

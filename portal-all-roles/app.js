@@ -287,6 +287,22 @@
   }
 
   function sensitivity(score) {
+    const predictionRange = score?.prediction_range_90;
+    if (predictionRange
+      && finite(predictionRange.lower)
+      && finite(predictionRange.upper)) {
+      const block = element("div", "sensitivity");
+      append(
+        block,
+        element("span", "", "90% historical prediction range"),
+        element("strong", "", `${format(predictionRange.lower, 1)}–${format(predictionRange.upper, 1)}`),
+        element("small", "", score.uncertainty_warning || "Calibrated from earlier rolling-origin target-role errors; not a sport-switch probability."),
+      );
+      if (score.interval_calibration_warning) {
+        block.append(element("small", "evidence-warning", score.interval_calibration_warning));
+      }
+      return block;
+    }
     const range = score?.analogy_sensitivity_range;
     if (!Array.isArray(range) || range.length !== 2 || !range.every(finite)) return null;
     const block = element("div", "sensitivity");

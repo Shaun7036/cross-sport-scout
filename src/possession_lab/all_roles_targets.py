@@ -13,6 +13,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
+from possession_lab.all_roles_context import add_team_context
 from possession_lab.all_roles_registry import RoleSpec, role_specs
 from possession_lab.ensemble_targets import WeightedECDF
 
@@ -353,12 +354,14 @@ def score_observed_panel(
         raise ValueError("No registered role-season cohort could be scored")
     result = pd.concat(pieces, ignore_index=True, sort=False)
     result = add_sustained_index(result)
+    result, context_audit = add_team_context(result)
     result = result.drop(columns=["role_key"], errors="ignore")
     return result, {
         "cohorts": descriptions,
         "skipped": skipped,
         "rows": int(len(result)),
         "scored_rows": int(result["observed_role_percentile"].notna().sum()),
+        "team_context": context_audit,
     }
 
 

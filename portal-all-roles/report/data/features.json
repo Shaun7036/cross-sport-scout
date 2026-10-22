@@ -41,6 +41,25 @@
       "label": "Discipline and efficiency"
     }
   ],
+  "partial_pooling": {
+    "families": [
+      "epl:attackers",
+      "nba:skill_roles",
+      "nfl:receivers",
+      "nfl:secondary",
+      "nhl:forwards"
+    ],
+    "interpretation": "This is cautious statistical borrowing for thin role samples, not a claim that related positions are interchangeable. Unique roles remain unpooled.",
+    "reported_heads": 23,
+    "selection_rule": "The role-only model remains the default. Pooling is deployed only when the held-out comparison supports it; otherwise the saved head stays role-only.",
+    "status": "reported_by_saved_native_profile_heads",
+    "status_counts": {
+      "deployed": 1,
+      "not_applicable": 11,
+      "role_only_retained": 11
+    },
+    "summary": "A native build-plus-playing-profile head can blend its role-specific model slightly toward a predeclared family of related roles when frozen evidence supports the blend."
+  },
   "registry": {
     "bridge_version": "lagged-ordered-pair-dimension-intersection-v3",
     "frozen_test_season": 2025,
@@ -80,7 +99,7 @@
     "training_cohort_claim": "Eligible and positive-opportunity low-sample labels may train with empirical opportunity/coverage weights. Frozen evaluation remains eligible-only, and rows must satisfy the deployed build and fixed-dimension requirements."
   },
   "role_count": 26,
-  "schema_version": "plain-language-features-v2",
+  "schema_version": "plain-language-features-v3",
   "score_contract": {
     "cross_sport_physical_estimate": "Target-role model using build only.",
     "cross_sport_transfer_guesstimate": "Unvalidated target-role analogy using build plus a fixed intersection of sport-relative performance dimensions.",
@@ -2651,5 +2670,325 @@
       ],
       "source_scope": "Broad-role local research prototype; do not redistribute cached FPL/community raw data without rights review."
     }
-  ]
+  ],
+  "team_context": {
+    "coverage": [
+      {
+        "context_available_fraction": 0.715472,
+        "context_available_rows": 948,
+        "context_role_opportunity_share_percentile_available_rows": 948,
+        "context_role_opportunity_share_percentile_coverage": 0.715472,
+        "context_team_peer_strength_percentile_available_rows": 948,
+        "context_team_peer_strength_percentile_coverage": 0.715472,
+        "role": "DEF",
+        "sport": "epl",
+        "total_rows": 1325
+      },
+      {
+        "context_available_fraction": 0.711934,
+        "context_available_rows": 346,
+        "context_role_opportunity_share_percentile_available_rows": 346,
+        "context_role_opportunity_share_percentile_coverage": 0.711934,
+        "context_team_peer_strength_percentile_available_rows": 346,
+        "context_team_peer_strength_percentile_coverage": 0.711934,
+        "role": "FWD",
+        "sport": "epl",
+        "total_rows": 486
+      },
+      {
+        "context_available_fraction": 0.458613,
+        "context_available_rows": 205,
+        "context_role_opportunity_share_percentile_available_rows": 205,
+        "context_role_opportunity_share_percentile_coverage": 0.458613,
+        "context_team_peer_strength_percentile_available_rows": 205,
+        "context_team_peer_strength_percentile_coverage": 0.458613,
+        "role": "GK",
+        "sport": "epl",
+        "total_rows": 447
+      },
+      {
+        "context_available_fraction": 0.721809,
+        "context_available_rows": 1261,
+        "context_role_opportunity_share_percentile_available_rows": 1261,
+        "context_role_opportunity_share_percentile_coverage": 0.721809,
+        "context_team_peer_strength_percentile_available_rows": 1261,
+        "context_team_peer_strength_percentile_coverage": 0.721809,
+        "role": "MID",
+        "sport": "epl",
+        "total_rows": 1747
+      },
+      {
+        "context_available_fraction": 0.870968,
+        "context_available_rows": 351,
+        "context_role_opportunity_share_percentile_available_rows": 351,
+        "context_role_opportunity_share_percentile_coverage": 0.870968,
+        "context_team_peer_strength_percentile_available_rows": 351,
+        "context_team_peer_strength_percentile_coverage": 0.870968,
+        "role": "center",
+        "sport": "nba",
+        "total_rows": 403
+      },
+      {
+        "context_available_fraction": 0.851494,
+        "context_available_rows": 969,
+        "context_role_opportunity_share_percentile_available_rows": 969,
+        "context_role_opportunity_share_percentile_coverage": 0.851494,
+        "context_team_peer_strength_percentile_available_rows": 969,
+        "context_team_peer_strength_percentile_coverage": 0.851494,
+        "role": "forward",
+        "sport": "nba",
+        "total_rows": 1138
+      },
+      {
+        "context_available_fraction": 0.852075,
+        "context_available_rows": 1129,
+        "context_role_opportunity_share_percentile_available_rows": 1129,
+        "context_role_opportunity_share_percentile_coverage": 0.852075,
+        "context_team_peer_strength_percentile_available_rows": 1129,
+        "context_team_peer_strength_percentile_coverage": 0.852075,
+        "role": "guard",
+        "sport": "nba",
+        "total_rows": 1325
+      },
+      {
+        "context_available_fraction": 0.613143,
+        "context_available_rows": 989,
+        "context_role_opportunity_share_percentile_available_rows": 989,
+        "context_role_opportunity_share_percentile_coverage": 0.613143,
+        "context_team_peer_strength_percentile_available_rows": 989,
+        "context_team_peer_strength_percentile_coverage": 0.613143,
+        "role": "CB",
+        "sport": "nfl",
+        "total_rows": 1613
+      },
+      {
+        "context_available_fraction": 0.672282,
+        "context_available_rows": 1317,
+        "context_role_opportunity_share_percentile_available_rows": 1317,
+        "context_role_opportunity_share_percentile_coverage": 0.672282,
+        "context_team_peer_strength_percentile_available_rows": 1317,
+        "context_team_peer_strength_percentile_coverage": 0.672282,
+        "role": "EDGE",
+        "sport": "nfl",
+        "total_rows": 1959
+      },
+      {
+        "context_available_fraction": 0.628039,
+        "context_available_rows": 775,
+        "context_role_opportunity_share_percentile_available_rows": 775,
+        "context_role_opportunity_share_percentile_coverage": 0.628039,
+        "context_team_peer_strength_percentile_available_rows": 775,
+        "context_team_peer_strength_percentile_coverage": 0.628039,
+        "role": "IDL",
+        "sport": "nfl",
+        "total_rows": 1234
+      },
+      {
+        "context_available_fraction": 0.0,
+        "context_available_rows": 0,
+        "context_role_opportunity_share_percentile_available_rows": 0,
+        "context_role_opportunity_share_percentile_coverage": 0.0,
+        "context_team_peer_strength_percentile_available_rows": 0,
+        "context_team_peer_strength_percentile_coverage": 0.0,
+        "role": "IOL",
+        "sport": "nfl",
+        "total_rows": 1473
+      },
+      {
+        "context_available_fraction": 0.623574,
+        "context_available_rows": 164,
+        "context_role_opportunity_share_percentile_available_rows": 164,
+        "context_role_opportunity_share_percentile_coverage": 0.623574,
+        "context_team_peer_strength_percentile_available_rows": 164,
+        "context_team_peer_strength_percentile_coverage": 0.623574,
+        "role": "K",
+        "sport": "nfl",
+        "total_rows": 263
+      },
+      {
+        "context_available_fraction": 0.583633,
+        "context_available_rows": 649,
+        "context_role_opportunity_share_percentile_available_rows": 649,
+        "context_role_opportunity_share_percentile_coverage": 0.583633,
+        "context_team_peer_strength_percentile_available_rows": 649,
+        "context_team_peer_strength_percentile_coverage": 0.583633,
+        "role": "LB",
+        "sport": "nfl",
+        "total_rows": 1112
+      },
+      {
+        "context_available_fraction": 0.0,
+        "context_available_rows": 0,
+        "context_role_opportunity_share_percentile_available_rows": 0,
+        "context_role_opportunity_share_percentile_coverage": 0.0,
+        "context_team_peer_strength_percentile_available_rows": 0,
+        "context_team_peer_strength_percentile_coverage": 0.0,
+        "role": "LS",
+        "sport": "nfl",
+        "total_rows": 214
+      },
+      {
+        "context_available_fraction": 0.0,
+        "context_available_rows": 0,
+        "context_role_opportunity_share_percentile_available_rows": 0,
+        "context_role_opportunity_share_percentile_coverage": 0.0,
+        "context_team_peer_strength_percentile_available_rows": 0,
+        "context_team_peer_strength_percentile_coverage": 0.0,
+        "role": "OT",
+        "sport": "nfl",
+        "total_rows": 1208
+      },
+      {
+        "context_available_fraction": 0.73991,
+        "context_available_rows": 165,
+        "context_role_opportunity_share_percentile_available_rows": 165,
+        "context_role_opportunity_share_percentile_coverage": 0.73991,
+        "context_team_peer_strength_percentile_available_rows": 165,
+        "context_team_peer_strength_percentile_coverage": 0.73991,
+        "role": "P",
+        "sport": "nfl",
+        "total_rows": 223
+      },
+      {
+        "context_available_fraction": 0.581616,
+        "context_available_rows": 367,
+        "context_role_opportunity_share_percentile_available_rows": 367,
+        "context_role_opportunity_share_percentile_coverage": 0.581616,
+        "context_team_peer_strength_percentile_available_rows": 367,
+        "context_team_peer_strength_percentile_coverage": 0.581616,
+        "role": "QB",
+        "sport": "nfl",
+        "total_rows": 631
+      },
+      {
+        "context_available_fraction": 0.585555,
+        "context_available_rows": 681,
+        "context_role_opportunity_share_percentile_available_rows": 681,
+        "context_role_opportunity_share_percentile_coverage": 0.585555,
+        "context_team_peer_strength_percentile_available_rows": 681,
+        "context_team_peer_strength_percentile_coverage": 0.585555,
+        "role": "RB_FB",
+        "sport": "nfl",
+        "total_rows": 1163
+      },
+      {
+        "context_available_fraction": 0.69667,
+        "context_available_rows": 774,
+        "context_role_opportunity_share_percentile_available_rows": 774,
+        "context_role_opportunity_share_percentile_coverage": 0.69667,
+        "context_team_peer_strength_percentile_available_rows": 774,
+        "context_team_peer_strength_percentile_coverage": 0.69667,
+        "role": "S",
+        "sport": "nfl",
+        "total_rows": 1111
+      },
+      {
+        "context_available_fraction": 0.545802,
+        "context_available_rows": 572,
+        "context_role_opportunity_share_percentile_available_rows": 572,
+        "context_role_opportunity_share_percentile_coverage": 0.545802,
+        "context_team_peer_strength_percentile_available_rows": 572,
+        "context_team_peer_strength_percentile_coverage": 0.545802,
+        "role": "TE",
+        "sport": "nfl",
+        "total_rows": 1048
+      },
+      {
+        "context_available_fraction": 0.507189,
+        "context_available_rows": 1023,
+        "context_role_opportunity_share_percentile_available_rows": 1023,
+        "context_role_opportunity_share_percentile_coverage": 0.507189,
+        "context_team_peer_strength_percentile_available_rows": 1023,
+        "context_team_peer_strength_percentile_coverage": 0.507189,
+        "role": "WR",
+        "sport": "nfl",
+        "total_rows": 2017
+      },
+      {
+        "context_available_fraction": 0.0,
+        "context_available_rows": 0,
+        "context_role_opportunity_share_percentile_available_rows": 0,
+        "context_role_opportunity_share_percentile_coverage": 0.0,
+        "context_team_peer_strength_percentile_available_rows": 0,
+        "context_team_peer_strength_percentile_coverage": 0.0,
+        "role": "<NA>",
+        "sport": "nfl",
+        "total_rows": 249
+      },
+      {
+        "context_available_fraction": 1.0,
+        "context_available_rows": 1517,
+        "context_role_opportunity_share_percentile_available_rows": 1517,
+        "context_role_opportunity_share_percentile_coverage": 1.0,
+        "context_team_peer_strength_percentile_available_rows": 1517,
+        "context_team_peer_strength_percentile_coverage": 1.0,
+        "role": "center",
+        "sport": "nhl",
+        "total_rows": 1517
+      },
+      {
+        "context_available_fraction": 1.0,
+        "context_available_rows": 1638,
+        "context_role_opportunity_share_percentile_available_rows": 1638,
+        "context_role_opportunity_share_percentile_coverage": 1.0,
+        "context_team_peer_strength_percentile_available_rows": 1638,
+        "context_team_peer_strength_percentile_coverage": 1.0,
+        "role": "defense",
+        "sport": "nhl",
+        "total_rows": 1638
+      },
+      {
+        "context_available_fraction": 1.0,
+        "context_available_rows": 525,
+        "context_role_opportunity_share_percentile_available_rows": 525,
+        "context_role_opportunity_share_percentile_coverage": 1.0,
+        "context_team_peer_strength_percentile_available_rows": 525,
+        "context_team_peer_strength_percentile_coverage": 1.0,
+        "role": "goalie",
+        "sport": "nhl",
+        "total_rows": 525
+      },
+      {
+        "context_available_fraction": 1.0,
+        "context_available_rows": 861,
+        "context_role_opportunity_share_percentile_available_rows": 861,
+        "context_role_opportunity_share_percentile_coverage": 1.0,
+        "context_team_peer_strength_percentile_available_rows": 861,
+        "context_team_peer_strength_percentile_coverage": 1.0,
+        "role": "left_wing",
+        "sport": "nhl",
+        "total_rows": 861
+      },
+      {
+        "context_available_fraction": 1.0,
+        "context_available_rows": 722,
+        "context_role_opportunity_share_percentile_available_rows": 722,
+        "context_role_opportunity_share_percentile_coverage": 1.0,
+        "context_team_peer_strength_percentile_available_rows": 722,
+        "context_team_peer_strength_percentile_coverage": 1.0,
+        "role": "right_wing",
+        "sport": "nhl",
+        "total_rows": 722
+      }
+    ],
+    "coverage_file": "reports/all_roles/context_coverage.csv",
+    "fields": [
+      {
+        "description": "The player's share of opportunity among teammates in the same broad role, then ranked against the same role and season. It describes workload and role share, not how well the player performed.",
+        "id": "context_role_opportunity_share_percentile",
+        "label": "Share of the team's role opportunity"
+      },
+      {
+        "description": "The reliability-weighted role percentiles of the player's other teammates, then ranked within the same role and season. The player is left out of their own team-strength calculation.",
+        "id": "context_team_peer_strength_percentile",
+        "label": "Strength of the other teammates"
+      }
+    ],
+    "leakage_rule": "A season's context may be used only to predict the next season. The model does not use a future team, target-season team totals or the player's own score inside the teammate-strength input.",
+    "model_heads_using_both_fields": 0,
+    "status": "available_in_scored_panel_not_used_by_saved_heads",
+    "summary": "Two completed-season descriptors add workload and teammate context without changing the player's observed role score.",
+    "version": "team-context-v1",
+    "withholding_rule": "Multi-team seasons and rows without positive opportunity are withheld when stint-level context cannot be calculated consistently across all four sports."
+  }
 }
