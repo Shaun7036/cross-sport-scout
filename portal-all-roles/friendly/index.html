@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f4ed">
+    <meta name="description" content="A plain-language guide to the Athlete Translation Lab's cross-sport player comparisons.">
+    <title>Athlete Translation Lab · Easy explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#explorer">Skip to the player explorer</a>
+
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="Athlete Translation Lab easy explorer home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span>Athlete Translation Lab</span>
+      </a>
+      <nav aria-label="Other ways to explore">
+        <a href="../stories/">Guided examples</a>
+        <a href="../compact/">Research view</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="page-title">
+        <div>
+          <p class="kicker">Easy explorer</p>
+          <h1 id="page-title">Where might an athlete's game <em>fit?</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p>Choose a player, another sport, and a role. We will show what the model noticed in everyday sports language.</p>
+          <p class="important"><strong>Keep in mind:</strong> this is an experimental comparison, not the probability that someone could successfully change sports.</p>
+        </div>
+      </section>
+
+      <section class="how-it-works shell" aria-label="Three steps">
+        <div><span>1</span><strong>Choose an athlete</strong><small>Start with a real player and their latest season.</small></div>
+        <div><span>2</span><strong>Choose a sport</strong><small>Pick the league you want to compare them with.</small></div>
+        <div><span>3</span><strong>Choose a role</strong><small>See one clear result and why it was made.</small></div>
+      </section>
+
+      <section id="explorer" class="explorer shell" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Try any player</p>
+            <h2 id="explorer-title">Build a comparison</h2>
+          </div>
+          <p id="snapshot-note">Loading the saved player list…</p>
+        </div>
+
+        <div id="app-error" class="notice error" role="alert" hidden></div>
+        <div id="explorer-grid" class="explorer-grid" aria-busy="true">
+          <aside class="player-picker card" aria-label="Choose an athlete">
+            <div class="picker-controls">
+              <label for="player-search">Search for an athlete</label>
+              <input id="player-search" type="search" placeholder="Name, team, or position" autocomplete="off" spellcheck="false">
+              <label for="source-sport">Their current league</label>
+              <select id="source-sport">
+                <option value="all">All four leagues</option>
+              </select>
+            </div>
+            <p class="player-count"><strong id="player-count">—</strong> athletes match</p>
+            <div id="player-list" class="player-list" aria-label="Athletes">
+              <p class="empty-state">Loading athletes…</p>
+            </div>
+          </aside>
+
+          <article id="result" class="result card" aria-busy="true">
+            <div class="loading"><span aria-hidden="true"></span><p>Preparing an easy-to-read comparison…</p></div>
+          </article>
+        </div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="plain-rules shell" aria-labelledby="rules-title">
+        <div>
+          <p class="kicker">A quick reading guide</p>
+          <h2 id="rules-title">Three things the numbers do—and do not—mean</h2>
+        </div>
+        <div class="rule-grid">
+          <p><strong>A 90 is a comparison, not a 90% chance.</strong> It means the result sits above roughly 90 of every 100 players in that one role's comparison group.</p>
+          <p><strong>Different roles use different groups.</strong> A 75 for an NBA guard and a 75 for an NFL receiver are not the same unit of sporting value.</p>
+          <p><strong>No score shown is not zero.</strong> It means the model did not have enough familiar or reliable information to give a responsible number.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Athlete Translation Lab · Easy explorer</span>
+      <a href="../stories/">See the guided examples <span aria-hidden="true">→</span></a>
+    </footer>
+    <noscript><p class="notice">This explorer needs JavaScript to read the saved player results.</p></noscript>
+  </body>
+</html>

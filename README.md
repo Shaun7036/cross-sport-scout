@@ -117,6 +117,22 @@ Open `http://127.0.0.1:8767/compact/`. If the detailed server is already running
 
 The compact view adds target-sport tabs, one target-role dropdown, a switch between the physical-only and transfer estimates, concise model reasons, and native observed/forecast context. Its separate **Body fit** number is a descriptive height/weight centrality percentile within the latest target-role cohort. It does not use age or performance, does not enter either efficacy estimate, and must not be read as ability or sport-switch probability.
 
+### Plain-language views
+
+Two additional pages use the same player files and model results without replacing the detailed or compact explorers:
+
+~~~bash
+uv run athlete-translation-lab all-roles-friendly-portal
+# http://127.0.0.1:8768/friendly/
+
+uv run athlete-translation-lab all-roles-stories-portal
+# http://127.0.0.1:8769/stories/
+~~~
+
+The **friendly explorer** lets a general sports audience choose any player, destination sport, and role. It explains every shown rating in everyday language, keeps build similarity separate from the role-fit estimate, and gives a plain reason when no score can be shown. The **stories gallery** introduces the project through six contrasting real-player examples, with extra editorial context about why each result is interesting and what should not be inferred from it.
+
+Both pages read the one shared export created by `build-all-roles-portal` (or the existing compact build alias). When the detailed server is already running on port 8766, they are also available at `/friendly/` and `/stories/`. Cross-sport ratings remain exploratory comparisons, not probabilities that an athlete could successfully change sports.
+
 ## What the pipeline currently learns
 
 - Observed targets use same-sport, same-role, same-season peers and shrink low-exposure rate statistics toward the cohort prior.

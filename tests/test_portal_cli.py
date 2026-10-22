@@ -89,6 +89,54 @@ def test_compact_portal_reuses_shared_snapshot_on_independent_port(monkeypatch, 
     ]
 
 
+@pytest.mark.parametrize(
+    ("command", "folder", "port", "entry_path", "label"),
+    [
+        (
+            "all-roles-friendly-portal",
+            "friendly",
+            8768,
+            "/friendly/",
+            "Athlete Translation Lab Friendly",
+        ),
+        (
+            "all-roles-stories-portal",
+            "stories",
+            8769,
+            "/stories/",
+            "Athlete Translation Lab Stories",
+        ),
+    ],
+)
+def test_plain_language_portals_reuse_shared_snapshot(
+    monkeypatch, tmp_path, command, folder, port, entry_path, label
+):
+    from possession_lab import all_roles_portal, portal_server
+
+    directory = tmp_path / "portal-all-roles"
+    (directory / "data").mkdir(parents=True)
+    (directory / "data" / "manifest.json").write_text("{}")
+    (directory / folder).mkdir()
+    (directory / folder / "index.html").write_text("<!doctype html>")
+    calls = []
+    monkeypatch.setattr(
+        all_roles_portal,
+        "build_all_roles_portal",
+        lambda *args, **kwargs: pytest.fail("Must reuse the shared snapshot"),
+    )
+    monkeypatch.setattr(portal_server, "serve_portal", lambda d, **k: calls.append((d, k)))
+    monkeypatch.setattr("sys.argv", ["athlete-translation-lab", command, "--root", str(tmp_path)])
+
+    cli.main()
+
+    assert calls == [
+        (
+            directory,
+            {"port": port, "entry_path": entry_path, "label": label},
+        )
+    ]
+
+
 @pytest.mark.parametrize("extra", [["--sport", "nfl"], ["--port", "0"], ["--port", "65536"]])
 def test_portal_rejects_invalid_options(monkeypatch, tmp_path, extra):
     monkeypatch.setattr("sys.argv", ["possession-lab", "portal", "--root", str(tmp_path), *extra])

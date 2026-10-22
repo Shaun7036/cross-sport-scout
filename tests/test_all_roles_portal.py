@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import numpy as np
@@ -337,6 +338,62 @@ def test_compact_portal_is_single_role_and_uses_shared_export_safely():
     ):
         assert label in script
     assert "not a probability" in html.lower() or "not a probability" in script.lower()
+    assert 'new URL("../data/", document.baseURI)' in script
+    assert "innerHTML" not in script
+    assert "https://" not in html
+    assert "http://" not in html
+
+
+def test_friendly_portal_explains_each_single_role_result_in_plain_language():
+    portal = Path(__file__).parents[1] / "portal-all-roles" / "friendly"
+    html = (portal / "index.html").read_text()
+    script = (portal / "app.js").read_text()
+
+    assert 'sportSelect.id = "target-sport"' in script
+    assert 'roleSelect.id = "target-role"' in script
+    assert 'input.type = "radio"' in script
+    assert "Body + playing style" in script
+    assert "Body + age only" in script
+    assert "Why did the model say that?" in script
+    assert "explanationSentences(score, payload, state.basis)" in script
+    plain_copy = f"{html}\n{script}".lower()
+    assert "not a probability" in plain_copy or "not the probability" in plain_copy
+    assert "no score shown is not zero" in html.lower() or "no score shown is not zero" in script.lower()
+    assert 'new URL("../data/", document.baseURI)' in script
+    assert "innerHTML" not in script
+    assert "https://" not in html
+    assert "http://" not in html
+
+
+def test_stories_portal_uses_six_live_results_without_hardcoded_scores():
+    portal = Path(__file__).parents[1] / "portal-all-roles" / "stories"
+    html = (portal / "index.html").read_text()
+    script = (portal / "app.js").read_text()
+    story_config = script.split("const storyConfig = [", maxsplit=1)[1].split("];", maxsplit=1)[0]
+
+    assert re.findall(r'playerId: "([^"]+)"', story_config) == [
+        "nhl:8478402",
+        "nba:3975",
+        "nfl:00-0034796",
+        "epl:fpl:223094",
+        "epl:fpl:97032",
+        "nba:5104157",
+    ]
+    assert re.findall(r'target: \{ sport: "([^"]+)", role: "([^"]+)" \}', story_config) == [
+        ("nba", "guard"),
+        ("epl", "FWD"),
+        ("nhl", "left_wing"),
+        ("nfl", "WR"),
+        ("nba", "guard"),
+        ("nfl", "WR"),
+    ]
+    assert "score:" not in story_config
+    assert "value:" not in story_config
+    assert "fetchJson(player.detail_path)" in script
+    for live_value in ("transfer.value", "body.value", "native.value"):
+        assert live_value in script
+    assert "not the probability" in html.lower() or "not a probability" in script.lower()
+    assert "not that the athlete scored zero" in html.lower() or "no score is not zero" in script.lower()
     assert 'new URL("../data/", document.baseURI)' in script
     assert "innerHTML" not in script
     assert "https://" not in html

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e7">
+    <meta name="description" content="Six athlete stories that explain the Athlete Translation Lab in everyday sports language.">
+    <title>Athlete Translation Lab · Six stories</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#stories">Skip to the stories</a>
+
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="Athlete Translation Lab stories home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span>Athlete Translation Lab</span>
+      </a>
+      <nav aria-label="Other project views">
+        <a href="../friendly/">Try the simple player explorer</a>
+        <a href="../">Open the research view</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A guided introduction</p>
+          <h1 id="page-title">Six athletes.<br><em>Six ways to read the model.</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p>You do not need a data-science background to explore this project. These real examples show what the scores can tell us—and when the model should simply say, “I don’t know.”</p>
+          <a class="primary-link" href="#stories">Start with the first story <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section class="score-guide" aria-labelledby="guide-title">
+        <div class="shell guide-inner">
+          <div>
+            <p class="eyebrow">Before you begin</p>
+            <h2 id="guide-title">Three numbers, three different questions</h2>
+          </div>
+          <div class="guide-grid">
+            <article>
+              <span aria-hidden="true">01</span>
+              <h3>Cross-sport comparison</h3>
+              <p>How the athlete’s body and playing profile compare with players in the selected role.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">02</span>
+              <h3>Build similarity</h3>
+              <p>How common the athlete’s height and weight are in that role. A typical build does not mean greater ability.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">03</span>
+              <h3>Own-role rank</h3>
+              <p>How the player actually ranked against peers in their real sport and role during the saved season.</p>
+            </article>
+          </div>
+          <p class="guide-caution"><strong>Important:</strong> the cross-sport number is an experimental comparison, not the probability that someone could successfully change sports. The scale stops at 100; reaching that ceiling does not mean perfect ability. If the model withholds a score, that means the comparison was not reliable enough—not that the athlete scored zero. Scores from different roles are not directly interchangeable.</p>
+        </div>
+      </section>
+
+      <section id="stories" class="stories shell" aria-labelledby="stories-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The examples</p>
+            <h2 id="stories-title">What each case teaches us</h2>
+          </div>
+          <p id="snapshot-note">Loading the saved project results…</p>
+        </div>
+
+        <div id="app-error" class="notice" role="alert" hidden></div>
+        <div id="story-list" class="story-list" aria-busy="true">
+          <div class="loading-state"><span aria-hidden="true"></span><p>Preparing six player stories…</p></div>
+        </div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="next-step shell" aria-labelledby="next-title">
+        <p class="eyebrow">Explore for yourself</p>
+        <h2 id="next-title">Every player can tell a different story.</h2>
+        <p>Use the simple explorer to choose any athlete, destination sport and role. It will explain the result in the same everyday language used here.</p>
+        <a class="primary-link" href="../friendly/">Open the simple player explorer <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Athlete Translation Lab · Guided stories</span>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+    <noscript><p class="notice">This local page needs JavaScript to read the saved player results.</p></noscript>
+  </body>
+</html>

@@ -32,6 +32,8 @@ def main() -> None:
             "all-roles-portal",
             "build-all-roles-compact-portal",
             "all-roles-compact-portal",
+            "all-roles-friendly-portal",
+            "all-roles-stories-portal",
         ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
@@ -44,7 +46,10 @@ def main() -> None:
     parser.add_argument(
         "--port",
         type=int,
-        help="Local portal port (default: 8765 legacy, 8766 detailed, 8767 compact)",
+        help=(
+            "Local portal port (default: 8765 legacy, 8766 detailed, 8767 compact, "
+            "8768 friendly, 8769 stories)"
+        ),
     )
     parser.add_argument("--player-id", help="Stable source-sport player identifier")
     parser.add_argument("--season", type=int, help="Player season; defaults to their latest season")
@@ -84,6 +89,8 @@ def main() -> None:
                 "all-roles-portal",
                 "build-all-roles-compact-portal",
                 "all-roles-compact-portal",
+                "all-roles-friendly-portal",
+                "all-roles-stories-portal",
             }
             else "nfl"
         )
@@ -100,6 +107,8 @@ def main() -> None:
         "all-roles-portal",
         "build-all-roles-compact-portal",
         "all-roles-compact-portal",
+        "all-roles-friendly-portal",
+        "all-roles-stories-portal",
     }:
         import json
 
@@ -128,8 +137,7 @@ def main() -> None:
 
         if args.command == "all-roles-score":
             if args.profile and any(
-                value is not None
-                for value in [args.player_id, args.height_cm, args.weight_kg, args.age]
+                value is not None for value in [args.player_id, args.height_cm, args.weight_kg, args.age]
             ):
                 parser.error("Use --profile, --player-id, or measurement flags—not a mixture")
             try:
@@ -166,36 +174,48 @@ def main() -> None:
 
         if args.sport != "all":
             parser.error(f"{args.command} includes all four sports; omit --sport")
-        compact_portal = args.command in {
-            "build-all-roles-compact-portal",
-            "all-roles-compact-portal",
+        portal_views = {
+            "all-roles-portal": (8766, None, None),
+            "all-roles-compact-portal": (
+                8767,
+                "/compact/",
+                "Athlete Translation Lab Compact",
+            ),
+            "all-roles-friendly-portal": (
+                8768,
+                "/friendly/",
+                "Athlete Translation Lab Friendly",
+            ),
+            "all-roles-stories-portal": (
+                8769,
+                "/stories/",
+                "Athlete Translation Lab Stories",
+            ),
         }
-        port = args.port or (8767 if compact_portal else 8766)
+        default_port = portal_views.get(args.command, (8766, None, None))[0]
+        port = args.port or default_port
         if not 1 <= port <= 65535:
             parser.error("--port must be between 1 and 65535")
         directory = (args.output or root / "portal-all-roles").resolve()
         try:
-            if args.command in {
-                "build-all-roles-portal",
-                "build-all-roles-compact-portal",
-            } or not (
-                directory / "data" / "manifest.json"
-            ).exists():
+            if (
+                args.command
+                in {
+                    "build-all-roles-portal",
+                    "build-all-roles-compact-portal",
+                }
+                or not (directory / "data" / "manifest.json").exists()
+            ):
                 manifest = build_all_roles_portal(root, output_dir=directory)
                 print(f"Exported {manifest['counts']['players']:,} players to {directory / 'data'}")
-            if args.command == "all-roles-portal":
+            if args.command in portal_views:
                 from possession_lab.portal_server import serve_portal
 
-                serve_portal(directory, port=port)
-            if args.command == "all-roles-compact-portal":
-                from possession_lab.portal_server import serve_portal
-
-                serve_portal(
-                    directory,
-                    port=port,
-                    entry_path="/compact/",
-                    label="Athlete Translation Lab Compact",
-                )
+                _, entry_path, label = portal_views[args.command]
+                if entry_path is None:
+                    serve_portal(directory, port=port)
+                else:
+                    serve_portal(directory, port=port, entry_path=entry_path, label=label)
         except (ValueError, TypeError, OSError) as error:
             parser.error(str(error))
         return

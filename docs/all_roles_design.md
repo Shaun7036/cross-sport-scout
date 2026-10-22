@@ -311,6 +311,22 @@ Open `http://127.0.0.1:8767/compact/`. The compact frontend lives under `portal-
 
 The compact page keeps four distinct claims visible: observed native standing, native next-season forecast, target-role physical association, and the cross-sport transfer analogy. It never substitutes one when another is withheld. Its Body fit card is a fifth, non-predictive diagnostic: an empirical survival percentile of Mahalanobis distance in height/weight space. The reference uses one latest selectable profile per target-role athlete, a 10% diagonal covariance shrinkage, and at least 20 athletes. Higher means more central to that role's current build distribution—not more capable.
 
+### 11.2 Plain-language explorer and guided stories
+
+The detailed and compact pages remain the evidence-oriented views. Two additive frontends translate the same frozen results for readers with a general or semi-technical sports background:
+
+~~~bash
+uv run athlete-translation-lab all-roles-friendly-portal
+# http://127.0.0.1:8768/friendly/
+
+uv run athlete-translation-lab all-roles-stories-portal
+# http://127.0.0.1:8769/stories/
+~~~
+
+The friendly explorer presents one destination role at a time, explains every available rating in ordinary sports language, keeps build typicality separate from predicted role fit, and explains why a missing result is not a zero. The stories gallery adds editorial framing to six selected player comparisons chosen to demonstrate intuitive results, surprising results, and responsible model abstention. Its numerical values are still loaded from the shared export rather than copied into the page.
+
+Both pages are also served at `/friendly/` and `/stories/` by the main port-8766 server. They do not add models, alter estimates, or weaken the existing claim boundaries: the cross-sport result is an exploratory analogy, not a calibrated probability of changing sports.
+
 ## 12. Outputs and how to read them
 
 | Path | Purpose |
