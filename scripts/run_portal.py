@@ -10,6 +10,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SRC = PROJECT_ROOT / "src"
 PORTAL_COMMANDS = {
+    "profile": "all-roles-profile-portal",
     "friendly": "all-roles-friendly-portal",
     "stories": "all-roles-stories-portal",
     "report": "all-roles-report-portal",
@@ -34,6 +35,7 @@ def help_text() -> str:
     return """Usage: run_portal.py [view] [extra options]
 
 Views:
+  profile    Native-first player profile (port 8771)
   friendly   Plain-language player explorer (default, port 8768)
   stories    Six guided player examples (port 8769)
   report     Plain-language research report (port 8770)
@@ -43,6 +45,7 @@ Views:
   check      Verify that the local Python environment can load the project
 
 Examples:
+  uv run python scripts/run_portal.py profile
   uv run python scripts/run_portal.py friendly
   uv run python scripts/run_portal.py stories
   uv run python scripts/run_portal.py friendly --port 9000

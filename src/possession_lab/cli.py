@@ -32,6 +32,7 @@ def main() -> None:
             "all-roles-portal",
             "build-all-roles-compact-portal",
             "all-roles-compact-portal",
+            "all-roles-profile-portal",
             "all-roles-friendly-portal",
             "all-roles-stories-portal",
             "all-roles-report-portal",
@@ -49,7 +50,7 @@ def main() -> None:
         type=int,
         help=(
             "Local portal port (default: 8765 legacy, 8766 detailed, 8767 compact, "
-            "8768 friendly, 8769 stories, 8770 report)"
+            "8768 friendly, 8769 stories, 8770 report, 8771 profile)"
         ),
     )
     parser.add_argument("--player-id", help="Stable source-sport player identifier")
@@ -90,6 +91,7 @@ def main() -> None:
                 "all-roles-portal",
                 "build-all-roles-compact-portal",
                 "all-roles-compact-portal",
+                "all-roles-profile-portal",
                 "all-roles-friendly-portal",
                 "all-roles-stories-portal",
                 "all-roles-report-portal",
@@ -109,6 +111,7 @@ def main() -> None:
         "all-roles-portal",
         "build-all-roles-compact-portal",
         "all-roles-compact-portal",
+        "all-roles-profile-portal",
         "all-roles-friendly-portal",
         "all-roles-stories-portal",
         "all-roles-report-portal",
@@ -183,6 +186,11 @@ def main() -> None:
                 8767,
                 "/compact/",
                 "Athlete Translation Lab Compact",
+            ),
+            "all-roles-profile-portal": (
+                8771,
+                "/profile/",
+                "Athlete Translation Lab Player Profile",
             ),
             "all-roles-friendly-portal": (
                 8768,

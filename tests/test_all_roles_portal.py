@@ -365,6 +365,36 @@ def test_friendly_portal_explains_each_single_role_result_in_plain_language():
     assert "http://" not in html
 
 
+def test_profile_portal_leads_with_observed_native_result_before_secondary_models():
+    portal = Path(__file__).parents[1] / "portal-all-roles" / "profile"
+    html = (portal / "index.html").read_text()
+    script = (portal / "app.js").read_text()
+
+    for label in (
+        "Home-role anchor",
+        "What has this player already shown?",
+        "Experimental forecast",
+        "Secondary models",
+        "Now explore other roles",
+    ):
+        assert label in html or label in script
+
+    render = script.split("function renderResult", maxsplit=1)[1].split(
+        "function announceResult", maxsplit=1
+    )[0]
+    assert render.index("observedAnchor()") < render.index("forecastSection()")
+    assert render.index("forecastSection()") < render.index("comparisonSection()")
+    assert 'state.players.find((item) => item.id === "nhl:8478402")' in script
+    assert "observed.reference_athletes" in script
+    assert "not a prediction" in script.lower()
+    assert "does not re-grade" in script.lower()
+    assert "not a sport-switch probability" in script.lower()
+    assert 'new URL("../data/", document.baseURI)' in script
+    assert "innerHTML" not in script
+    assert "https://" not in html
+    assert "http://" not in html
+
+
 def test_stories_portal_uses_six_live_results_without_hardcoded_scores():
     portal = Path(__file__).parents[1] / "portal-all-roles" / "stories"
     html = (portal / "index.html").read_text()

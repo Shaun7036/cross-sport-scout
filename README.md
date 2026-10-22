@@ -48,6 +48,7 @@ The Python launcher is shared by Windows and macOS. Replace `friendly` with any 
 
 | View | What it shows | Address |
 |---|---|---|
+| `profile` | Native-first player profile, followed by model comparisons | [127.0.0.1:8771/profile/](http://127.0.0.1:8771/profile/) |
 | `friendly` | Simple player explorer | [127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) |
 | `stories` | Guided examples and interesting cases | [127.0.0.1:8769/stories/](http://127.0.0.1:8769/stories/) |
 | `compact` | Compact research view | [127.0.0.1:8767/compact/](http://127.0.0.1:8767/compact/) |
@@ -102,6 +103,7 @@ The portals use plain HTML, CSS, and JavaScript—there is no frontend build ste
 
 | Page | Words and layout | Styling | Player interactions |
 |---|---|---|---|
+| Native-first profile | `portal-all-roles/profile/index.html` | `portal-all-roles/profile/styles.css` | `portal-all-roles/profile/app.js` |
 | Friendly | `portal-all-roles/friendly/index.html` | `portal-all-roles/friendly/styles.css` | `portal-all-roles/friendly/app.js` |
 | Stories | `portal-all-roles/stories/index.html` | `portal-all-roles/stories/styles.css` | `portal-all-roles/stories/app.js` |
 | Compact | `portal-all-roles/compact/index.html` | `portal-all-roles/compact/styles.css` | `portal-all-roles/compact/app.js` |

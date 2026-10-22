@@ -8,6 +8,7 @@ All paths are relative to the repository root.
 
 | View | Page structure and words | Appearance | Browser behavior | Default address |
 |---|---|---|---|---|
+| Native-first profile | `portal-all-roles/profile/index.html` | `portal-all-roles/profile/styles.css` | `portal-all-roles/profile/app.js` | `http://127.0.0.1:8771/profile/` |
 | Detailed explorer | `portal-all-roles/index.html` | `portal-all-roles/styles.css` | `portal-all-roles/app.js` | `http://127.0.0.1:8766/` |
 | Compact explorer | `portal-all-roles/compact/index.html` | `portal-all-roles/compact/styles.css` | `portal-all-roles/compact/app.js` | `http://127.0.0.1:8767/compact/` |
 | Friendly explorer | `portal-all-roles/friendly/index.html` | `portal-all-roles/friendly/styles.css` | `portal-all-roles/friendly/app.js` | `http://127.0.0.1:8768/friendly/` |
@@ -47,7 +48,7 @@ src/possession_lab/all_roles_portal.py
                     ↓
 portal-all-roles/data/manifest.json and data/players/*.json
                     ↓
-the detailed, compact, friendly, and stories JavaScript files
+the profile, detailed, compact, friendly, and stories JavaScript files
 ```
 
 The main Python files are:
@@ -88,6 +89,7 @@ uv sync --extra dev
 Start the page you are changing. This launcher command is the same in Windows PowerShell, Command Prompt, macOS, and Linux:
 
 ```text
+uv run python scripts/run_portal.py profile
 uv run python scripts/run_portal.py detailed
 uv run python scripts/run_portal.py compact
 uv run python scripts/run_portal.py friendly

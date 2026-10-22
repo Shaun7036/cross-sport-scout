@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e9">
+    <meta name="description" content="A native-first player profile for the Athlete Translation Lab.">
+    <title>Athlete Translation Lab · Player Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#profile">Skip to the player profile</a>
+
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="Athlete Translation Lab player profile home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span>
+          Athlete Translation Lab
+          <small>Player Profile</small>
+        </span>
+      </a>
+      <nav aria-label="Other project views">
+        <a href="../friendly/">Easy explorer</a>
+        <a href="../stories/">Examples</a>
+        <a href="../report/">Research report</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Native result first</p>
+          <h1 id="page-title">Start with what the player has already <em>shown.</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p>This view begins with the athlete's real standing in their own sport and role. That result is the anchor for reading every experimental model shown later.</p>
+          <p class="hero-note"><strong>Important:</strong> an observed percentile describes one season. Forecasts and cross-sport scores are separate model estimates—not proof of future performance or a successful sport switch.</p>
+        </div>
+      </section>
+
+      <section class="reading-order shell" aria-label="How to read this profile">
+        <div><span>1</span><strong>What happened</strong><small>Observed home-role standing</small></div>
+        <div><span>2</span><strong>What may happen next</strong><small>Experimental native forecast</small></div>
+        <div><span>3</span><strong>What might transfer</strong><small>Secondary role comparisons</small></div>
+      </section>
+
+      <section id="profile" class="profile shell" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Choose a player</p>
+            <h2 id="profile-title">Player profile</h2>
+          </div>
+          <p id="snapshot-note">Loading the saved player list…</p>
+        </div>
+
+        <div id="app-error" class="notice error" role="alert" hidden></div>
+        <div id="profile-grid" class="profile-grid" aria-busy="true">
+          <aside class="player-picker panel" aria-label="Choose an athlete">
+            <div class="picker-controls">
+              <label for="player-search">Search for an athlete</label>
+              <input id="player-search" type="search" placeholder="Name, team, or position" autocomplete="off" spellcheck="false">
+              <label for="source-sport">Their current league</label>
+              <select id="source-sport">
+                <option value="all">All four leagues</option>
+              </select>
+            </div>
+            <p class="player-count"><strong id="player-count">—</strong> athletes match</p>
+            <div id="player-list" class="player-list" aria-label="Athletes">
+              <p class="empty-state">Loading athletes…</p>
+            </div>
+          </aside>
+
+          <article id="result" class="result" aria-busy="true">
+            <div class="loading panel"><span aria-hidden="true"></span><p>Building the player profile…</p></div>
+          </article>
+        </div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="reading-guide shell" aria-labelledby="guide-title">
+        <div>
+          <p class="eyebrow">Reading the numbers</p>
+          <h2 id="guide-title">One profile, three different questions</h2>
+        </div>
+        <div class="guide-grid">
+          <p><strong>Observed home-role score</strong>Where did this player rank against people playing the same role in that season?</p>
+          <p><strong>Native forecast</strong>What does the experimental model estimate for the player's next season in that same role?</p>
+          <p><strong>Role comparison</strong>How does the athlete's build—or build plus broad playing profile—resemble another role?</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Athlete Translation Lab · Player Profile</span>
+      <a href="../friendly/">Open the easy explorer <span aria-hidden="true">→</span></a>
+    </footer>
+    <noscript><p class="notice">This profile needs JavaScript to read the saved player results.</p></noscript>
+  </body>
+</html>

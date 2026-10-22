@@ -29,6 +29,8 @@ a { color: inherit; }
 .site-header { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 720; letter-spacing: -.02em; text-decoration: none; }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--ink); border-radius: 50%; font-size: 10px; letter-spacing: .08em; }
+.header-links { display: flex; align-items: center; gap: 20px; font-size: 12px; }
+.header-links > a { font-weight: 700; text-underline-offset: 4px; }
 .prototype { display: inline-flex; gap: 9px; align-items: center; color: var(--quiet); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 .prototype span { width: 7px; height: 7px; border-radius: 50%; background: var(--rust); box-shadow: 0 0 0 4px rgb(185 84 52 / 12%); }
 

@@ -93,6 +93,13 @@ def test_compact_portal_reuses_shared_snapshot_on_independent_port(monkeypatch, 
     ("command", "folder", "port", "entry_path", "label"),
     [
         (
+            "all-roles-profile-portal",
+            "profile",
+            8771,
+            "/profile/",
+            "Athlete Translation Lab Player Profile",
+        ),
+        (
             "all-roles-friendly-portal",
             "friendly",
             8768,

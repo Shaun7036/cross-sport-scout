@@ -30,7 +30,7 @@ def test_local_launcher_documents_every_portal_view():
     )
 
     assert result.returncode == 0
-    for view in ("friendly", "stories", "report", "compact", "detailed", "legacy"):
+    for view in ("profile", "friendly", "stories", "report", "compact", "detailed", "legacy"):
         assert view in result.stdout
 
 
