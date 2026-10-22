@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).parents[1]
 REPORT = ROOT / "portal-all-roles" / "report"
-PAGES = ("index.html", "findings.html", "guide.html")
+PAGES = ("index.html", "findings.html", "visuals.html", "guide.html")
 
 
 class PageParser(HTMLParser):
@@ -33,7 +33,7 @@ def parse_page(name):
     return parser
 
 
-def test_report_has_three_complete_plain_language_pages():
+def test_report_has_complete_plain_language_pages():
     for name in PAGES:
         page = REPORT / name
         assert page.exists()
@@ -66,6 +66,7 @@ def test_report_local_links_resolve():
 def test_report_preserves_the_main_evidence_boundaries():
     journey = (REPORT / "index.html").read_text()
     findings = (REPORT / "findings.html").read_text()
+    visuals = (REPORT / "visuals.html").read_text()
     guide = (REPORT / "guide.html").read_text()
 
     for value in ("27,652", "10,311", "19,197"):
@@ -75,6 +76,10 @@ def test_report_preserves_the_main_evidence_boundaries():
     assert "4" in findings and "physical heads" in findings
     assert "experimental" in findings.lower()
     assert "not a transfer probability" in findings.lower()
+    for value in ("15,518", "34.9%", "23", "272", "243"):
+        assert value in visuals
+    assert "0" in visuals and "deployment-ready" in visuals
+    assert "analogy, not a success forecast" in visuals.lower()
     assert "No score is not a zero" in guide
     assert "reaction speed" in guide
     assert "not included in trained models" in guide.lower()

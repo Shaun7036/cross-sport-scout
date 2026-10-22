@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Accessible charts showing the main EDA and model findings from the Athlete Translation Lab.">
+  <title>Visual evidence | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to the charts</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html">Journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="visuals.html" aria-current="page">Visuals</a>
+        <a href="guide.html">How to read it</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../friendly/">Open explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">EDA and model charts · snapshot dated 21 October 2026</p>
+          <h1>See the evidence behind the ratings.</h1>
+          <p class="hero-lead">These charts show where the dataset is deep, where information is missing, and why recent performance is more useful than body measurements alone.</p>
+          <div class="actions">
+            <a class="button" href="#data-depth">Explore the data</a>
+            <a class="button secondary" href="#model-results">Compare the models</a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="How to use these charts">
+          <strong>Read the bars as evidence, not grades.</strong>
+          <p>A longer data bar means more records or better coverage. In the error chart, the opposite is true: shorter is better.</p>
+          <p>All values come from the repository’s frozen five-season reports.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="data-depth" class="section tint" aria-labelledby="depth-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Dataset depth</p>
+            <h2 id="depth-heading">The NFL supplies more than half the rows.</h2>
+          </div>
+          <p>A player-season is one athlete in one season. Larger panels give the project more examples, but size does not guarantee that every role or measurement is equally well represented.</p>
+        </div>
+
+        <figure class="chart-block" role="img" aria-label="Horizontal bars comparing player-season records: NFL 15,518, NHL 5,263, Premier League 4,005, NBA 2,866.">
+          <figcaption>Player-season records by league</figcaption>
+          <div class="bar-chart">
+            <div class="bar-row">
+              <span class="bar-label">NFL</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-one" style="width: 100%;"></span></div>
+              <strong>15,518</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">NHL</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-one" style="width: 33.9%;"></span></div>
+              <strong>5,263</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Premier League</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-one" style="width: 25.8%;"></span></div>
+              <strong>4,005</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">NBA</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-one" style="width: 18.5%;"></span></div>
+              <strong>2,866</strong>
+            </div>
+          </div>
+          <p class="chart-takeaway"><strong>What it means:</strong> the NFL dominates the row count, while the other leagues still contribute thousands of seasons and distinct role structures.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="coverage-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Physical data coverage</p>
+            <h2 id="coverage-heading">Soccer build data is the clear bottleneck.</h2>
+          </div>
+          <p>This chart requires both listed height and listed weight. It measures whether values are present—not whether they were measured in that season or under a common testing protocol.</p>
+        </div>
+
+        <figure class="chart-block" role="img" aria-label="Complete height and weight coverage: NBA 100 percent, NHL 99.9 percent, NFL 98.8 percent, Premier League 34.9 percent.">
+          <figcaption>Rows with both height and weight</figcaption>
+          <div class="bar-chart percent-chart">
+            <div class="bar-row">
+              <span class="bar-label">NBA</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-two" style="width: 100%;"></span></div>
+              <strong>100%</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">NHL</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-two" style="width: 99.9%;"></span></div>
+              <strong>99.9%</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">NFL</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-two" style="width: 98.8%;"></span></div>
+              <strong>98.8%</strong>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Premier League</span>
+              <div class="bar-track" aria-hidden="true"><span class="bar-fill series-warning" style="width: 34.9%;"></span></div>
+              <strong>34.9%</strong>
+            </div>
+          </div>
+          <p class="chart-takeaway"><strong>What it means:</strong> many Premier League players cannot receive a build-based comparison. The highly complete NBA and NHL values are mainly current or undated profiles, so they are not annual body measurements.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="scoring-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">From roster row to model label</p>
+            <h2 id="scoring-heading">Not every recorded season should train a model.</h2>
+          </div>
+          <p>“Scored” rows have enough information for a descriptive result. “Eligible” rows also clear the stricter opportunity threshold needed for supervised training.</p>
+        </div>
+
+        <div class="chart-legend" aria-label="Legend">
+          <span><i class="legend-key scored-key" aria-hidden="true"></i>Scored descriptively</span>
+          <span><i class="legend-key eligible-key" aria-hidden="true"></i>Eligible model label</span>
+        </div>
+        <figure class="chart-block" role="img" aria-label="Scored and eligible shares of all rows. NFL 53.5 and 31.4 percent. NBA 100 and 65.5 percent. NHL 100 and 67.9 percent. Premier League 68.9 and 42.2 percent.">
+          <figcaption>Share of each league panel</figcaption>
+          <div class="paired-chart">
+            <div class="paired-row">
+              <div class="paired-title"><strong>NFL</strong><span>8,308 scored · 4,874 eligible</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill scored-fill" style="width: 53.5%;"></span></div>
+                <div class="bar-track"><span class="bar-fill eligible-fill" style="width: 31.4%;"></span></div>
+              </div>
+              <div class="paired-values"><span>53.5%</span><span>31.4%</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>NBA</strong><span>2,866 scored · 1,878 eligible</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill scored-fill" style="width: 100%;"></span></div>
+                <div class="bar-track"><span class="bar-fill eligible-fill" style="width: 65.5%;"></span></div>
+              </div>
+              <div class="paired-values"><span>100%</span><span>65.5%</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>NHL</strong><span>5,263 scored · 3,574 eligible</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill scored-fill" style="width: 100%;"></span></div>
+                <div class="bar-track"><span class="bar-fill eligible-fill" style="width: 67.9%;"></span></div>
+              </div>
+              <div class="paired-values"><span>100%</span><span>67.9%</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>Premier League</strong><span>2,760 scored · 1,690 eligible</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill scored-fill" style="width: 68.9%;"></span></div>
+                <div class="bar-track"><span class="bar-fill eligible-fill" style="width: 42.2%;"></span></div>
+              </div>
+              <div class="paired-values"><span>68.9%</span><span>42.2%</span></div>
+            </div>
+          </div>
+          <p class="chart-takeaway"><strong>What it means:</strong> descriptive coverage is wider than training coverage. The gap is deliberate: low-opportunity seasons can be shown cautiously without being promoted to strong learning examples.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section id="model-results" class="section dark" aria-labelledby="evidence-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Model evidence</p>
+            <h2 id="evidence-heading">A fitted model is only the first checkpoint.</h2>
+          </div>
+          <p>Each family starts with 26 registered target roles. “Passed” means it cleared that family’s internal evidence gate; it does not make a cross-sport claim deployment-ready.</p>
+        </div>
+
+        <figure class="evidence-flow" role="img" aria-label="Physical models: 23 of 26 roles fitted and 4 passed the strict evidence gate. Native forecasts: 22 fitted and 12 passed the internal evidence gate, but zero are deployment ready.">
+          <figcaption>Role heads reaching each checkpoint</figcaption>
+          <div class="evidence-lanes">
+            <div class="evidence-lane">
+              <h3>Build-only models</h3>
+              <div class="checkpoint-row">
+                <div class="checkpoint"><strong>26</strong><span>registered roles</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint"><strong>23</strong><span>fitted</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint supported"><strong>4</strong><span>passed strict gate</span></div>
+              </div>
+            </div>
+            <div class="evidence-lane">
+              <h3>Next-season models</h3>
+              <div class="checkpoint-row">
+                <div class="checkpoint"><strong>26</strong><span>registered roles</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint"><strong>22</strong><span>fitted</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint supported"><strong>12</strong><span>passed internal gate</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="checkpoint warning-state"><strong>0</strong><span>deployment-ready</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="dark-takeaway"><strong>What it means:</strong> build alone rarely clears the evidence standard. Prior playing performance adds useful signal, yet every current next-season result remains labeled experimental under the full deployment policy.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="error-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">2025 holdout check</p>
+            <h2 id="error-heading">Recent playing history beats a neutral guess.</h2>
+          </div>
+          <p>Average error is measured in points on the 0–100 percentile scale. Shorter bars are better. These are selected same-sport examples, not proof that ability transfers between sports.</p>
+        </div>
+
+        <div class="chart-legend" aria-label="Legend">
+          <span><i class="legend-key model-key" aria-hidden="true"></i>Next-season model</span>
+          <span><i class="legend-key neutral-key" aria-hidden="true"></i>Neutral baseline</span>
+        </div>
+        <figure class="chart-block" role="img" aria-label="Mean absolute error comparisons, lower is better. NFL edge model 20.83 versus neutral 25.91. NBA guard 16.36 versus 25.48. NHL center 14.83 versus 26.57. Premier League midfielder 15.59 versus 26.04.">
+          <figcaption>Mean absolute error on the held-out 2025 season</figcaption>
+          <div class="paired-chart error-chart">
+            <div class="paired-row">
+              <div class="paired-title"><strong>NFL edge</strong><span>113 test rows</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 69.4%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 86.4%;"></span></div>
+              </div>
+              <div class="paired-values"><span>20.83</span><span>25.91</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>NBA guard</strong><span>132 test rows</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 54.5%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 84.9%;"></span></div>
+              </div>
+              <div class="paired-values"><span>16.36</span><span>25.48</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>NHL center</strong><span>177 test rows</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 49.4%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 88.6%;"></span></div>
+              </div>
+              <div class="paired-values"><span>14.83</span><span>26.57</span></div>
+            </div>
+            <div class="paired-row">
+              <div class="paired-title"><strong>Premier League midfielder</strong><span>79 test rows</span></div>
+              <div class="paired-bars" aria-hidden="true">
+                <div class="bar-track"><span class="bar-fill model-fill" style="width: 52%;"></span></div>
+                <div class="bar-track"><span class="bar-fill neutral-fill" style="width: 86.8%;"></span></div>
+              </div>
+              <div class="paired-values"><span>15.59</span><span>26.04</span></div>
+            </div>
+          </div>
+          <p class="chart-takeaway"><strong>What it means:</strong> in these four roles, previous performance gives a much better same-sport estimate than starting every player near the middle. The models still need stronger history-baseline and external validation.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="bridge-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Cross-sport bridge</p>
+            <h2 id="bridge-heading">The transfer layer is an analogy, not a success forecast.</h2>
+          </div>
+          <p>The bridge asks whether shared performance themes can reconstruct a target role’s patterns. It has no large ground-truth sample of athletes who actually switched between these sports.</p>
+        </div>
+
+        <figure class="bridge-figure" role="img" aria-label="Of 272 cross-sport bridge heads fitted, 243 passed an internal target reconstruction test, and zero have direct validation against real sport-switch outcomes.">
+          <figcaption>What the bridge evidence does—and does not—show</figcaption>
+          <div class="bridge-steps">
+            <div><strong>272</strong><span>bridge heads fitted</span></div>
+            <span aria-hidden="true">→</span>
+            <div><strong>243</strong><span>passed target reconstruction</span></div>
+            <span aria-hidden="true">→</span>
+            <div class="bridge-stop"><strong>0</strong><span>validated sport-switch outcomes</span></div>
+          </div>
+          <p class="chart-takeaway"><strong>What it means:</strong> the transfer rating is useful for choosing interesting cases to study. It cannot tell you the probability that a player would learn the new sport, make a roster, or perform at the predicted percentile.</p>
+        </figure>
+
+        <div class="note" style="margin-top: 1rem;">
+          <strong>Source note:</strong> chart values come from <code>reports/all_roles/data_build.json</code>, <code>role_summary.csv</code>, <code>model_evidence_summary.csv</code>, <code>model_evaluation.json</code>, and <code>latest_run.json</code> in this frozen repository snapshot.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="next-panel">
+          <div>
+            <h2>Now put the charts in context</h2>
+            <p>Read the findings for the league-by-league interpretation, or use the guide to understand each output and limitation.</p>
+          </div>
+          <div class="actions">
+            <a class="button" href="findings.html">Read findings</a>
+            <a class="button" href="guide.html">Open guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>All figures describe the frozen repository snapshot dated 21 October 2026. Rounded percentages may differ slightly from stored values.</p>
+      <nav class="footer-links" aria-label="Other project views">
+        <a href="index.html">Research journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="guide.html">Reading guide</a>
+        <a href="../friendly/">Open explorer</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

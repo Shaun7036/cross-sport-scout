@@ -4,66 +4,75 @@ This project compares athletes from the NFL, NBA, NHL, and Premier League. It fi
 
 The cross-sport results are research comparisons—not a probability that someone could successfully change sports.
 
-## Run it in DataSpell
+## Quick start with `uv`
 
-Use Python 3.12 if it is available. Open this folder as the DataSpell project:
+Install [`uv`](https://docs.astral.sh/uv/), clone or download this repository, and open a terminal in the project folder. These commands are the same on Windows, macOS, and Linux:
 
 ```text
-/Users/dannydevito/Documents/USC/SBA/SBA_26_27/SBA_Project_AllRoles_Fall2026
-```
-
-Then open DataSpell's terminal and run:
-
-```bash
-bash scripts/setup_local.sh
-bash scripts/run_portal.sh friendly
+uv sync --extra dev
+uv run python scripts/run_portal.py friendly
 ```
 
 Open [http://127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) in a browser. Press `Ctrl+C` in the terminal when you want to stop the server.
 
-You only need to run the setup command the first time, or after moving the repository or changing Python versions.
+`uv sync` creates the project's `.venv` and installs the locked dependencies. Run it after the first clone, after pulling dependency changes, or after moving the repository. The project uses Python 3.12 by default.
+
+Optional operating-system wrappers do the same thing:
+
+```bash
+# macOS or Linux
+./scripts/setup_local.sh
+./scripts/run_portal.sh friendly
+```
+
+```powershell
+# Windows PowerShell
+.\scripts\setup_local.ps1
+.\scripts\run_portal.ps1 friendly
+```
 
 ### DataSpell interpreter
 
-After setup, choose this interpreter in DataSpell:
+After setup, choose the interpreter for your operating system in DataSpell:
 
 ```text
-<this project>/.venv/bin/python
+macOS/Linux: <project>/.venv/bin/python
+Windows:     <project>\.venv\Scripts\python.exe
 ```
 
 If DataSpell previously remembered an environment from the repository's old location, remove that interpreter entry and select the one above.
 
 ## Choose a portal
 
-The launcher works from any folder, so you do not need to change directories first.
+The Python launcher is shared by Windows and macOS. Replace `friendly` with any view below.
 
-| Command | What it shows | Address |
+| View | What it shows | Address |
 |---|---|---|
-| `bash scripts/run_portal.sh friendly` | Simple player explorer | [127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) |
-| `bash scripts/run_portal.sh stories` | Guided examples and interesting cases | [127.0.0.1:8769/stories/](http://127.0.0.1:8769/stories/) |
-| `bash scripts/run_portal.sh compact` | Compact research view | [127.0.0.1:8767/compact/](http://127.0.0.1:8767/compact/) |
-| `bash scripts/run_portal.sh detailed` | Full evidence and diagnostics | [127.0.0.1:8766/](http://127.0.0.1:8766/) |
-| `bash scripts/run_portal.sh report` | Three-page project report | [127.0.0.1:8770/report/](http://127.0.0.1:8770/report/) |
-| `bash scripts/run_portal.sh legacy` | Earlier possession-only project | [127.0.0.1:8765/](http://127.0.0.1:8765/) |
+| `friendly` | Simple player explorer | [127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) |
+| `stories` | Guided examples and interesting cases | [127.0.0.1:8769/stories/](http://127.0.0.1:8769/stories/) |
+| `compact` | Compact research view | [127.0.0.1:8767/compact/](http://127.0.0.1:8767/compact/) |
+| `detailed` | Full evidence and diagnostics | [127.0.0.1:8766/](http://127.0.0.1:8766/) |
+| `report` | Four-page project report and visual evidence | [127.0.0.1:8770/report/](http://127.0.0.1:8770/report/) |
+| `legacy` | Earlier possession-only project | [127.0.0.1:8765/](http://127.0.0.1:8765/) |
 
 Add `--port` if a port is already in use:
 
-```bash
-bash scripts/run_portal.sh friendly --port 9000
+```text
+uv run python scripts/run_portal.py friendly --port 9000
 ```
 
 ## Fix `No module named possession_lab`
 
-This normally means the repository moved but its old virtual environment still points to the previous folder. Repair it with:
+This normally means DataSpell remembers an environment from the repository's old folder. From the current project folder, repair it with:
 
-```bash
-bash scripts/setup_local.sh
-bash scripts/run_portal.sh check
+```text
+uv sync --extra dev --reinstall-package possession-lab
+uv run python scripts/run_portal.py check
 ```
 
-The second command should print `Local environment is ready.` The launcher also adds the project's `src` folder explicitly, so it remains reliable when an IDE has a stale package link.
+The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launcher also adds this repository's `src` folder explicitly, so running through it does not depend on an old editable-install path.
 
-If setup cannot find `uv`, install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/) or let the script use your installed `python3` and `pip` instead.
+If the command cannot find `uv`, install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/) and restart the terminal.
 
 ## What is already available
 
@@ -82,7 +91,24 @@ Read the visual project report for the research journey, data coverage, findings
 
 - [Research process](portal-all-roles/report/index.html)
 - [Findings and models](portal-all-roles/report/findings.html)
+- [EDA and model graphs](portal-all-roles/report/visuals.html)
 - [Features, uses, and limitations](portal-all-roles/report/guide.html)
+
+The visual page compares dataset size, physical-data coverage, scoring eligibility, model evidence gates, 2025 holdout error, and the current cross-sport validation boundary.
+
+## Where to edit the web pages
+
+The portals use plain HTML, CSS, and JavaScript—there is no frontend build step.
+
+| Page | Words and layout | Styling | Player interactions |
+|---|---|---|---|
+| Friendly | `portal-all-roles/friendly/index.html` | `portal-all-roles/friendly/styles.css` | `portal-all-roles/friendly/app.js` |
+| Stories | `portal-all-roles/stories/index.html` | `portal-all-roles/stories/styles.css` | `portal-all-roles/stories/app.js` |
+| Compact | `portal-all-roles/compact/index.html` | `portal-all-roles/compact/styles.css` | `portal-all-roles/compact/app.js` |
+| Detailed | `portal-all-roles/index.html` | `portal-all-roles/styles.css` | `portal-all-roles/app.js` |
+| Report | `portal-all-roles/report/*.html` | `portal-all-roles/report/styles.css` | No JavaScript needed |
+
+See [Editing the web portals](docs/editing_the_web_portals.md) for the full source map, how the generated player JSON reaches each page, and the safe edit-and-check workflow.
 
 ## How to read the ratings
 
@@ -97,18 +123,30 @@ Percentiles are relative to a particular sport, role, season, and comparison gro
 
 Most users can skip this section. To rebuild from the cached source data and retrain the models:
 
-```bash
-.venv/bin/python -m possession_lab.cli run-all-roles --root "$PWD"
+```text
+uv run athlete-translation-lab run-all-roles --root .
 ```
 
 This is slower than opening the portal. Raw data, processed player tables, generated player JSON, and fitted model files remain local and are intentionally not stored in Git.
 
 ## Check the code
 
-```bash
-.venv/bin/python -m pytest -q -p no:cacheprovider
-.venv/bin/python -m ruff check src tests
+```text
+uv run ruff check src tests scripts/run_portal.py
+uv run pytest -q -p no:cacheprovider
 ```
+
+GitHub Actions runs the same locked environment and test suite on Windows, macOS, and Linux.
+
+## What a GitHub clone includes
+
+The source code, tests, report pages, and report graphs are tracked and portable. The report can run immediately after setup, even without the private local player snapshot:
+
+```text
+uv run python scripts/run_portal.py report
+```
+
+The full player explorers also need `portal-all-roles/data/`, which is generated locally and intentionally excluded from Git because it is about 453 MB and includes source-dependent player data. Raw data, processed tables, and fitted models are excluded for the same size, reproducibility, and redistribution reasons. Do not force-add those folders before reviewing [Data sources and usage rules](docs/all_roles_data_sources.md).
 
 ## More detail
 

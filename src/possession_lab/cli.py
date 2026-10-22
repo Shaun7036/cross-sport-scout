@@ -205,6 +205,7 @@ def main() -> None:
         if not 1 <= port <= 65535:
             parser.error("--port must be between 1 and 65535")
         directory = (args.output or root / "portal-all-roles").resolve()
+        report_only = args.command == "all-roles-report-portal"
         try:
             if (
                 args.command
@@ -212,7 +213,7 @@ def main() -> None:
                     "build-all-roles-portal",
                     "build-all-roles-compact-portal",
                 }
-                or not (directory / "data" / "manifest.json").exists()
+                or (not report_only and not (directory / "data" / "manifest.json").exists())
             ):
                 manifest = build_all_roles_portal(root, output_dir=directory)
                 print(f"Exported {manifest['counts']['players']:,} players to {directory / 'data'}")
@@ -222,8 +223,21 @@ def main() -> None:
                 _, entry_path, label = portal_views[args.command]
                 if entry_path is None:
                     serve_portal(directory, port=port)
+                elif report_only:
+                    serve_portal(
+                        directory,
+                        port=port,
+                        entry_path=entry_path,
+                        label=label,
+                        require_data=False,
+                    )
                 else:
-                    serve_portal(directory, port=port, entry_path=entry_path, label=label)
+                    serve_portal(
+                        directory,
+                        port=port,
+                        entry_path=entry_path,
+                        label=label,
+                    )
         except (ValueError, TypeError, OSError) as error:
             parser.error(str(error))
         return

@@ -106,13 +106,6 @@ def test_compact_portal_reuses_shared_snapshot_on_independent_port(monkeypatch, 
             "/stories/",
             "Athlete Translation Lab Stories",
         ),
-        (
-            "all-roles-report-portal",
-            "report",
-            8770,
-            "/report/",
-            "Athlete Translation Lab Report",
-        ),
     ],
 )
 def test_plain_language_portals_reuse_shared_snapshot(
@@ -140,6 +133,39 @@ def test_plain_language_portals_reuse_shared_snapshot(
         (
             directory,
             {"port": port, "entry_path": entry_path, "label": label},
+        )
+    ]
+
+
+def test_report_portal_needs_no_generated_player_snapshot(monkeypatch, tmp_path):
+    from possession_lab import all_roles_portal, portal_server
+
+    directory = tmp_path / "portal-all-roles"
+    (directory / "report").mkdir(parents=True)
+    (directory / "report" / "index.html").write_text("<!doctype html>")
+    calls = []
+    monkeypatch.setattr(
+        all_roles_portal,
+        "build_all_roles_portal",
+        lambda *args, **kwargs: pytest.fail("The static report must not build player data"),
+    )
+    monkeypatch.setattr(portal_server, "serve_portal", lambda d, **k: calls.append((d, k)))
+    monkeypatch.setattr(
+        "sys.argv",
+        ["athlete-translation-lab", "all-roles-report-portal", "--root", str(tmp_path)],
+    )
+
+    cli.main()
+
+    assert calls == [
+        (
+            directory,
+            {
+                "port": 8770,
+                "entry_path": "/report/",
+                "label": "Athlete Translation Lab Report",
+                "require_data": False,
+            },
         )
     ]
 

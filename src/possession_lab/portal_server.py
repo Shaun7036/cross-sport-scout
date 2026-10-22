@@ -41,6 +41,7 @@ def serve_portal(
     port: int = 8765,
     entry_path: str = "/",
     label: str = "Possession Lab",
+    require_data: bool = True,
 ) -> None:
     """Serve only generated static assets on this computer until interrupted."""
     directory = directory.resolve()
@@ -48,7 +49,7 @@ def serve_portal(
         raise ValueError("Port must be between 1 and 65535")
     if not _entry_index(directory, entry_path).is_file():
         raise ValueError(f"Portal frontend missing from {directory}")
-    if not (directory / "data" / "manifest.json").is_file():
+    if require_data and not (directory / "data" / "manifest.json").is_file():
         raise ValueError("Portal data missing; run build-portal first")
     handler = partial(PortalHandler, directory=str(directory))
     with ThreadingHTTPServer(("127.0.0.1", port), handler) as server:
