@@ -34,6 +34,7 @@ def main() -> None:
             "all-roles-compact-portal",
             "all-roles-friendly-portal",
             "all-roles-stories-portal",
+            "all-roles-report-portal",
         ],
     )
     parser.add_argument("--sport", choices=["nfl", "nba", "nhl", "epl", "all"])
@@ -48,7 +49,7 @@ def main() -> None:
         type=int,
         help=(
             "Local portal port (default: 8765 legacy, 8766 detailed, 8767 compact, "
-            "8768 friendly, 8769 stories)"
+            "8768 friendly, 8769 stories, 8770 report)"
         ),
     )
     parser.add_argument("--player-id", help="Stable source-sport player identifier")
@@ -91,6 +92,7 @@ def main() -> None:
                 "all-roles-compact-portal",
                 "all-roles-friendly-portal",
                 "all-roles-stories-portal",
+                "all-roles-report-portal",
             }
             else "nfl"
         )
@@ -109,6 +111,7 @@ def main() -> None:
         "all-roles-compact-portal",
         "all-roles-friendly-portal",
         "all-roles-stories-portal",
+        "all-roles-report-portal",
     }:
         import json
 
@@ -190,6 +193,11 @@ def main() -> None:
                 8769,
                 "/stories/",
                 "Athlete Translation Lab Stories",
+            ),
+            "all-roles-report-portal": (
+                8770,
+                "/report/",
+                "Athlete Translation Lab Report",
             ),
         }
         default_port = portal_views.get(args.command, (8766, None, None))[0]

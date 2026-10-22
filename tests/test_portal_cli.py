@@ -106,6 +106,13 @@ def test_compact_portal_reuses_shared_snapshot_on_independent_port(monkeypatch, 
             "/stories/",
             "Athlete Translation Lab Stories",
         ),
+        (
+            "all-roles-report-portal",
+            "report",
+            8770,
+            "/report/",
+            "Athlete Translation Lab Report",
+        ),
     ],
 )
 def test_plain_language_portals_reuse_shared_snapshot(

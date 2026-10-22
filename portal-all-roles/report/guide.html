@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple guide to the features, assumptions, limits and appropriate uses of the Athlete Translation Lab.">
+  <title>How to read the project | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to the report</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html">Journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="guide.html" aria-current="page">How to read it</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../friendly/">Open explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Features, assumptions and limits · snapshot dated 21 October 2026</p>
+          <h1>A score is a clue, not a verdict.</h1>
+          <p class="hero-lead">The portal is most useful when each result is read as a specific comparison: what was measured, who the peer group was and why the model was willing—or unwilling—to answer.</p>
+          <div class="actions">
+            <a class="button" href="#outputs">Learn the outputs</a>
+            <a class="button secondary" href="#uses">See appropriate uses</a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="Quick reading rule">
+          <strong>The 20-second reading rule</strong>
+          <p>First identify the output type. Then check the target sport and role, evidence label, data-availability note and explanation.</p>
+          <p>Never interpret a transfer guesstimate as “this player has an X% chance of succeeding.”</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="outputs" class="section tint" aria-labelledby="outputs-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">The outputs</p>
+            <h2 id="outputs-heading">Five labels that should not be mixed together.</h2>
+          </div>
+          <p>Four outputs carry a 0–100-style result. Body fit is a separate description of how typical a listed build is for the target role; it is not a performance prediction.</p>
+        </div>
+
+        <div class="three-col">
+          <article class="card output-card">
+            <span class="pill">Retrospective</span>
+            <h3 style="margin-top: 0.9rem;">Observed native percentile</h3>
+            <div class="score-line">
+              <span class="score-badge" aria-hidden="true">82</span>
+              <p>About the 82nd percentile among peers in the same role and season.</p>
+            </div>
+            <p>Use it to describe what happened. It combines role-appropriate measures after opportunity adjustment and small-sample shrinkage.</p>
+          </article>
+          <article class="card output-card">
+            <span class="pill">Experimental</span>
+            <h3 style="margin-top: 0.9rem;">Native forecast</h3>
+            <div class="score-line">
+              <span class="score-badge" aria-hidden="true">68</span>
+              <p>An estimate of next season’s standing in the same broad role.</p>
+            </div>
+            <p>It uses prior performance and availability. Every current deployed native forecast remains experimental rather than deployment-ready.</p>
+          </article>
+          <article class="card output-card">
+            <span class="pill">Build only</span>
+            <h3 style="margin-top: 0.9rem;">Physical estimate</h3>
+            <div class="score-line">
+              <span class="score-badge" aria-hidden="true">56</span>
+              <p>A build-to-performance association inside the target role.</p>
+            </div>
+            <p>It uses listed height, weight, derived body-mass index and age. It does not show that a body type causes performance.</p>
+          </article>
+          <article class="card output-card transfer">
+            <span class="pill">Exploratory analogy</span>
+            <h3 style="margin-top: 0.9rem;">Transfer guesstimate</h3>
+            <div class="score-line">
+              <span class="score-badge" aria-hidden="true">73</span>
+              <p>Resemblance to a target role through build and shared themes.</p>
+            </div>
+            <p>It answers “who looks interesting for follow-up?” It does not answer “who can make the team?”</p>
+          </article>
+          <article class="card output-card">
+            <span class="pill">Diagnostic</span>
+            <h3 style="margin-top: 0.9rem;">Body fit</h3>
+            <div class="score-line">
+              <span class="score-badge" aria-hidden="true">A</span>
+              <p>How central or unusual the listed build is for that role.</p>
+            </div>
+            <p>A typical body can be useful context, but it is not evidence of skill. An unusual body can be a real outlier, not a mistake.</p>
+          </article>
+          <aside class="warning">
+            <h3>No score is not a zero</h3>
+            <p>The project withholds results when required information is missing, too few meaningful themes overlap, the source role is ineligible, the athlete is too far outside known data, or the transfer view fails its required target-role check.</p>
+            <p>A physical or next-season result with weaker evidence may still appear, but it is clearly labeled experimental or unsupported.</p>
+            <p>“Unavailable” means the model should not answer—not that the player lacks ability.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">What enters each model</p>
+            <h2 id="features-heading">Features are grouped by the claim they can support.</h2>
+          </div>
+          <p>The project does not insert every available statistic into one model. Each feature family has a clear job, and target-role percentiles are created before sports are compared.</p>
+        </div>
+
+        <div class="feature-table-wrap">
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th scope="col">Feature family</th>
+                <th scope="col">What is included now</th>
+                <th scope="col">How it is used</th>
+                <th scope="col">Main caution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Listed build</strong></td>
+                <td>Height, weight, derived body-mass index and age</td>
+                <td>Physical estimate and native forecast; build also supports body fit and the transfer guesstimate</td>
+                <td>Body fit uses height and weight only. Most non-NFL profiles are current or undated, not annual tests</td>
+              </tr>
+              <tr>
+                <td><strong>Native history</strong></td>
+                <td>Previous observed percentile, availability percentile and trailing three-year percentile</td>
+                <td>Next-season estimate in the athlete’s existing broad role</td>
+                <td>Past role performance may not survive team, role or health changes</td>
+              </tr>
+              <tr>
+                <td><strong>Role performance</strong></td>
+                <td>Prior-season sport-specific performance domains</td>
+                <td>Preserves information that matters inside the player’s own sport</td>
+                <td>Public summary statistics omit tactics and off-ball assignments</td>
+              </tr>
+              <tr>
+                <td><strong>Shared themes</strong></td>
+                <td>Scoring/finishing; creation/distribution; possession security; defensive disruption; recovery/rebounding; progression/territory; discipline/efficiency</td>
+                <td>Provides common language for cross-sport analogy; at least two themes must overlap</td>
+                <td>The same label does not mean the sports demand the identical skill</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="warning" style="margin-top: 1rem;">
+          <strong>Not included in trained models:</strong> wingspan, arm length, leg length, top speed, agility, reaction speed, awareness, decision-making and “game IQ.” The project has not found one general, rights-cleared and season-dated source for these measures across all four sports. Cognitive labels also require careful definitions and reliable measurement before they should be modeled.
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="assumptions-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Assumptions</p>
+            <h2 id="assumptions-heading">What must be roughly true for the comparison to help.</h2>
+          </div>
+          <p>Assumptions are not hidden defects; they are choices to test. The portal is designed to expose them so a reader can disagree, refine a role or request better evidence.</p>
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <h3>Broad roles are stable enough</h3>
+            <p>Guard, center, edge or midfielder can group athletes with reasonably related responsibilities, even though each label still contains tactical variation.</p>
+          </article>
+          <article class="card">
+            <h3>Opportunity defines a fair peer</h3>
+            <p>Minutes, games, snaps and role-specific chances are good enough to distinguish a meaningful season from a tiny appearance.</p>
+          </article>
+          <article class="card">
+            <h3>Small samples deserve caution</h3>
+            <p>Low-opportunity results should move toward the role-season average rather than be treated as fully reliable extremes.</p>
+          </article>
+          <article class="card">
+            <h3>Percentiles reduce drift</h3>
+            <p>Comparing within the same role and season helps with changing eras, providers and league environments—but does not make every sport identical.</p>
+          </article>
+          <article class="card">
+            <h3>Shared themes can form analogies</h3>
+            <p>Defensive disruption or progression can be meaningfully named in several sports, while still representing different actions and techniques.</p>
+          </article>
+          <article class="card">
+            <h3>Target patterns show resemblance</h3>
+            <p>A model can reconstruct patterns seen in a target role well enough to create a hypothesis score. That is not evidence of actual adaptation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="limits-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Limitations</p>
+            <h2 id="limits-heading">The largest gap is the outcome we ultimately care about.</h2>
+          </div>
+          <p>There is no large, representative set of elite athletes who actually changed between these four sports. Without that outcome, the project can validate native descriptions and target-role reconstruction—not real transfer success.</p>
+        </div>
+
+        <div class="two-col">
+          <article class="card">
+            <h3>Selection and missing context</h3>
+            <ul class="plain-list">
+              <li>Everyone in the panel already survived elite selection, so the data does not represent the general athlete population.</li>
+              <li>Technique, coaching, team tactics, health, motivation and learning speed are not modeled.</li>
+              <li>Public summaries miss assignment-level context, matchup difficulty and many off-ball actions.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Measurement timing</h3>
+            <ul class="plain-list">
+              <li>NFL rosters attach physical listings to seasons, but their measurement date and protocol are unknown.</li>
+              <li>NBA, NHL and Premier League profiles are mainly current or undated and may repeat across historical seasons.</li>
+              <li>Repeated values improve row coverage; they do not provide body-change evidence.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Evaluation design</h3>
+            <ul class="plain-list">
+              <li>The frozen 2025 test is chronological, but it is not athlete-disjoint: some test athletes appear in training history.</li>
+              <li>A separate unseen-history slice helps, but prospective testing on new seasons and athletes is still needed.</li>
+              <li>Model clipping to 0–100 can hide how far an extreme prediction sits outside the known range.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Sport-specific gaps</h3>
+            <ul class="plain-list">
+              <li>Premier League build data is sparse and its roles are broad.</li>
+              <li>NFL tackle, interior line and long snapper performance heads abstain.</li>
+              <li>NBA lacks league-wide tracking, hustle and matchup detail; NHL lacks line, pair, special-team and assignment context.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Rights and reproducibility</h3>
+            <ul class="plain-list">
+              <li>Several providers allow local research but require attribution, non-commercial use or further review.</li>
+              <li>A technically reproducible model is not automatically cleared for public redistribution or commercial use.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Meaning across sports</h3>
+            <ul class="plain-list">
+              <li>A same-season percentile is relative to one peer group, not a universal talent unit.</li>
+              <li>“Possession security” or “defensive disruption” names a family resemblance, not an identical motor or cognitive task.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="uses" class="section tint" aria-labelledby="uses-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Appropriate use</p>
+            <h2 id="uses-heading">Use it to begin a conversation, not end one.</h2>
+          </div>
+          <p>A good use produces a testable follow-up question. A bad use turns a research analogy into a high-stakes judgment that the data was never designed to support.</p>
+        </div>
+
+        <div class="good-bad">
+          <div>
+            <h3><span aria-hidden="true">✓</span>Helpful uses</h3>
+            <ul class="plain-list">
+              <li>Explain a player’s standing within the same role and season.</li>
+              <li>Generate cross-sport scouting or research hypotheses.</li>
+              <li>Compare a listed build with the usual range for a target role.</li>
+              <li>Teach how peer groups, opportunity and assumptions affect a score.</li>
+              <li>Identify cases that deserve coach, video, tracking or physical-testing follow-up.</li>
+            </ul>
+          </div>
+          <div>
+            <h3><span aria-hidden="true">×</span>Not valid for</h3>
+            <ul class="plain-list">
+              <li>Probability of changing sports, making a roster or reaching a performance level.</li>
+              <li>Contract, draft, betting, medical or employment decisions.</li>
+              <li>Claims that a body type causes success.</li>
+              <li>Direct comparison of raw tackles, steals, sacks or recoveries across sports.</li>
+              <li>Claims about reaction, awareness, intelligence or personality.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="roadmap-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Improvement roadmap</p>
+            <h2 id="roadmap-heading">The next gains should come from better evidence.</h2>
+          </div>
+          <p>More complex algorithms are not the first priority. Better timed measurements, finer context and real outcomes would change what the project is capable of claiming.</p>
+        </div>
+
+        <ol class="roadmap">
+          <li>
+            <div><strong>Build a dated physical panel.</strong><p>Add rights-cleared season-specific testing for length, speed, change of direction and other measures, with protocol and measurement dates.</p></div>
+          </li>
+          <li>
+            <div><strong>Add tactical context.</strong><p>Use licensed event, lineup and tracking data to distinguish finer roles, assignments, teammates and quality of opposition.</p></div>
+          </li>
+          <li>
+            <div><strong>Collect real transfer evidence.</strong><p>Study crossover athletes, controlled tests and structured coach assessments so cross-sport scores can be checked against actual outcomes.</p></div>
+          </li>
+          <li>
+            <div><strong>Define mental constructs before measuring them.</strong><p>Predeclare reliable tasks for perception, decision speed or anticipation rather than inferring “awareness” from unrelated box-score statistics.</p></div>
+          </li>
+          <li>
+            <div><strong>Validate outside the current sample.</strong><p>Run prospective future-season and athlete-disjoint evaluations, publish uncertainty and check performance separately for each role.</p></div>
+          </li>
+          <li>
+            <div><strong>Clear release rights, then increase complexity.</strong><p>Resolve redistribution and commercial terms first. Consider hierarchical or richer models only after the labels and validation design justify them.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="next-panel">
+          <div>
+            <h2>Ready to explore a player?</h2>
+            <p>Use the friendly explorer for a compact explanation, or open the example stories for cases chosen to introduce the project’s strengths and surprises.</p>
+          </div>
+          <div class="actions">
+            <a class="button" href="../friendly/">Open explorer</a>
+            <a class="button" href="../stories/">View examples</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>This guide describes the frozen repository snapshot dated 21 October 2026. If the data, features or evidence policy changes, the interpretation guidance should change with it.</p>
+      <nav class="footer-links" aria-label="Other project views">
+        <a href="index.html">Research journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="../">Research portal</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

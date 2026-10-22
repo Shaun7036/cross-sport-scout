@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plain-language data and model findings for the NFL, NBA, NHL and Premier League athlete role project.">
+  <title>Findings | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to the report</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html">Journey</a>
+        <a href="findings.html" aria-current="page">Findings</a>
+        <a href="guide.html">How to read it</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../friendly/">Open explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Data and model findings · snapshot dated 21 October 2026</p>
+          <h1>Four leagues, four very different evidence bases.</h1>
+          <p class="hero-lead">The project has enough data to describe broad roles and surface useful comparisons. It does not have equally complete measurements—or equally strong models—in every sport.</p>
+          <div class="actions">
+            <a class="button" href="#league-view">Compare the leagues</a>
+            <a class="button secondary" href="#model-evidence">See model evidence</a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="Finding in one sentence">
+          <strong>The headline finding</strong>
+          <p>Same-sport performance context is the most dependable part of the current project. Physical-only and cross-sport scores are useful for exploration, but the evidence is not yet strong enough to treat them as predictions of real transfer success.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="league-view" class="section tint" aria-labelledby="league-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">League-by-league view</p>
+            <h2 id="league-heading">Depth is strong. Measurement quality is uneven.</h2>
+          </div>
+          <p>The record and athlete counts below come from the current processed panel. Physical coverage means both height and weight are present; it does not prove when or how either value was measured.</p>
+        </div>
+
+        <div class="sport-grid">
+          <article class="sport-card">
+            <div class="sport-title">
+              <h3>NFL</h3>
+              <span>2021–2025</span>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>15,518</strong><span>player-seasons</span></div>
+              <div class="mini-stat"><strong>5,850</strong><span>athletes</span></div>
+              <div class="mini-stat"><strong>14</strong><span>declared roles</span></div>
+            </div>
+            <div class="coverage-row">
+              <span>Both fields</span>
+              <div class="meter" aria-hidden="true"><span style="width: 98.8%;"></span></div>
+              <strong>98.8%</strong>
+            </div>
+            <p class="snapshot-note">Observed scores: 8,308 rows (53.5%); 4,874 are eligible model labels.</p>
+            <div class="finding-list">
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">+</span>
+                <p>The largest panel and widest role range make the NFL the deepest place to study role archetypes.</p>
+              </div>
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">!</span>
+                <p>Offensive tackle, interior line and long snapper provide 2,895 build-and-identity rows, but the available statistics do not support release-safe individual performance labels. The model abstains.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="sport-card">
+            <div class="sport-title">
+              <h3>NBA</h3>
+              <span>2021–2025</span>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>2,866</strong><span>player-seasons</span></div>
+              <div class="mini-stat"><strong>1,030</strong><span>athletes</span></div>
+              <div class="mini-stat"><strong>3</strong><span>broad roles</span></div>
+            </div>
+            <div class="coverage-row">
+              <span>Both fields</span>
+              <div class="meter" aria-hidden="true"><span style="width: 100%;"></span></div>
+              <strong>100%</strong>
+            </div>
+            <p class="snapshot-note">Observed scores: all 2,866 rows; 1,878 are eligible model labels.</p>
+            <div class="finding-list">
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">+</span>
+                <p>The NBA has the cleanest physical-field completeness in this snapshot and every role has scored performance rows.</p>
+              </div>
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">!</span>
+                <p>Guard, forward and center are intentionally broad. They are suitable for a first comparison, but they cannot represent every tactical assignment.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="sport-card">
+            <div class="sport-title">
+              <h3>NHL</h3>
+              <span>2021–2025</span>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>5,263</strong><span>player-seasons</span></div>
+              <div class="mini-stat"><strong>1,654</strong><span>athletes</span></div>
+              <div class="mini-stat"><strong>5</strong><span>broad roles</span></div>
+            </div>
+            <div class="coverage-row">
+              <span>Both fields</span>
+              <div class="meter" aria-hidden="true"><span style="width: 99.89%;"></span></div>
+              <strong>99.9%</strong>
+            </div>
+            <p class="snapshot-note">Observed scores: all 5,263 rows; 3,574 are eligible model labels.</p>
+            <div class="finding-list">
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">+</span>
+                <p>Centers, both wings, defense and goalies all have complete scored histories in the panel.</p>
+              </div>
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">!</span>
+                <p>Physical profiles are highly complete but mainly current or undated, so repeated values should not be read as annual measurements.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="sport-card">
+            <div class="sport-title">
+              <h3>Premier League</h3>
+              <span>2021–2025</span>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>4,005</strong><span>player-seasons</span></div>
+              <div class="mini-stat"><strong>1,777</strong><span>athletes</span></div>
+              <div class="mini-stat"><strong>4</strong><span>broad roles</span></div>
+            </div>
+            <div class="coverage-row">
+              <span>Both fields</span>
+              <div class="meter" aria-hidden="true"><span style="width: 34.91%;"></span></div>
+              <strong>34.9%</strong>
+            </div>
+            <p class="snapshot-note">Observed scores: 2,760 rows (68.9%); 1,690 are eligible model labels.</p>
+            <div class="finding-list">
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">+</span>
+                <p>Goalkeeper, defender, midfielder and forward provide useful broad-role performance context.</p>
+              </div>
+              <div class="finding">
+                <span class="finding-mark" aria-hidden="true">!</span>
+                <p>Physical coverage is the clearest bottleneck. Missing build data makes physical and transfer results unavailable for many players.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="eda-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Exploratory data analysis</p>
+            <h2 id="eda-heading">Six observations shaped the design.</h2>
+          </div>
+          <p>The most useful EDA findings were not flashy correlations. They were practical warnings about unequal samples, opportunity and what a missing value should mean.</p>
+        </div>
+
+        <div class="snapshot" aria-label="Observed score coverage">
+          <div class="stat"><strong>69.4%</strong><span>of all rows have an observed descriptive score</span></div>
+          <div class="stat"><strong>12,016</strong><span>rows are eligible as supervised model labels</span></div>
+          <div class="stat"><strong>115</strong><span>role-and-season cohorts were scored</span></div>
+          <div class="stat"><strong>20</strong><span>cohorts were intentionally skipped</span></div>
+        </div>
+        <div class="note" style="margin-bottom: 1rem;">
+          <strong>Where every row went:</strong> 12,016 eligible labels + 7,181 low-sample descriptive rows = 19,197 scored rows. The remainder are 5,311 not observed, 2,681 source/label abstentions, 249 unregistered generic NFL rows and 214 long-snapper rows with no public performance label. The 20 skipped cohorts are five seasons each for NFL offensive tackle, interior line, long snapper and unresolved generic roles.
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <span class="card-number" aria-hidden="true">1</span>
+            <h3>Role sizes vary widely</h3>
+            <p>The snapshot ranges from 2,017 NFL wide-receiver seasons to 214 long-snapper seasons; NBA guards have 1,325 seasons while centers have 403. One confidence rule cannot fit every group equally well.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">2</span>
+            <h3>Playing time changes meaning</h3>
+            <p>Counts such as tackles, steals or recoveries depend on opportunity. The pipeline records availability, uses role-appropriate exposure and pulls tiny samples toward the group average.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">3</span>
+            <h3>Present is not the same as dated</h3>
+            <p>Almost complete height and weight coverage can still come from current profile pages. That is enough for approximate body comparison, not a history of how a body changed.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">4</span>
+            <h3>Broad roles are more honest</h3>
+            <p>Public data supports broad groups better than precise tactical jobs. Fine assignments need lineup, tracking or coaching context that the current panel does not contain.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">5</span>
+            <h3>No score is not a zero</h3>
+            <p>A missing or withheld result can mean low opportunity, missing physical fields, too little shared information or an unsupported target role. It does not mean poor ability.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">6</span>
+            <h3>Context beats one giant ranking</h3>
+            <p>The useful unit is a percentile within the same role and season. Low-sample shrinkage also pulls many descriptive scores toward the middle. A 90 for an NFL edge rusher and a 90 for an NHL defender still describe different peer groups.</p>
+          </article>
+        </div>
+
+        <div class="section-heading" style="margin-top: 3rem;">
+          <div>
+            <p class="section-kicker">Listed-build patterns</p>
+            <h2>Bodies separate familiar roles.</h2>
+          </div>
+          <p>Medians below use each athlete’s latest complete height-and-weight row. They describe roster listings, not the cause of ability. Premier League estimates are especially fragile because complete profiles are sparse.</p>
+        </div>
+        <div class="four-col">
+          <article class="card">
+            <span class="league-label">NFL</span>
+            <h3 style="margin-top: 0.9rem;">Cornerback vs tackle</h3>
+            <p>Cornerbacks: 182.9 cm and 86.6 kg (580 athletes). Offensive tackles: 198.1 cm and 142.9 kg (420).</p>
+          </article>
+          <article class="card">
+            <span class="league-label">NBA</span>
+            <h3 style="margin-top: 0.9rem;">Guard vs center</h3>
+            <p>Guards: 193.0 cm and 90.7 kg (495 athletes). Centers: 210.8 cm and 113.2 kg (132).</p>
+          </article>
+          <article class="card">
+            <span class="league-label">NHL</span>
+            <h3 style="margin-top: 0.9rem;">Three distinct medians</h3>
+            <p>Centers: 185.4 cm/88.5 kg (470); defense: 188.0/91.2 (508); goalies: 190.5/89.4 (169).</p>
+          </article>
+          <article class="card">
+            <span class="league-label">Premier League</span>
+            <h3 style="margin-top: 0.9rem;">Midfielder vs goalkeeper</h3>
+            <p>Midfielders: 180.3 cm and 73.0 kg (193 complete profiles). Goalkeepers: 190.5 cm and 83.0 kg (51).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="models-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">What was modeled</p>
+            <h2 id="models-heading">Four views, each answering a different question.</h2>
+          </div>
+          <p>The project deliberately keeps observed results, forecasts, physical resemblance and cross-sport analogy apart. Combining them into one unexplained number would hide where the evidence comes from.</p>
+        </div>
+
+        <div class="four-col">
+          <article class="card output-card">
+            <span class="pill">Descriptive</span>
+            <h3 style="margin-top: 0.9rem;">Observed native rank</h3>
+            <p>How strong was the player’s measured season compared with athletes in the same broad role and season?</p>
+          </article>
+          <article class="card output-card">
+            <span class="pill">Experimental</span>
+            <h3 style="margin-top: 0.9rem;">Native forecast</h3>
+            <p>Given prior seasons, what might next season’s same-role percentile look like? It is checked against simple recent-history baselines.</p>
+          </article>
+          <article class="card output-card">
+            <span class="pill">Associational</span>
+            <h3 style="margin-top: 0.9rem;">Physical estimate</h3>
+            <p>How is listed height, weight, body-mass index and age associated with the target role’s performance labels?</p>
+          </article>
+          <article class="card output-card transfer">
+            <span class="pill">Exploratory</span>
+            <h3 style="margin-top: 0.9rem;">Transfer guesstimate</h3>
+            <p>How does the athlete’s build and shared performance profile resemble people in another role? It is an analogy, not a transfer probability.</p>
+          </article>
+        </div>
+
+        <div class="definition" style="margin-top: 1rem;">
+          <strong>Model choice in plain words:</strong> each fitted head uses a simple regularized line model. It is intentionally easier to inspect and harder to overfit than a complex black box. Several strength settings are tried, and the project keeps the one that performs best within training data.
+        </div>
+      </div>
+    </section>
+
+    <section id="model-evidence" class="section dark" aria-labelledby="evidence-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Frozen model evidence</p>
+            <h2 id="evidence-heading">Fitting a model is not the same as validating a claim.</h2>
+          </div>
+          <p>Models train on seasons before 2025 and are tested on the held-out 2025 season. Errors, rank agreement and performance against simple baselines are recorded before a result is shown.</p>
+        </div>
+
+        <div class="evidence-grid">
+          <div class="evidence-stat">
+            <strong>23/26</strong>
+            <span>registered role-based physical heads could be fitted</span>
+          </div>
+          <div class="evidence-stat">
+            <strong>4</strong>
+            <span>physical heads cleared the current full evidence gate: NFL edge, NBA guard, NBA forward and EPL midfielder</span>
+          </div>
+          <div class="evidence-stat">
+            <strong>22/26</strong>
+            <span>native same-role forecast heads could be fitted</span>
+          </div>
+          <div class="evidence-stat">
+            <strong>272</strong>
+            <span>cross-sport bridge heads were fitted; none is direct evidence of real transfer success</span>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-top: 1rem;">
+          <article class="card">
+            <h3>What passed</h3>
+            <p>Twelve native forecast heads cleared the project’s internal evidence gate. Only four physical heads passed the strict 90% bootstrap gate:</p>
+            <ul class="plain-list">
+              <li>NFL edge: error 23.73 vs 25.00 neutral (182 tests)</li>
+              <li>NBA guard: 23.94 vs 25.00 (189)</li>
+              <li>NBA forward: 22.31 vs 25.00 (137)</li>
+              <li>Premier League midfielder: 23.34 vs 25.29 (123)</li>
+            </ul>
+            <p style="margin-top: 0.8rem;">No NHL physical head passed. The practical lesson is that build alone is weak evidence.</p>
+          </article>
+          <article class="card">
+            <h3>What remains experimental</h3>
+            <p>All deployed native forecasts are still labeled experimental under the stricter full-deployment standard. Bridge models reconstruct target-role percentiles; they do not validate what happens when a real athlete changes sports.</p>
+          </article>
+        </div>
+
+        <div class="section-heading" style="margin-top: 3rem;">
+          <div>
+            <p class="section-kicker">Illustrative 2025 holdout checks</p>
+            <h2>Recent performance carries more signal than build alone.</h2>
+          </div>
+          <p>One native forecast example per sport is shown below. Lower average error is better; rank correlation closer to 1 means the predicted order better follows the observed order. These are encouraging research checks, not deployment approval.</p>
+        </div>
+        <div class="four-col">
+          <article class="card">
+            <span class="league-label">NFL edge</span>
+            <h3 style="margin-top: 0.9rem;">20.83 error</h3>
+            <p>Versus 25.91 neutral; rank correlation 0.523 across 113 test rows.</p>
+          </article>
+          <article class="card">
+            <span class="league-label">NBA guard</span>
+            <h3 style="margin-top: 0.9rem;">16.36 error</h3>
+            <p>Versus 25.48 neutral; rank correlation 0.738 across 132 test rows.</p>
+          </article>
+          <article class="card">
+            <span class="league-label">NHL center</span>
+            <h3 style="margin-top: 0.9rem;">14.83 error</h3>
+            <p>Versus 26.57 neutral; rank correlation 0.780 across 177 test rows.</p>
+          </article>
+          <article class="card">
+            <span class="league-label">Premier League midfielder</span>
+            <h3 style="margin-top: 0.9rem;">15.59 error</h3>
+            <p>Versus 26.04 neutral; rank correlation 0.727 across 79 test rows.</p>
+          </article>
+        </div>
+        <div class="warning" style="margin-top: 1rem;">
+          <strong>Why the “experimental” label remains:</strong> none of the native heads simultaneously cleared every history-baseline and evidence requirement in the full deployment policy. Good holdout examples should motivate more testing, not erase that policy.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="checks-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Face-validity examples</p>
+            <h2 id="checks-heading">Known stars land where a reader would expect.</h2>
+          </div>
+          <p>These checks help catch identity mistakes, broken calculations and obviously implausible rankings. They are reassuring, but they are not a substitute for independent model validation.</p>
+        </div>
+
+        <div class="two-col">
+          <article class="example">
+            <span class="league-label">NBA guard · latest snapshot season</span>
+            <h3 style="margin-top: 1rem;">Stephen Curry</h3>
+            <p class="example-score">95.2nd</p>
+            <small>percentile in the scoring-and-finishing theme</small>
+            <p style="margin-top: 1rem;">The result clears the project’s 90th-percentile sanity threshold. A separate Stephen-versus-Seth identity check also passes.</p>
+          </article>
+          <article class="example">
+            <span class="league-label">NBA forward · latest snapshot season</span>
+            <h3 style="margin-top: 1rem;">LeBron James</h3>
+            <p class="example-score">97.4th</p>
+            <small>percentile in the creation-and-distribution theme</small>
+            <p style="margin-top: 1rem;">The result clears the same 90th-percentile sanity threshold and shows that the broad-role normalization recognizes an expected elite strength.</p>
+          </article>
+        </div>
+
+        <div class="note" style="margin-top: 1rem;">
+          <strong>Why these are useful:</strong> if famous elite cases appeared ordinary in their signature areas, the identity matching, role assignment, opportunity adjustment or ranking logic would need investigation. Passing the check only says the output is plausible.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="next-panel">
+          <div>
+            <h2>Next: read a score without over-reading it</h2>
+            <p>The guide explains every feature family, the project’s assumptions, appropriate uses, known limits and the clearest route to a stronger second version.</p>
+          </div>
+          <a class="button" href="guide.html">Open the guide</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>All figures on this page describe the frozen repository snapshot dated 21 October 2026. Rounded percentages may differ slightly from stored values.</p>
+      <nav class="footer-links" aria-label="Other project views">
+        <a href="../friendly/">Friendly explorer</a>
+        <a href="../stories/">Example stories</a>
+        <a href="../">Research portal</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A plain-language report on the data and research process behind the Athlete Translation Lab.">
+  <title>Research journey | Athlete Translation Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to the report</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Athlete Translation Lab report home">
+        <span class="brand-mark" aria-hidden="true">AT</span>
+        <span class="brand-copy">Athlete Translation Lab<small>Plain-language research report</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Report navigation">
+        <a href="index.html" aria-current="page">Journey</a>
+        <a href="findings.html">Findings</a>
+        <a href="guide.html">How to read it</a>
+        <a href="../stories/">Examples</a>
+        <a class="portal-link" href="../friendly/">Open explorer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Research journey · snapshot dated 21 October 2026</p>
+          <h1>From four leagues to one careful comparison.</h1>
+          <p class="hero-lead">This project asks whether an athlete’s listed build and proven style of play resemble the profiles of roles in another sport. It is a research aid for finding interesting comparisons—not a promise that someone can switch sports.</p>
+          <div class="actions">
+            <a class="button" href="findings.html">See what we found</a>
+            <a class="button secondary" href="guide.html">Understand the scores</a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="Scope note">
+          <strong>The question changed as the project grew.</strong>
+          <p>It began with possession-winning players: defenders, interceptors, pressure creators and disruptors.</p>
+          <p>The current version covers broad roles across the NFL, NBA, NHL and Premier League so those defensive archetypes can be seen in the context of an entire league.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell" aria-labelledby="snapshot-title">
+      <h2 id="snapshot-title" class="eyebrow">Current processed snapshot</h2>
+      <div class="snapshot">
+        <div class="stat">
+          <strong>27,652</strong>
+          <span>player-season records across four sports</span>
+        </div>
+        <div class="stat">
+          <strong>10,311</strong>
+          <span>distinct sport-and-athlete identities</span>
+        </div>
+        <div class="stat">
+          <strong>19,197</strong>
+          <span>rows with a scored performance outcome</span>
+        </div>
+        <div class="stat">
+          <strong>2021–25</strong>
+          <span>five-season research window</span>
+        </div>
+      </div>
+      <p class="snapshot-note">These figures describe the repository’s frozen local snapshot, not live league totals. For the NBA, NHL and Premier League, “2025” refers to the 2025–26 season.</p>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">The research question</p>
+            <h2>What does “fit” mean here?</h2>
+          </div>
+          <p>The project separates questions that can sound similar but need very different evidence. A player can perform well in their own role, look physically typical for another role, or share transferable-looking performance traits. None of those alone proves they could change sports.</p>
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <span class="card-number" aria-hidden="true">1</span>
+            <h3>Describe the athlete</h3>
+            <p>Place a player’s recent performance in the context of athletes who played the same broad role in the same season.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">2</span>
+            <h3>Compare the build</h3>
+            <p>Ask whether listed height, weight, body-mass index and age resemble the range seen in a target role.</p>
+          </article>
+          <article class="card">
+            <span class="card-number" aria-hidden="true">3</span>
+            <h3>Form a transfer hypothesis</h3>
+            <p>Combine build with the performance themes that both sports can reasonably share, then report a cautious analogy score.</p>
+          </article>
+        </div>
+
+        <div class="warning" style="margin-top: 1rem;">
+          <strong>Important boundary:</strong> the result is not the probability of making a roster, learning new technique, staying healthy, or succeeding after a real transfer. Those outcomes require evidence this dataset does not contain.
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="journey-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">How the dataset became a model</p>
+            <h2 id="journey-heading">Six steps, with checks at every handoff.</h2>
+          </div>
+          <p>The same overall process is used for each sport. Sport-specific statistics remain intact at the start, then are translated into a smaller set of clearly named comparison themes.</p>
+        </div>
+
+        <div class="journey">
+          <article class="card">
+            <h3>Collect and record</h3>
+            <p>Download public research data, preserve its source, season and usage notes, and keep the raw inputs separate from derived files.</p>
+          </article>
+          <article class="card">
+            <h3>Build one season table</h3>
+            <p>Give each row the same basic structure: sport, season, athlete, role, physical fields, opportunity and performance measures.</p>
+          </article>
+          <article class="card">
+            <h3>Define broad roles</h3>
+            <p>Map league positions into defensible groups: for example NBA guard, forward and center, or NHL center, wing, defense and goalie.</p>
+          </article>
+          <article class="card">
+            <h3>Make seasons comparable</h3>
+            <p>Rank performance within the same role and season. Small samples are pulled toward the group average so a short hot streak is not treated like a full year.</p>
+          </article>
+          <article class="card">
+            <h3>Train, then look forward</h3>
+            <p>Models learn from seasons before 2025 and are checked on 2025. Earlier rolling checks are added when a role has enough history.</p>
+          </article>
+          <article class="card">
+            <h3>Publish with guardrails</h3>
+            <p>The portal explains why it returned a result and can withhold a score when data, shared themes or evidence are too weak.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sources-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Data sourcing</p>
+            <h2 id="sources-heading">Public sources, kept traceable by league.</h2>
+          </div>
+          <p>The current build draws on 224 local source files. Each sport has its own adapter because a sack, steal, takeaway and tackle cannot simply be placed in one raw column and called equivalent.</p>
+        </div>
+
+        <div class="four-col">
+          <article class="card source-card">
+            <span class="league-label">NFL</span>
+            <h3 class="source-name">nflverse</h3>
+            <p>Seasonal rosters, participation and player statistics form the core. Licensing and provider obligations are tracked separately.</p>
+          </article>
+          <article class="card source-card">
+            <span class="league-label">NBA</span>
+            <h3 class="source-name">SportsDataverse / ESPN</h3>
+            <p>Packaged player-season statistics and profiles support the local research build. Upstream redistribution rights still need review before public release.</p>
+          </article>
+          <article class="card source-card">
+            <span class="league-label">NHL</span>
+            <h3 class="source-name">MoneyPuck + NHL Stats</h3>
+            <p>Performance and biography information provide skater and goalie coverage. MoneyPuck’s non-commercial and attribution terms remain important.</p>
+          </article>
+          <article class="card source-card">
+            <span class="league-label">Premier League</span>
+            <h3 class="source-name">Vaastav FPL + ESPN</h3>
+            <p>Fantasy Premier League histories provide the main season panel; sparse profile enrichment supplies some physical information.</p>
+          </article>
+        </div>
+
+        <div class="note" style="margin-top: 1rem;">
+          <strong>Release rule:</strong> a source with unresolved rights may support local research but should not silently enter a public or commercial model. Provenance is part of the model, not an afterthought.
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" aria-labelledby="seasons-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Why use several seasons?</p>
+            <h2 id="seasons-heading">Performance changes yearly. Bodies are measured less often.</h2>
+          </div>
+          <p>Five seasons give the project more athletes, more role examples and a genuine future season for evaluation. But repeating an undated height or weight beside several seasons does not turn it into five separate measurements.</p>
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <h3>Seasonal context matters</h3>
+            <p>A 90th-percentile season means the player ranked highly against peers in that role and season—not against every athlete in every sport.</p>
+          </article>
+          <article class="card">
+            <h3>History tests stability</h3>
+            <p>The project can compare a recent year with a sustained three-year view and can judge a forecast against a simple history-based baseline.</p>
+          </article>
+          <article class="card">
+            <h3>Physical timing stays honest</h3>
+            <p>Current or undated profiles are marked as such. They are useful for approximate build comparison but cannot support claims about annual body change.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="next-panel">
+          <div>
+            <h2>Next: what the data actually showed</h2>
+            <p>See the league-by-league coverage, the strongest descriptive findings and where the models did—or did not—clear their evidence checks.</p>
+          </div>
+          <a class="button" href="findings.html">Read the findings</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>All figures on this page describe the frozen repository snapshot dated 21 October 2026. This is an exploratory sports-analytics project, not a scouting or selection system.</p>
+      <nav class="footer-links" aria-label="Other project views">
+        <a href="../friendly/">Friendly explorer</a>
+        <a href="../stories/">Example stories</a>
+        <a href="../">Research portal</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
