@@ -30,18 +30,26 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
           <span>1</span>
           <div>
             <strong>Infer & Build Native Sport Models</strong>
-            <p>We build sport specific models which see how a player compares with peers in their current sport and if we can reliably predict next season performance via inference.</p>
+            <p>We build sport specific models which see how a player compares with peers in their current sport.</p>
           </div>
         </div>
         <div class="flow-connector" aria-hidden="true"></div>
         <div class="hero-flow-step">
           <span>2</span>
           <div>
-            <strong>Evaluate Cross-Sport Fits</strong>
-            <p>We then use the athlete’s build and broad playing style to see how they might fit roles in the other leagues.</p>
+            <strong>Validate with Future Forecast</strong>
+            <p>We then use our models to see if we can reliably predict a player's next season performance via inference.</p>
           </div>
         </div>
-        <p class="flow-note">Cross-sport scores describe resemblance. They are not probabilities of successfully changing sports.</p>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <div class="hero-flow-step">
+          <span>3</span>
+          <div>
+            <strong>Evaluate Cross-Sport Fits</strong>
+            <p>We then use the athlete’s build and broad playing style to see how they might fit sports with ensemble models.</p>
+          </div>
+        </div>
+        <p class="flow-note">Cross-sport scores describe archetype resemblances (i.e. player traits). They are not probabilities of successfully changing sports.</p>
       </aside>
     </div>
   </section>

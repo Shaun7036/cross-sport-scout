@@ -60,9 +60,20 @@ const holdoutRows = [
         </div>
       </div>
       <aside class="headline-finding" aria-label="Headline finding">
-        <p class="eyebrow">The headline finding</p>
-        <strong>Playing history usually tells us more than body measurements alone.</strong>
-        <p>Same-sport results are the strongest part of the project. Cross-sport scores are most useful as transparent leads for further study—not predictions that someone will succeed after changing sports.</p>
+        <p class="eyebrow">TLDR</p>
+        <strong>Summary of Findings</strong>
+        <p>
+          <ul>
+        <li>Cross-Sport Model are better at inference than prediction.</li>
+  <li>Contextualizing player traits gives us a better chance of find cross-sport fits than body measurements alone.</li>
+  <li>Training and using single sport models still produces the strongest predictive results.</li>
+        <li>Our models in all four sports were able to reliably forecast future performances of players in percentiles.</li>
+  <li>When applying those models on athletes from different sports, however, the predictive power is unreliable.</li>
+        <li>Cross-sport scores do appear to be logical, empirically speaking: Creative players in Sport A have a higher likelihood of fitting creative, phsyically correct roles in Sport B.</li>
+
+</ul>
+
+             </p>
       </aside>
     </div>
   </section>
@@ -87,7 +98,7 @@ const holdoutRows = [
       </div>
       <figure class="report-chart role-chart" aria-labelledby="role-chart-title">
         <figcaption id="role-chart-title">Data Snapshot</figcaption>
-        <p>For this project I aggregated data from a host of different sources. Using The data used to train this model can be broken down below per its entities.</p>
+        <p>For this project I aggregated data from a host of different sources (nflverse, FPLInsights, Moneypuck). The data snapshot used to train this model is shown below:</p>
         <div class="findings-snapshot" aria-label="Project snapshot">
           <dl>
             <div><dt>27,652</dt><dd>player-seasons</dd></div>
@@ -111,7 +122,7 @@ const holdoutRows = [
               </div>
             ))}
           </div>
-          <p><strong>What it means:</strong> the NFL supplies more than half of the full panel, while every other league still contributes thousands of player-seasons.</p>
+          <p>The NFL supplies more than half of the our snapshot data due to more readily available physical stat data. However, I was still able to find a decent amount of information for the other leagues.</p>
         </figure>
 
         <figure class="report-chart" aria-labelledby="coverage-chart-title">
@@ -125,7 +136,7 @@ const holdoutRows = [
               </div>
             ))}
           </div>
-          <p><strong>What it means:</strong> Premier League build data is the clearest coverage gap. Complete fields also do not mean annual measurements—many values are current or undated profile listings.</p>
+          <p>While out data coverage per player per season is good, we still have some coverage gaps. The Premier League is the biggest issues where finding a comprehensive dataset on physical profiles for all seasons was hard.</p>
         </figure>
       </div>
 
