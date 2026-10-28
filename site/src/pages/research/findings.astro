@@ -46,17 +46,17 @@ const holdoutRows = [
 
 <BaseLayout
   title="Project Findings | The Multi Sport Scouter"
-  description="A presentation-friendly report of the project's data, exploratory analysis, modeling challenges, validation results, outcomes, and limitations."
+  description="A report on exploratory analysis, modeling challenges, validation results, outcomes, and limitations."
 >
   <section class="findings-hero">
     <div class="shell findings-hero-grid">
       <div>
-        <p class="eyebrow">Project findings · frozen 2021–2025 study</p>
-        <h1>What the data taught us</h1>
-        <p class="lead">A presentation-ready summary of the most important observations, modeling decisions, useful results and unresolved limits from comparing athletes across the NFL, NBA, NHL and Premier League.</p>
+        <p class="eyebrow">Project Report · frozen 2021–2025 study</p>
+        <h1>Findings & Evaluation</h1>
+        <p class="lead">The following page describes the project findings; noting interesting observations as well as challenges and outcomes I came across during the course of this project.</p>
         <div class="hero-actions">
-          <a class="button" href="#data">Start with the data</a>
-          <a class="button secondary" href="#outcomes">Jump to the outcome</a>
+          <a class="button" href="#data">Start with data collection</a>
+          <a class="button secondary" href="#outcomes">Jump to model outcomes</a>
         </div>
       </div>
       <aside class="headline-finding" aria-label="Headline finding">
@@ -68,7 +68,7 @@ const holdoutRows = [
   </section>
 
   <nav class="findings-jump shell" aria-label="Findings sections">
-    <span>Presentation sections</span>
+    <span>Report Sections</span>
     <a href="#data">Data</a>
     <a href="#eda">EDA</a>
     <a href="#challenges">Challenges</a>
@@ -76,26 +76,28 @@ const holdoutRows = [
     <a href="#evaluation">Evaluation</a>
     <a href="#outcomes">Outcomes</a>
   </nav>
-
-  <section class="shell findings-snapshot" aria-label="Project snapshot">
-    <dl>
-      <div><dt>27,652</dt><dd>player-seasons</dd></div>
-      <div><dt>10,311</dt><dd>sport-athlete identities</dd></div>
-      <div><dt>4</dt><dd>top leagues</dd></div>
-      <div><dt>26</dt><dd>registered broad roles</dd></div>
-      <div><dt>2025</dt><dd>frozen test season</dd></div>
-    </dl>
-  </section>
-
   <section class="finding-section" id="data" aria-labelledby="data-heading">
     <div class="shell">
       <div class="findings-heading">
         <div>
-          <p class="eyebrow">01 · The data foundation</p>
-          <h2 id="data-heading">Large enough to explore. Uneven enough to require caution.</h2>
+          <p class="eyebrow">01 · Data Collection</p>
+          <h2 id="data-heading">Profile & Characteristics of Initial Data</h2>
         </div>
-        <p>The panel covers five seasons, but each league contributes a different amount and quality of information. More rows improve the opportunity to learn patterns; they do not make every feature equally trustworthy.</p>
+        <!--<p>The panel covers five seasons, but each league contributes a different amount and quality of information. More rows improve the opportunity to learn patterns; they do not make every feature equally trustworthy.</p>-->
       </div>
+      <figure class="report-chart role-chart" aria-labelledby="role-chart-title">
+        <figcaption id="role-chart-title">Data Snapshot</figcaption>
+        <p>For this project I aggregated data from a host of different sources. Using The data used to train this model can be broken down below per its entities.</p>
+        <div class="findings-snapshot" aria-label="Project snapshot">
+          <dl>
+            <div><dt>27,652</dt><dd>player-seasons</dd></div>
+            <div><dt>10,311</dt><dd>sport-athlete identities</dd></div>
+            <div><dt>4</dt><dd>top leagues</dd></div>
+            <div><dt>26</dt><dd>registered broad roles</dd></div>
+            <div><dt>2025</dt><dd>frozen test season</dd></div>
+          </dl>
+        </div>
+      </figure>
 
       <div class="chart-pair">
         <figure class="report-chart" aria-labelledby="league-chart-title">
