@@ -1,8 +1,9 @@
-"""Build a small, deterministic, portfolio-safe export for the Astro site.
+"""Build a compact, deterministic public export for the Astro site.
 
 The full portal snapshot is intentionally local.  This module reads that frozen
-presentation export—not raw data or saved estimators—and creates an explicit
-allowlist of compact, derived player profiles for a public static site.
+presentation export—not raw data or saved estimators—and creates compact,
+derived player profiles for the public static site.  Featured cases remain an
+explicit allowlist used by the separate showcase page.
 """
 
 from __future__ import annotations
@@ -245,9 +246,15 @@ def _compact_profile(source: Mapping[str, Any] | None) -> dict[str, Any]:
     }
 
 
-def _compact_targets(source: Mapping[str, Any] | None) -> dict[str, Any]:
+def _compact_targets(
+    source: Mapping[str, Any] | None,
+    *,
+    source_sport: str | None = None,
+) -> dict[str, Any]:
     result: dict[str, Any] = {}
     for sport_id, sport in sorted((source or {}).items()):
+        if source_sport and str(sport_id) == source_sport:
+            continue
         if not isinstance(sport, Mapping):
             continue
         roles: dict[str, Any] = {}
@@ -305,8 +312,90 @@ def compact_player_detail(source: Mapping[str, Any]) -> dict[str, Any]:
             ),
         },
         "profile": _compact_profile(source.get("native_profile")),
-        "targets": _compact_targets(source.get("targets")),
+        "targets": _compact_targets(source.get("targets"), source_sport=player.get("sport")),
     }
+
+
+def _finite_number(value: Any) -> float | None:
+    if isinstance(value, (int, float)) and math.isfinite(float(value)):
+        return float(value)
+    return None
+
+
+def _improvement_percent(model_mae: float | None, baseline_mae: float | None) -> float | None:
+    if model_mae is None or baseline_mae is None or baseline_mae <= 0:
+        return None
+    return 100.0 * (baseline_mae - model_mae) / baseline_mae
+
+
+def _native_forecast_validation(source: Mapping[str, Any] | None) -> dict[str, Any]:
+    source = source or {}
+    evaluation = source.get("evaluation") or {}
+    frozen = evaluation.get("frozen") or {}
+    comparison = evaluation.get("mae_advantage_vs_best_history_baseline") or {}
+    comparator = comparison.get("comparator")
+    baseline_key = {
+        "previous_season": "prior_season_baseline",
+        "rolling_3y": "rolling_3y_baseline",
+    }.get(comparator)
+    baseline = evaluation.get(baseline_key) or {} if baseline_key else {}
+    model_mae = _finite_number(frozen.get("mae"))
+    baseline_mae = _finite_number(baseline.get("mae"))
+    interval = source.get("prediction_interval") or {}
+    return {
+        "status": source.get("forecast_support") or source.get("evidence_gate"),
+        "test_players": frozen.get("n"),
+        "mean_error": model_mae,
+        "rank_correlation": _finite_number(frozen.get("spearman")),
+        "baseline_label": {
+            "previous_season": "previous season",
+            "rolling_3y": "three-season history",
+        }.get(comparator, "simple history"),
+        "baseline_error": baseline_mae,
+        "baseline_improvement_points": _finite_number(comparison.get("estimate")),
+        "baseline_improvement_percent": _improvement_percent(model_mae, baseline_mae),
+        "improvement_ci90": comparison.get("ci90"),
+        "range_nominal_coverage": _finite_number(interval.get("nominal_coverage")),
+        "range_empirical_coverage": _finite_number(interval.get("frozen_empirical_coverage")),
+    }
+
+
+def _build_profile_validation(source: Mapping[str, Any] | None) -> dict[str, Any]:
+    source = source or {}
+    evaluation = source.get("evaluation") or {}
+    frozen = evaluation.get("frozen") or {}
+    baseline = evaluation.get("build_only") or {}
+    comparison = evaluation.get("mae_advantage_vs_build_only") or {}
+    model_mae = _finite_number(frozen.get("mae"))
+    baseline_mae = _finite_number(baseline.get("mae"))
+    interval = source.get("prediction_interval") or {}
+    return {
+        "status": source.get("profile_increment_gate") or source.get("evidence_gate"),
+        "test_players": frozen.get("n"),
+        "mean_error": model_mae,
+        "rank_correlation": _finite_number(frozen.get("spearman")),
+        "baseline_label": "build alone",
+        "baseline_error": baseline_mae,
+        "baseline_improvement_points": _finite_number(comparison.get("estimate")),
+        "baseline_improvement_percent": _improvement_percent(model_mae, baseline_mae),
+        "improvement_ci90": comparison.get("ci90"),
+        "range_nominal_coverage": _finite_number(interval.get("nominal_coverage")),
+        "range_empirical_coverage": _finite_number(interval.get("frozen_empirical_coverage")),
+    }
+
+
+def compact_role_validation(source: Mapping[str, Any]) -> dict[str, Any]:
+    """Select the small held-out evidence summary needed by the public explorer."""
+    native_models = source.get("native_forecast_models") or {}
+    profile_models = source.get("native_profile_models") or {}
+    roles: dict[str, Any] = {}
+    for role_key in sorted(set(native_models) | set(profile_models)):
+        roles[str(role_key)] = {
+            "frozen_season": source.get("frozen_test_season"),
+            "native_forecast": _native_forecast_validation(native_models.get(role_key)),
+            "build_profile": _build_profile_validation(profile_models.get(role_key)),
+        }
+    return roles
 
 
 def _compact_sports(source: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
@@ -334,7 +423,7 @@ def export_public_site(
     *,
     featured_cases: Iterable[Mapping[str, str]] = FEATURED_CASES,
 ) -> dict[str, Any]:
-    """Export an allowlisted, content-hashed static dataset and return its summary."""
+    """Export compact, content-hashed profiles and return the public dataset summary."""
     root = Path(root).resolve()
     output = Path(output_dir).resolve()
     portal = root / "portal-all-roles"
@@ -344,6 +433,10 @@ def export_public_site(
             "The frozen all-role portal export is missing. Run build-all-roles-portal first."
         )
     source_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    evaluation_path = root / "reports" / "all_roles" / "model_evaluation.json"
+    if not evaluation_path.is_file():
+        raise FileNotFoundError(f"Model evaluation summary is missing: {evaluation_path}")
+    model_evaluation = json.loads(evaluation_path.read_text(encoding="utf-8"))
     source_players = source_manifest.get("players") or []
     by_id: dict[str, Mapping[str, Any]] = {}
     for player in source_players:
@@ -353,12 +446,13 @@ def export_public_site(
         by_id[player_id] = player
 
     cases = [dict(case) for case in featured_cases]
-    requested_ids = [str(case["player_id"]) for case in cases]
-    if len(requested_ids) != len(set(requested_ids)):
+    featured_ids = [str(case["player_id"]) for case in cases]
+    if len(featured_ids) != len(set(featured_ids)):
         raise ValueError("Featured player IDs must be unique")
-    missing = [player_id for player_id in requested_ids if player_id not in by_id]
+    missing = [player_id for player_id in featured_ids if player_id not in by_id]
     if missing:
         raise ValueError(f"Featured players missing from source export: {', '.join(missing)}")
+    requested_ids = sorted(by_id)
 
     with tempfile.TemporaryDirectory(prefix="athlete-site-export-", dir=output.parent) as temporary:
         staged = Path(temporary) / "data"
@@ -381,9 +475,10 @@ def export_public_site(
                     f"{MAX_PLAYER_BYTES:,}"
                 )
             digest = hashlib.sha256(payload).hexdigest()[:20]
-            detail_path = f"data/players/{digest}.json"
-            (staged / "players").mkdir(parents=True, exist_ok=True)
-            (staged / "players" / f"{digest}.json").write_bytes(payload)
+            shard = digest[:2]
+            detail_path = f"data/players/{shard}/{digest}.json"
+            (staged / "players" / shard).mkdir(parents=True, exist_ok=True)
+            (staged / "players" / shard / f"{digest}.json").write_bytes(payload)
             detail_bytes += len(payload)
             player_entries.append(
                 {
@@ -412,8 +507,9 @@ def export_public_site(
             "claims": source_manifest.get("claims"),
             "limitations": source_manifest.get("limitations"),
             "feature_labels": FEATURE_LABELS,
+            "role_validation": compact_role_validation(model_evaluation),
             "release_boundary": (
-                "Curated derived model outputs only. Raw data, processed rows, saved estimators, "
+                "Compact derived model outputs only. Raw data, processed rows, saved estimators, "
                 "provider assets, and league or team marks are not included."
             ),
             "attribution": [
@@ -423,9 +519,19 @@ def export_public_site(
                     "note": "NFL research data; individual upstream obligations remain documented in the repository.",
                 },
                 {
+                    "source": "SportsDataverse / ESPN",
+                    "url": "https://github.com/sportsdataverse/sportsdataverse-data",
+                    "note": "NBA research source; underlying ESPN/NBA public-display and commercial rights remain unresolved.",
+                },
+                {
                     "source": "MoneyPuck",
                     "url": "https://moneypuck.com/data.htm",
                     "note": "NHL research data; attribution and non-commercial conditions apply.",
+                },
+                {
+                    "source": "Vaastav Fantasy Premier League archive",
+                    "url": "https://github.com/vaastav/Fantasy-Premier-League",
+                    "note": "Premier League research source; underlying FPL data rights remain upstream and commercial use is unresolved.",
                 },
                 {
                     "source": "Wikidata",
@@ -440,14 +546,28 @@ def export_public_site(
         for player in player_entries:
             sport = str(player.get("sport", "unknown"))
             by_sport[sport] = by_sport.get(sport, 0) + 1
+        sorted_players = sorted(player_entries, key=lambda item: str(item.get("name", "")))
+        player_indexes: list[dict[str, Any]] = []
+        index_bytes = 0
+        for sport_id in sorted(by_sport):
+            sport_players = [player for player in sorted_players if player.get("sport") == sport_id]
+            index_path = f"data/indexes/{sport_id}.json"
+            payload = _write(staged / "indexes" / f"{sport_id}.json", sport_players)
+            index_bytes += len(payload)
+            player_indexes.append(
+                {"sport": sport_id, "path": index_path, "players": len(sport_players)}
+            )
+        entry_by_id = {str(player.get("id")): player for player in sorted_players}
+        featured_players = [entry_by_id[player_id] for player_id in featured_ids]
         public_manifest = {
             "schema_version": PUBLIC_SITE_SCHEMA_VERSION,
             "generated_at": source_manifest.get("generated_at"),
-            "title": "The Multi Sport Scouter — Portfolio Edition",
-            "portfolio_edition": True,
+            "title": "The Multi Sport Scouter",
+            "portfolio_edition": False,
             "snapshot": source_manifest.get("snapshot"),
             "sports": _compact_sports(source_manifest.get("sports") or []),
-            "players": sorted(player_entries, key=lambda item: str(item.get("name", ""))),
+            "player_indexes": player_indexes,
+            "featured_players": featured_players,
             "featured_cases": cases,
             "defaults": {
                 "player_id": "nhl:8478402",
@@ -457,7 +577,7 @@ def export_public_site(
             "counts": {"players": len(player_entries), "by_sport": by_sport},
             "model_metadata_path": "data/model-metadata.json",
             "public_notice": (
-                "This curated static edition contains derived research outputs for demonstration. "
+                "This static edition contains compact derived research outputs for demonstration. "
                 "Cross-sport results are analogies, not probabilities of successful transfer."
             ),
         }
@@ -476,6 +596,7 @@ def export_public_site(
     return {
         "players": len(player_entries),
         "manifest_bytes": len(manifest_payload),
+        "player_index_bytes": index_bytes,
         "player_detail_bytes": detail_bytes,
         "output": str(output),
     }

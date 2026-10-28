@@ -18,6 +18,7 @@ const isFindings = active("research/findings/");
     <nav aria-label="Primary navigation">
       <a href={href("")} aria-current={pathname === base ? "page" : undefined}>Home</a>
       <a href={href("explorer/")} aria-current={active("explorer/") ? "page" : undefined}>Explorer</a>
+      <a href={href("featured/")} aria-current={active("featured/") ? "page" : undefined}>Featured</a>
       <a href={href("stories/")} aria-current={active("stories/") ? "page" : undefined}>Stories</a>
       <a href={href("research/")} aria-current={active("research/") && !isFindings ? "page" : undefined}>Method</a>
       <a href={href("research/findings/")} aria-current={isFindings ? "page" : undefined}>Findings</a>

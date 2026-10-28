@@ -13,6 +13,7 @@
     targetSport: null,
     targetRole: null,
     basis: "physical",
+    visiblePlayerLimit: 100,
     request: 0,
   };
 
@@ -66,20 +67,20 @@
 
   function band(value) {
     if (!finite(value)) return "Unavailable";
-    if (value >= 90) return "Top-tier model comparison";
-    if (value >= 75) return "Strong model comparison";
-    if (value >= 60) return "Above-average comparison";
-    if (value >= 40) return "Around the middle";
-    if (value >= 25) return "Below-average comparison";
-    return "Lower comparison";
+    if (value >= 90) return "Among the strongest matches";
+    if (value >= 75) return "Strong match";
+    if (value >= 60) return "Above-average match";
+    if (value >= 40) return "Near the middle";
+    if (value >= 25) return "Below-average match";
+    return "Low match";
   }
 
   function bodyBand(value) {
     if (!finite(value)) return "Unavailable";
-    if (value >= 75) return "Very typical target-role build";
-    if (value >= 50) return "Fairly typical target-role build";
-    if (value >= 25) return "Unusual target-role build";
-    return "Rare target-role build";
+    if (value >= 75) return "Very common build for this role";
+    if (value >= 50) return "Fairly common build for this role";
+    if (value >= 25) return "Unusual build for this role";
+    return "Rare build for this role";
   }
 
   function featureLabel(key) {
@@ -101,10 +102,10 @@
     const relative = String(path || "").replace(/^data\//, "");
     const url = new URL(relative, dataRoot);
     if (url.origin !== window.location.origin || !url.pathname.startsWith(dataRoot.pathname)) {
-      throw new Error("The requested file is outside the static site data directory.");
+      throw new Error("That saved profile is not available on this site.");
     }
     const response = await fetch(url, { credentials: "same-origin" });
-    if (!response.ok) throw new Error(`The saved result could not be read (${response.status}).`);
+    if (!response.ok) throw new Error(`The saved profile could not be opened (${response.status}).`);
     return response.json();
   }
 
@@ -120,9 +121,9 @@
     return sportConfig(sport)?.roles?.find((item) => item.id === role)?.label || words(role);
   }
 
-  function metric(label, value, suffix = "") {
+  function metric(label, value, suffix = "", digits = 0) {
     const item = el("div", "metric-mini");
-    append(item, el("span", "", label), el("strong", "", finite(value) ? `${number(value)}${suffix}` : "—"));
+    append(item, el("span", "", label), el("strong", "", finite(value) ? `${number(value, digits)}${suffix}` : "—"));
     return item;
   }
 
@@ -160,12 +161,12 @@
     if (!contributions.length) return null;
     const list = el("ul", "contribution-list");
     contributions.slice(0, 4).forEach((item) => {
-      const direction = item.contribution >= 0 ? "raised" : "lowered";
+      const direction = item.contribution >= 0 ? "pushed this score higher" : "pushed this score lower";
       list.append(
         el(
           "li",
           "",
-          `${featureLabel(item.feature)} ${direction} the estimate in this fitted model (${item.contribution >= 0 ? "+" : ""}${number(item.contribution, 1)}).`,
+          `${featureLabel(item.feature)} ${direction} (${item.contribution >= 0 ? "+" : ""}${number(item.contribution, 1)}).`,
         ),
       );
     });
@@ -175,7 +176,7 @@
   function scoreCard(
     title,
     estimate,
-    { primary = false, bodyFit = false, fallback = "This result was withheld." } = {},
+    { primary = false, bodyFit = false, fallback = "This result was withheld.", note = null } = {},
   ) {
     const card = el("article", `score-card${primary ? " primary" : ""}`);
     card.append(el("h4", "", title));
@@ -184,25 +185,75 @@
       return card;
     }
     const value = el("div", "score-value", number(estimate.value, 1));
-    value.append(el("small", "", bodyFit ? "build centrality" : "percentile-style score"));
+    value.append(el("small", "", bodyFit ? "body match / 100" : "score out of 100"));
     append(card, value, el("p", "score-band", bodyFit ? bodyBand(estimate.value) : band(estimate.value)));
     const range = estimate.range;
     if (finite(range?.lower) && finite(range?.upper)) {
       const coverage = finite(range.frozen_empirical_coverage)
-        ? ` · ${number(range.frozen_empirical_coverage * 100, 0)}% frozen coverage`
+        ? ` · Similar past ranges contained ${number(range.frozen_empirical_coverage * 100, 0)}% of results`
         : "";
-      card.append(el("p", "score-range", `Range: ${number(range.lower, 1)}–${number(range.upper, 1)}${coverage}`));
+      card.append(el("p", "score-range", `Expected range: ${number(range.lower, 1)}–${number(range.upper, 1)}${coverage}`));
     }
     card.append(
       el(
         "p",
         "score-note",
-        estimate.evidence_warning || "The estimate is shown with the evidence label saved by the frozen model.",
+        note || estimate.evidence_warning || "This is an estimate, not a guarantee.",
       ),
     );
     const contributions = contributionList(estimate);
     if (contributions) card.append(contributions);
     return card;
+  }
+
+  function validationEvidence(validation, kind) {
+    const box = el("div", "validation-evidence");
+    box.append(el("p", "validation-label", "How this model tested in 2025"));
+    if (!validation || !finite(validation.mean_error) || !finite(validation.test_players)) {
+      box.append(el("p", "validation-copy", "There was not enough held-out evidence to score this model check."));
+      return box;
+    }
+
+    const change = validation.baseline_improvement_percent;
+    const improved = finite(change) && change >= 0;
+    const status = String(validation.status || "");
+    const supported = kind === "profile"
+      ? status === "supported"
+      : status === "supported_over_history_baselines";
+    const changeText = finite(change)
+      ? `${number(Math.abs(change), 1)}% ${improved ? "lower" : "higher"} error`
+      : "No benchmark comparison";
+    const headline = el("div", `validation-result${supported ? " passed" : " limited"}`);
+    append(
+      headline,
+      el("strong", "", changeText),
+      el("span", "", `than ${validation.baseline_label || "the simple benchmark"}`),
+    );
+    box.append(headline);
+
+    let explanation;
+    if (kind === "profile" && status === "supported") {
+      explanation = "Playing style added useful information beyond body build alone.";
+    } else if (kind === "profile" && status === "not_supported") {
+      explanation = "Playing style did not clearly improve on body build alone, so use this result cautiously.";
+    } else if (kind === "native" && status === "supported_over_history_baselines") {
+      explanation = "The model clearly improved on the simple history forecast.";
+    } else if (kind === "native" && status === "history_baseline_preferred_or_insufficient") {
+      explanation = "The model did not clearly beat a simple history forecast, so this outlook remains experimental.";
+    } else {
+      explanation = "This model check has limited evidence and should be treated as experimental.";
+    }
+    box.append(el("p", "validation-copy", explanation));
+
+    const metrics = el("div", "validation-metrics");
+    append(
+      metrics,
+      metric("Players tested", validation.test_players),
+      metric("Average miss", validation.mean_error, " pts", 1),
+      metric("Benchmark miss", validation.baseline_error, " pts", 1),
+    );
+    box.append(metrics);
+    return box;
   }
 
   function nativeSection(detail) {
@@ -213,26 +264,27 @@
       el("span", "step-number", "1"),
       append(
         el("div"),
-        el("h3", "", "Native model results"),
-        el("p", "", "The observed score is descriptive: it compares this completed season with peers in the same sport and broad role."),
+        el("h3", "", "Current-sport performance"),
+        el("p", "", "This completed-season score compares the player only with peers in the same sport and broad role."),
       ),
     );
     const observed = detail.native?.observed || {};
     const grid = el("div", "score-grid");
-    const observedCard = scoreCard("Observed home-role standing", observed, {
+    const observedCard = scoreCard("Completed-season result", observed, {
       primary: true,
-      fallback: "This season did not have enough evidence for an observed role score.",
+      fallback: "This season did not have enough information for a reliable score.",
+      note: "This describes the completed season; it is not a prediction.",
     });
     const metrics = el("div", "metric-mini-grid");
     append(
       metrics,
-      metric("Availability", observed.availability_percentile),
+      metric("Playing time", observed.availability_percentile),
       metric("Three-year form", observed.sustained_3y_percentile),
-      metric("Reference athletes", observed.reference_athletes),
+      metric("Players compared", observed.reference_athletes),
     );
     observedCard.append(metrics);
     const profileCard = el("article", "score-card");
-    profileCard.append(el("h4", "", "Playing-profile dimensions"));
+    profileCard.append(el("h4", "", "Playing-style strengths"));
     const domains = (detail.profile?.domains || []).filter(
       (item) => finite(item.value) && item.key !== "domain_coverage_fraction",
     );
@@ -246,7 +298,7 @@
       append(row, el("span", "", item.label || words(item.key)), track, el("strong", "", number(item.value)));
       list.append(row);
     });
-    profileCard.append(domains.length ? list : el("p", "score-note", "No eligible playing profile was available."));
+    profileCard.append(domains.length ? list : el("p", "score-note", "There was not enough information to show a playing-style profile."));
     append(grid, observedCard, profileCard);
     append(section, heading, grid);
     return section;
@@ -260,22 +312,26 @@
       el("span", "step-number", "2"),
       append(
         el("div"),
-        el("h3", "", "Native next-season outlook"),
-        el("p", "", "These are forward estimates from prior information. Their ranges and warnings are part of the answer."),
+        el("h3", "", "Next-season outlook and model check"),
+        el("p", "", "These estimates use earlier seasons. Each card also shows how that role model performed on players held back from training."),
       ),
     );
     const grid = el("div", "score-grid");
-    append(
-      grid,
-      scoreCard("Full native forecast", detail.native?.forecast),
-      scoreCard("Build + playing-profile forecast", detail.native?.build_profile_forecast),
-    );
+    const roleKey = `${detail.player.sport}:${detail.player.role}`;
+    const validation = state.metadata?.role_validation?.[roleKey] || {};
+    const nativeCard = scoreCard("Overall outlook", detail.native?.forecast);
+    nativeCard.append(validationEvidence(validation.native_forecast, "native"));
+    const profileCard = scoreCard("Build + playing-style outlook", detail.native?.build_profile_forecast);
+    profileCard.append(validationEvidence(validation.build_profile, "profile"));
+    append(grid, nativeCard, profileCard);
     append(section, heading, grid);
     return section;
   }
 
   function targetOptions(detail) {
-    return Object.entries(detail.targets || {}).filter(([, value]) => Object.keys(value.roles || {}).length);
+    return Object.entries(detail.targets || {}).filter(
+      ([sport, value]) => sport !== detail.player.sport && Object.keys(value.roles || {}).length,
+    );
   }
 
   function normaliseTarget(detail, preferred = {}) {
@@ -308,8 +364,8 @@
       el("span", "step-number", "3"),
       append(
         el("div"),
-        el("h3", "", "Cross-sport fits"),
-        el("p", "", "Choose a target sport and role. Body fit remains separate from the playing-profile comparison."),
+        el("h3", "", "Other-sport comparisons"),
+        el("p", "", "Choose a different sport and role. The body match is kept separate from the playing-style comparison."),
       ),
     );
     const controls = el("div", "comparison-controls");
@@ -337,11 +393,11 @@
     append(selects, sportWrap, roleWrap);
 
     const basis = el("fieldset", "basis");
-    basis.append(el("legend", "", "Comparison basis"));
+    basis.append(el("legend", "", "What should be compared?"));
     const choices = el("div", "basis-options");
     [
       ["physical", "Build only", "Listed height, weight and age"],
-      ["transfer", "Build + playing profile", "Shared performance themes"],
+      ["transfer", "Build + playing style", "Shared performance patterns"],
     ].forEach(([value, label, note]) => {
       const choice = el("label", "basis-option");
       const input = document.createElement("input");
@@ -357,7 +413,7 @@
       controls,
       selects,
       basis,
-      el("p", "comparison-note", "Body fit describes how typical the listed build is. It is never a measure of skill."),
+      el("p", "comparison-note", "Body match only asks whether the listed height and weight are common for that role. It does not measure skill."),
     );
 
     const selectedRole = detail.targets?.[state.targetSport]?.roles?.[state.targetRole] || {};
@@ -366,13 +422,14 @@
     append(
       scores,
       scoreCard(
-        state.basis === "transfer" ? "Cross-sport fit" : "Physical association",
+        state.basis === "transfer" ? "Overall role match" : "Build-based match",
         estimate,
-        { fallback: "The saved model withheld this comparison because the required evidence was unavailable." },
+        { fallback: "There was not enough information to show this comparison." },
       ),
-      scoreCard("Body fit", selectedRole.body_fit, {
+      scoreCard("Body match", selectedRole.body_fit, {
         bodyFit: true,
-        fallback: "Height or weight was missing, or the target role had too few comparable athletes.",
+        fallback: "Height or weight was missing, or too few comparable players were available.",
+        note: "This compares body build only; it does not measure skill.",
       }),
     );
 
@@ -424,10 +481,10 @@
     playerCount.textContent = number(players.length);
     playerList.replaceChildren();
     if (!players.length) {
-      playerList.append(el("p", "empty-state", "No featured athlete matches those filters."));
+      playerList.append(el("p", "empty-state", "No player matches those filters."));
       return;
     }
-    players.forEach((player) => {
+    players.slice(0, state.visiblePlayerLimit).forEach((player) => {
       const button = el("button", "player-option");
       button.type = "button";
       button.setAttribute("aria-current", String(player.id === state.selected?.id));
@@ -437,6 +494,16 @@
       button.addEventListener("click", () => selectPlayer(player));
       playerList.append(button);
     });
+    if (players.length > state.visiblePlayerLimit) {
+      const remaining = players.length - state.visiblePlayerLimit;
+      const more = el("button", "load-more", `Show more players (${number(remaining)} remaining)`);
+      more.type = "button";
+      more.addEventListener("click", () => {
+        state.visiblePlayerLimit += 100;
+        renderPlayerList();
+      });
+      playerList.append(more);
+    }
   }
 
   async function selectPlayer(player, preferred = {}) {
@@ -470,7 +537,7 @@
       result.replaceChildren(
         append(
           el("div", "result-error panel"),
-          el("strong", "", "This profile could not be loaded."),
+          el("strong", "", "This player profile could not be opened."),
           el("p", "", error instanceof Error ? error.message : "Unknown error"),
         ),
       );
@@ -490,24 +557,38 @@
     appError.textContent = message;
     explorerGrid.setAttribute("aria-busy", "false");
     playerList.replaceChildren(el("p", "empty-state", "The player list could not be loaded."));
-    result.replaceChildren(el("div", "result-error panel", "The saved portfolio data could not be read."));
+    result.replaceChildren(el("div", "result-error panel", "The saved player data could not be opened."));
+  }
+
+  async function loadPlayers() {
+    const indexes = state.manifest?.player_indexes;
+    if (!Array.isArray(indexes) || !indexes.length) {
+      return Array.isArray(state.manifest?.players) ? state.manifest.players : [];
+    }
+    const groups = await Promise.all(indexes.map((index) => fetchJson(index.path)));
+    return groups
+      .flat()
+      .filter((player) => player && player.id)
+      .sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
   }
 
   async function initialise() {
     search.addEventListener("input", () => {
       state.query = search.value;
+      state.visiblePlayerLimit = 100;
       renderPlayerList();
     });
     sourceSport.addEventListener("change", () => {
       state.sourceSport = sourceSport.value;
+      state.visiblePlayerLimit = 100;
       renderPlayerList();
     });
     try {
       state.manifest = await fetchJson("manifest.json");
       state.metadata = await fetchJson(state.manifest.model_metadata_path || "model-metadata.json");
-      state.players = Array.isArray(state.manifest.players) ? state.manifest.players : [];
+      state.players = await loadPlayers();
       populateSourceSports();
-      snapshotNote.textContent = `${number(state.players.length)} curated athletes · frozen model snapshot · all results precomputed`;
+      snapshotNote.textContent = `${number(state.players.length)} players · saved 2025 results`;
       explorerGrid.setAttribute("aria-busy", "false");
       const params = new URLSearchParams(window.location.search);
       const requested = params.get("player");

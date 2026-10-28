@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/explorer.css";
+
+const base = import.meta.env.BASE_URL;
+const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 ---
 
 <BaseLayout
   title="Player Explorer · The Multi Sport Scouter"
-  description="Explore curated athlete profiles, native role ratings, next-season estimates, and transparent cross-sport role analogies."
+  description="Explore how athletes performed in their own sport, review next-season model checks, and compare their profiles with roles in other sports."
 >
   <section class="explorer-hero shell">
     <div>
@@ -13,8 +16,8 @@ import "../../styles/explorer.css";
       <h1>The Player Explorer</h1>
     </div>
     <div class="explorer-hero-copy">
-      <p><strong>How to read this explorer</strong>: The first model infer how well a player performs in their native sport and role compared to their peers. These results then anchor every experimental comparison shown later.</p>
-      <p><strong>Important:</strong> Cross-sport scores describe how a player's profile may fit another sport. It is not the probability of a successful transition.</p>
+      <p><strong>How to use this page:</strong> Start with how the player performed against peers in their current sport. Then review the next-season outlook before exploring roles in other sports.</p>
+      <p><strong>Important:</strong> A cross-sport score shows resemblance. It is not the chance that a player could successfully change sports.</p>
     </div>
   </section>
 
@@ -29,17 +32,20 @@ import "../../styles/explorer.css";
   <section class="explorer shell" aria-labelledby="explorer-title">
     <div class="explorer-heading">
       <div>
-        <p class="eyebrow">Curated portfolio edition</p>
+        <p class="eyebrow">Full player explorer</p>
         <h2 id="explorer-title">Player profile</h2>
       </div>
-      <p id="snapshot-note">Loading the saved player list…</p>
+      <div class="explorer-heading-note">
+        <p id="snapshot-note">Loading the saved player list…</p>
+        <a href={href("featured/")}>See the 14 featured profiles →</a>
+      </div>
     </div>
 
     <div id="app-error" class="notice error" role="alert" hidden></div>
     <div id="explorer-grid" class="explorer-grid" aria-busy="true">
       <aside class="player-picker panel" aria-label="Choose an athlete">
         <div class="picker-controls">
-          <label for="player-search">Search the featured athletes</label>
+          <label for="player-search">Search all players</label>
           <input id="player-search" type="search" placeholder="Name, team, or position" autocomplete="off" spellcheck="false" />
           <label for="source-sport">Their current league</label>
           <select id="source-sport">
@@ -65,9 +71,9 @@ import "../../styles/explorer.css";
       <h2>One profile, three different questions.</h2>
     </div>
     <div class="guide-grid">
-      <p><strong>Observed home-role score</strong>Where did this player rank against peers in the same role and season?</p>
-      <p><strong>Native forecast</strong>What does the experimental model estimate for the following season in that same role?</p>
-      <p><strong>Cross-sport fit</strong>How does the athlete’s build—or build plus broad playing profile—resemble another role?</p>
+      <p><strong>Completed-season result</strong>Where did this player rank against peers in the same role and season?</p>
+      <p><strong>Next-season outlook and check</strong>What does earlier information suggest, and did the model beat a simple benchmark?</p>
+      <p><strong>Other-sport match</strong>How closely do the athlete's build and broad playing style resemble another role?</p>
     </div>
   </section>
   <script src="../../scripts/explorer.js"></script>

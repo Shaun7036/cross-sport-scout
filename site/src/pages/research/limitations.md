@@ -44,9 +44,11 @@ Public summaries omit tactics, off-ball assignments, coaching intent and many tr
 
 ## Static-site release boundary
 
-This portfolio edition contains a curated set of derived results. It does not publish raw source files, processed player-season rows, saved models, coefficients, provider imagery, or league and team marks.
+The static explorer contains 6,904 compact derived player profiles. It does not publish raw source files, processed player-season rows, saved models, coefficients, provider imagery, or league and team marks.
 
-Every static JSON file should be treated as publicly downloadable. Expanding from curated examples to all players requires a separate rights and attribution review.
+Every static JSON file should be treated as publicly downloadable. The underlying NBA, NHL,
+Premier League, and some NFL sources retain upstream display or commercial-use conditions. Keep
+the deployment non-commercial unless the documented source and attribution review is resolved.
 
 ## Highest-value future improvements
 

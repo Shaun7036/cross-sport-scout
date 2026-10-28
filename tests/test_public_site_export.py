@@ -46,6 +46,16 @@ def _source_export(root: Path) -> None:
             "target_status": "eligible",
         },
         "targets": {
+            "nba": {
+                "roles": {
+                    "guard": {
+                        "label": "Guard",
+                        "body_fit": {"status": "available", "value": 90.0},
+                        "physical_only": {"status": "available", "value": 88.0},
+                        "transfer_guesstimate": {"status": "available", "value": 86.0},
+                    }
+                }
+            },
             "nhl": {
                 "roles": {
                     "center": {
@@ -63,6 +73,19 @@ def _source_export(root: Path) -> None:
     detail_path = data / "players" / "source.json"
     detail_path.parent.mkdir(parents=True)
     detail_path.write_text(json.dumps(detail), encoding="utf-8")
+    second_detail = {
+        **detail,
+        "player": {
+            **detail["player"],
+            "id": "nhl:2",
+            "player_id": "2",
+            "name": "Second Player",
+            "sport": "nhl",
+            "sport_label": "NHL",
+            "role": "center",
+        },
+    }
+    (data / "players" / "second.json").write_text(json.dumps(second_detail), encoding="utf-8")
     manifest = {
         "schema_version": 3,
         "generated_at": "2026-01-01T00:00:00Z",
@@ -86,12 +109,64 @@ def _source_export(root: Path) -> None:
                 "role": "guard",
                 "team": "EX",
                 "detail_path": "data/players/source.json",
-            }
+            },
+            {
+                "id": "nhl:2",
+                "player_id": "2",
+                "name": "Second Player",
+                "sport": "nhl",
+                "sport_label": "NHL",
+                "season": 2025,
+                "role": "center",
+                "team": "EX2",
+                "detail_path": "data/players/second.json",
+            },
         ],
         "claims": {"bridge": "analogy only"},
         "limitations": ["Not a probability."],
     }
     (data / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    evaluation = {
+        "frozen_test_season": 2025,
+        "native_forecast_models": {
+            "nba:guard": {
+                "forecast_support": "supported_over_history_baselines",
+                "evaluation": {
+                    "frozen": {"n": 40, "mae": 12.0, "spearman": 0.7},
+                    "rolling_3y_baseline": {"n": 40, "mae": 20.0},
+                    "mae_advantage_vs_best_history_baseline": {
+                        "comparator": "rolling_3y",
+                        "estimate": 8.0,
+                        "ci90": [5.0, 11.0],
+                    },
+                },
+                "prediction_interval": {
+                    "nominal_coverage": 0.9,
+                    "frozen_empirical_coverage": 0.85,
+                },
+            }
+        },
+        "native_profile_models": {
+            "nba:guard": {
+                "profile_increment_gate": "supported",
+                "evaluation": {
+                    "frozen": {"n": 40, "mae": 14.0, "spearman": 0.6},
+                    "build_only": {"n": 40, "mae": 28.0},
+                    "mae_advantage_vs_build_only": {
+                        "estimate": 14.0,
+                        "ci90": [10.0, 18.0],
+                    },
+                },
+                "prediction_interval": {
+                    "nominal_coverage": 0.9,
+                    "frozen_empirical_coverage": 0.8,
+                },
+            }
+        },
+    }
+    reports = root / "reports" / "all_roles"
+    reports.mkdir(parents=True)
+    (reports / "model_evaluation.json").write_text(json.dumps(evaluation), encoding="utf-8")
 
 
 def test_public_export_is_compact_deterministic_and_manifest_reachable(tmp_path: Path):
@@ -121,18 +196,30 @@ def test_public_export_is_compact_deterministic_and_manifest_reachable(tmp_path:
         if path.is_file()
     }
     assert first_files == second_files
-    assert first_summary["players"] == 1
-    assert first_summary["player_detail_bytes"] < 30_000
+    assert first_summary["players"] == 2
+    assert first_summary["player_detail_bytes"] < 60_000
     assert (first / GENERATED_MARKER).is_file()
 
     manifest = json.loads((first / "manifest.json").read_text())
-    detail_path = manifest["players"][0]["detail_path"].removeprefix("data/")
+    assert len(manifest["featured_players"]) == 1
+    assert {entry["sport"] for entry in manifest["player_indexes"]} == {"nba", "nhl"}
+    nba_index_path = next(
+        entry["path"] for entry in manifest["player_indexes"] if entry["sport"] == "nba"
+    ).removeprefix("data/")
+    nba_players = json.loads((first / nba_index_path).read_text())
+    player = next(item for item in nba_players if item["id"] == "nba:1")
+    detail_path = player["detail_path"].removeprefix("data/")
     detail = json.loads((first / detail_path).read_text())
     rendered = json.dumps(detail)
     assert "private_repeated_feature_list" not in rendered
     assert "must_not_be_repeated" not in rendered
     assert detail["native"]["forecast"]["range"]["lower"] == 60.0
     assert detail["native"]["forecast"]["ood_status"] == "in_domain"
+    assert "nba" not in detail["targets"]
+    metadata = json.loads((first / "model-metadata.json").read_text())
+    role_validation = metadata["role_validation"]["nba:guard"]
+    assert role_validation["native_forecast"]["baseline_improvement_percent"] == 40.0
+    assert role_validation["build_profile"]["baseline_improvement_percent"] == 50.0
 
 
 def test_public_export_refuses_missing_featured_player(tmp_path: Path):
