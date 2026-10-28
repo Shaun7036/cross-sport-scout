@@ -15,7 +15,8 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
       <div>
         <p class="eyebrow">NFL · NBA · NHL · Premier League</p>
         <h1>The Multi Sport <em>Scouter.</em></h1>
-        <p class="lead">A sports analytics project that starts by measuring a player in their own league and role, then explores where their build and playing profile may fit across other sports.</p>
+        <p class="lead">What if a sport's scouting pool extended beyond its native context?
+          This project aims to make this a possibility. By first measuring a player in their own league and role, we use ensemble inference models to explore how their build and playing profile fits across other sports. </p>
         <div class="hero-actions">
           <a class="button" href={href("explorer/")}>Open the player explorer</a>
           <a class="button secondary" href={href("research/")}>See how it was built</a>
@@ -24,20 +25,20 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
       </div>
 
       <aside class="hero-flow" aria-label="What the explorer shows">
-        <p class="eyebrow">What the explorer shows</p>
+        <p class="eyebrow">How does it work?</p>
         <div class="hero-flow-step">
           <span>1</span>
           <div>
-            <strong>Native model results</strong>
-            <p>See how the player compares with peers in their current sport and what the model estimates for the next season.</p>
+            <strong>Infer & Build Native Sport Models</strong>
+            <p>We build sport specific models which see how a player compares with peers in their current sport and if we can reliably predict next season performance via inference.</p>
           </div>
         </div>
         <div class="flow-connector" aria-hidden="true"></div>
         <div class="hero-flow-step">
           <span>2</span>
           <div>
-            <strong>Cross-sport fits</strong>
-            <p>Compare the athlete’s build and broad playing style with roles in the other leagues.</p>
+            <strong>Evaluate Cross-Sport Fits</strong>
+            <p>We then use the athlete’s build and broad playing style to see how they might fit roles in the other leagues.</p>
           </div>
         </div>
         <p class="flow-note">Cross-sport scores describe resemblance. They are not probabilities of successfully changing sports.</p>
@@ -56,45 +57,45 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 
   <section class="section" id="how-it-works">
     <div class="shell">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">The project in three steps</p>
-          <h2>Start with evidence. Then explore the possibilities.</h2>
-        </div>
-        <p>The model keeps current-sport performance separate from experimental cross-sport comparison, so a familiar body type is never presented as proven ability.</p>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <span class="card-number">01</span>
-          <h3>Choose an athlete</h3>
-          <p>Search the featured players from football, basketball, hockey and soccer.</p>
-        </article>
-        <article class="card">
-          <span class="card-number">02</span>
-          <h3>Establish the native baseline</h3>
-          <p>Review the completed-season standing, playing profile and next-season estimate in the athlete’s home role.</p>
-        </article>
-        <article class="card">
-          <span class="card-number">03</span>
-          <h3>Explore other roles</h3>
-          <p>Choose another sport and role to compare body fit or body plus broad playing profile.</p>
-        </article>
-      </div>
+      <!--<div class="section-heading">-->
+      <!--  <div>-->
+      <!--    <p class="eyebrow">The project in three steps</p>-->
+      <!--    <h2>Start with evidence. Then explore the possibilities.</h2>-->
+      <!--  </div>-->
+      <!--  <p>The model keeps current-sport performance separate from experimental cross-sport comparison, so a familiar body type is never presented as proven ability.</p>-->
+      <!--</div>-->
+      <!--<div class="card-grid">-->
+      <!--  <article class="card">-->
+      <!--    <span class="card-number">01</span>-->
+      <!--    <h3>Choose an athlete</h3>-->
+      <!--    <p>Search the featured players from football, basketball, hockey and soccer.</p>-->
+      <!--  </article>-->
+      <!--  <article class="card">-->
+      <!--    <span class="card-number">02</span>-->
+      <!--    <h3>Establish the native baseline</h3>-->
+      <!--    <p>Review the completed-season standing, playing profile and next-season estimate in the athlete’s home role.</p>-->
+      <!--  </article>-->
+      <!--  <article class="card">-->
+      <!--    <span class="card-number">03</span>-->
+      <!--    <h3>Explore other roles</h3>-->
+      <!--    <p>Choose another sport and role to compare body fit or body plus broad playing profile.</p>-->
+      <!--  </article>-->
+      <!--</div>-->
     </div>
   </section>
 
-  <section class="section tint">
-    <div class="shell presentation-band">
-      <div>
-        <p class="eyebrow">Ready to explore?</p>
-        <h2>See the player you know before testing the roles you do not.</h2>
-        <p>The Explorer always presents native results first. Cross-sport fits come second and retain the model’s evidence warnings and limitations.</p>
-      </div>
-      <div class="presentation-actions">
-        <a class="button" href={href("explorer/")}>Launch the explorer</a>
-        <a href={href("stories/")}>Read five model stories →</a>
-        <a href={href("research/limitations/")}>Read what the scores can—and cannot—say →</a>
-      </div>
-    </div>
-  </section>
+  <!--<section class="section tint">-->
+  <!--  <div class="shell presentation-band">-->
+  <!--    <div>-->
+  <!--      <p class="eyebrow">Ready to explore?</p>-->
+  <!--      <h2>See the player you know before testing the roles you do not.</h2>-->
+  <!--      <p>The Explorer always presents native results first. Cross-sport fits come second and retain the model’s evidence warnings and limitations.</p>-->
+  <!--    </div>-->
+  <!--    <div class="presentation-actions">-->
+  <!--      <a class="button" href={href("explorer/")}>Launch the explorer</a>-->
+  <!--      <a href={href("stories/")}>Read five model stories →</a>-->
+  <!--      <a href={href("research/limitations/")}>Read what the scores can—and cannot—say →</a>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</section>-->
 </BaseLayout>
