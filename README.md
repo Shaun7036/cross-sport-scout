@@ -21,6 +21,7 @@ Optional operating-system wrappers do the same thing. On macOS, the setup wrappe
 hidden filesystem flags that can follow a copied `.venv` and prevent DataSpell from loading the
 editable package:
 
+[/TODO: project should only launch via uv, not through pwshell or cli scritps. /]: # ()
 ```bash
 # macOS or Linux
 ./scripts/setup_local.sh
@@ -32,17 +33,6 @@ editable package:
 .\scripts\setup_local.ps1
 .\scripts\run_portal.ps1 friendly
 ```
-
-### DataSpell interpreter
-
-After setup, choose the interpreter for your operating system in DataSpell:
-
-```text
-macOS/Linux: <project>/.venv/bin/python
-Windows:     <project>\.venv\Scripts\python.exe
-```
-
-If DataSpell previously remembered an environment from the repository's old location, remove that interpreter entry and select the one above.
 
 ## Choose a portal
 
@@ -63,23 +53,6 @@ Add `--port` if a port is already in use:
 ```text
 uv run python scripts/run_portal.py friendly --port 9000
 ```
-
-## Fix `No module named possession_lab`
-
-This normally means DataSpell remembers an environment from the repository's old folder. From the current project folder, repair it with:
-
-```text
-uv sync --extra dev --reinstall-package possession-lab
-uv run python scripts/run_portal.py check
-```
-
-The second command should print `Local environment is ready.` Then remove the old interpreter from DataSpell and choose the new `.venv` interpreter shown above. The launchers add this repository's `src` folder explicitly, so running through them does not depend on an old editable-install path. If an environment was physically copied from another folder and still behaves strangely, rename that old `.venv`, run `uv sync --extra dev --reinstall-package possession-lab`, and select the newly created interpreter.
-
-On macOS, you can instead run `./scripts/setup_local.sh`; it also clears copied Finder flags before
-checking the environment.
-
-If the command cannot find `uv`, install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/) and restart the terminal.
-
 ## What is already available
 
 The current local snapshot covers the 2021–2025 project seasons:
@@ -167,3 +140,15 @@ The full player explorers also need `portal-all-roles/data/`, which is generated
 - [Role-level EDA](reports/all_roles/role_summary.csv)
 
 The model is best used to explore hypotheses, compare role archetypes, demonstrate a reproducible sports-data workflow, and identify cases worth studying. It should not be used by itself for contracts, roster decisions, medical or safety decisions, or claims that an athlete would succeed after changing sports.
+
+## Static portfolio site
+
+The maintainable public presentation now lives in [`site/`](site/). It uses Astro for shared layouts and deployment, Markdown for the research pages, and one vanilla-JavaScript player explorer. Python still generates the frozen public data through `uv`; no Python process runs on the deployed website.
+
+```text
+npm --prefix site ci
+npm --prefix site run data
+npm --prefix site run dev
+```
+
+The portfolio edition intentionally includes nine curated, derived player profiles instead of the complete local 6,904-player export. See [`site/README.md`](site/README.md) for the source map, build commands, subpath configuration, and public-data boundary.

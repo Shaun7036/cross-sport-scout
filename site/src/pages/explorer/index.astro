@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/explorer.css";
+---
+
+<BaseLayout
+  title="Player Explorer · Athlete Translation Lab"
+  description="Explore curated athlete profiles, native role ratings, next-season estimates, and transparent cross-sport role analogies."
+>
+  <section class="explorer-hero shell">
+    <div>
+      <p class="eyebrow">Native result first</p>
+      <h1>Start with what the player has already <em>shown.</em></h1>
+    </div>
+    <div class="explorer-hero-copy">
+      <p>This view begins with the athlete’s standing in their own sport and role. That result anchors every experimental comparison shown later.</p>
+      <p><strong>Important:</strong> a cross-sport score describes resemblance—not the probability of a successful transfer.</p>
+    </div>
+  </section>
+
+  <section class="reading-order shell" aria-label="How to read the profile">
+    <div><span>1</span><strong>What happened</strong><small>Observed home-role standing</small></div>
+    <div><span>2</span><strong>What may happen next</strong><small>Experimental native forecast</small></div>
+    <div><span>3</span><strong>What might transfer</strong><small>Secondary role analogies</small></div>
+  </section>
+
+  <section class="explorer shell" aria-labelledby="explorer-title">
+    <div class="explorer-heading">
+      <div>
+        <p class="eyebrow">Curated portfolio edition</p>
+        <h2 id="explorer-title">Player profile</h2>
+      </div>
+      <p id="snapshot-note">Loading the saved player list…</p>
+    </div>
+
+    <div id="app-error" class="notice error" role="alert" hidden></div>
+    <div id="explorer-grid" class="explorer-grid" aria-busy="true">
+      <aside class="player-picker panel" aria-label="Choose an athlete">
+        <div class="picker-controls">
+          <label for="player-search">Search the featured athletes</label>
+          <input id="player-search" type="search" placeholder="Name, team, or position" autocomplete="off" spellcheck="false" />
+          <label for="source-sport">Their current league</label>
+          <select id="source-sport">
+            <option value="all">All four leagues</option>
+          </select>
+        </div>
+        <p class="player-count"><strong id="player-count">—</strong> athletes match</p>
+        <div id="player-list" class="player-list" aria-label="Athletes">
+          <p class="empty-state">Loading athletes…</p>
+        </div>
+      </aside>
+
+      <article id="result" class="result" aria-busy="true">
+        <div class="loading panel"><span aria-hidden="true"></span><p>Building the player profile…</p></div>
+      </article>
+    </div>
+    <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="reading-guide shell">
+    <div>
+      <p class="eyebrow">Reading the numbers</p>
+      <h2>One profile, three different questions.</h2>
+    </div>
+    <div class="guide-grid">
+      <p><strong>Observed home-role score</strong>Where did this player rank against peers in the same role and season?</p>
+      <p><strong>Native forecast</strong>What does the experimental model estimate for the following season in that same role?</p>
+      <p><strong>Role analogy</strong>How does the athlete’s build—or build plus broad playing profile—resemble another role?</p>
+    </div>
+  </section>
+  <script src="../../scripts/explorer.js"></script>
+</BaseLayout>
+

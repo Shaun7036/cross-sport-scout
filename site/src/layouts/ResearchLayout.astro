@@ -1,0 +1,26 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const {
+  frontmatter: {
+    title,
+    description,
+    kicker = "Research note",
+    summary,
+  },
+} = Astro.props;
+---
+
+<BaseLayout title={`${title} · Athlete Translation Lab`} description={description}>
+  <header class="research-hero">
+    <div class="narrow-shell">
+      <p class="eyebrow">{kicker}</p>
+      <h1>{title}</h1>
+      {summary && <p class="lead">{summary}</p>}
+    </div>
+  </header>
+  <article class="prose narrow-shell">
+    <slot />
+  </article>
+</BaseLayout>
+
