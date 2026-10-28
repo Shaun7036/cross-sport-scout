@@ -17,6 +17,7 @@ work/
 *.log
 .env
 .DS_Store
+site/drafts/
 reports/**/predictions*.csv
 reports/**/predictions*.parquet
 reports/**/player_archetypes*.csv

@@ -1,4 +1,4 @@
-"""Command-line wrapper for the curated Astro data export."""
+"""Command-line wrapper for the compact public Astro data export."""
 
 from __future__ import annotations
 

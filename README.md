@@ -7,7 +7,7 @@ The cross-sport results are research comparisons—not a probability that someon
 ## Quick start: presentation website
 
 The current presentation is the Astro site in [`site/`](site/). A fresh GitHub clone already
-contains its curated data, so you do not need Python, `uv`, the saved models, or the private
+contains its compact public player data, so you do not need Python, `uv`, the saved models, or the private
 research dataset just to view it.
 
 Install [Node.js 24](https://nodejs.org/). Then open PowerShell, Command Prompt, DataSpell's
@@ -165,7 +165,7 @@ npm --prefix site ci
 npm --prefix site run dev
 ```
 
-The portfolio edition intentionally includes 14 curated, derived player profiles instead of the
-complete local player export. The tracked files in `site/public/data/` are ready to use. See
-[`site/README.md`](site/README.md) for the source map, optional data-refresh command, build
-commands, subpath configuration, and public-data boundary.
+The main explorer includes 6,904 compact derived player profiles. The 14 presentation cases now
+live on a separate Featured page for future storytelling. The tracked files in
+`site/public/data/` are ready to use. See [`site/README.md`](site/README.md) for the source map,
+optional data-refresh command, build commands, subpath configuration, and public-data boundary.

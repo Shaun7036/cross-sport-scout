@@ -12,14 +12,15 @@ npm --prefix site ci
 npm --prefix site run dev
 ```
 
-The 14 allowlisted presentation profiles are already tracked in `public/data/`, so a fresh clone
-does not need Python or the private research artifacts. The explorer remains fully functional on
-GitHub Pages because it reads these static files in the visitor's browser.
+The 6,904 compact player profiles are already tracked in `public/data/`, so a fresh clone does not
+need Python or the private research artifacts. The explorer remains fully functional on GitHub
+Pages because it reads these static files in the visitor's browser. The 14 presentation cases are
+also listed separately at `/featured/`.
 
 If your terminal is already inside `site/`, the equivalent commands are `npm ci` and `npm run
 dev`.
 
-## Refresh curated data (maintainers only)
+## Refresh public data (maintainers only)
 
 After rebuilding the full local research snapshot, maintainers can refresh the public profiles:
 
@@ -28,8 +29,9 @@ npm --prefix site run data
 ```
 
 This optional command runs the Python exporter through `uv`. It reads the ignored
-`portal-all-roles/data/` snapshot and writes only the 14 allowlisted, derived examples. It will
-not work from a normal clone unless that full snapshot has been generated locally first.
+`portal-all-roles/data/` snapshot and writes compact derived profiles without raw player-season
+rows or saved models. It will not work from a normal clone unless that full snapshot has been
+generated locally first.
 
 ## Validate and build
 
@@ -56,14 +58,19 @@ Copy the resulting `site/dist/` contents into the matching public folder of the 
 | Shared page shell | `src/layouts/` and `src/components/` |
 | Landing page | `src/pages/index.astro` |
 | Player explorer | `src/pages/explorer/index.astro`, `src/scripts/explorer.js`, `src/styles/explorer.css` |
+| Featured profiles | `src/pages/featured/index.astro`, `src/styles/featured.css` |
 | Model stories | `src/pages/stories/index.astro`, `src/styles/stories.css` |
 | Presentation findings | `src/pages/research/findings.astro`, `src/styles/findings.css` |
 | Research prose | `src/pages/research/*.md` |
 | Global design | `src/styles/global.css` |
-| Curated public data | `public/data/` |
+| Compact public data | `public/data/` |
 | EDA figures | `public/images/eda/` |
 
 ## Public-data boundary
 
-Everything under `public/` is downloadable by any visitor. The exporter uses an explicit player allowlist and writes derived presentation fields only. Do not copy raw data, processed player-season tables, saved models, provider imagery, or the full local portal export into this folder without a separate release-rights review.
+Everything under `public/` is downloadable by any visitor. The exporter writes compact derived
+display fields only; it does not copy raw data, processed player-season tables, saved models,
+provider imagery, or the full local portal export. NBA, NHL, Premier League, and some NFL inputs
+still carry upstream display or commercial-use conditions, so public or commercial deployment
+requires the source and attribution review documented in `docs/all_roles_data_sources.md`.
 
