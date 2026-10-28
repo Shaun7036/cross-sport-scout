@@ -6,10 +6,12 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 <footer class="site-footer">
   <div class="shell footer-inner">
     <div>
-      <strong>Athlete Translation Lab</strong>
-      <p>Exploratory comparisons—not scouting grades or probabilities of changing sports successfully.</p>
+      <strong>The Multi Sport Scouter</strong>
+      <p>Player-first comparisons—not scouting grades or probabilities of changing sports successfully.</p>
     </div>
     <nav aria-label="Footer navigation">
+      <a href={href("stories/")}>Model stories</a>
+      <a href={href("research/findings/")}>Project findings</a>
       <a href={href("research/limitations/")}>Limits and appropriate use</a>
       <a href={href("research/features/")}>Feature definitions</a>
       <a href={href("explorer/")}>Player explorer</a>

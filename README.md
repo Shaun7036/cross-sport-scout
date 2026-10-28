@@ -1,4 +1,4 @@
-# Athlete Translation Lab
+# The Multi Sport Scouter
 
 This project compares athletes from the NFL, NBA, NHL, and Premier League. It first measures how a player performed against people in the same role and season, then explores which roles in another sport have a similar body type and broad performance profile.
 

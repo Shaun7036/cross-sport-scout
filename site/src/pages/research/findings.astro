@@ -1,0 +1,347 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/findings.css";
+
+const base = import.meta.env.BASE_URL;
+const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
+
+const leagueRows = [
+  { label: "NFL", value: "15,518", width: 100 },
+  { label: "NHL", value: "5,263", width: 33.9 },
+  { label: "Premier League", value: "4,005", width: 25.8 },
+  { label: "NBA", value: "2,866", width: 18.5 },
+];
+
+const coverageRows = [
+  { label: "NBA", value: "100%", width: 100, warning: false },
+  { label: "NHL", value: "99.9%", width: 99.9, warning: false },
+  { label: "NFL", value: "98.9%", width: 98.9, warning: false },
+  { label: "Premier League", value: "44.5%", width: 44.5, warning: true },
+];
+
+const roleRows = [
+  { label: "NFL wide receiver", value: "2,017", width: 100 },
+  { label: "NFL edge defender", value: "1,959", width: 97.1 },
+  { label: "NHL defense", value: "1,638", width: 81.2 },
+  { label: "NBA guard", value: "1,325", width: 65.7 },
+  { label: "NHL goalie", value: "525", width: 26.0 },
+  { label: "NBA center", value: "403", width: 20.0 },
+  { label: "NFL long snapper", value: "214", width: 10.6 },
+];
+
+const opportunityRows = [
+  { label: "NFL", note: "8,308 scored · 4,874 full-strength", scored: 53.5, eligible: 31.4 },
+  { label: "NBA", note: "2,866 scored · 1,878 full-strength", scored: 100, eligible: 65.5 },
+  { label: "NHL", note: "5,263 scored · 3,574 full-strength", scored: 100, eligible: 67.9 },
+  { label: "Premier League", note: "2,760 scored · 1,690 full-strength", scored: 68.9, eligible: 42.2 },
+];
+
+const holdoutRows = [
+  { label: "NFL edge", note: "113 players", model: 20.67, baseline: 25.91 },
+  { label: "NBA guard", note: "132 players", model: 15.71, baseline: 25.26 },
+  { label: "NHL center", note: "177 players", model: 14.74, baseline: 26.57 },
+  { label: "Premier League midfielder", note: "83 players", model: 14.82, baseline: 25.98 },
+];
+---
+
+<BaseLayout
+  title="Project Findings | The Multi Sport Scouter"
+  description="A presentation-friendly report of the project's data, exploratory analysis, modeling challenges, validation results, outcomes, and limitations."
+>
+  <section class="findings-hero">
+    <div class="shell findings-hero-grid">
+      <div>
+        <p class="eyebrow">Project findings · frozen 2021–2025 study</p>
+        <h1>What the data taught us</h1>
+        <p class="lead">A presentation-ready summary of the most important observations, modeling decisions, useful results and unresolved limits from comparing athletes across the NFL, NBA, NHL and Premier League.</p>
+        <div class="hero-actions">
+          <a class="button" href="#data">Start with the data</a>
+          <a class="button secondary" href="#outcomes">Jump to the outcome</a>
+        </div>
+      </div>
+      <aside class="headline-finding" aria-label="Headline finding">
+        <p class="eyebrow">The headline finding</p>
+        <strong>Playing history usually tells us more than body measurements alone.</strong>
+        <p>Same-sport results are the strongest part of the project. Cross-sport scores are most useful as transparent leads for further study—not predictions that someone will succeed after changing sports.</p>
+      </aside>
+    </div>
+  </section>
+
+  <nav class="findings-jump shell" aria-label="Findings sections">
+    <span>Presentation sections</span>
+    <a href="#data">Data</a>
+    <a href="#eda">EDA</a>
+    <a href="#challenges">Challenges</a>
+    <a href="#models">Models</a>
+    <a href="#evaluation">Evaluation</a>
+    <a href="#outcomes">Outcomes</a>
+  </nav>
+
+  <section class="shell findings-snapshot" aria-label="Project snapshot">
+    <dl>
+      <div><dt>27,652</dt><dd>player-seasons</dd></div>
+      <div><dt>10,311</dt><dd>sport-athlete identities</dd></div>
+      <div><dt>4</dt><dd>top leagues</dd></div>
+      <div><dt>26</dt><dd>registered broad roles</dd></div>
+      <div><dt>2025</dt><dd>frozen test season</dd></div>
+    </dl>
+  </section>
+
+  <section class="finding-section" id="data" aria-labelledby="data-heading">
+    <div class="shell">
+      <div class="findings-heading">
+        <div>
+          <p class="eyebrow">01 · The data foundation</p>
+          <h2 id="data-heading">Large enough to explore. Uneven enough to require caution.</h2>
+        </div>
+        <p>The panel covers five seasons, but each league contributes a different amount and quality of information. More rows improve the opportunity to learn patterns; they do not make every feature equally trustworthy.</p>
+      </div>
+
+      <div class="chart-pair">
+        <figure class="report-chart" aria-labelledby="league-chart-title">
+          <figcaption id="league-chart-title">Player-seasons by league</figcaption>
+          <div class="simple-bars">
+            {leagueRows.map((row) => (
+              <div class="simple-bar-row">
+                <span>{row.label}</span>
+                <div class="bar-track" aria-hidden="true"><i style={`width: ${row.width}%`}></i></div>
+                <strong>{row.value}</strong>
+              </div>
+            ))}
+          </div>
+          <p><strong>What it means:</strong> the NFL supplies more than half of the full panel, while every other league still contributes thousands of player-seasons.</p>
+        </figure>
+
+        <figure class="report-chart" aria-labelledby="coverage-chart-title">
+          <figcaption id="coverage-chart-title">Rows with both listed height and weight</figcaption>
+          <div class="simple-bars coverage-bars">
+            {coverageRows.map((row) => (
+              <div class={`simple-bar-row ${row.warning ? "warning-row" : ""}`}>
+                <span>{row.label}</span>
+                <div class="bar-track" aria-hidden="true"><i style={`width: ${row.width}%`}></i></div>
+                <strong>{row.value}</strong>
+              </div>
+            ))}
+          </div>
+          <p><strong>What it means:</strong> Premier League build data is the clearest coverage gap. Complete fields also do not mean annual measurements—many values are current or undated profile listings.</p>
+        </figure>
+      </div>
+
+      <figure class="report-chart role-chart" aria-labelledby="role-chart-title">
+        <figcaption id="role-chart-title">Selected role cohorts show the sample-size gap</figcaption>
+        <div class="role-bars">
+          {roleRows.map((row) => (
+            <div class="role-bar-row">
+              <span>{row.label}</span>
+              <div class="bar-track" aria-hidden="true"><i style={`width: ${row.width}%`}></i></div>
+              <strong>{row.value}</strong>
+            </div>
+          ))}
+        </div>
+        <p><strong>What it means:</strong> a role with about 2,000 seasons and one with about 200 cannot share the same confidence assumptions. The project evaluates each role separately and allows unsupported roles to abstain.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="finding-section tint" id="eda" aria-labelledby="eda-heading">
+    <div class="shell">
+      <div class="findings-heading">
+        <div>
+          <p class="eyebrow">02 · Exploratory analysis</p>
+          <h2 id="eda-heading">The most useful discoveries were about context.</h2>
+        </div>
+        <p>The EDA did not reveal one perfect body type. Instead, it showed why role, opportunity, sample size and data provenance must stay visible throughout the project.</p>
+      </div>
+
+      <div class="finding-card-grid">
+        <article class="finding-card"><span>01</span><h3>Opportunity changes every count</h3><p>A sack, steal, recovery or assist only has meaning beside snaps, minutes, ice time or appearances. Raw totals alone reward availability and role exposure.</p></article>
+        <article class="finding-card"><span>02</span><h3>Broad roles are more honest</h3><p>Public data supports groups such as guard, winger or midfielder better than every tactical assignment. False precision would make the comparison look stronger than it is.</p></article>
+        <article class="finding-card"><span>03</span><h3>A missing score is not a zero</h3><p>Some players lack opportunity, physical fields or a credible public quality label. Keeping an explicit “not available” result is safer than treating missing evidence as poor ability.</p></article>
+        <article class="finding-card"><span>04</span><h3>Build describes role more than quality</h3><p>Height and weight clearly separate some familiar roles, but athletes with similar builds can perform very differently. Physical similarity is compatibility, not skill.</p></article>
+      </div>
+
+      <figure class="image-figure">
+        <a href={href("images/eda/listed_build_map.png")} aria-label="Open the full-resolution listed build chart">
+          <img src={href("images/eda/listed_build_map.png")} alt="Scatter plot of listed height and weight showing clear league and role build differences, with the NFL spanning the widest weight range and the NBA the tallest heights" loading="lazy" decoding="async" />
+        </a>
+        <figcaption><strong>Listed builds create recognizable clusters.</strong> This supports body-fit comparisons, but the chart does not show performance and the profiles are not standardized annual measurements.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="finding-section" id="challenges" aria-labelledby="challenge-heading">
+    <div class="shell">
+      <div class="findings-heading">
+        <div>
+          <p class="eyebrow">03 · The hardest modeling challenge</p>
+          <h2 id="challenge-heading">Useful low-sample players cannot be ignored—or trusted equally.</h2>
+        </div>
+        <p>The solution was to keep positive-opportunity seasons in training with reduced influence, while reserving the frozen evaluation for players who cleared the stronger opportunity threshold.</p>
+      </div>
+
+      <div class="chart-legend" aria-label="Opportunity chart legend">
+        <span><i class="legend-swatch scored" aria-hidden="true"></i>Descriptive score available</span>
+        <span><i class="legend-swatch eligible" aria-hidden="true"></i>Full-strength evaluation</span>
+      </div>
+      <figure class="report-chart opportunity-chart" aria-labelledby="opportunity-title">
+        <figcaption id="opportunity-title">How much of each league panel receives each level of evidence</figcaption>
+        {opportunityRows.map((row) => (
+          <div class="opportunity-row">
+            <div class="opportunity-label"><strong>{row.label}</strong><span>{row.note}</span></div>
+            <div class="paired-bars" aria-hidden="true">
+              <div class="bar-track"><i class="scored-fill" style={`width: ${row.scored}%`}></i></div>
+              <div class="bar-track"><i class="eligible-fill" style={`width: ${row.eligible}%`}></i></div>
+            </div>
+            <div class="paired-values"><span>{row.scored}%</span><span>{row.eligible}%</span></div>
+          </div>
+        ))}
+        <p><strong>What it means:</strong> 19,197 seasons receive a descriptive score, but only 12,016 judge the full-strength evaluation. Another 7,181 low-sample rows may help training at reduced weight without deciding whether the model passes.</p>
+      </figure>
+
+      <div class="challenge-grid">
+        <article><strong>Different sports, different exposure</strong><p>Snaps, minutes and ice time cannot be treated as the same unit. Each sport keeps its own opportunity definition.</p></article>
+        <article><strong>Current profiles are not body history</strong><p>Repeating one listed height or weight beside five seasons does not create five physical measurements.</p></article>
+        <article><strong>More features can make a model worse</strong><p>Every added feature family must beat a simpler comparison on unseen data before it is promoted.</p></article>
+        <article><strong>No real transfer outcome set exists</strong><p>The project cannot observe enough elite athletes changing among these four sports to train a true sport-switch success model.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="finding-section tint" id="models" aria-labelledby="models-heading">
+    <div class="shell">
+      <div class="findings-heading">
+        <div>
+          <p class="eyebrow">04 · Model building</p>
+          <h2 id="models-heading">A simple chronological workflow kept the claims understandable.</h2>
+        </div>
+        <p>Regularized linear models were chosen for inspectability. The goal was not the most complicated algorithm; it was a model whose inputs, comparisons and failures could be explained.</p>
+      </div>
+
+      <ol class="model-flow">
+        <li><span>1</span><strong>Describe the season</strong><p>Build a percentile inside the same sport, role and season.</p></li>
+        <li><span>2</span><strong>Adjust for evidence</strong><p>Record opportunity, shrink tiny samples and lower their training weight.</p></li>
+        <li><span>3</span><strong>Look backward only</strong><p>Use previous seasons and prior playing profiles to estimate what comes next.</p></li>
+        <li><span>4</span><strong>Freeze 2025</strong><p>Keep the final season out of model selection and use it as the forward test.</p></li>
+        <li><span>5</span><strong>Challenge the model</strong><p>Compare it with neutral, recent-history or build-only baselines.</p></li>
+      </ol>
+
+      <div class="model-questions">
+        <article><span>Descriptive</span><h3>What happened?</h3><p>Observed home-role standing in the completed season.</p></article>
+        <article><span>Forecast</span><h3>What might happen next?</h3><p>Experimental same-role estimate based only on earlier information.</p></article>
+        <article><span>Physical</span><h3>Does the build resemble the role?</h3><p>Listed height, weight, BMI and age compared with the target role.</p></article>
+        <article><span>Exploratory</span><h3>What looks transferable?</h3><p>Build plus broad shared playing themes, shown as an analogy.</p></article>
+      </div>
+
+      <figure class="image-figure profile-figure">
+        <a href={href("images/eda/profile_increment_vs_build.png")} aria-label="Open the full-resolution playing-profile improvement chart">
+          <img src={href("images/eda/profile_increment_vs_build.png")} alt="Horizontal bars showing that playing profile added the most held-out signal for NHL center, Premier League midfielder and NHL wings, while several NFL roles gained little or slightly worsened" loading="lazy" decoding="async" />
+        </a>
+        <figcaption><strong>Playing profile helped 11 of 23 fitted role models.</strong> It helped strongly for several NBA, NHL and Premier League roles, while some NFL roles gained little or became slightly worse. That is why the model keeps role-by-role evidence gates.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="evaluation-section" id="evaluation" aria-labelledby="evaluation-heading">
+    <div class="shell">
+      <div class="findings-heading light-heading">
+        <div>
+          <p class="eyebrow">05 · Validation and evaluation</p>
+          <h2 id="evaluation-heading">The 2025 test was encouraging—but intentionally hard to pass.</h2>
+        </div>
+        <p>Lower average error is better. These examples show that recent playing history can beat a neutral middle-of-the-pack guess in the player’s own sport.</p>
+      </div>
+
+      <div class="evidence-summary" aria-label="Model evidence summary">
+        <article><strong>4 / 23</strong><span>build-only heads passed the strict evidence gate</span></article>
+        <article><strong>11 / 23</strong><span>native forecasts beat the neutral evidence gate</span></article>
+        <article><strong>11 / 23</strong><span>build + profile heads improved over build alone</span></article>
+        <article class="warning-evidence"><strong>0 / 23</strong><span>cleared every requirement for deployment</span></article>
+      </div>
+
+      <div class="dark-legend" aria-label="Holdout chart legend">
+        <span><i class="legend-swatch model" aria-hidden="true"></i>Next-season model</span>
+        <span><i class="legend-swatch baseline" aria-hidden="true"></i>Neutral baseline</span>
+      </div>
+      <figure class="holdout-chart" aria-labelledby="holdout-title">
+        <figcaption id="holdout-title">Average error on the held-out 2025 season · lower is better</figcaption>
+        {holdoutRows.map((row) => (
+          <div class="holdout-row">
+            <div><strong>{row.label}</strong><span>{row.note}</span></div>
+            <div class="holdout-bars" aria-hidden="true">
+              <div><i class="model-fill" style={`width: ${(row.model / 30) * 100}%`}></i></div>
+              <div><i class="baseline-fill" style={`width: ${(row.baseline / 30) * 100}%`}></i></div>
+            </div>
+            <div class="holdout-values"><span>{row.model}</span><span>{row.baseline}</span></div>
+          </div>
+        ))}
+        <p><strong>How to present this:</strong> these are useful same-sport checks, not proof of cross-sport accuracy. No native model simultaneously cleared every history-baseline and evidence requirement in the full deployment policy.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="finding-section" id="outcomes" aria-labelledby="outcomes-heading">
+    <div class="shell">
+      <div class="findings-heading">
+        <div>
+          <p class="eyebrow">06 · Outcomes</p>
+          <h2 id="outcomes-heading">What held up, what failed, and what remains unknown.</h2>
+        </div>
+        <p>The most valuable outcome is not one headline rating. It is a structured way to separate evidence-backed same-sport results from experimental cross-sport ideas.</p>
+      </div>
+
+      <div class="outcome-grid">
+        <article class="outcome-card positive"><span>Held up</span><h3>Same-sport context is useful</h3><p>Role-and-season percentiles, opportunity handling and previous performance produced sensible native results and encouraging 2025 forecasts in several roles.</p></article>
+        <article class="outcome-card mixed"><span>Mixed</span><h3>Build alone is limited</h3><p>Only NFL edge, NBA guard, NBA forward and Premier League midfielder passed the strict build-only gate. No NHL physical head passed.</p></article>
+        <article class="outcome-card negative"><span>Rejected</span><h3>Complexity did not get a free pass</h3><p>Team-context features improved zero deployed heads. Related-role partial pooling was selected for only one of 23 heads. Plausible ideas were discarded when the evidence did not support them.</p></article>
+      </div>
+
+      <div class="sanity-section">
+        <div>
+          <p class="eyebrow">Face-validity checks</p>
+          <h3>Known strengths appear where expected.</h3>
+          <p>These examples help catch identity, role or feature-construction problems. They are reassuring diagnostics, not independent validation.</p>
+        </div>
+        <div class="sanity-cards">
+          <article><span>Stephen Curry</span><strong>92.9</strong><p>scoring and finishing percentile</p></article>
+          <article><span>LeBron James</span><strong>97.4</strong><p>creation and distribution percentile</p></article>
+        </div>
+      </div>
+
+      <figure class="bridge-result" aria-labelledby="bridge-title">
+        <figcaption id="bridge-title">The cross-sport bridge ends at an internal proxy check</figcaption>
+        <div class="bridge-flow">
+          <div><strong>286</strong><span>cross-sport mappings fitted</span></div>
+          <b aria-hidden="true">→</b>
+          <div><strong>132</strong><span>beat build alone on the target-role test</span></div>
+          <b aria-hidden="true">→</b>
+          <div class="bridge-stop"><strong>0</strong><span>validated sport-switch outcomes</span></div>
+        </div>
+        <p><strong>The honest conclusion:</strong> a cross-sport score can surface an interesting comparison worth watching on film or testing in person. It cannot estimate the probability of learning a new sport, making a roster or performing at that percentile.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="finding-section tint" aria-labelledby="conclusion-heading">
+    <div class="shell conclusion-grid">
+      <div>
+        <p class="eyebrow">The conclusion</p>
+        <h2 id="conclusion-heading">The model is a discovery tool, not a replacement for scouting.</h2>
+        <p>The strongest workflow is to establish whether the model recognizes a player in their own sport, then use cross-sport comparisons to generate better questions about build and transferable playing traits.</p>
+        <div class="hero-actions">
+          <a class="button" href={href("stories/")}>Present the model stories</a>
+          <a class="button secondary" href={href("explorer/")}>Open the player explorer</a>
+        </div>
+      </div>
+      <aside class="next-steps">
+        <h3>What would improve version two?</h3>
+        <ul>
+          <li>Dated physical and combine-style testing across more sports.</li>
+          <li>Richer multi-season Premier League event and tracking data.</li>
+          <li>Sport-specific agility, reaction and technique measurements.</li>
+          <li>Independent coaches and scouts reviewing the engineered dimensions.</li>
+          <li>A real dataset of athletes who trained or competed in another sport.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

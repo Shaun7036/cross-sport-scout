@@ -3,23 +3,24 @@ const pathname = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 const active = (path: string) => pathname.startsWith(href(path));
+const isFindings = active("research/findings/");
 ---
 
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="brand" href={href("")} aria-label="Athlete Translation Lab home">
-      <span class="brand-mark" aria-hidden="true">AT</span>
+    <a class="brand" href={href("")} aria-label="The Multi Sport Scouter home">
+      <span class="brand-mark" aria-hidden="true">MS</span>
       <span class="brand-copy">
-        Athlete Translation Lab
-        <small>Cross-sport role research</small>
+        The Multi Sport Scouter
+        <small>Cross-sport athlete analytics</small>
       </span>
     </a>
     <nav aria-label="Primary navigation">
-      <a href={href("")} aria-current={pathname === base ? "page" : undefined}>Overview</a>
+      <a href={href("")} aria-current={pathname === base ? "page" : undefined}>Home</a>
       <a href={href("explorer/")} aria-current={active("explorer/") ? "page" : undefined}>Explorer</a>
-      <a href={href("research/")} aria-current={active("research/") ? "page" : undefined}>Research</a>
-      <a href={href("research/findings/")}>Findings</a>
-      <a href={href("research/validation/")}>Validation</a>
+      <a href={href("stories/")} aria-current={active("stories/") ? "page" : undefined}>Stories</a>
+      <a href={href("research/")} aria-current={active("research/") && !isFindings ? "page" : undefined}>Method</a>
+      <a href={href("research/findings/")} aria-current={isFindings ? "page" : undefined}>Findings</a>
     </nav>
   </div>
 </header>

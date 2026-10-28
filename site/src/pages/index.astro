@@ -4,136 +4,97 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
-const cases = [
-  {
-    league: "NHL",
-    name: "Connor McDavid",
-    copy: "Start with an elite native season, then inspect why the model sees an unusual NBA guard analogy.",
-    query: "player=nhl%3A8478402&sport=nba&role=guard&basis=transfer",
-  },
-  {
-    league: "NBA",
-    name: "Stephen Curry",
-    copy: "See why an elite scoring dimension and a broader all-around guard rating answer different questions.",
-    query: "player=nba%3A3975&sport=nhl&role=right_wing&basis=transfer",
-  },
-  {
-    league: "NBA",
-    name: "LeBron James",
-    copy: "A strong native validation case whose creation profile remains visible inside the broader model.",
-    query: "player=nba%3A1966&sport=nfl&role=EDGE&basis=transfer",
-  },
-  {
-    league: "NFL",
-    name: "T.J. Watt",
-    copy: "Return to the project’s possession-winning origin through pressure and defensive disruption.",
-    query: "player=nfl%3A00-0033886&sport=nhl&role=defense&basis=transfer",
-  },
-  {
-    league: "Premier League",
-    name: "Virgil van Dijk",
-    copy: "Explore the difference between a familiar target-role build and a claim about playing ability.",
-    query: "player=epl%3Afpl%3A97032&sport=nba&role=forward&basis=physical",
-  },
-  {
-    league: "NHL",
-    name: "Adrian Kempe",
-    copy: "The one current native profile where related-role partial pooling cleared its evidence gate.",
-    query: "player=nhl%3A8477960&sport=nhl&role=right_wing&basis=transfer",
-  },
-];
 ---
 
 <BaseLayout
-  title="Athlete Translation Lab"
-  description="A transparent research project comparing athlete builds and broad playing profiles across the NFL, NBA, NHL, and Premier League."
+  title="The Multi Sport Scouter"
+  description="Explore how athletes rank in their own sport, then compare their build and playing profile with roles across the NFL, NBA, NHL, and Premier League."
 >
   <section class="home-hero">
     <div class="shell home-hero-grid">
       <div>
         <p class="eyebrow">NFL · NBA · NHL · Premier League</p>
-        <h1>Compare athletic roles without pretending they are <em>the same.</em></h1>
-        <p class="lead">This project measures athletes against peers in their own role, forecasts the next season cautiously, and then creates transparent cross-sport analogies from build and broad playing profile.</p>
+        <h1>The Multi Sport <em>Scouter.</em></h1>
+        <p class="lead">A sports analytics project that starts by measuring a player in their own league and role, then explores where their build and playing profile may fit across other sports.</p>
         <div class="hero-actions">
-          <a class="button" href={href("explorer/")}>Explore a player</a>
-          <a class="button secondary" href={href("research/")}>Read the research</a>
+          <a class="button" href={href("explorer/")}>Open the player explorer</a>
+          <a class="button secondary" href={href("research/")}>See how it was built</a>
         </div>
+        <p class="hero-footnote">Built from five seasons of player data across four top leagues.</p>
       </div>
-      <aside class="hero-note">
-        <strong>A comparison, not a conversion probability.</strong>
-        <p>A 90th-percentile analogy does not mean a player has a 90% chance of succeeding in another sport. It means their available build and playing profile resemble patterns associated with that target role.</p>
+
+      <aside class="hero-flow" aria-label="What the explorer shows">
+        <p class="eyebrow">What the explorer shows</p>
+        <div class="hero-flow-step">
+          <span>1</span>
+          <div>
+            <strong>Native model results</strong>
+            <p>See how the player compares with peers in their current sport and what the model estimates for the next season.</p>
+          </div>
+        </div>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <div class="hero-flow-step">
+          <span>2</span>
+          <div>
+            <strong>Cross-sport fits</strong>
+            <p>Compare the athlete’s build and broad playing style with roles in the other leagues.</p>
+          </div>
+        </div>
+        <p class="flow-note">Cross-sport scores describe resemblance. They are not probabilities of successfully changing sports.</p>
       </aside>
     </div>
   </section>
 
   <section class="shell" aria-label="Project snapshot">
     <div class="metric-grid">
-      <MetricCard value="27,652" label="player-seasons" note="Frozen five-season research panel" />
-      <MetricCard value="4" label="top leagues" note="One sport-specific pipeline per league" />
-      <MetricCard value="26" label="broad roles" note="Including explicit abstention roles" />
-      <MetricCard value="2021–25" label="evaluation window" note="2025 is the frozen forward test" />
+      <MetricCard value="4" label="top leagues" note="NFL, NBA, NHL and Premier League" />
+      <MetricCard value="27,652" label="player-seasons" note="A frozen five-season research panel" />
+      <MetricCard value="26" label="broad roles" note="Compared inside their own sport first" />
+      <MetricCard value="2021–25" label="seasons studied" note="With 2025 held out for forward testing" />
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="how-it-works">
     <div class="shell">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">How it works</p>
-          <h2>Three questions, kept deliberately separate.</h2>
+          <p class="eyebrow">The project in three steps</p>
+          <h2>Start with evidence. Then explore the possibilities.</h2>
         </div>
-        <p>Separating description, forecasting and analogy prevents a familiar body type from being mistaken for proven skill.</p>
+        <p>The model keeps current-sport performance separate from experimental cross-sport comparison, so a familiar body type is never presented as proven ability.</p>
       </div>
       <div class="card-grid">
         <article class="card">
           <span class="card-number">01</span>
-          <h3>What happened?</h3>
-          <p>Place the completed season against players in the same sport, broad role and season.</p>
+          <h3>Choose an athlete</h3>
+          <p>Search the featured players from football, basketball, hockey and soccer.</p>
         </article>
         <article class="card">
           <span class="card-number">02</span>
-          <h3>What might happen next?</h3>
-          <p>Use only prior information to estimate the following season, with a reported prediction range.</p>
+          <h3>Establish the native baseline</h3>
+          <p>Review the completed-season standing, playing profile and next-season estimate in the athlete’s home role.</p>
         </article>
         <article class="card">
           <span class="card-number">03</span>
-          <h3>What looks transferable?</h3>
-          <p>Compare listed build and shared performance themes while retaining every evidence warning.</p>
+          <h3>Explore other roles</h3>
+          <p>Choose another sport and role to compare body fit or body plus broad playing profile.</p>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section tint">
-    <div class="shell">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Curated examples</p>
-          <h2>Start with cases that reveal how the model behaves.</h2>
-        </div>
-        <p>The portfolio edition intentionally ships a small set of derived examples. The full 6,904-player research snapshot remains local while source rights are reviewed.</p>
-      </div>
-      <div class="card-grid">
-        {cases.map((item) => (
-          <article class="card case-card">
-            <span class="league-chip">{item.league}</span>
-            <h3>{item.name}</h3>
-            <p>{item.copy}</p>
-            <a href={`${href("explorer/")}?${item.query}`}>Open this profile →</a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section dark">
-    <div class="shell section-heading">
+    <div class="shell presentation-band">
       <div>
-        <p class="eyebrow">The central boundary</p>
-        <h2>Models can identify resemblance. They cannot prove adaptation.</h2>
+        <p class="eyebrow">Ready to explore?</p>
+        <h2>See the player you know before testing the roles you do not.</h2>
+        <p>The Explorer always presents native results first. Cross-sport fits come second and retain the model’s evidence warnings and limitations.</p>
       </div>
-      <p>The dataset does not observe enough real elite cross-sport transfers to validate actual success after changing technique, tactics, equipment, training environment or injury exposure.</p>
+      <div class="presentation-actions">
+        <a class="button" href={href("explorer/")}>Launch the explorer</a>
+        <a href={href("stories/")}>Read five model stories →</a>
+        <a href={href("research/limitations/")}>Read what the scores can—and cannot—say →</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
-

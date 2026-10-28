@@ -213,7 +213,7 @@
       el("span", "step-number", "1"),
       append(
         el("div"),
-        el("h3", "", "What the player has already shown"),
+        el("h3", "", "Native model results"),
         el("p", "", "The observed score is descriptive: it compares this completed season with peers in the same sport and broad role."),
       ),
     );
@@ -260,7 +260,7 @@
       el("span", "step-number", "2"),
       append(
         el("div"),
-        el("h3", "", "What the models estimate for the next season"),
+        el("h3", "", "Native next-season outlook"),
         el("p", "", "These are forward estimates from prior information. Their ranges and warnings are part of the answer."),
       ),
     );
@@ -308,8 +308,8 @@
       el("span", "step-number", "3"),
       append(
         el("div"),
-        el("h3", "", "What might resemble another role"),
-        el("p", "", "Choose a target role and keep body fit separate from the performance analogy."),
+        el("h3", "", "Cross-sport fits"),
+        el("p", "", "Choose a target sport and role. Body fit remains separate from the playing-profile comparison."),
       ),
     );
     const controls = el("div", "comparison-controls");
@@ -366,7 +366,7 @@
     append(
       scores,
       scoreCard(
-        state.basis === "transfer" ? "Transfer analogy" : "Physical association",
+        state.basis === "transfer" ? "Cross-sport fit" : "Physical association",
         estimate,
         { fallback: "The saved model withheld this comparison because the required evidence was unavailable." },
       ),

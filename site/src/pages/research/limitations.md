@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ResearchLayout.astro
 title: Appropriate use, assumptions, and limitations
-description: What the Athlete Translation Lab can support, where it should not be used, and how it can improve.
+description: What The Multi Sport Scouter can support, where it should not be used, and how it can improve.
 kicker: Reading guide
 summary: A score is a clue about resemblance inside a declared comparison—not a verdict about talent, selection, health, or real-world transfer success.
 ---

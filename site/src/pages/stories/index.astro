@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/stories.css";
+
+const base = import.meta.env.BASE_URL;
+const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
+const explorerHref = (player: string, sport: string, role: string) =>
+  `${href("explorer/")}?${new URLSearchParams({ player, sport, role, basis: "transfer" })}`;
+
+const stories = [
+  {
+    id: "quentin-johnston",
+    tag: "Best balanced example",
+    name: "Quentin Johnston",
+    route: "NFL wide receiver → NHL left wing",
+    player: "nfl:00-0038544",
+    sport: "nhl",
+    role: "left_wing",
+    native: "56.1",
+    fit: "70.0",
+    body: "85.9",
+    noticed:
+      "Johnston has the clearest mix of target-role build and playing profile in this set. His height sits comfortably within the NHL left-wing comparison, while scoring and finishing provide the strongest positive playing-style signal.",
+    logic:
+      "Wide receivers and hockey wingers both try to create separation, attack open space and turn a limited number of chances into meaningful gains. That makes the comparison understandable even though the techniques are completely different.",
+    caution:
+      "The data do not measure skating, puck handling, contact along the boards or hockey decision-making. This is a strong resemblance case—not evidence that Johnston could step onto NHL ice.",
+    sourceLabel: "Chargers player profile",
+    sourceUrl: "https://www.chargers.com/team/players-roster/quentin-johnston/",
+  },
+  {
+    id: "mike-matheson",
+    tag: "Strongest playing-profile story",
+    name: "Mike Matheson",
+    route: "NHL defenseman → NBA guard",
+    player: "nhl:8476875",
+    sport: "nba",
+    role: "guard",
+    native: "59.5",
+    fit: "72.5",
+    body: "67.5",
+    noticed:
+      "This result is not driven by body type alone. Creation and distribution make the largest positive contribution, with discipline and scoring also helping the comparison.",
+    logic:
+      "A puck-moving defenseman helps start attacks, advances play through transition and distributes under pressure. Those responsibilities broadly resemble a basketball guard bringing the ball forward and organizing possessions.",
+    caution:
+      "Passing with a stick is not ball handling, and reading a hockey transition does not prove basketball court vision. The useful connection is the shared responsibility for creating and moving play.",
+    sourceLabel: "Canadiens on Matheson's puck movement",
+    sourceUrl: "https://www.nhl.com/canadiens/news/hughes-on-matheson-mike-is-a-five-star-human-being-335012324",
+  },
+  {
+    id: "tez-johnson",
+    tag: "Promising, lower-confidence comparison",
+    name: "Tez Johnson",
+    route: "NFL wide receiver → Premier League midfielder",
+    player: "nfl:00-0040237",
+    sport: "epl",
+    role: "MID",
+    native: "57.2",
+    fit: "71.2",
+    body: "68.0",
+    noticed:
+      "Johnson's build sits reasonably close to the midfielder comparison group. Scoring and finishing provide the largest positive playing-profile signal.",
+    logic:
+      "Receivers must find space, adjust their movement as a play develops and create value after receiving the ball. Those ideas loosely resemble a midfielder finding space and contributing during transitions.",
+    caution:
+      "Only a small number of performance themes connect these roles. The model does not observe soccer endurance, first touch, passing range or defensive positioning, so this is an interesting lead rather than a headline conclusion.",
+    sourceLabel: "Buccaneers player profile",
+    sourceUrl: "https://www.buccaneers.com/team/players-roster/tez-johnson/",
+  },
+  {
+    id: "joonas-korpisalo",
+    tag: "Useful model curiosity",
+    name: "Joonas Korpisalo",
+    route: "NHL goalie → NBA guard",
+    player: "nhl:8476914",
+    sport: "nba",
+    role: "guard",
+    native: "60.1",
+    fit: "73.4",
+    body: "51.7",
+    noticed:
+      "The model's broad recovery and rebounding theme raises this comparison, and his listed build is not especially unusual for the target group.",
+    logic:
+      "Goalies react quickly, control rebounds and recover their position after an initial attempt. Basketball also rewards reactions to loose balls and rebounds, so the model has found a real shared theme.",
+    caution:
+      "The meaning of recovery is radically different for a goalie and a guard. This is better for explaining how the system finds statistical analogies than for suggesting a real transfer. The model also uses a frozen 2025 Boston snapshot, not his current team status.",
+    sourceLabel: "Bruins 2024 acquisition profile",
+    sourceUrl: "https://www.nhl.com/bruins/news/bruins-acquire-mark-kastelic-joonas-korpisalo-and-2024-first-round-draft-pick-from-ottawa-senators-in-exchange-for-linus-ullmark",
+  },
+];
+---
+
+<BaseLayout
+  title="Model Stories | The Multi Sport Scouter"
+  description="Five plain-English stories showing why the model finds certain cross-sport comparisons—and where human judgment still matters."
+>
+  <section class="stories-hero">
+    <div class="narrow-shell">
+      <p class="eyebrow">Model stories</p>
+      <h1>When a player's profile points somewhere unexpected</h1>
+      <p class="lead">The Scouter first measures an athlete against people in the same role and sport. It then asks a separate question: does that athlete's build and broad playing style resemble a role somewhere else?</p>
+      <p class="stories-disclaimer"><strong>These are comparisons, not career predictions.</strong> They do not say that an athlete could change sports successfully.</p>
+    </div>
+  </section>
+
+  <section class="stories-reading shell" aria-labelledby="reading-title">
+    <div class="reading-intro">
+      <p class="eyebrow">How to read each story</p>
+      <h2 id="reading-title">Three numbers. Three different meanings.</h2>
+    </div>
+    <dl class="reading-grid">
+      <div>
+        <dt>Native result</dt>
+        <dd>How the completed season compared with players in the athlete's own role.</dd>
+      </div>
+      <div>
+        <dt>Cross-sport fit</dt>
+        <dd>How strongly the model associates the athlete's build and shared playing traits with another role.</dd>
+      </div>
+      <div>
+        <dt>Body fit</dt>
+        <dd>How typical the athlete's height and weight are for that target role—not a measure of skill.</dd>
+      </div>
+    </dl>
+    <p class="reading-note">A higher cross-sport number is not a promised improvement. Native and target scores compare the player with two different groups of athletes.</p>
+  </section>
+
+  <div class="story-list shell">
+    {stories.map((story, index) => (
+      <article class="story" id={story.id}>
+        <div class="story-heading">
+          <div>
+            <p class="story-count">Story {String(index + 1).padStart(2, "0")}</p>
+            <span class="story-tag">{story.tag}</span>
+            <h2>{story.name}</h2>
+            <p class="story-route">{story.route}</p>
+          </div>
+          <dl class="score-strip" aria-label={`${story.name} model comparison`}>
+            <div>
+              <dt>Native result</dt>
+              <dd>{story.native}<small>own-role percentile</small></dd>
+            </div>
+            <div class="score-featured">
+              <dt>Cross-sport fit</dt>
+              <dd>{story.fit}<small>fit score / 100</small></dd>
+            </div>
+            <div>
+              <dt>Body fit</dt>
+              <dd>{story.body}<small>build centrality / 100</small></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="story-explanation">
+          <section>
+            <h3>Why the model noticed him</h3>
+            <p>{story.noticed}</p>
+          </section>
+          <section>
+            <h3>Why it makes sense in the real world</h3>
+            <p>{story.logic}</p>
+          </section>
+          <section class="caution-box">
+            <h3>What the model cannot see</h3>
+            <p>{story.caution}</p>
+          </section>
+        </div>
+
+        <div class="story-actions">
+          <a class="button" href={explorerHref(story.player, story.sport, story.role)}>Open the full comparison</a>
+          <a class="source-link" href={story.sourceUrl} target="_blank" rel="noreferrer">Real-world context: {story.sourceLabel} ↗</a>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <section class="stress-section">
+    <div class="shell stress-grid">
+      <div class="stress-heading">
+        <p class="eyebrow">What can go wrong?</p>
+        <span class="story-tag warning">High score, important warning</span>
+        <h2>Mark Kastelic</h2>
+        <p class="story-route">NHL center → NFL edge defender</p>
+        <dl class="score-strip dark-scores" aria-label="Mark Kastelic model comparison">
+          <div>
+            <dt>Native result</dt>
+            <dd>42.8<small>own-role percentile</small></dd>
+          </div>
+          <div class="score-featured">
+            <dt>Cross-sport fit</dt>
+            <dd>81.9<small>fit score / 100</small></dd>
+          </div>
+          <div>
+            <dt>Body fit</dt>
+            <dd>19.9<small>build centrality / 100</small></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="stress-copy">
+        <section>
+          <h3>Why the number is so high</h3>
+          <p>Kastelic's weight and defensive-disruption profile strongly raise the fitted comparison. His game also involves physical contact and competition through crowded areas, which creates an understandable surface-level connection with defensive football.</p>
+        </section>
+        <section>
+          <h3>Why this is not a balanced fit</h3>
+          <p>His build is uncommon within the target-role comparison and only two broad playing themes connect the roles. The model does not measure pass-rush technique, block shedding, line-of-scrimmage stance or football-specific acceleration.</p>
+        </section>
+        <section>
+          <h3>What this story teaches us</h3>
+          <p>A high playing-profile score should never appear without body fit and evidence quality. This is a useful stress test because the headline number looks impressive while the supporting evidence tells us to slow down.</p>
+        </section>
+        <div class="story-actions">
+          <a class="button stress-button" href={explorerHref("nhl:8480355", "nfl", "EDGE")}>Inspect the warning case</a>
+          <a class="source-link" href="https://www.nhl.com/bruins/news/bruins-acquire-mark-kastelic-joonas-korpisalo-and-2024-first-round-draft-pick-from-ottawa-senators-in-exchange-for-linus-ullmark" target="_blank" rel="noreferrer">Real-world context: Bruins acquisition profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="shell presentation-band stories-closing">
+      <div>
+        <p class="eyebrow">Use the stories to ask better questions</p>
+        <h2>Discovery starts the conversation. It does not finish the scouting report.</h2>
+        <p>Johnston shows a balanced resemblance. Matheson is mainly a playing-style story. Korpisalo and Kastelic show why unusual results need interpretation. Film, coaching knowledge, sport-specific testing and technique would still be needed before any real-world judgment.</p>
+      </div>
+      <div class="presentation-actions">
+        <a class="button" href={href("explorer/")}>Explore all featured players</a>
+        <a href={href("research/limitations/")}>Read the model's limits →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

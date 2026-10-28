@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ResearchLayout.astro
 title: From four leagues to one careful comparison
-description: The research process and data pipeline behind the Athlete Translation Lab.
+description: The research process and data pipeline behind The Multi Sport Scouter.
 kicker: Research journey
 summary: The project began with possession-winning athletes and grew into a broad-role comparison across the NFL, NBA, NHL, and Premier League.
 ---

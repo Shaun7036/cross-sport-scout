@@ -75,6 +75,36 @@ FEATURED_CASES: tuple[dict[str, str], ...] = (
         "target_role": "right_wing",
         "story": "Uses the only native profile head that passed the partial-pooling gate.",
     },
+    {
+        "player_id": "nfl:00-0038544",
+        "target_sport": "nhl",
+        "target_role": "left_wing",
+        "story": "A balanced example where target-role build and broad playing profile agree.",
+    },
+    {
+        "player_id": "nhl:8476875",
+        "target_sport": "nba",
+        "target_role": "guard",
+        "story": "A puck-moving defenseman whose creation profile resembles a guard's role.",
+    },
+    {
+        "player_id": "nfl:00-0040237",
+        "target_sport": "epl",
+        "target_role": "MID",
+        "story": "An interesting receiver-to-midfielder lead with limited shared evidence.",
+    },
+    {
+        "player_id": "nhl:8476914",
+        "target_sport": "nba",
+        "target_role": "guard",
+        "story": "A model curiosity built around reactions, recovery, and rebound control.",
+    },
+    {
+        "player_id": "nhl:8480355",
+        "target_sport": "nfl",
+        "target_role": "EDGE",
+        "story": "A high-score stress test whose weak body fit calls for extra caution.",
+    },
 )
 
 FEATURE_LABELS = {
@@ -413,7 +443,7 @@ def export_public_site(
         public_manifest = {
             "schema_version": PUBLIC_SITE_SCHEMA_VERSION,
             "generated_at": source_manifest.get("generated_at"),
-            "title": "Athlete Translation Lab — Portfolio Edition",
+            "title": "The Multi Sport Scouter — Portfolio Edition",
             "portfolio_edition": True,
             "snapshot": source_manifest.get("snapshot"),
             "sports": _compact_sports(source_manifest.get("sports") or []),

@@ -1,4 +1,4 @@
-# Athlete Translation Lab static site
+# The Multi Sport Scouter static site
 
 This folder is the public, static presentation layer. The Python project remains responsible for data acquisition, model training, validation, and the frozen player export. Astro renders the portfolio pages; no Python server or live model is required in production.
 
@@ -12,7 +12,7 @@ npm --prefix site run data
 npm --prefix site run dev
 ```
 
-The data command runs the tracked Python exporter through `uv`. It reads the existing local `portal-all-roles/data` snapshot and writes only the nine allowlisted, derived examples used by the portfolio edition.
+The data command runs the tracked Python exporter through `uv`. It reads the existing local `portal-all-roles/data` snapshot and writes only the 14 allowlisted, derived examples used by the portfolio edition.
 
 ## Validate and build
 
@@ -39,6 +39,8 @@ Copy the resulting `site/dist/` contents into the matching public folder of the 
 | Shared page shell | `src/layouts/` and `src/components/` |
 | Landing page | `src/pages/index.astro` |
 | Player explorer | `src/pages/explorer/index.astro`, `src/scripts/explorer.js`, `src/styles/explorer.css` |
+| Model stories | `src/pages/stories/index.astro`, `src/styles/stories.css` |
+| Presentation findings | `src/pages/research/findings.astro`, `src/styles/findings.css` |
 | Research prose | `src/pages/research/*.md` |
 | Global design | `src/styles/global.css` |
 | Curated public data | `public/data/` |
