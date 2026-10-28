@@ -1,6 +1,22 @@
 # Editing the web portals
 
-The portals are ordinary HTML, CSS, and JavaScript. There is no React build, bundler, or template compiler. Edit the files below, run the local server, and refresh the browser.
+## Current presentation site
+
+The public presentation now lives in `site/` and uses Astro. On Windows, macOS, or Linux, install
+Node.js 24 and run this from the repository root:
+
+```text
+npm --prefix site ci
+npm --prefix site run dev
+```
+
+Its curated player data are tracked under `site/public/data/`, so the explorer works on GitHub
+Pages without Python. Do not run `npm --prefix site run data` for ordinary editing: that optional
+maintainer command needs the ignored full research snapshot.
+
+Edit Astro pages in `site/src/pages/`, reusable layout pieces in `site/src/components/` and
+`site/src/layouts/`, and styling in `site/src/styles/`. The rest of this document describes the
+older local research portals, which use ordinary HTML, CSS, and JavaScript.
 
 ## Where each page lives
 
@@ -101,11 +117,16 @@ Then:
 
 1. Edit the matching HTML, CSS, or JavaScript file.
 2. Refresh the browser. The server sends `Cache-Control: no-cache`, so a normal refresh should show the change.
-3. If you changed export or scoring Python, rebuild the shared player export first:
+3. If you changed export or scoring Python and have the cached source data, rebuild the research
+   pipeline and then the shared player export:
 
    ```text
-   uv run python scripts/run_lab.py build-all-roles-portal
+   uv run python scripts/run_lab.py run-all-roles --root .
+   uv run python scripts/run_lab.py build-all-roles-portal --root .
    ```
+
+   Do not run these commands merely to view or edit the Astro site. A fresh clone does not include
+   the source caches needed for a full rebuild.
 
 4. Run the checks before committing:
 

@@ -10,6 +10,10 @@ import numpy as np
 import pandas as pd
 from matplotlib.patches import Patch
 
+from possession_lab.all_roles_paths import (
+    observed_scores_missing_message,
+    observed_scores_path,
+)
 from possession_lab.io import write_json
 
 
@@ -190,9 +194,9 @@ def _save_profile_increment_chart(model_rows: pd.DataFrame, path: Path) -> None:
 
 def build_all_roles_eda(root: Path | str) -> dict:
     root = Path(root)
-    scored_path = root / "data" / "processed" / "all_roles" / "observed_scores.parquet"
+    scored_path = observed_scores_path(root)
     if not scored_path.exists():
-        raise FileNotFoundError(f"Build observed all-role scores first: {scored_path}")
+        raise FileNotFoundError(observed_scores_missing_message(root, scored_path))
     scored = pd.read_parquet(scored_path)
     report_dir = root / "reports" / "all_roles"
     figure_dir = report_dir / "figures"

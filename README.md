@@ -4,39 +4,50 @@ This project compares athletes from the NFL, NBA, NHL, and Premier League. It fi
 
 The cross-sport results are research comparisons—not a probability that someone could successfully change sports.
 
-## Quick start with `uv`
+## Quick start: presentation website
 
-Install [`uv`](https://docs.astral.sh/uv/), clone or download this repository, and open a terminal in the project folder. These commands are the same on Windows, macOS, and Linux:
+The current presentation is the Astro site in [`site/`](site/). A fresh GitHub clone already
+contains its curated data, so you do not need Python, `uv`, the saved models, or the private
+research dataset just to view it.
+
+Install [Node.js 24](https://nodejs.org/). Then open PowerShell, Command Prompt, DataSpell's
+terminal, or a macOS/Linux terminal in the repository folder and run:
+
+```text
+npm --prefix site ci
+npm --prefix site run dev
+```
+
+Open the address printed in the terminal, normally
+[http://localhost:4321/](http://localhost:4321/). Press `Ctrl+C` to stop the site.
+
+Do **not** run `npm --prefix site run data` after a normal clone. That is a maintainer-only
+refresh command that expects the larger local research snapshot, which is intentionally not in
+Git.
+
+## Optional Python research environment
+
+Install [`uv`](https://docs.astral.sh/uv/) only if you want to run tests, retrain models, or work
+on the research pipeline:
 
 ```text
 uv sync --extra dev --reinstall-package possession-lab
-uv run python scripts/run_portal.py friendly
+uv run python scripts/run_portal.py check
 ```
 
-Open [http://127.0.0.1:8768/friendly/](http://127.0.0.1:8768/friendly/) in a browser. Press `Ctrl+C` in the terminal when you want to stop the server.
+The project uses Python 3.12 by default. The full Python player explorers described below need a
+locally generated snapshot under `portal-all-roles/data/`; a fresh GitHub clone does not include
+it. The tracked `report` view remains available without that snapshot:
 
-`uv sync` creates the project's `.venv` and installs the locked dependencies. The explicit reinstall also refreshes the editable package path after moving the repository. Run it after the first clone, after pulling dependency changes, or after a move. The project uses Python 3.12 by default.
-
-Optional operating-system wrappers do the same thing. On macOS, the setup wrapper also repairs
-hidden filesystem flags that can follow a copied `.venv` and prevent DataSpell from loading the
-editable package:
-
-[/TODO: project should only launch via uv, not through pwshell or cli scritps. /]: # ()
-```bash
-# macOS or Linux
-./scripts/setup_local.sh
-./scripts/run_portal.sh friendly
-```
-
-```powershell
-# Windows PowerShell
-.\scripts\setup_local.ps1
-.\scripts\run_portal.ps1 friendly
+```text
+uv run python scripts/run_portal.py report
 ```
 
 ## Choose a portal
 
-The Python launcher is shared by Windows and macOS. Replace `friendly` with any view below.
+The Astro site above is the recommended presentation. This table documents the older local
+Python views used during development. Except for `report`, they require the ignored full player
+snapshot and are not expected to work from a fresh clone.
 
 | View | What it shows | Address |
 |---|---|---|
@@ -79,7 +90,9 @@ The visual page compares dataset size, physical-data coverage, scoring eligibili
 
 ## Where to edit the web pages
 
-The portals use plain HTML, CSS, and JavaScript—there is no frontend build step.
+Edit the current presentation under `site/src/`: the landing page is
+`site/src/pages/index.astro`, the explorer is `site/src/pages/explorer/index.astro`, and the
+shared styles are under `site/src/styles/`. The table below is for the older Python-served pages.
 
 | Page | Words and layout | Styling | Player interactions |
 |---|---|---|---|
@@ -143,12 +156,16 @@ The model is best used to explore hypotheses, compare role archetypes, demonstra
 
 ## Static portfolio site
 
-The maintainable public presentation now lives in [`site/`](site/). It uses Astro for shared layouts and deployment, Markdown for the research pages, and one vanilla-JavaScript player explorer. Python still generates the frozen public data through `uv`; no Python process runs on the deployed website.
+The maintainable public presentation now lives in [`site/`](site/). It uses Astro presentation
+pages, Markdown research notes, and one vanilla-JavaScript player explorer. Python generates the
+frozen public data during a maintainer refresh; no Python process runs on the deployed website.
 
 ```text
 npm --prefix site ci
-npm --prefix site run data
 npm --prefix site run dev
 ```
 
-The portfolio edition intentionally includes nine curated, derived player profiles instead of the complete local 6,904-player export. See [`site/README.md`](site/README.md) for the source map, build commands, subpath configuration, and public-data boundary.
+The portfolio edition intentionally includes 14 curated, derived player profiles instead of the
+complete local player export. The tracked files in `site/public/data/` are ready to use. See
+[`site/README.md`](site/README.md) for the source map, optional data-refresh command, build
+commands, subpath configuration, and public-data boundary.

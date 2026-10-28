@@ -18,6 +18,10 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from possession_lab.all_roles_paths import (
+    observed_scores_missing_message,
+    observed_scores_path,
+)
 from possession_lab.all_roles_pipeline import load_all_role_models
 from possession_lab.all_roles_registry import role_specs
 from possession_lab.all_roles_score import score_all_roles_profile
@@ -334,10 +338,10 @@ def build_all_roles_portal(root: Path | str, output_dir: Path | str | None = Non
     """Export the latest active athlete snapshot and all four score types."""
     root = Path(root).resolve()
     output = Path(output_dir).resolve() if output_dir is not None else root / "portal-all-roles"
-    observed_path = root / "data" / "processed" / "all_roles" / "observed_scores.parquet"
+    observed_path = observed_scores_path(root)
     model_path = root / "models" / "all_roles" / "all_roles_v1.joblib"
     if not observed_path.exists():
-        raise FileNotFoundError(f"Build observed all-role scores first: {observed_path}")
+        raise FileNotFoundError(observed_scores_missing_message(root, observed_path))
     if not model_path.exists():
         raise FileNotFoundError(f"Train all-role models first: {model_path}")
 

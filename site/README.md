@@ -4,15 +4,32 @@ This folder is the public, static presentation layer. The Python project remains
 
 ## Run locally
 
-From the repository root:
+Install Node.js 24. From the repository root, run the same commands in Windows PowerShell,
+Command Prompt, DataSpell's terminal, macOS, or Linux:
 
 ```text
 npm --prefix site ci
-npm --prefix site run data
 npm --prefix site run dev
 ```
 
-The data command runs the tracked Python exporter through `uv`. It reads the existing local `portal-all-roles/data` snapshot and writes only the 14 allowlisted, derived examples used by the portfolio edition.
+The 14 allowlisted presentation profiles are already tracked in `public/data/`, so a fresh clone
+does not need Python or the private research artifacts. The explorer remains fully functional on
+GitHub Pages because it reads these static files in the visitor's browser.
+
+If your terminal is already inside `site/`, the equivalent commands are `npm ci` and `npm run
+dev`.
+
+## Refresh curated data (maintainers only)
+
+After rebuilding the full local research snapshot, maintainers can refresh the public profiles:
+
+```text
+npm --prefix site run data
+```
+
+This optional command runs the Python exporter through `uv`. It reads the ignored
+`portal-all-roles/data/` snapshot and writes only the 14 allowlisted, derived examples. It will
+not work from a normal clone unless that full snapshot has been generated locally first.
 
 ## Validate and build
 

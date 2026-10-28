@@ -9,6 +9,10 @@ import numpy as np
 import pandas as pd
 
 from possession_lab.all_roles_models import PHYSICAL_FEATURES, ood_diagnostics
+from possession_lab.all_roles_paths import (
+    observed_scores_missing_message,
+    observed_scores_path,
+)
 from possession_lab.all_roles_pipeline import load_all_role_models
 from possession_lab.all_roles_registry import role_specs
 
@@ -476,9 +480,9 @@ def load_known_player(
     *,
     season: int | None = None,
 ) -> pd.Series:
-    path = Path(root) / "data" / "processed" / "all_roles" / "observed_scores.parquet"
+    path = observed_scores_path(root)
     if not path.exists():
-        raise FileNotFoundError(f"Build observed all-role scores first: {path}")
+        raise FileNotFoundError(observed_scores_missing_message(root, path))
     source = pd.read_parquet(path)
     rows = source.loc[
         source["sport"].eq(sport) & source["player_id"].astype(str).eq(str(player_id))

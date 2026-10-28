@@ -18,6 +18,7 @@ PORTAL_COMMANDS = {
     "detailed": "all-roles-portal",
     "legacy": "portal",
 }
+FULL_PLAYER_VIEWS = {"profile", "friendly", "stories", "compact", "detailed"}
 REQUIRED_MODULES = (
     "possession_lab",
     "pandas",
@@ -70,6 +71,18 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Unknown view: {view}\n", file=sys.stderr)
         print(help_text(), file=sys.stderr, end="")
         return 2
+
+    if view in FULL_PLAYER_VIEWS:
+        from possession_lab.all_roles_paths import (
+            missing_full_snapshot_paths,
+            missing_snapshot_help,
+            requested_portal_output,
+        )
+
+        missing = missing_full_snapshot_paths(PROJECT_ROOT, requested_portal_output(args))
+        if missing:
+            print(missing_snapshot_help(PROJECT_ROOT, missing), file=sys.stderr, end="")
+            return 2
 
     from possession_lab.cli import main as cli_main
 
