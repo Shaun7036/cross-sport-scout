@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0.0",
+  "season": 2025,
+  "nfl": {
+    "filter": "At least 200 observed defensive opportunities",
+    "unit": "events per 1,000 defensive opportunities",
+    "players": 583,
+    "roles": [
+      {
+        "role": "EDGE",
+        "players": 171,
+        "defensive_opportunities": 86518.0,
+        "sacks_per_1000": 8.43,
+        "passes_defended_per_1000": 3.76
+      },
+      {
+        "role": "IDL",
+        "players": 110,
+        "defensive_opportunities": 51775.0,
+        "sacks_per_1000": 4.85,
+        "passes_defended_per_1000": 2.76
+      },
+      {
+        "role": "LB",
+        "players": 73,
+        "defensive_opportunities": 48342.0,
+        "sacks_per_1000": 2.21,
+        "passes_defended_per_1000": 5.38
+      },
+      {
+        "role": "S",
+        "players": 104,
+        "defensive_opportunities": 69578.0,
+        "sacks_per_1000": 0.96,
+        "passes_defended_per_1000": 7.03
+      },
+      {
+        "role": "CB",
+        "players": 125,
+        "defensive_opportunities": 74718.0,
+        "sacks_per_1000": 0.46,
+        "passes_defended_per_1000": 12.77
+      }
+    ],
+    "edge_to_cornerback_sack_rate_ratio": 18.33,
+    "cornerback_to_edge_pass_defended_rate_ratio": 3.4
+  },
+  "nba": {
+    "filter": "At least 500 minutes",
+    "unit": "events per 36 minutes",
+    "players": 380,
+    "roles": [
+      {
+        "role": "guard",
+        "players": 189,
+        "minutes": 278243.0,
+        "steals_per_36": 1.36,
+        "blocks_per_36": 0.44
+      },
+      {
+        "role": "forward",
+        "players": 137,
+        "minutes": 197578.0,
+        "steals_per_36": 1.19,
+        "blocks_per_36": 0.8
+      },
+      {
+        "role": "center",
+        "players": 54,
+        "minutes": 78895.0,
+        "steals_per_36": 1.03,
+        "blocks_per_36": 1.53
+      }
+    ],
+    "center_to_guard_block_rate_ratio": 3.48,
+    "guard_to_center_steal_rate_ratio": 1.32
+  },
+  "nhl": {
+    "filter": "Non-goalies with at least 600 minutes",
+    "unit": "events per 60 minutes",
+    "players": 578,
+    "roles": [
+      {
+        "role": "defense",
+        "players": 204,
+        "minutes": 282395.68333333335,
+        "blocks_per_60": 4.21,
+        "hits_per_60": 2.99
+      },
+      {
+        "role": "center",
+        "players": 187,
+        "minutes": 214092.88333333333,
+        "blocks_per_60": 2.07,
+        "hits_per_60": 4.11
+      },
+      {
+        "role": "left_wing",
+        "players": 95,
+        "minutes": 104923.05,
+        "blocks_per_60": 1.8,
+        "hits_per_60": 5.01
+      },
+      {
+        "role": "right_wing",
+        "players": 92,
+        "minutes": 105928.6,
+        "blocks_per_60": 1.8,
+        "hits_per_60": 4.09
+      }
+    ],
+    "defense_to_left_wing_block_rate_ratio": 2.34,
+    "left_wing_to_defense_hit_rate_ratio": 1.68
+  },
+  "epl": {
+    "filter": "Rows with both a plausible listed height and listed weight",
+    "unit": "centimeters and kilograms",
+    "season_rows": 841,
+    "complete_build_rows": 500,
+    "complete_build_coverage": 0.5945,
+    "height_weight_correlation": 0.737,
+    "roles": [
+      {
+        "role": "GK",
+        "players": 61,
+        "median_height_cm": 190.5,
+        "median_weight_kg": 83.01
+      },
+      {
+        "role": "DEF",
+        "players": 171,
+        "median_height_cm": 185.42,
+        "median_weight_kg": 77.11
+      },
+      {
+        "role": "FWD",
+        "players": 53,
+        "median_height_cm": 185.42,
+        "median_weight_kg": 78.0
+      },
+      {
+        "role": "MID",
+        "players": 215,
+        "median_height_cm": 180.34,
+        "median_weight_kg": 73.03
+      }
+    ],
+    "goalkeeper_minus_midfielder_median_height_cm": 10.16,
+    "goalkeeper_minus_midfielder_median_weight_kg": 9.98
+  }
+}

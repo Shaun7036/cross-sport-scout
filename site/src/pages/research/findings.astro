@@ -161,41 +161,84 @@ const holdoutRows = [
           <p class="eyebrow">02 · Exploratory Data Analysis</p>
           <h2 id="eda-heading">What does our raw data tell us?</h2>
         </div>
-        <p>Given four unique data sets, I was able to conduct comprehensive eda for each sport uniquely and in a distribution. Here are some things I found were remarkable:</p>
+        <p>I reviewed each sport separately before trying to compare them. For these examples I used the 2025 season and removed very small samples, so one short appearance would not create a misleading rate.</p>
       </div>
 
-      <div class="finding-card-grid">
-        <article class="finding-card"><span>01</span><h3>Opportunity changes every count</h3><p>A sack, steal, recovery or assist only has meaning beside snaps, minutes, ice time or appearances. Raw totals alone reward availability and role exposure.</p></article>
-        <article class="finding-card"><span>02</span><h3>Broad roles are more honest</h3><p>Public data supports groups such as guard, winger or midfielder better than every tactical assignment. False precision would make the comparison look stronger than it is.</p></article>
-        <article class="finding-card"><span>03</span><h3>A missing score is not a zero</h3><p>Some players lack opportunity, physical fields or a credible public quality label. Keeping an explicit “not available” result is safer than treating missing evidence as poor ability.</p></article>
-        <article class="finding-card"><span>04</span><h3>Build describes role more than quality</h3><p>Height and weight clearly separate some familiar roles, but athletes with similar builds can perform very differently. Physical similarity is compatibility, not skill.</p></article>
+      <div class="eda-insight-grid">
+        <figure class="image-figure eda-insight">
+          <div class="insight-heading"><span>NFL</span><h3>Winning possession looks different across one defense.</h3></div>
+          <a href={href("images/eda/nfl_role_disruption_2025.png")} aria-label="Open the full-resolution NFL role disruption chart">
+            <img src={href("images/eda/nfl_role_disruption_2025.png")} alt="Two horizontal bar charts comparing sacks and passes defended per 1,000 defensive opportunities for NFL edge defenders, interior defenders, linebackers, safeties and cornerbacks in 2025" loading="lazy" decoding="async" />
+          </a>
+          <figcaption><strong>What stood out:</strong> across 583 defender seasons with at least 200 defensive opportunities, edge defenders recorded 8.43 sacks per 1,000 opportunities while cornerbacks recorded 12.77 passes defended. The same idea—disrupting possession—shows up through very different actions.</figcaption>
+        </figure>
+
+        <figure class="image-figure eda-insight">
+          <div class="insight-heading"><span>NBA</span><h3>Guards steal the ball; centers protect the rim.</h3></div>
+          <a href={href("images/eda/nba_role_disruption_2025.png")} aria-label="Open the full-resolution NBA disruption chart">
+            <img src={href("images/eda/nba_role_disruption_2025.png")} alt="Grouped bars comparing steals and blocks per 36 minutes for NBA guards, forwards and centers with at least 500 minutes in 2025" loading="lazy" decoding="async" />
+          </a>
+          <figcaption><strong>What stood out:</strong> across 380 player seasons with at least 500 minutes, centers blocked 1.53 shots per 36 minutes—about 3.5 times the guard rate. Guards produced 1.36 steals per 36, about 32% more than centers.</figcaption>
+        </figure>
+
+        <figure class="image-figure eda-insight">
+          <div class="insight-heading"><span>NHL</span><h3>Defensemen stop shots while wings apply more contact.</h3></div>
+          <a href={href("images/eda/nhl_role_physicality_2025.png")} aria-label="Open the full-resolution NHL role physicality chart">
+            <img src={href("images/eda/nhl_role_physicality_2025.png")} alt="Grouped bars comparing blocked shots and hits per 60 minutes for NHL centers, defensemen, left wings and right wings with at least 600 minutes in 2025" loading="lazy" decoding="async" />
+          </a>
+          <figcaption><strong>What stood out:</strong> across 578 skater seasons with at least 600 minutes, defensemen blocked 4.21 shots per 60—more than twice either wing. Left wings led contact at 5.01 hits per 60, about 68% above defensemen.</figcaption>
+        </figure>
+
+        <figure class="image-figure eda-insight">
+          <div class="insight-heading"><span>Premier League</span><h3>Listed build separates some roles even before performance is added.</h3></div>
+          <a href={href("images/eda/epl_build_by_role_2025.png")} aria-label="Open the full-resolution Premier League height and weight chart">
+            <img src={href("images/eda/epl_build_by_role_2025.png")} alt="Scatter plot of listed height and weight for Premier League players in 2025, grouped by goalkeeper, defender, midfielder and forward, with role medians marked" loading="lazy" decoding="async" />
+          </a>
+          <figcaption><strong>What stood out:</strong> the median goalkeeper was 190.5 cm and 83.0 kg, roughly 10.2 cm taller and 10.0 kg heavier than the median midfielder. This chart covers 500 of 841 player rows with both fields, so it shows the observed sample—not the full league.</figcaption>
+        </figure>
       </div>
 
-      <figure class="image-figure">
-        <a href={href("images/eda/listed_build_map.png")} aria-label="Open the full-resolution listed build chart">
-          <img src={href("images/eda/listed_build_map.png")} alt="Scatter plot of listed height and weight showing clear league and role build differences, with the NFL spanning the widest weight range and the NBA the tallest heights" loading="lazy" decoding="async" />
-        </a>
-        <figcaption><strong>Listed builds create recognizable clusters.</strong> This supports body-fit comparisons, but the chart does not show performance and the profiles are not standardized annual measurements.</figcaption>
-      </figure>
+      <p class="eda-method-note"><strong>How this shaped the project:</strong> I could not treat every possession-winning action as the same thing. I first measured players against their own sport, role and season, then translated only broader themes such as disruption, creation and recovery across sports.</p>
     </div>
   </section>
 
-  <section class="finding-section" id="challenges" aria-labelledby="challenge-heading">
+  <section class="finding-section" id="models" aria-labelledby="models-heading">
     <div class="shell">
       <div class="findings-heading">
         <div>
-          <p class="eyebrow">03 · The hardest modeling challenge</p>
-          <h2 id="challenge-heading">Useful low-sample players cannot be ignored—or trusted equally.</h2>
+          <p class="eyebrow">03 · Model Building</p>
+          <h2 id="models-heading">I built the model in stages so every result has a clear meaning.</h2>
         </div>
-        <p>The solution was to keep positive-opportunity seasons in training with reduced influence, while reserving the frozen evaluation for players who cleared the stronger opportunity threshold.</p>
+        <p>I used simple linear models because I wanted to show what information was being used and compare each version with an easy benchmark. A more complicated model would not fix missing data or a weak definition of success.</p>
+      </div>
+
+      <ol class="model-flow">
+        <li><span>1</span><strong>Score the completed season</strong><p>I converted performance into a percentile within the same sport, role and season.</p></li>
+        <li><span>2</span><strong>Account for playing time</strong><p>Players with fewer snaps or minutes stayed in the data, but they had less influence.</p></li>
+        <li><span>3</span><strong>Use earlier information</strong><p>The next-season model used build and playing information that was already available.</p></li>
+        <li><span>4</span><strong>Keep 2025 hidden</strong><p>I made the model choices first, then used 2025 as the final unseen test.</p></li>
+        <li><span>5</span><strong>Compare with something simple</strong><p>The model had to improve on a middle-of-the-pack, recent-history or build-only estimate.</p></li>
+      </ol>
+
+      <div class="model-questions">
+        <article><span>Completed season</span><h3>How did the player perform?</h3><p>The player is ranked against peers in the same sport, role and season.</p></article>
+        <article><span>Next season</span><h3>What does the model expect next?</h3><p>Earlier seasons are used to estimate the player's next same-role percentile.</p></article>
+        <article><span>Body comparison</span><h3>Does the player resemble the role?</h3><p>Listed height, weight, body mass and age are compared with the target role.</p></article>
+        <article><span>Other sports</span><h3>What role does the profile resemble?</h3><p>Build and a small set of shared playing themes are used as a scouting comparison.</p></article>
+      </div>
+
+      <div class="subsection-heading" id="challenges">
+        <p class="eyebrow">Model challenges</p>
+        <h3>The main challenge was keeping useful low-minute players without trusting them too much.</h3>
+        <p>I kept seasons with positive playing time, but reduced their influence. I only used the stronger sample below when deciding how well a model performed.</p>
       </div>
 
       <div class="chart-legend" aria-label="Opportunity chart legend">
-        <span><i class="legend-swatch scored" aria-hidden="true"></i>Descriptive score available</span>
-        <span><i class="legend-swatch eligible" aria-hidden="true"></i>Full-strength evaluation</span>
+        <span><i class="legend-swatch scored" aria-hidden="true"></i>Season score available</span>
+        <span><i class="legend-swatch eligible" aria-hidden="true"></i>Strong enough for final testing</span>
       </div>
       <figure class="report-chart opportunity-chart" aria-labelledby="opportunity-title">
-        <figcaption id="opportunity-title">How much of each league panel receives each level of evidence</figcaption>
+        <figcaption id="opportunity-title">How much of each sport's data was strong enough for each use</figcaption>
         {opportunityRows.map((row) => (
           <div class="opportunity-row">
             <div class="opportunity-label"><strong>{row.label}</strong><span>{row.note}</span></div>
@@ -206,49 +249,15 @@ const holdoutRows = [
             <div class="paired-values"><span>{row.scored}%</span><span>{row.eligible}%</span></div>
           </div>
         ))}
-        <p><strong>What it means:</strong> 19,197 seasons receive a descriptive score, but only 12,016 judge the full-strength evaluation. Another 7,181 low-sample rows may help training at reduced weight without deciding whether the model passes.</p>
+        <p><strong>What it means:</strong> I could describe 19,197 player seasons, but I used only 12,016 stronger samples to judge the models. Another 7,181 low-sample rows helped with training at a reduced weight without deciding whether a model passed.</p>
       </figure>
 
       <div class="challenge-grid">
-        <article><strong>Different sports, different exposure</strong><p>Snaps, minutes and ice time cannot be treated as the same unit. Each sport keeps its own opportunity definition.</p></article>
-        <article><strong>Current profiles are not body history</strong><p>Repeating one listed height or weight beside five seasons does not create five physical measurements.</p></article>
-        <article><strong>More features can make a model worse</strong><p>Every added feature family must beat a simpler comparison on unseen data before it is promoted.</p></article>
-        <article><strong>No real transfer outcome set exists</strong><p>The project cannot observe enough elite athletes changing among these four sports to train a true sport-switch success model.</p></article>
+        <article><strong>Every sport measures opportunity differently</strong><p>Snaps, court minutes, ice time and football minutes cannot be treated as the same unit.</p></article>
+        <article><strong>Listed build is usually a snapshot</strong><p>Repeating one height or weight beside several seasons does not create a real body history.</p></article>
+        <article><strong>More information did not always help</strong><p>I kept an added group of features only when it improved the unseen-season result.</p></article>
+        <article><strong>True sport switches are missing</strong><p>There are not enough documented elite transfers among these four sports to train on real switch outcomes.</p></article>
       </div>
-    </div>
-  </section>
-
-  <section class="finding-section tint" id="models" aria-labelledby="models-heading">
-    <div class="shell">
-      <div class="findings-heading">
-        <div>
-          <p class="eyebrow">04 · Model building</p>
-          <h2 id="models-heading">A simple chronological workflow kept the claims understandable.</h2>
-        </div>
-        <p>Regularized linear models were chosen for inspectability. The goal was not the most complicated algorithm; it was a model whose inputs, comparisons and failures could be explained.</p>
-      </div>
-
-      <ol class="model-flow">
-        <li><span>1</span><strong>Describe the season</strong><p>Build a percentile inside the same sport, role and season.</p></li>
-        <li><span>2</span><strong>Adjust for evidence</strong><p>Record opportunity, shrink tiny samples and lower their training weight.</p></li>
-        <li><span>3</span><strong>Look backward only</strong><p>Use previous seasons and prior playing profiles to estimate what comes next.</p></li>
-        <li><span>4</span><strong>Freeze 2025</strong><p>Keep the final season out of model selection and use it as the forward test.</p></li>
-        <li><span>5</span><strong>Challenge the model</strong><p>Compare it with neutral, recent-history or build-only baselines.</p></li>
-      </ol>
-
-      <div class="model-questions">
-        <article><span>Descriptive</span><h3>What happened?</h3><p>Observed home-role standing in the completed season.</p></article>
-        <article><span>Forecast</span><h3>What might happen next?</h3><p>Experimental same-role estimate based only on earlier information.</p></article>
-        <article><span>Physical</span><h3>Does the build resemble the role?</h3><p>Listed height, weight, BMI and age compared with the target role.</p></article>
-        <article><span>Exploratory</span><h3>What looks transferable?</h3><p>Build plus broad shared playing themes, shown as an analogy.</p></article>
-      </div>
-
-      <figure class="image-figure profile-figure">
-        <a href={href("images/eda/profile_increment_vs_build.png")} aria-label="Open the full-resolution playing-profile improvement chart">
-          <img src={href("images/eda/profile_increment_vs_build.png")} alt="Horizontal bars showing that playing profile added the most held-out signal for NHL center, Premier League midfielder and NHL wings, while several NFL roles gained little or slightly worsened" loading="lazy" decoding="async" />
-        </a>
-        <figcaption><strong>Playing profile helped 11 of 23 fitted role models.</strong> It helped strongly for several NBA, NHL and Premier League roles, while some NFL roles gained little or became slightly worse. That is why the model keeps role-by-role evidence gates.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -256,25 +265,25 @@ const holdoutRows = [
     <div class="shell">
       <div class="findings-heading light-heading">
         <div>
-          <p class="eyebrow">05 · Validation and evaluation</p>
-          <h2 id="evaluation-heading">The 2025 test was encouraging—but intentionally hard to pass.</h2>
+          <p class="eyebrow">04 · Validation, Evaluation & Ensemble Build</p>
+          <h2 id="evaluation-heading">I tested the same-sport models first, then built the cross-sport comparison.</h2>
         </div>
-        <p>Lower average error is better. These examples show that recent playing history can beat a neutral middle-of-the-pack guess in the player’s own sport.</p>
+        <p>The model trained on seasons before 2025. I kept 2025 out of the model-building decisions and used it at the end to see how far the forecasts missed. Lower error is better.</p>
       </div>
 
       <div class="evidence-summary" aria-label="Model evidence summary">
-        <article><strong>4 / 23</strong><span>build-only heads passed the strict evidence gate</span></article>
-        <article><strong>11 / 23</strong><span>native forecasts beat the neutral evidence gate</span></article>
-        <article><strong>11 / 23</strong><span>build + profile heads improved over build alone</span></article>
-        <article class="warning-evidence"><strong>0 / 23</strong><span>cleared every requirement for deployment</span></article>
+        <article><strong>4 / 23</strong><span>body-only role models clearly beat their simple comparison</span></article>
+        <article><strong>11 / 23</strong><span>next-season models clearly beat a neutral 50th-percentile guess</span></article>
+        <article><strong>11 / 23</strong><span>build plus playing style improved on build alone</span></article>
+        <article class="warning-evidence"><strong>0 / 23</strong><span>passed every rule needed for a deployment-grade forecast</span></article>
       </div>
 
       <div class="dark-legend" aria-label="Holdout chart legend">
-        <span><i class="legend-swatch model" aria-hidden="true"></i>Next-season model</span>
-        <span><i class="legend-swatch baseline" aria-hidden="true"></i>Neutral baseline</span>
+        <span><i class="legend-swatch model" aria-hidden="true"></i>Our next-season model</span>
+        <span><i class="legend-swatch baseline" aria-hidden="true"></i>Simple 50th-percentile guess</span>
       </div>
       <figure class="holdout-chart" aria-labelledby="holdout-title">
-        <figcaption id="holdout-title">Average error on the held-out 2025 season · lower is better</figcaption>
+        <figcaption id="holdout-title">Average miss on the unseen 2025 season · percentile points · lower is better</figcaption>
         {holdoutRows.map((row) => (
           <div class="holdout-row">
             <div><strong>{row.label}</strong><span>{row.note}</span></div>
@@ -285,7 +294,39 @@ const holdoutRows = [
             <div class="holdout-values"><span>{row.model}</span><span>{row.baseline}</span></div>
           </div>
         ))}
-        <p><strong>How to present this:</strong> these are useful same-sport checks, not proof of cross-sport accuracy. No native model simultaneously cleared every history-baseline and evidence requirement in the full deployment policy.</p>
+        <p><strong>What this tells me:</strong> these examples show that the model learned useful same-sport patterns. They do not prove that a player could move to another sport, and several role models still did not beat the player's own recent history.</p>
+      </figure>
+
+      <figure class="image-figure profile-figure evaluation-figure">
+        <a href={href("images/eda/profile_increment_vs_build.png")} aria-label="Open the full-resolution playing-profile improvement chart">
+          <img src={href("images/eda/profile_increment_vs_build.png")} alt="Horizontal bars showing how much prior playing profile improved or worsened next-season error compared with using build alone for each role" loading="lazy" decoding="async" />
+        </a>
+        <figcaption><strong>Playing style improved 11 of 23 role models over build alone.</strong> It helped several NBA, NHL and Premier League roles, while some NFL roles stayed flat or became worse. I kept that decision separate for every role instead of assuming that more data must help.</figcaption>
+      </figure>
+
+      <div class="subsection-heading light-subsection">
+        <p class="eyebrow">The ensemble model</p>
+        <h3>For the final layer, I compared a player's build and playing profile with roles in the other three sports.</h3>
+        <p>I grouped sport-specific statistics into a small number of shared ideas, such as scoring, creation, disruption and recovery. The source and target role needed at least two shared ideas before I produced a comparison.</p>
+      </div>
+
+      <ol class="model-flow ensemble-flow">
+        <li><span>1</span><strong>Start with the player's own profile</strong><p>I use listed build and completed-season playing information.</p></li>
+        <li><span>2</span><strong>Find shared ideas</strong><p>I match only themes that have a reasonable meaning in both the source and target roles.</p></li>
+        <li><span>3</span><strong>Use another sport's role model</strong><p>The player's native sport is left out of this step so it cannot distort the comparison.</p></li>
+        <li><span>4</span><strong>Show a resemblance score</strong><p>The output describes similarity to the target role, not the chance of making a roster.</p></li>
+      </ol>
+
+      <figure class="bridge-result dark-bridge" aria-labelledby="bridge-title">
+        <figcaption id="bridge-title">How far the cross-sport evaluation can honestly go</figcaption>
+        <div class="bridge-flow">
+          <div><strong>286</strong><span>source-role to target-role comparisons built</span></div>
+          <b aria-hidden="true">→</b>
+          <div><strong>132</strong><span>added useful information beyond build alone in the target sport</span></div>
+          <b aria-hidden="true">→</b>
+          <div class="bridge-stop"><strong>0</strong><span>real sport-switch outcomes available for validation</span></div>
+        </div>
+        <p><strong>The important boundary:</strong> the ensemble can find an interesting physical and playing-style comparison. It cannot estimate the probability that an athlete learns the new sport, makes a team or reaches that percentile.</p>
       </figure>
     </div>
   </section>
@@ -294,23 +335,23 @@ const holdoutRows = [
     <div class="shell">
       <div class="findings-heading">
         <div>
-          <p class="eyebrow">06 · Outcomes</p>
-          <h2 id="outcomes-heading">What held up, what failed, and what remains unknown.</h2>
+          <p class="eyebrow">05 · Outcomes & Conclusion</p>
+          <h2 id="outcomes-heading">The project works best as a discovery tool for scouts and analysts.</h2>
         </div>
-        <p>The most valuable outcome is not one headline rating. It is a structured way to separate evidence-backed same-sport results from experimental cross-sport ideas.</p>
+        <p>The strongest result was not one universal rating. It was a workflow that first checks whether the model understands a player in their own sport, then uses other-sport comparisons to suggest roles worth investigating.</p>
       </div>
 
       <div class="outcome-grid">
-        <article class="outcome-card positive"><span>Held up</span><h3>Same-sport context is useful</h3><p>Role-and-season percentiles, opportunity handling and previous performance produced sensible native results and encouraging 2025 forecasts in several roles.</p></article>
-        <article class="outcome-card mixed"><span>Mixed</span><h3>Build alone is limited</h3><p>Only NFL edge, NBA guard, NBA forward and Premier League midfielder passed the strict build-only gate. No NHL physical head passed.</p></article>
-        <article class="outcome-card negative"><span>Rejected</span><h3>Complexity did not get a free pass</h3><p>Team-context features improved zero deployed heads. Related-role partial pooling was selected for only one of 23 heads. Plausible ideas were discarded when the evidence did not support them.</p></article>
+        <article class="outcome-card positive"><span>What worked</span><h3>Same-sport context added real value</h3><p>Role, season, playing time and recent performance produced sensible current ratings and useful 2025 forecasts for several roles.</p></article>
+        <article class="outcome-card mixed"><span>What was limited</span><h3>Body type helped with fit more than quality</h3><p>Height and weight often identified the right type of role, but similar builds could still produce very different levels of performance.</p></article>
+        <article class="outcome-card negative"><span>What remains unknown</span><h3>Cross-sport success is not yet predictable</h3><p>The comparisons are logical enough to create a scouting lead, but no real switch dataset exists to prove that the score predicts success.</p></article>
       </div>
 
       <div class="sanity-section">
         <div>
-          <p class="eyebrow">Face-validity checks</p>
-          <h3>Known strengths appear where expected.</h3>
-          <p>These examples help catch identity, role or feature-construction problems. They are reassuring diagnostics, not independent validation.</p>
+          <p class="eyebrow">A simple confidence check</p>
+          <h3>Known strengths appeared where I expected them.</h3>
+          <p>Stephen Curry scored highly for scoring and LeBron James scored highly for creation. These checks do not validate a sport switch, but they help catch mistakes in player identity, role assignment and feature construction.</p>
         </div>
         <div class="sanity-cards">
           <article><span>Stephen Curry</span><strong>92.9</strong><p>scoring and finishing percentile</p></article>
@@ -318,41 +359,42 @@ const holdoutRows = [
         </div>
       </div>
 
-      <figure class="bridge-result" aria-labelledby="bridge-title">
-        <figcaption id="bridge-title">The cross-sport bridge ends at an internal proxy check</figcaption>
-        <div class="bridge-flow">
-          <div><strong>286</strong><span>cross-sport mappings fitted</span></div>
-          <b aria-hidden="true">→</b>
-          <div><strong>132</strong><span>beat build alone on the target-role test</span></div>
-          <b aria-hidden="true">→</b>
-          <div class="bridge-stop"><strong>0</strong><span>validated sport-switch outcomes</span></div>
-        </div>
-        <p><strong>The honest conclusion:</strong> a cross-sport score can surface an interesting comparison worth watching on film or testing in person. It cannot estimate the probability of learning a new sport, making a roster or performing at that percentile.</p>
-      </figure>
-    </div>
-  </section>
+      <div class="limitations-grid">
+        <article class="limitations-panel">
+          <p class="eyebrow">Current limitations</p>
+          <h3>What the model still cannot see</h3>
+          <ul>
+            <li>Most height and weight values are current listings, not measurements taken every season.</li>
+            <li>Public box scores do not directly measure reaction speed, decision-making, technique or learning ability.</li>
+            <li>Premier League physical coverage is incomplete and several public sources have reuse restrictions.</li>
+            <li>The roles are intentionally broad because the four sports do not share equally detailed tactical data.</li>
+            <li>There is no large, reliable set of athletes who actually attempted these sport switches.</li>
+          </ul>
+        </article>
+        <aside class="next-steps">
+          <p class="eyebrow">Next improvements</p>
+          <h3>What I would add in version two</h3>
+          <ul>
+            <li>Dated combine, agility and reaction testing across all four sports.</li>
+            <li>Richer Premier League event, lineup and tracking data.</li>
+            <li>Repeatable coach or scout ratings for awareness, technique and learning.</li>
+            <li>More detailed validation for new players and rare roles.</li>
+            <li>A real dataset of athletes who trained or competed in another sport.</li>
+          </ul>
+        </aside>
+      </div>
 
-  <section class="finding-section tint" aria-labelledby="conclusion-heading">
-    <div class="shell conclusion-grid">
-      <div>
-        <p class="eyebrow">The conclusion</p>
-        <h2 id="conclusion-heading">The model is a discovery tool, not a replacement for scouting.</h2>
-        <p>The strongest workflow is to establish whether the model recognizes a player in their own sport, then use cross-sport comparisons to generate better questions about build and transferable playing traits.</p>
+      <div class="final-conclusion">
+        <div>
+          <p class="eyebrow">The conclusion</p>
+          <h2>The model should start a scouting conversation, not finish one.</h2>
+          <p>I can use it to identify a player whose body type and playing profile resemble a role in another sport. The next step should still be film review, physical testing, technical evaluation and feedback from coaches.</p>
+        </div>
         <div class="hero-actions">
           <a class="button" href={href("stories/")}>Present the model stories</a>
           <a class="button secondary" href={href("explorer/")}>Open the player explorer</a>
         </div>
       </div>
-      <aside class="next-steps">
-        <h3>What would improve version two?</h3>
-        <ul>
-          <li>Dated physical and combine-style testing across more sports.</li>
-          <li>Richer multi-season Premier League event and tracking data.</li>
-          <li>Sport-specific agility, reaction and technique measurements.</li>
-          <li>Independent coaches and scouts reviewing the engineered dimensions.</li>
-          <li>A real dataset of athletes who trained or competed in another sport.</li>
-        </ul>
-      </aside>
     </div>
   </section>
 </BaseLayout>

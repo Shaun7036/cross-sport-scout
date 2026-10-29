@@ -3,9 +3,14 @@
   "scored_rows": 19197,
   "roles": 27,
   "role_summary": "reports/all_roles/role_summary.csv",
+  "sport_insights": "reports/all_roles/sport_insights.json",
   "model_evidence_rows": 78,
   "figures": [
+    "reports/all_roles/figures/epl_build_by_role_2025.png",
     "reports/all_roles/figures/listed_build_map.png",
+    "reports/all_roles/figures/nba_role_disruption_2025.png",
+    "reports/all_roles/figures/nfl_role_disruption_2025.png",
+    "reports/all_roles/figures/nhl_role_physicality_2025.png",
     "reports/all_roles/figures/observed_score_distributions.png",
     "reports/all_roles/figures/profile_increment_vs_build.png",
     "reports/all_roles/figures/role_cohort_counts.png"
