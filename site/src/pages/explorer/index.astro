@@ -16,7 +16,9 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
       <h1>The Player Explorer</h1>
     </div>
     <div class="explorer-hero-copy">
-      <p><strong>How to use this page:</strong> Start with how the player performed against peers in their current sport. Then review the next-season outlook before exploring roles in other sports.</p>
+      <p><strong>How to use this page:</strong> Start with how the player performed against peers in their current sport. Then review the next-season outlook before exploring roles in other sports.
+      <strong>Note: Each score is a percentile relative to other players in that league.</strong>
+      </p>
       <p><strong>Important:</strong> A cross-sport score shows resemblance. It is not the chance that a player could successfully change sports.</p>
     </div>
   </section>
@@ -65,17 +67,17 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
     <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
   </section>
 
-  <section class="reading-guide shell">
-    <div>
-      <p class="eyebrow">Reading the numbers</p>
-      <h2>One profile, three different questions.</h2>
-    </div>
-    <div class="guide-grid">
-      <p><strong>Completed-season result</strong>Where did this player rank against peers in the same role and season?</p>
-      <p><strong>Next-season outlook and check</strong>What does earlier information suggest, and did the model beat a simple benchmark?</p>
-      <p><strong>Other-sport match</strong>How closely do the athlete's build and broad playing style resemble another role?</p>
-    </div>
-  </section>
+  <!--<section class="reading-guide shell">-->
+  <!--  <div>-->
+  <!--    <p class="eyebrow">Reading the numbers</p>-->
+  <!--    <h2>One profile, three different questions.</h2>-->
+  <!--  </div>-->
+  <!--  <div class="guide-grid">-->
+  <!--    <p><strong>Completed-season result</strong>Where did this player rank against peers in the same role and season?</p>-->
+  <!--    <p><strong>Next-season outlook and check</strong>What does earlier information suggest, and did the model beat a simple benchmark?</p>-->
+  <!--    <p><strong>Other-sport match</strong>How closely do the athlete's build and broad playing style resemble another role?</p>-->
+  <!--  </div>-->
+  <!--</section>-->
   <script src="../../scripts/explorer.js"></script>
 </BaseLayout>
 

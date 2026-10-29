@@ -139,7 +139,7 @@ const holdoutRows = [
       </div>
 
       <figure class="report-chart role-chart" aria-labelledby="role-chart-title">
-        <figcaption id="role-chart-title">Selected role cohorts show the sample-size gap</figcaption>
+        <figcaption id="role-chart-title">Distribution by Roles</figcaption>
         <div class="role-bars">
           {roleRows.map((row) => (
             <div class="role-bar-row">
@@ -149,7 +149,7 @@ const holdoutRows = [
             </div>
           ))}
         </div>
-        <p><strong>What it means:</strong> a role with about 2,000 seasons and one with about 200 cannot share the same confidence assumptions. The project evaluates each role separately and allows unsupported roles to abstain.</p>
+        <p><strong></strong> The models we initially build evaluate each role separately. Since out dataset has a heavy NBA and NFL lean, we can see it has by far the most data available for building the models.</p>
       </figure>
     </div>
   </section>
@@ -163,46 +163,46 @@ const holdoutRows = [
         </div>
                   <ul>
             <li>Given that we are working with 4 different datasets, my first step was to conduct eda in isolation for each sport before trying to compare them together.</li>
-            <li>I did have to remove a decent sample size for the Premier League, partially due to missing physical data or players with limited minutes. As such, the premier league findings are ommitted.</li>
+            <li>I did have to remove a decent sample size for the Premier League, partially due to missing physical data or players with limited minutes. As such, the premier league findings should be taken with a grain of salt.</li>
           </ul>
         <p> </p>
       </div>
 
       <div class="eda-insight-grid">
         <figure class="image-figure eda-insight">
-          <div class="insight-heading"><span>NFL</span><h3>Winning possession looks different across one defense.</h3></div>
+          <div class="insight-heading"><span>NFL</span><h3>Play Disruption comparision between Different player roles.</h3></div>
           <a href={href("images/eda/nfl_role_disruption_2025.png")} aria-label="Open the full-resolution NFL role disruption chart">
             <img src={href("images/eda/nfl_role_disruption_2025.png")} alt="Two horizontal bar charts comparing sacks and passes defended per 1,000 defensive opportunities for NFL edge defenders, interior defenders, linebackers, safeties and cornerbacks in 2025" loading="lazy" decoding="async" />
           </a>
-          <figcaption><strong>What stood out:</strong> across 583 defender seasons with at least 200 defensive opportunities, edge defenders recorded 8.43 sacks per 1,000 opportunities while cornerbacks recorded 12.77 passes defended. The same idea—disrupting possession—shows up through very different actions.</figcaption>
+          <figcaption>From our NHL dataset we can see that across 583 defender seasons with at least 200 defensive opportunities, edge defenders recorded 8.43 sacks per 1,000 opportunities while cornerbacks recorded 12.77 passes defended. This makes sense considering the primary responsibilities of an edge defender (rushing the passer), whereas cornerbacks are geared toward pass safety (outperforming safeties).</figcaption>
         </figure>
 
         <figure class="image-figure eda-insight">
-          <div class="insight-heading"><span>NBA</span><h3>Guards steal the ball; centers protect the rim.</h3></div>
+          <div class="insight-heading"><span>NBA</span><h3>Posession Win by Player Role</h3></div>
           <a href={href("images/eda/nba_role_disruption_2025.png")} aria-label="Open the full-resolution NBA disruption chart">
             <img src={href("images/eda/nba_role_disruption_2025.png")} alt="Grouped bars comparing steals and blocks per 36 minutes for NBA guards, forwards and centers with at least 500 minutes in 2025" loading="lazy" decoding="async" />
           </a>
-          <figcaption><strong>What stood out:</strong> across 380 player seasons with at least 500 minutes, centers blocked 1.53 shots per 36 minutes—about 3.5 times the guard rate. Guards produced 1.36 steals per 36, about 32% more than centers.</figcaption>
+          <figcaption>This one was mostly a validity check across 380 player seasons with at least 500 minutes. As expected we see that centers blocked 1.53 shots per 36 minutes—about 3.5 times the guard rate, large gap in the raw numbers. However, there is not as big a difference in steals between positions. Guards produced 1.36 steals per 36, just about 32% more than centers.</figcaption>
         </figure>
 
         <figure class="image-figure eda-insight">
-          <div class="insight-heading"><span>NHL</span><h3>Defensemen stop shots while wings apply more contact.</h3></div>
+          <div class="insight-heading"><span>NHL</span><h3>NHL Blocking and Physicality Comparision</h3></div>
           <a href={href("images/eda/nhl_role_physicality_2025.png")} aria-label="Open the full-resolution NHL role physicality chart">
             <img src={href("images/eda/nhl_role_physicality_2025.png")} alt="Grouped bars comparing blocked shots and hits per 60 minutes for NHL centers, defensemen, left wings and right wings with at least 600 minutes in 2025" loading="lazy" decoding="async" />
           </a>
-          <figcaption><strong>What stood out:</strong> across 578 skater seasons with at least 600 minutes, defensemen blocked 4.21 shots per 60—more than twice either wing. Left wings led contact at 5.01 hits per 60, about 68% above defensemen.</figcaption>
+          <figcaption>Across 578 skater seasons with at least 600 minutes, defensemen blocked 4.21 shots per 60 more than twice of either of the wings. Left wings however be the to lead in contact at 5.01 hits per 60, about 68% above defensemen, indicating the prelevance of left-wing lock defenses in the NHL. </figcaption>
         </figure>
 
         <figure class="image-figure eda-insight">
-          <div class="insight-heading"><span>Premier League</span><h3>Listed build separates some roles even before performance is added.</h3></div>
+          <div class="insight-heading"><span>Premier League</span><h3>Build seperation in Premier League Roles</h3></div>
           <a href={href("images/eda/epl_build_by_role_2025.png")} aria-label="Open the full-resolution Premier League height and weight chart">
             <img src={href("images/eda/epl_build_by_role_2025.png")} alt="Scatter plot of listed height and weight for Premier League players in 2025, grouped by goalkeeper, defender, midfielder and forward, with role medians marked" loading="lazy" decoding="async" />
           </a>
-          <figcaption><strong>What stood out:</strong> the median goalkeeper was 190.5 cm and 83.0 kg, roughly 10.2 cm taller and 10.0 kg heavier than the median midfielder. This chart covers 500 of 841 player rows with both fields, so it shows the observed sample—not the full league.</figcaption>
+          <figcaption>The permier league seems to have by far one of the clearest physical build seperation between roles (better than the nba even). The median goalkeeper was 190.5 cm and 83.0 kg, roughly 10.2 cm taller and 10.0 kg heavier than the median midfielder. This chart covers 500 of 841 player rows with both fields, so it a bit sparse on data for the full league.</figcaption>
         </figure>
       </div>
 
-      <p class="eda-method-note"><strong>How this shaped the project:</strong> I could not treat every possession-winning action as the same thing. I first measured players against their own sport, role and season, then translated only broader themes such as disruption, creation and recovery across sports.</p>
+      <p class="eda-method-note"><strong>Change in Project Scope:</strong> I initially wanted to study how viable a player can be in different sports where they have to win possesion. But after building the first model, the main issue was that poessision winning traits alone did not provide enough predictors to build a cross-sport model. So I extended the analysis to multiple engineered traits, first measureing players against their own sport, role and season, then thranslating their stats into qualitative measures like disruption, creation and recovery across sports.</p>
     </div>
   </section>
 
@@ -214,8 +214,7 @@ const holdoutRows = [
           <h2 id="models-heading">Training/Validation for Sport Specific Models.</h2>
         </div>
           <ul>
-            <li>My first model was focused on evaluating posession winning chracteristic across sports, however, the inference data from our models wasn't super applicable across sports as the data was limited and possesion winning traits are not one-dimensional </li>
-            <li>So I made the desciison to switch to four individual sport specific models to first ensure we have modeled the data correctly.</li>
+            <li>After making the decision to expand my research to include multiple roles instead of just posession winning roles, I first needed to train individual role specific models for each sport first ensure they were actually reliable at predicting performance.</li>
             <li>The four models for the individual sports were trained using linear models inorder to increase model inference.</li>
             <li>A more complicated model would not fix missing data or trading simpliciy predictive accuracy doesn't help all that much when building an ensemble model.</li>
             <!--<li></li>-->

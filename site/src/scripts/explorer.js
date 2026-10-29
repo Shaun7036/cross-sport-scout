@@ -188,19 +188,19 @@
     value.append(el("small", "", bodyFit ? "body match / 100" : "score out of 100"));
     append(card, value, el("p", "score-band", bodyFit ? bodyBand(estimate.value) : band(estimate.value)));
     const range = estimate.range;
-    if (finite(range?.lower) && finite(range?.upper)) {
-      const coverage = finite(range.frozen_empirical_coverage)
-        ? ` · Similar past ranges contained ${number(range.frozen_empirical_coverage * 100, 0)}% of results`
-        : "";
-      card.append(el("p", "score-range", `Expected range: ${number(range.lower, 1)}–${number(range.upper, 1)}${coverage}`));
-    }
-    card.append(
-      el(
-        "p",
-        "score-note",
-        note || estimate.evidence_warning || "This is an estimate, not a guarantee.",
-      ),
-    );
+    // if (finite(range?.lower) && finite(range?.upper)) {
+    //   const coverage = finite(range.frozen_empirical_coverage)
+    //     ? ` · Similar past ranges contained ${number(range.frozen_empirical_coverage * 100, 0)}% of results`
+    //     : "";
+    //   card.append(el("p", "score-range", `Expected range: ${number(range.lower, 1)}–${number(range.upper, 1)}${coverage}`));
+    // }
+    // card.append(
+    //   el(
+    //     "p",
+    //     "score-note",
+    //     note || estimate.evidence_warning || "This is an estimate, not a guarantee.",
+    //   ),
+    // );
     const contributions = contributionList(estimate);
     if (contributions) card.append(contributions);
     return card;
@@ -208,7 +208,7 @@
 
   function validationEvidence(validation, kind) {
     const box = el("div", "validation-evidence");
-    box.append(el("p", "validation-label", "How this model tested in 2025"));
+    box.append(el("p", "validation-label", "How this model tested against actual 2025 results"));
     if (!validation || !finite(validation.mean_error) || !finite(validation.test_players)) {
       box.append(el("p", "validation-copy", "There was not enough held-out evidence to score this model check."));
       return box;
@@ -245,16 +245,16 @@
     }
     box.append(el("p", "validation-copy", explanation));
 
-    const metrics = el("div", "validation-metrics");
-    append(
-      metrics,
-      metric("Players tested", validation.test_players),
-      metric("Average miss", validation.mean_error, " pts", 1),
-      metric("Benchmark miss", validation.baseline_error, " pts", 1),
-    );
-    box.append(metrics);
+
     return box;
-  }
+  }   // const metrics = el("div", "validation-metrics");
+    // append(
+    //   metrics,
+    //   metric("Players tested", validation.test_players),
+    //   metric("Average miss", validation.mean_error, " pts", 1),
+    //   metric("Benchmark miss", validation.baseline_error, " pts", 1),
+    // );
+    // box.append(metrics);
 
   function nativeSection(detail) {
     const section = el("section", "panel analysis-section");
@@ -264,16 +264,16 @@
       el("span", "step-number", "1"),
       append(
         el("div"),
-        el("h3", "", "Current-sport performance"),
-        el("p", "", "This completed-season score compares the player only with peers in the same sport and broad role."),
+        el("h3", "", "Native Sport Performance (not a prediction)"),
+        el("p", "", "This completed season score compares the player only with their peers in the same sport and broad role."),
       ),
     );
     const observed = detail.native?.observed || {};
     const grid = el("div", "score-grid");
     const observedCard = scoreCard("Completed-season result", observed, {
       primary: true,
-      fallback: "This season did not have enough information for a reliable score.",
-      note: "This describes the completed season; it is not a prediction.",
+      fallback: "The seasons did not have enough information for a reliable score.",
+      note: "This is an analysis of the player's seasons from 2021-2024. Each score is a percentile.",
     });
     const metrics = el("div", "metric-mini-grid");
     append(
@@ -312,16 +312,16 @@
       el("span", "step-number", "2"),
       append(
         el("div"),
-        el("h3", "", "Next-season outlook and model check"),
-        el("p", "", "These estimates use earlier seasons. Each card also shows how that role model performed on players held back from training."),
+        el("h3", "", "Next-season forecast and model validation"),
+        el("p", "", "This section shows the forecasted performance of our player using the training data from out first 4 seasons, validated against our hold-out 2025 season. Note that there are two models. The overall model takes all the predicotrs (like availabiltity, age, three-year form) into consideration when making a prediction. The build + playing style engineered predictors outlooks tests rpedictive power with the predictors we want to use in our ensemble models. By comapring the two we can tell if out predictors have actual value"),
       ),
     );
     const grid = el("div", "score-grid");
     const roleKey = `${detail.player.sport}:${detail.player.role}`;
     const validation = state.metadata?.role_validation?.[roleKey] || {};
-    const nativeCard = scoreCard("Overall outlook", detail.native?.forecast);
+    const nativeCard = scoreCard("Overall History Informed Score", detail.native?.forecast);
     nativeCard.append(validationEvidence(validation.native_forecast, "native"));
-    const profileCard = scoreCard("Build + playing-style outlook", detail.native?.build_profile_forecast);
+    const profileCard = scoreCard("Build + Playing-style Informed Score", detail.native?.build_profile_forecast);
     profileCard.append(validationEvidence(validation.build_profile, "profile"));
     append(grid, nativeCard, profileCard);
     append(section, heading, grid);
