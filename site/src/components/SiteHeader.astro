@@ -18,10 +18,10 @@ const isStories = active("stories/") || active("featured/");
     </a>
     <nav aria-label="Primary navigation">
       <a href={href("")} aria-current={pathname === base ? "page" : undefined}>Home</a>
-      <a href={href("explorer/")} aria-current={active("explorer/") ? "page" : undefined}>Explorer</a>
-      <a href={href("stories/")} aria-current={isStories ? "page" : undefined}>Stories</a>
-      <a href={href("research/")} aria-current={active("research/") && !isFindings ? "page" : undefined}>Method</a>
-      <a href={href("research/findings/")} aria-current={isFindings ? "page" : undefined}>Findings</a>
+      <a href={href("explorer/")} aria-current={active("explorer/") ? "page" : undefined}>Player Explorer</a>
+      <a href={href("stories/")} aria-current={isStories ? "page" : undefined}>Featured Examples</a>
+      <!--<a href={href("research/")} aria-current={active("research/") && !isFindings ? "page" : undefined}>Method</a>-->
+      <a href={href("research/findings/")} aria-current={isFindings ? "page" : undefined}>Project Report & Findings</a>
     </nav>
   </div>
 </header>
