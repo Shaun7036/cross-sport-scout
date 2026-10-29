@@ -113,9 +113,9 @@ const stories = orderedIds.map((playerId, index) => {
 >
   <section class="stories-hero">
     <div class="narrow-shell">
-      <p class="eyebrow">Featured player stories</p>
-      <h1>When a player's profile points somewhere unexpected</h1>
-      <p class="lead">The Scouter first measures an athlete against people in the same role and sport. It then asks a separate question: does that athlete's build and broad playing style resemble a role somewhere else?</p>
+      <p class="eyebrow"><h3>Featured player examples</h3></p>
+      <!--<h1>When a player's profile points somewhere unexpected</h1>-->
+      <p class="lead">The Scouter first measures an athlete against people in the same role and sport. It then evaluates for a different question: does this athlete's build and broad playing style resemble a role in another sport?</p>
       <p class="stories-disclaimer"><strong>These are comparisons, not career predictions.</strong> They do not say that an athlete could change sports successfully.</p>
     </div>
   </section>
@@ -123,10 +123,10 @@ const stories = orderedIds.map((playerId, index) => {
   <section class="featured-directory shell" id="featured-players" aria-labelledby="featured-title">
     <div class="directory-heading">
       <div>
-        <p class="eyebrow">Four leagues · fourteen stories</p>
+        <p class="eyebrow">Fourteen interesting cross-sport cases</p>
         <h2 id="featured-title">Choose a featured player</h2>
       </div>
-      <p>Select a player to jump to their story. Each card shows the other-sport role being explored.</p>
+      <p>Select a player to jump to their analysis.</p>
     </div>
     <nav class="featured-nav-grid" aria-label="Featured player stories">
       {stories.map((story) => {
@@ -143,27 +143,27 @@ const stories = orderedIds.map((playerId, index) => {
     </nav>
   </section>
 
-  <section class="stories-reading shell" aria-labelledby="reading-title">
-    <div class="reading-intro">
-      <p class="eyebrow">How to read each story</p>
-      <h2 id="reading-title">Three numbers. Three different meanings.</h2>
-    </div>
-    <dl class="reading-grid">
-      <div>
-        <dt>Native result</dt>
-        <dd>How the completed season compared with players in the athlete's own role.</dd>
-      </div>
-      <div>
-        <dt>Cross-sport fit</dt>
-        <dd>How strongly the model associates the athlete's build and shared playing traits with another role.</dd>
-      </div>
-      <div>
-        <dt>Body fit</dt>
-        <dd>How typical the athlete's height and weight are for that target role—not a measure of skill.</dd>
-      </div>
-    </dl>
-    <p class="reading-note">A higher cross-sport number is not a promised improvement. Native and target scores compare the player with two different groups of athletes. “Withheld” means the model did not have enough support to show a responsible estimate.</p>
-  </section>
+  <!--<section class="stories-reading shell" aria-labelledby="reading-title">-->
+  <!--  <div class="reading-intro">-->
+  <!--    <p class="eyebrow">How to read each story</p>-->
+  <!--    <h2 id="reading-title">Three numbers. Three different meanings.</h2>-->
+  <!--  </div>-->
+  <!--  <dl class="reading-grid">-->
+  <!--    <div>-->
+  <!--      <dt>Native result</dt>-->
+  <!--      <dd>How the completed season compared with players in the athlete's own role.</dd>-->
+  <!--    </div>-->
+  <!--    <div>-->
+  <!--      <dt>Cross-sport fit</dt>-->
+  <!--      <dd>How strongly the model associates the athlete's build and shared playing traits with another role.</dd>-->
+  <!--    </div>-->
+  <!--    <div>-->
+  <!--      <dt>Body fit</dt>-->
+  <!--      <dd>How typical the athlete's height and weight are for that target role—not a measure of skill.</dd>-->
+  <!--    </div>-->
+  <!--  </dl>-->
+  <!--  <p class="reading-note">A higher cross-sport number is not a promised improvement. Native and target scores compare the player with two different groups of athletes. “Withheld” means the model did not have enough support to show a responsible estimate.</p>-->
+  <!--</section>-->
 
   <div class="story-list shell">
     {stories.map((story) => {
@@ -174,8 +174,8 @@ const stories = orderedIds.map((playerId, index) => {
         <article class:list={["story", { "story-warning": story.warning, "story-withheld": !fitAvailable }]} id={story.slug}>
           <div class="story-heading">
             <div>
-              <p class="story-count">Story {String(story.index).padStart(2, "0")}</p>
-              <span class:list={["story-tag", { warning: story.warning || !fitAvailable }]}>{story.tag}</span>
+              <p class="story-count">Example {String(story.index).padStart(2, "0")}</p>
+              <!--<span class:list={["story-tag", { warning: story.warning || !fitAvailable }]}>{story.tag}</span>-->
               <h2>{story.player.name}</h2>
               <p class="story-route">{story.route}</p>
             </div>
@@ -231,8 +231,8 @@ const stories = orderedIds.map((playerId, index) => {
   <section class="section tint">
     <div class="shell presentation-band stories-closing">
       <div>
-        <p class="eyebrow">Use the stories to ask better questions</p>
-        <h2>Discovery starts the conversation. It does not finish the scouting report.</h2>
+        <!--<p class="eyebrow">Use the stories to ask better questions</p>-->
+        <!--<h2>Discovery starts the conversation. It does not finish the scouting report.</h2>-->
         <p>McDavid and Haaland show what a strong comparison can look like. Curry and Jackson show how playing style can disagree with body fit. Wembanyama and Watt show why withholding a score can be the right answer, while Kastelic shows why a high score still needs context.</p>
       </div>
       <div class="presentation-actions">
