@@ -166,6 +166,7 @@ npm --prefix site run dev
 ```
 
 The main explorer includes 6,904 compact derived player profiles. The 14 presentation cases now
-live on a separate Featured page for future storytelling. The tracked files in
+share one guided Stories page with a compact player directory and a full explanation for every
+featured athlete. The tracked files in
 `site/public/data/` are ready to use. See [`site/README.md`](site/README.md) for the source map,
 optional data-refresh command, build commands, subpath configuration, and public-data boundary.

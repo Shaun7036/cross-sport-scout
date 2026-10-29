@@ -15,7 +15,8 @@ npm --prefix site run dev
 The 6,904 compact player profiles are already tracked in `public/data/`, so a fresh clone does not
 need Python or the private research artifacts. The explorer remains fully functional on GitHub
 Pages because it reads these static files in the visitor's browser. The 14 presentation cases are
-also listed separately at `/featured/`.
+presented in a compact directory with a full story for every player at `/stories/`. The old
+`/featured/` route remains as a compatibility link to the combined page.
 
 If your terminal is already inside `site/`, the equivalent commands are `npm ci` and `npm run
 dev`.
@@ -58,8 +59,8 @@ Copy the resulting `site/dist/` contents into the matching public folder of the 
 | Shared page shell | `src/layouts/` and `src/components/` |
 | Landing page | `src/pages/index.astro` |
 | Player explorer | `src/pages/explorer/index.astro`, `src/scripts/explorer.js`, `src/styles/explorer.css` |
-| Featured profiles | `src/pages/featured/index.astro`, `src/styles/featured.css` |
-| Model stories | `src/pages/stories/index.astro`, `src/styles/stories.css` |
+| Featured profiles and model stories | `src/data/featured-stories.json`, `src/pages/stories/index.astro`, `src/styles/stories.css` |
+| Former Featured-page compatibility route | `src/pages/featured/index.astro` |
 | Presentation findings | `src/pages/research/findings.astro`, `src/styles/findings.css` |
 | Research prose | `src/pages/research/*.md` |
 | Global design | `src/styles/global.css` |

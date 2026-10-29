@@ -1,122 +1,23 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import manifestData from "../../../public/data/manifest.json";
-import "../../styles/featured.css";
 
-interface Player {
-  id: string;
-  name: string;
-  sport: string;
-  sport_label: string;
-  team?: string;
-  role?: string;
-  position?: string;
-}
-
-interface FeaturedCase {
-  player_id: string;
-  target_sport: string;
-  target_role: string;
-}
-
-interface Sport {
-  id: string;
-  label: string;
-  roles: Array<{ id: string; label: string }>;
-}
-
-interface Manifest {
-  featured_players: Player[];
-  featured_cases: FeaturedCase[];
-  sports: Sport[];
-  defaults?: {
-    target_sport?: string;
-    target_role?: string;
-  };
-}
-
-const manifest = manifestData as Manifest;
 const base = import.meta.env.BASE_URL;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
-const sportLabel = (sportId: string) =>
-  manifest.sports.find((sport) => sport.id === sportId)?.label || sportId.toUpperCase();
-const roleLabel = (sportId: string, roleId?: string) =>
-  manifest.sports
-    .find((sport) => sport.id === sportId)
-    ?.roles.find((role) => role.id === roleId)?.label || String(roleId || "").replaceAll("_", " ");
-const caseByPlayer = new Map(manifest.featured_cases.map((item) => [item.player_id, item]));
-const playerById = new Map(manifest.featured_players.map((player) => [player.id, player]));
-const players = manifest.featured_cases
-  .map((item) => playerById.get(item.player_id))
-  .filter((player): player is Player => Boolean(player))
-  .sort((a, b) => a.sport_label.localeCompare(b.sport_label) || a.name.localeCompare(b.name));
-const targetFor = (player: Player) => {
-  const featured = caseByPlayer.get(player.id);
-  if (featured && featured.target_sport !== player.sport) return featured;
-  const defaultSport = manifest.defaults?.target_sport;
-  const sport = manifest.sports.find(
-    (item) => item.id === defaultSport && item.id !== player.sport,
-  ) || manifest.sports.find((item) => item.id !== player.sport);
-  if (!sport) return undefined;
-  const defaultRole = sport.roles.find((role) => role.id === manifest.defaults?.target_role);
-  return {
-    player_id: player.id,
-    target_sport: sport.id,
-    target_role: defaultRole?.id || sport.roles[0]?.id || "",
-  };
-};
-const explorerHref = (player: Player) => {
-  const target = targetFor(player);
-  const params = new URLSearchParams({ player: player.id, basis: target ? "transfer" : "physical" });
-  if (target) {
-    params.set("sport", target.target_sport);
-    params.set("role", target.target_role);
-  }
-  return `${href("explorer/")}?${params}`;
-};
 ---
 
 <BaseLayout
-  title="Featured Players · The Multi Sport Scouter"
-  description="Browse the players included in the public Multi Sport Scouter and open their saved model profiles."
+  title="Featured Player Stories · The Multi Sport Scouter"
+  description="The featured player directory and model stories now live together on one page."
 >
-  <header class="featured-hero">
+  <main class="section">
     <div class="narrow-shell">
       <p class="eyebrow">Featured players</p>
-      <h1>Fourteen profiles to highlight</h1>
-      <p class="lead">These {players.length} players are kept separate from the full explorer so they can become a more guided showcase later. For now, each card opens the same complete player profile.</p>
-    </div>
-  </header>
-
-  <main class="featured-main shell">
-    <div class="featured-heading">
-      <div>
-        <p class="eyebrow">Four leagues</p>
-        <h2>Choose a player</h2>
+      <h1>The featured profiles and stories now live together.</h1>
+      <p class="lead">Choose from all fourteen featured athletes, then read the model's result, the real-world logic behind it and the most important caution on one guided page.</p>
+      <div class="hero-actions">
+        <a class="button" href={`${href("stories/")}#featured-players`}>Browse featured player stories</a>
+        <a class="button secondary" href={href("explorer/")}>Open the full explorer</a>
       </div>
-      <p>The full searchable player collection remains available in the Explorer.</p>
-    </div>
-
-    <div class="featured-grid">
-      {players.map((player) => {
-        const target = targetFor(player);
-        return (
-          <article class="featured-card">
-            <div class="featured-card-top">
-              <span class="featured-league">{player.sport_label}</span>
-              <span>{player.team || roleLabel(player.sport, player.role)}</span>
-            </div>
-            <h3>{player.name}</h3>
-            <p class="featured-role">Current role: {roleLabel(player.sport, player.role)}</p>
-            {target && (
-              <p class="featured-comparison">
-                Opens with: {sportLabel(target.target_sport)} · {roleLabel(target.target_sport, target.target_role)}
-              </p>
-            )}
-            <a href={explorerHref(player)}>Open player profile →</a>
-          </article>
-        );
-      })}
     </div>
   </main>
 </BaseLayout>
