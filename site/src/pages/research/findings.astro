@@ -161,7 +161,12 @@ const holdoutRows = [
           <p class="eyebrow">02 · Exploratory Data Analysis</p>
           <h2 id="eda-heading">What does our raw data tell us?</h2>
         </div>
-        <p>I reviewed each sport separately before trying to compare them. For these examples I used the 2025 season and removed very small samples, so one short appearance would not create a misleading rate.</p>
+                  <ul>
+            <li>Given that we are working with 4 different datasets, my first step was to conduct eda in isolation for each sport before trying to compare them together.</li>
+            <li>I did have to remove a decent sample size for the Premier League, partially due to missing physical data or players with limited minutes. As such, the premier league findings are ommitted.</li>
+            <li>Below are some interesting findings from the analysis.</li>
+          </ul>
+        <p> </p>
       </div>
 
       <div class="eda-insight-grid">
@@ -207,9 +212,15 @@ const holdoutRows = [
       <div class="findings-heading">
         <div>
           <p class="eyebrow">03 · Model Building</p>
-          <h2 id="models-heading">I built the model in stages so every result has a clear meaning.</h2>
+          <h2 id="models-heading">Model Training & Evaluation Pipeline/Workflow.</h2>
         </div>
-        <p>I used simple linear models because I wanted to show what information was being used and compare each version with an easy benchmark. A more complicated model would not fix missing data or a weak definition of success.</p>
+          <ul>
+            <li>My first model was focused on evaluating posession winning chracteristic across sports, however, the inference data from our models wasn't super applicable across sports as the data was limited and possesion winning traits are not one-dimensional </li>
+            <li>The four models for the individual sports were trained using linear models inorder to increase model inference.</li>
+            <li>A more complicated model would not fix missing data or a predictive accuracy doesn't help all that much when building an ensemble model.</li>
+            <!--<li></li>-->
+          </ul>
+        <p></p>
       </div>
 
       <ol class="model-flow">
